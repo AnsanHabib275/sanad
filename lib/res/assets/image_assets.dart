@@ -1,6 +1,8 @@
 class ImageAssets {
+  static const String appLogoLarge = 'assets/images/app_logo_large.png';
   static const String appLogo = 'assets/images/app_logo.png';
   static const String appLogoSmall = 'assets/images/app_logo_small.png';
+  static const String splashBg = 'assets/images/splash_bg.png';
   static const String bg = 'assets/images/bg.png';
   static const String imgActiveJobs = 'assets/images/img_active_jobs.png';
   static const String imgAllJobs = 'assets/images/img_all_jobs.png';

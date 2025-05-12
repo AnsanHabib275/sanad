@@ -1,35 +1,47 @@
-import 'package:sanad/viewModels/controller/resetPassword/reset_password_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../res/assets/icon_assets.dart';
-import '../../../res/colors/app_color.dart';
-import '../../../utils/utils.dart';
+import 'package:sanad/res/colors/app_color.dart';
+import 'package:sanad/utils/utils.dart';
+import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
-class InputConfirmPasswordWidget extends StatelessWidget {
-  InputConfirmPasswordWidget({super.key});
+class InputNoteWidget extends StatelessWidget {
+  InputNoteWidget({super.key});
 
-  final resetPasswordVM = Get.put(ResetPasswordViewModel());
+  final signUpVM = Get.put(SignUpViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: resetPasswordVM.confirmPasswordController.value,
-        focusNode: resetPasswordVM.confirmPasswordFocusNode.value,
+        controller: signUpVM.noteController.value,
+        focusNode: signUpVM.noteFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
+        // validator: (value) {
+        //   if (value == null || value.isEmpty) {
+        //     return 'name_cannot_be_blank'.tr;
+        //   }
+        //   return null;
+        // },
         style: TextStyle(
-          color: AppColor.background,
-          fontSize: Get.height * Utils.getResponsiveSize(16),
+          color: AppColor.textPrimaryColor,
+          fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Manrope',
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w500,
         ),
         decoration: InputDecoration(
+          hint: Text('add_note_hint'.tr),
+          hintStyle: TextStyle(
+            color: AppColor.textSecondaryColor,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w500,
+          ),
           errorText:
-              resetPasswordVM.errorMessage.value.isEmpty
+              signUpVM.errorMessage.value.isEmpty
                   ? null
-                  : resetPasswordVM.errorMessage.value,
+                  : signUpVM.errorMessage.value,
           errorStyle: TextStyle(
             color: AppColor.redColor,
             fontSize: Get.height * Utils.getResponsiveSize(14),
@@ -75,31 +87,11 @@ class InputConfirmPasswordWidget extends StatelessWidget {
             ),
             borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
           ),
-          suffixIcon: IconButton(
-            icon: Image.asset(
-              resetPasswordVM.isVisibleConfirmPassword.value
-                  ? IconAssets.icInvisiblePassword
-                  : IconAssets.icVisiblePassword,
-            ),
-            onPressed: () {
-              resetPasswordVM.isVisibleConfirmPassword.value =
-                  !resetPasswordVM.isVisibleConfirmPassword.value;
-            },
-          ),
         ),
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: resetPasswordVM.isVisibleConfirmPassword.value,
-        obscuringCharacter: '*',
+        keyboardType: TextInputType.text,
+        minLines: 1,
+        maxLines: null,
         textInputAction: TextInputAction.done,
-        validator: (value) {
-          if (value == null || value.isEmpty || value.length < 7) {
-            return 'confirm_password_format_invalid'.tr;
-          } else if (value !=
-              resetPasswordVM.newPasswordController.value.text) {
-            return 'confirm_password_not_match'.tr;
-          }
-          return null;
-        },
       );
     });
   }

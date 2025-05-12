@@ -8,4 +8,9 @@ class SignUpRepository {
     dynamic response = await _apiServices.postApi(data, AppUrl.signupUrl);
     return response;
   }
+
+  Future<dynamic> signUpIndividualApi(var data) async {
+    dynamic response = await _apiServices.postApi(data, AppUrl.signupUrl);
+    return response;
+  }
 }

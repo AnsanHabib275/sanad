@@ -39,12 +39,19 @@ class InputEmailWidget extends StatelessWidget {
           );
         },
         style: TextStyle(
-          color: AppColor.textSecondaryColor,
+          color: AppColor.textPrimaryColor,
           fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Manrope',
           fontWeight: FontWeight.w500,
         ),
         decoration: InputDecoration(
+          hint: Text('email_hint'.tr),
+          hintStyle: TextStyle(
+            color: AppColor.textSecondaryColor,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w500,
+          ),
           errorText:
               loginVM.errorMessage.value.isEmpty
                   ? null
@@ -53,7 +60,7 @@ class InputEmailWidget extends StatelessWidget {
             color: AppColor.redColor,
             fontSize: Get.height * Utils.getResponsiveSize(14),
             fontFamily: 'Manrope',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(

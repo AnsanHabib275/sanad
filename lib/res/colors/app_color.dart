@@ -12,10 +12,14 @@ class AppColor {
   static const textDarkSecondaryColor = Color(0xFF98A2B3);
   static const buttonTextColor = Color(0xFFFCFCFD);
   static const editTextBorderColor = Color(0xFFD0D5DD);
+  static const background = Color(0xFFF2F4F5);
+  static const searchBarBorderColor = Color(0xFFF2F4F7);
+  static const appBarLightBackground = Color(0xFFF2F4F7);
+  static const appBarDarkBackground = Color(0xFF101828);
 
   static const orange = Color(0xFFFFB800);
   static const blue = Color(0xFF48DEFF);
-  static const background = Color(0xFFF2F4F5);
+
   static const blackLight = Color(0xFF121212);
   static const dimBlack = Color(0xFF191C1F);
 

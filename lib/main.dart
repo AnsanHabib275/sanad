@@ -5,7 +5,6 @@ import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/localization/languages.dart';
 import 'package:sanad/res/routes/routes.dart';
 import 'package:sanad/res/routes/routes_name.dart';
-import 'package:sanad/viewModels/services/status_bar_service.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,7 +65,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      initialRoute: RoutesName.loginScreen,
+      initialRoute: RoutesName.splashScreen,
       getPages: AppRoutes.appRoutes(),
     );
   }

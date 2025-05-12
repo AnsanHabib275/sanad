@@ -19,12 +19,19 @@ class InputPasswordWidget extends StatelessWidget {
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: TextStyle(
-          color: AppColor.background,
-          fontSize: Get.height * Utils.getResponsiveSize(16),
+          color: AppColor.textPrimaryColor,
+          fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Manrope',
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w500,
         ),
         decoration: InputDecoration(
+          hint: Text('password_hint'.tr),
+          hintStyle: TextStyle(
+            color: AppColor.textSecondaryColor,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w500,
+          ),
           errorText:
               loginVM.apiErrorMessage.value.isNotEmpty
                   ? loginVM.apiErrorMessage.value
@@ -33,7 +40,7 @@ class InputPasswordWidget extends StatelessWidget {
                   : null,
           errorStyle: TextStyle(
             color: AppColor.redColor,
-            fontSize: Get.height * Utils.getResponsiveSize(16),
+            fontSize: Get.height * Utils.getResponsiveSize(14),
             fontFamily: 'Manrope',
             fontWeight: FontWeight.w400,
           ),

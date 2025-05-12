@@ -1,6 +1,7 @@
 import 'package:sanad/res/components/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/res/routes/routes_name.dart';
 import '../../../utils/utils.dart';
 import '../../../viewModels/controller/login/login_view_model.dart';
 
@@ -18,9 +19,10 @@ class LoginButtonWidget extends StatelessWidget {
         loading: loginVM.loading.value,
         onPress: () {
           Utils.hideKeyboardGlobally();
-          if (formKey.currentState!.validate()) {
-            loginVM.loginApi();
-          }
+          // if (formKey.currentState!.validate()) {
+          //   loginVM.loginApi();
+          // }
+          Get.toNamed(RoutesName.navigationScreen);
         },
       );
     });

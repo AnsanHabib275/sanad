@@ -13,7 +13,9 @@ class AppUrl {
   static String updateProfileUrl = "$baseUrl/api/UpdateProfile/";
   static String changePassUrl = "$baseUrl/api/ChangePassword/";
   static String notificationUrl = "$baseUrl/api/GetNotifications/";
-  static String markNotificationViewedUrl = "$baseUrl/api/MarkNotificationViewed/";
+  static String markNotificationViewedUrl =
+      "$baseUrl/api/MarkNotificationViewed/";
   static String chatListUrl = "$baseUrl/api/History/";
   static String sendMessageUrl = "$baseUrl/api/SendFromUser/";
+  static String jobsUrl = "$baseUrl/api/SendFromUser/";
 }

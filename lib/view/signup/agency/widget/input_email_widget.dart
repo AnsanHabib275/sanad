@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../res/colors/app_color.dart';
-import '../../../utils/utils.dart';
-import '../../../viewModels/controller/signup/sign_up_view_model.dart';
+import 'package:sanad/res/colors/app_color.dart';
+import 'package:sanad/utils/utils.dart';
+import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
-class InputNameWidget extends StatelessWidget {
-  InputNameWidget({super.key});
+class InputEmailWidget extends StatelessWidget {
+  InputEmailWidget({super.key});
 
   final signUpVM = Get.put(SignUpViewModel());
 
@@ -14,37 +14,50 @@ class InputNameWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: signUpVM.nameController.value,
-        focusNode: signUpVM.nameFocusNode.value,
+        controller: signUpVM.emailController.value,
+        focusNode: signUpVM.emailFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'name_cannot_be_blank'.tr;
+          if (value == null ||
+              value.isEmpty ||
+              !RegExp(
+                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+              ).hasMatch(value)) {
+            return 'email_not_valid'.tr;
           }
           return null;
         },
         onFieldSubmitted: (value) {
           Utils.fieldFocusChange(
             context,
-            signUpVM.nameFocusNode.value,
             signUpVM.emailFocusNode.value,
+            signUpVM.passwordFocusNode.value,
           );
         },
         style: TextStyle(
-          color: AppColor.background,
-          fontSize: Get.height * Utils.getResponsiveSize(16),
+          color: AppColor.textPrimaryColor,
+          fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Manrope',
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w500,
         ),
         decoration: InputDecoration(
+          hint: Text('email_hint'.tr),
+          hintStyle: TextStyle(
+            color: AppColor.textSecondaryColor,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w500,
+          ),
           errorText:
-              signUpVM.errorMessage.value.isEmpty
-                  ? null
-                  : signUpVM.errorMessage.value,
+              signUpVM.apiErrorMessage.value.isNotEmpty
+                  ? signUpVM.apiErrorMessage.value
+                  : signUpVM.errorMessage.value.isNotEmpty
+                  ? signUpVM.errorMessage.value
+                  : null,
           errorStyle: TextStyle(
             color: AppColor.redColor,
-            fontSize: Get.height * Utils.getResponsiveSize(16),
+            fontSize: Get.height * Utils.getResponsiveSize(14),
             fontFamily: 'Manrope',
             fontWeight: FontWeight.w400,
           ),
@@ -88,7 +101,7 @@ class InputNameWidget extends StatelessWidget {
             borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
           ),
         ),
-        keyboardType: TextInputType.name,
+        keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.done,
       );
     });

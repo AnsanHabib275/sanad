@@ -1,12 +1,12 @@
+import 'package:sanad/res/assets/icon_assets.dart';
+import 'package:sanad/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/res/colors/app_color.dart';
+import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
-import '../../../res/colors/app_color.dart';
-import '../../../utils/utils.dart';
-import '../../../viewModels/controller/signup/sign_up_view_model.dart';
-
-class InputEmailWidget extends StatelessWidget {
-  InputEmailWidget({super.key});
+class InputPasswordWidget extends StatelessWidget {
+  InputPasswordWidget({super.key});
 
   final signUpVM = Get.put(SignUpViewModel());
 
@@ -14,34 +14,24 @@ class InputEmailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: signUpVM.emailController.value,
-        focusNode: signUpVM.emailFocusNode.value,
+        controller: signUpVM.passwordController.value,
+        focusNode: signUpVM.passwordFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        validator: (value) {
-          if (value == null ||
-              value.isEmpty ||
-              !RegExp(
-                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-              ).hasMatch(value)) {
-            return 'email_not_valid'.tr;
-          }
-          return null;
-        },
-        onFieldSubmitted: (value) {
-          Utils.fieldFocusChange(
-            context,
-            signUpVM.emailFocusNode.value,
-            signUpVM.passwordFocusNode.value,
-          );
-        },
         style: TextStyle(
-          color: AppColor.background,
-          fontSize: Get.height * Utils.getResponsiveSize(16),
+          color: AppColor.textPrimaryColor,
+          fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Manrope',
           fontWeight: FontWeight.w400,
         ),
         decoration: InputDecoration(
+          hint: Text('password_hint'.tr),
+          hintStyle: TextStyle(
+            color: AppColor.textSecondaryColor,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w500,
+          ),
           errorText:
               signUpVM.apiErrorMessage.value.isNotEmpty
                   ? signUpVM.apiErrorMessage.value
@@ -50,7 +40,7 @@ class InputEmailWidget extends StatelessWidget {
                   : null,
           errorStyle: TextStyle(
             color: AppColor.redColor,
-            fontSize: Get.height * Utils.getResponsiveSize(16),
+            fontSize: Get.height * Utils.getResponsiveSize(14),
             fontFamily: 'Manrope',
             fontWeight: FontWeight.w400,
           ),
@@ -93,9 +83,28 @@ class InputEmailWidget extends StatelessWidget {
             ),
             borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
           ),
+          prefixIcon: Image.asset(IconAssets.icPassword),
+          suffixIcon: IconButton(
+            icon: Image.asset(
+              signUpVM.isVisible.value
+                  ? IconAssets.icInvisiblePassword
+                  : IconAssets.icVisiblePassword,
+            ),
+            onPressed: () {
+              signUpVM.isVisible.value = !signUpVM.isVisible.value;
+            },
+          ),
         ),
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: TextInputType.visiblePassword,
+        obscureText: signUpVM.isVisible.value,
+        obscuringCharacter: '*',
         textInputAction: TextInputAction.done,
+        validator: (value) {
+          if (value == null || value.isEmpty || value.length < 7) {
+            return 'password_format_invalid'.tr;
+          }
+          return null;
+        },
       );
     });
   }

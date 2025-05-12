@@ -7,42 +7,76 @@ import '../../../utils/utils.dart';
 class SignUpViewModel extends GetxController {
   final _api = SignUpRepository();
 
-  final nameController = TextEditingController().obs;
+  final fullNameController = TextEditingController().obs;
+  final taglineController = TextEditingController().obs;
+  final phoneNumberController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
-  final confirmPasswordController = TextEditingController().obs;
+  final noteController = TextEditingController().obs;
 
-  final nameFocusNode = FocusNode().obs;
+  final fullNameFocusNode = FocusNode().obs;
+  final taglineFocusNode = FocusNode().obs;
+  final phoneNumberFocusNode = FocusNode().obs;
   final emailFocusNode = FocusNode().obs;
   final passwordFocusNode = FocusNode().obs;
-  final confirmPasswordFocusNode = FocusNode().obs;
+  final noteFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
-  RxBool isVisibleConfirmPassword = true.obs;
+  RxString imagePath = ''.obs;
+  RxString imagePathError = ''.obs;
   RxString errorMessage = ''.obs;
   RxString apiErrorMessage = ''.obs;
 
   void signUpApi() {
     loading.value = true;
     Map data = {
-      'name': nameController.value.text,
-      'email': emailController.value.text,
-      'password': passwordController.value.text,
+      'FullName': fullNameController.value.text,
+      'Tagline': taglineController.value.text,
+      'PhoneNumber': phoneNumberController.value.text,
+      'Email': emailController.value.text,
+      'Password': passwordController.value.text,
+      'Note': noteController.value.text,
     };
-    _api.signUpApi(data).then((value) {
-      loading.value = false;
-      if (value['isSuccessfull'] == false) {
-        apiErrorMessage.value = value['message'];
-      } else {
-        Utils.toastMessage("OTP Sent To Your Email Account");
-        Get.toNamed(RoutesName.verifyEmailScreen, arguments: {
-          'Accountid': value['Accountid'],
+    _api
+        .signUpApi(data)
+        .then((value) {
+          loading.value = false;
+          if (value['isSuccessfull'] == false) {
+            apiErrorMessage.value = value['message'];
+          } else {
+            Utils.toastMessage("OTP Sent To Your Email Account");
+            Get.toNamed(
+              RoutesName.verifyEmailScreen,
+              arguments: {'Accountid': value['Accountid']},
+            );
+          }
+        })
+        .onError((error, stackTrace) {
+          loading.value = false;
+          apiErrorMessage.value = error.toString();
         });
-      }
-    }).onError((error, stackTrace) {
-      loading.value = false;
-      apiErrorMessage.value = error.toString();
-    });
+  }
+
+  void signUpIndividualApi() {
+    loading.value = true;
+    Map data = {
+      'Email': emailController.value.text,
+      'Password': passwordController.value.text,
+    };
+    _api
+        .signUpIndividualApi(data)
+        .then((value) {
+          loading.value = false;
+          if (value['isSuccessfull'] == false) {
+            apiErrorMessage.value = value['message'];
+          } else {
+            apiErrorMessage.value = '';
+          }
+        })
+        .onError((error, stackTrace) {
+          loading.value = false;
+          apiErrorMessage.value = error.toString();
+        });
   }
 }

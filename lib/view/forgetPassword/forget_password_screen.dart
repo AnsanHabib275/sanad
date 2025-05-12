@@ -42,7 +42,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 color: AppColor.blue,
                 fontSize: Get.height * Utils.getResponsiveSize(20),
                 fontWeight: FontWeight.w600,
-                fontFamily: 'Outfit',
+                fontFamily: 'Manrope',
               ),
             ),
           ),

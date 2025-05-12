@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sanad/res/assets/icon_assets.dart';
+import 'package:sanad/viewModels/controller/navigation/home/jobs_view_model.dart';
+import '../../../../res/assets/image_assets.dart';
+import '../../../../res/colors/app_color.dart';
+import '../../../../utils/utils.dart';
+
+class InputSearchWidget extends StatelessWidget {
+  final Function(String) onSearch;
+
+  InputSearchWidget({super.key, required this.onSearch});
+  final jobsVM = Get.put(JobsViewModel());
+  @override
+  Widget build(BuildContext context) {
+    return Obx(() {
+      return SearchBar(
+        controller: jobsVM.searchController.value,
+        focusNode: jobsVM.searchFocusNode.value,
+        keyboardType: TextInputType.text,
+        textInputAction: TextInputAction.done,
+        textStyle: WidgetStateProperty.all(
+          TextStyle(
+            color: AppColor.textPrimaryColor,
+            fontSize: Get.height * Utils.getResponsiveSize(16),
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        hintText: 'search_hint'.tr,
+        hintStyle: WidgetStateProperty.all(
+          TextStyle(
+            color: AppColor.darkGrey,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        leading: Image.asset(IconAssets.icSearch),
+        backgroundColor: WidgetStateProperty.all(AppColor.whiteColor),
+        shape: WidgetStateProperty.all(
+          RoundedRectangleBorder(
+            side: BorderSide(color: AppColor.searchBarBorderColor, width: 1.0),
+            borderRadius: BorderRadius.circular(
+              Get.height * Utils.getResponsiveSize(22),
+            ),
+          ),
+        ),
+        constraints: BoxConstraints(minHeight: 44),
+        onChanged: onSearch,
+      );
+    });
+  }
+}

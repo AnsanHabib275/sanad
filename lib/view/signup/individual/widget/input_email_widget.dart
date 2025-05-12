@@ -1,12 +1,13 @@
-import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../res/colors/app_color.dart';
-import '../../../utils/utils.dart';
-import '../../../viewModels/controller/signup/sign_up_view_model.dart';
 
-class InputConfirmPasswordWidget extends StatelessWidget {
-  InputConfirmPasswordWidget({super.key});
+import 'package:sanad/res/colors/app_color.dart';
+import 'package:sanad/utils/utils.dart';
+import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
+import 'package:sanad/res/assets/icon_assets.dart';
+
+class InputEmailWidget extends StatelessWidget {
+  InputEmailWidget({super.key});
 
   final signUpVM = Get.put(SignUpViewModel());
 
@@ -14,24 +15,50 @@ class InputConfirmPasswordWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: signUpVM.confirmPasswordController.value,
-        focusNode: signUpVM.confirmPasswordFocusNode.value,
+        controller: signUpVM.emailController.value,
+        focusNode: signUpVM.emailFocusNode.value,
         enableSuggestions: true,
+        autocorrect: false,
+        autofocus: false,
         autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: (value) {
+          if (value == null ||
+              value.isEmpty ||
+              !RegExp(
+                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+              ).hasMatch(value)) {
+            return 'email_not_valid'.tr;
+          }
+          return null;
+        },
+        onFieldSubmitted: (value) {
+          Utils.fieldFocusChange(
+            context,
+            signUpVM.emailFocusNode.value,
+            signUpVM.passwordFocusNode.value,
+          );
+        },
         style: TextStyle(
-          color: AppColor.background,
-          fontSize: Get.height * Utils.getResponsiveSize(16),
+          color: AppColor.textPrimaryColor,
+          fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Manrope',
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w500,
         ),
         decoration: InputDecoration(
+          hint: Text('email_hint'.tr),
+          hintStyle: TextStyle(
+            color: AppColor.textSecondaryColor,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w500,
+          ),
           errorText:
               signUpVM.errorMessage.value.isEmpty
                   ? null
                   : signUpVM.errorMessage.value,
           errorStyle: TextStyle(
             color: AppColor.redColor,
-            fontSize: Get.height * Utils.getResponsiveSize(16),
+            fontSize: Get.height * Utils.getResponsiveSize(14),
             fontFamily: 'Manrope',
             fontWeight: FontWeight.w400,
           ),
@@ -74,30 +101,10 @@ class InputConfirmPasswordWidget extends StatelessWidget {
             ),
             borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
           ),
-          suffixIcon: IconButton(
-            icon: Image.asset(
-              signUpVM.isVisibleConfirmPassword.value
-                  ? IconAssets.icInvisiblePassword
-                  : IconAssets.icVisiblePassword,
-            ),
-            onPressed: () {
-              signUpVM.isVisibleConfirmPassword.value =
-                  !signUpVM.isVisibleConfirmPassword.value;
-            },
-          ),
+          prefixIcon: Image.asset(IconAssets.icEmail),
         ),
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: signUpVM.isVisibleConfirmPassword.value,
-        obscuringCharacter: '*',
+        keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.done,
-        validator: (value) {
-          if (value == null || value.isEmpty || value.length < 7) {
-            return 'confirm_password_format_invalid'.tr;
-          } else if (value != signUpVM.passwordController.value.text) {
-            return 'confirm_password_not_match'.tr;
-          }
-          return null;
-        },
       );
     });
   }

@@ -40,7 +40,7 @@ class InputEmailWidget extends StatelessWidget {
                   : forgetPasswordVM.errorMessage.value,
           errorStyle: TextStyle(
             color: AppColor.redColor,
-            fontSize: Get.height * Utils.getResponsiveSize(16),
+            fontSize: Get.height * Utils.getResponsiveSize(14),
             fontFamily: 'Manrope',
             fontWeight: FontWeight.w400,
           ),
