@@ -38,7 +38,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
             icon: Image.asset(IconAssets.icArrowLeft),
             onPressed: () => Get.back(),
           ),
-          centerTitle: false,
+          centerTitle: true,
           title: Text(
             'notifications'.tr,
             style: TextStyle(

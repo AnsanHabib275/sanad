@@ -232,7 +232,7 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                           InkWell(
                             onTap: () {
                               Utils.hideKeyboardGlobally();
-                              Get.offAllNamed(RoutesName.signUpScreen);
+                              Get.offAllNamed(RoutesName.loginScreen);
                             },
                             child: Text(
                               'sign_in'.tr,

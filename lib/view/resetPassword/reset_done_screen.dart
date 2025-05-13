@@ -25,46 +25,44 @@ class _ResetDoneScreenState extends State<ResetDoneScreen> {
         //   return false;
         // },
         child: Scaffold(
-          body: Container(
-            height: Get.height * 1,
-            width: Get.width * 1,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(ImageAssets.bg),
-                fit: BoxFit.cover,
-              ),
+          body: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: Get.width * Utils.getResponsiveWidth(32),
             ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: Get.width * Utils.getResponsiveWidth(25)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    GifAssets.gifDoneAnimation,
-                    height: Get.height * Utils.getResponsiveHeight(150),
-                    width: Get.width * Utils.getResponsiveWidth(200),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  ImageAssets.imgResetDone,
+                  height: Get.height * Utils.getResponsiveHeight(122),
+                  width: Get.width * Utils.getResponsiveWidth(125),
+                ),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(40)),
+                Text(
+                  'password_reset_successfully'.tr,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: AppColor.textPrimaryColor,
+                    fontSize: Get.height * Utils.getResponsiveSize(24),
+                    fontFamily: 'Manrope',
+                    fontWeight: FontWeight.w600,
                   ),
-                  SizedBox(
-                    height: Get.height * Utils.getResponsiveHeight(30),
+                ),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(9)),
+                Text(
+                  'password_reset_description'.tr,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: AppColor.textPrimaryColor,
+                    fontSize: Get.height * Utils.getResponsiveSize(14),
+                    fontFamily: 'Manrope',
+                    fontWeight: FontWeight.w400,
                   ),
-                  Text(
-                    'account_reset_successfully'.tr,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: AppColor.background,
-                      fontSize: Get.height * Utils.getResponsiveSize(16),
-                      fontFamily: 'Manrope',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  SizedBox(
-                    height: Get.height * Utils.getResponsiveHeight(40),
-                  ),
-                  LoginButtonWidget(),
-                ],
-              ),
+                ),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(42)),
+                LoginButtonWidget(),
+              ],
             ),
           ),
         ),

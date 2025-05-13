@@ -4,13 +4,14 @@ import 'package:sanad/models/jobs/jobs_list_model.dart';
 import 'package:sanad/repository/jobRepository/jobs_repository.dart';
 import '../../../../data/response/status.dart';
 
-class JobsViewModel extends GetxController {
+class MyJobsViewModel extends GetxController {
   final _api = JobsRepository();
 
   final rxRequestStatus = Status.loading.obs;
   var jobsDataList = <Jobs>[].obs;
   var filteredJobsDataList = <Jobs>[].obs;
   RxString error = ''.obs;
+  RxString selectedTab = 'applied'.obs;
   RxBool loading = false.obs;
   RxString errorMessage = ''.obs;
 
@@ -19,6 +20,10 @@ class JobsViewModel extends GetxController {
 
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
   void setError(String value) => error.value = value;
+
+  void setSelectionTab(String tabText) {
+    selectedTab.value = tabText;
+  }
 
   Future<void> jobsListApi() async {
     try {
@@ -44,28 +49,12 @@ class JobsViewModel extends GetxController {
     jobsDataList.assignAll(data);
 
     // Force update filtered lists
-    filterJobs(searchController.value.text);
     update(); // Add explicit update
-  }
-
-  void filterJobs(String query) {
-    final searchTerm = query.toLowerCase();
-    filteredJobsDataList.assignAll(
-      jobsDataList.where((item) => _matchesSearch(item, searchTerm)).toList(),
-    );
-    update(); // Add explicit update
-  }
-
-  bool _matchesSearch(Jobs item, String searchTerm) {
-    return item.jobId.toString().contains(searchTerm) ||
-        item.jobName.toString().contains(searchTerm) ||
-        item.jobType.toString().contains(searchTerm) ||
-        item.jobLocation.toString().contains(searchTerm);
   }
 
   @override
   void dispose() {
-    Get.delete<JobsViewModel>();
+    Get.delete<MyJobsViewModel>();
     super.dispose();
   }
 }

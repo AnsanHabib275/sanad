@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../../repository/resetPasswordRepository/reset_password_repository.dart';
+import '../../../res/routes/routes_name.dart';
 
 class ResetPasswordViewModel extends GetxController {
   final _api = ResetPasswordRepository();
@@ -26,7 +27,7 @@ class ResetPasswordViewModel extends GetxController {
           if (value['isSuccessfull'] == false) {
             errorMessage.value = value['message'];
           } else {
-            // Get.toNamed(RoutesName.resetDoneScreen);
+            Get.toNamed(RoutesName.resetDoneScreen);
           }
         })
         .onError((error, stackTrace) {

@@ -13,6 +13,7 @@ import '../../view/navigation/navigation_screen.dart';
 import '../../view/navigation/notification/notification_screen.dart';
 import '../../view/navigation/profile/profile_screen.dart';
 import '../../view/otp/otp_screen.dart';
+import '../../view/resetPassword/reset_done_screen.dart';
 import '../../view/resetPassword/reset_password_screen.dart';
 import '../../view/signup/agency/sign_up_screen.dart';
 import '../../view/splash/splash_screen.dart';
@@ -117,6 +118,13 @@ class AppRoutes {
     GetPage(
       name: RoutesName.resetPasswordScreen,
       page: () => ResetPasswordScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.resetDoneScreen,
+      page: () => ResetDoneScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,

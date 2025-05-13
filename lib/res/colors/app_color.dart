@@ -16,6 +16,14 @@ class AppColor {
   static const searchBarBorderColor = Color(0xFFF2F4F7);
   static const appBarLightBackground = Color(0xFFF2F4F7);
   static const appBarDarkBackground = Color(0xFF101828);
+  static const selectedBnColor = Color(0xFF54ADB9);
+  static const unselectedBnColor = Color(0xFF475467);
+  static const otpTextColor = Color(0xFF1E232C);
+  static const cardItemBgColor = Color(0xFFEAECF0);
+  static const cardItemSelectedBgColor = Color(0xFFE6F3F5);
+  static const cardItemSelectedTextColor = Color(0xFF008597);
+  static const tabsBgColor = Color(0xFFF9FAFB);
+  static const tabsBorderColor = Color(0xFFEAECF0);
 
   static const orange = Color(0xFFFFB800);
   static const blue = Color(0xFF48DEFF);

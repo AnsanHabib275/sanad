@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/view/resetPassword/widget/input_confirm_password_widget.dart';
 import 'package:sanad/view/resetPassword/widget/input_new_password_widget.dart';
-import 'package:sanad/view/resetPassword/widget/reset_password_button_widget.dart';
+import 'package:sanad/view/resetPassword/widget/next_button_widget.dart';
 
 import '../../res/assets/icon_assets.dart';
 import '../../res/assets/image_assets.dart';
@@ -31,125 +31,88 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         },
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: AppColor.transparent,
+            backgroundColor: AppColor.whiteColor,
             leading: IconButton(
               icon: Image.asset(IconAssets.icArrowLeft),
               onPressed: () => Get.back(),
             ),
-            centerTitle: false,
+            centerTitle: true,
             title: Text(
               'reset_password'.tr,
               style: TextStyle(
-                  color: AppColor.blue,
-                  fontSize: Get.height * Utils.getResponsiveSize(20),
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Outfit'),
+                color: AppColor.textPrimaryColor,
+                fontSize: Get.height * Utils.getResponsiveSize(24),
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Manrope',
+              ),
             ),
           ),
           extendBody: true,
           extendBodyBehindAppBar: true,
-          body: Container(
-            height: Get.height * 1,
-            width: Get.width * 1,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(ImageAssets.bg),
-                fit: BoxFit.cover,
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(32),
               ),
-            ),
-            child: SafeArea(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  return SingleChildScrollView(
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minHeight: constraints.maxHeight,
-                      ),
-                      child: IntrinsicHeight(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  Get.width * Utils.getResponsiveWidth(20)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'please_enter_the_following_credentials'.tr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color: AppColor.grey,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(25),
-                              ),
-                              Form(
-                                key: formKey,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'new_password'.tr,
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                        color: AppColor.darkGrey,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(14),
-                                        fontFamily: 'Manrope',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: Get.height *
-                                          Utils.getResponsiveHeight(10),
-                                    ),
-                                    InputNewPasswordWidget(),
-                                    SizedBox(
-                                      height: Get.height *
-                                          Utils.getResponsiveHeight(15),
-                                    ),
-                                    Text(
-                                      'confirm_password'.tr,
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                        color: AppColor.darkGrey,
-                                        fontSize: Get.height *
-                                            Utils.getResponsiveSize(14),
-                                        fontFamily: 'Manrope',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: Get.height *
-                                          Utils.getResponsiveHeight(10),
-                                    ),
-                                    InputConfirmPasswordWidget(),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(20),
-                              ),
-                              Spacer(),
-                              ResetPasswordButtonWidget(
-                                  formKey: formKey, eID: eID),
-                              SizedBox(
-                                  height: Get.height *
-                                      Utils.getResponsiveHeight(52)),
-                            ],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(124)),
+                  Text(
+                    'reset_password_description'.tr,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: AppColor.textPrimaryColor,
+                      fontSize: Get.height * Utils.getResponsiveSize(14),
+                      fontFamily: 'Manrope',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
+                  Form(
+                    key: formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'new_password'.tr,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: AppColor.textPrimaryColor,
+                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
-                      ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(8),
+                        ),
+                        InputNewPasswordWidget(),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(20),
+                        ),
+                        Text(
+                          'confirm_password'.tr,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: AppColor.textPrimaryColor,
+                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(8),
+                        ),
+                        InputConfirmPasswordWidget(),
+                      ],
                     ),
-                  );
-                },
+                  ),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(65)),
+                  NextButtonWidget(formKey: formKey, eID: eID),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(20)),
+                ],
               ),
             ),
           ),

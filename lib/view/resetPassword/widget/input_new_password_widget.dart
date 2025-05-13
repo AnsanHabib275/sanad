@@ -20,12 +20,19 @@ class InputNewPasswordWidget extends StatelessWidget {
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: TextStyle(
-          color: AppColor.background,
-          fontSize: Get.height * Utils.getResponsiveSize(16),
+          color: AppColor.textPrimaryColor,
+          fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Manrope',
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w500,
         ),
         decoration: InputDecoration(
+          hint: Text('password_hint'.tr),
+          hintStyle: TextStyle(
+            color: AppColor.textSecondaryColor,
+            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w500,
+          ),
           errorText:
               resetPasswordVM.errorMessage.value.isEmpty
                   ? null
@@ -75,6 +82,7 @@ class InputNewPasswordWidget extends StatelessWidget {
             ),
             borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
           ),
+          prefixIcon: Image.asset(IconAssets.icPassword),
           suffixIcon: IconButton(
             icon: Image.asset(
               resetPasswordVM.isVisible.value

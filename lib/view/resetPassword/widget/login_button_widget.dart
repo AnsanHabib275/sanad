@@ -10,8 +10,7 @@ class LoginButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RoundButton(
-      title: 'login'.tr,
-      width: 164,
+      title: 'back_to_login'.tr,
       onPress: () {
         Get.toNamed(RoutesName.loginScreen);
       },

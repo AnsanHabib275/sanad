@@ -8,7 +8,7 @@ import '../../../res/colors/app_color.dart';
 class InputOTPWidget extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
-  final FocusNode? nextFocusNode; // Optional: The next focus node to move to
+  final FocusNode? nextFocusNode;
 
   InputOTPWidget({
     super.key,
@@ -38,10 +38,10 @@ class InputOTPWidget extends StatelessWidget {
         }
       },
       style: TextStyle(
-        color: AppColor.background,
+        color: AppColor.otpTextColor,
         fontSize: Get.height * Utils.getResponsiveSize(18),
         fontFamily: 'Manrope',
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
       ),
       decoration: InputDecoration(
         filled: false,
@@ -51,7 +51,7 @@ class InputOTPWidget extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: AppColor.extraDarkGrey, // Default border color
+            color: AppColor.editTextBorderColor, // Default border color
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
@@ -60,7 +60,7 @@ class InputOTPWidget extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: AppColor.extraDarkGrey, // Default border color
+            color: AppColor.primaryColor, // Default border color
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
@@ -69,7 +69,7 @@ class InputOTPWidget extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: AppColor.extraDarkGrey, // Default border color
+            color: AppColor.primaryColor, // Default border color
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(

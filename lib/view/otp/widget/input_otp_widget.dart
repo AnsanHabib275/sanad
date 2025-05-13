@@ -40,10 +40,10 @@ class InputOTPWidget extends StatelessWidget {
         }
       },
       style: TextStyle(
-        color: AppColor.background,
+        color: AppColor.otpTextColor,
         fontSize: Get.height * Utils.getResponsiveSize(18),
         fontFamily: 'Manrope',
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
       ),
       decoration: InputDecoration(
         filled: false,
@@ -53,7 +53,7 @@ class InputOTPWidget extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: AppColor.extraDarkGrey,
+            color: AppColor.editTextBorderColor,
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
@@ -62,7 +62,7 @@ class InputOTPWidget extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: AppColor.extraDarkGrey,
+            color: AppColor.primaryColor,
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
@@ -71,7 +71,7 @@ class InputOTPWidget extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: AppColor.extraDarkGrey,
+            color: AppColor.primaryColor,
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(

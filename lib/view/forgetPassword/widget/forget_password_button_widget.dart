@@ -1,4 +1,5 @@
 import 'package:sanad/res/components/round_button.dart';
+import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/viewModels/controller/forgetPassword/forget_password_view_model.dart';
 import 'package:flutter/material.dart';
@@ -18,10 +19,13 @@ class ForgetPasswordButtonWidget extends StatelessWidget {
         loading: forgetPasswordVM.loading.value,
         onPress: () {
           Utils.hideKeyboardGlobally();
-          if (formKey.currentState!.validate()) {
-            forgetPasswordVM.forgetPasswordApi();
-            // FocusManager.instance.primaryFocus?.unfocus();
-          }
+          Get.toNamed(
+            RoutesName.otpScreen,
+            arguments: {'eID': 'kjbsdjskd273w', 'email': 'a@gimpmail.com'},
+          );
+          // if (formKey.currentState!.validate()) {
+          //   forgetPasswordVM.forgetPasswordApi();
+          // }
         },
       );
     });

@@ -33,17 +33,18 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             backgroundColor: AppColor.transparent,
             leading: IconButton(
               icon: Image.asset(IconAssets.icArrowLeft),
-              onPressed: () =>
-                  Get.offAll(() => NavigationScreen(initialIndex: 4)),
+              onPressed:
+                  () => Get.offAll(() => NavigationScreen(initialIndex: 4)),
             ),
-            centerTitle: false,
+            centerTitle: true,
             title: Text(
               'change_password'.tr,
               style: TextStyle(
-                  color: AppColor.blue,
-                  fontSize: Get.height * Utils.getResponsiveSize(20),
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Outfit'),
+                color: AppColor.blue,
+                fontSize: Get.height * Utils.getResponsiveSize(20),
+                fontWeight: FontWeight.w600,
+                fontFamily: 'Outfit',
+              ),
             ),
           ),
           extendBody: true,
@@ -68,8 +69,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       child: IntrinsicHeight(
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  Get.width * Utils.getResponsiveWidth(20)),
+                            horizontal:
+                                Get.width * Utils.getResponsiveWidth(20),
+                          ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -99,19 +101,22 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                         color: AppColor.darkGrey,
-                                        fontSize: Get.height *
+                                        fontSize:
+                                            Get.height *
                                             Utils.getResponsiveSize(14),
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                     SizedBox(
-                                      height: Get.height *
+                                      height:
+                                          Get.height *
                                           Utils.getResponsiveHeight(10),
                                     ),
                                     InputOldPasswordWidget(),
                                     SizedBox(
-                                      height: Get.height *
+                                      height:
+                                          Get.height *
                                           Utils.getResponsiveHeight(15),
                                     ),
                                     Text(
@@ -119,14 +124,16 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                         color: AppColor.darkGrey,
-                                        fontSize: Get.height *
+                                        fontSize:
+                                            Get.height *
                                             Utils.getResponsiveSize(14),
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                     SizedBox(
-                                      height: Get.height *
+                                      height:
+                                          Get.height *
                                           Utils.getResponsiveHeight(10),
                                     ),
                                     InputNewPasswordWidget(),
@@ -135,13 +142,14 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                               ),
                               SizedBox(
                                 height:
-                                Get.height * Utils.getResponsiveHeight(20),
+                                    Get.height * Utils.getResponsiveHeight(20),
                               ),
                               Spacer(),
                               UpdatePasswordButtonWidget(formKey: formKey),
                               SizedBox(
-                                  height: Get.height *
-                                      Utils.getResponsiveHeight(52)),
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(52),
+                              ),
                             ],
                           ),
                         ),

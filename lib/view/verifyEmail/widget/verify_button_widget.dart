@@ -1,4 +1,5 @@
 import 'package:sanad/res/components/round_button.dart';
+import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/viewModels/controller/verifyEmail/verify_email_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,9 +19,10 @@ class VerifyButtonWidget extends StatelessWidget {
         loading: verifyEmailVM.loading.value,
         onPress: () {
           Utils.hideKeyboardGlobally();
-          if (verifyEmailVM.isOtpFilled.value) {
-            verifyEmailVM.verifyEmailApi();
-          }
+          Get.toNamed(RoutesName.loginScreen);
+          // if (verifyEmailVM.isOtpFilled.value) {
+          //   verifyEmailVM.verifyEmailApi();
+          // }
         },
       );
     });

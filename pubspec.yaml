@@ -71,3 +71,7 @@ flutter:
       fonts:
         - asset: assets/fonts/Manrope-Regular.ttf
           weight: 400
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter_18pt-Medium.ttf
+          weight: 500

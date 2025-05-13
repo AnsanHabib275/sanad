@@ -45,10 +45,14 @@ class SignUpViewModel extends GetxController {
           if (value['isSuccessfull'] == false) {
             apiErrorMessage.value = value['message'];
           } else {
+            apiErrorMessage.value = '';
             Utils.toastMessage("OTP Sent To Your Email Account");
             Get.toNamed(
               RoutesName.verifyEmailScreen,
-              arguments: {'Accountid': value['Accountid']},
+              arguments: {
+                'Accountid': value['Accountid'],
+                'email': emailController.value.text,
+              },
             );
           }
         })
@@ -72,6 +76,14 @@ class SignUpViewModel extends GetxController {
             apiErrorMessage.value = value['message'];
           } else {
             apiErrorMessage.value = '';
+            Utils.toastMessage("OTP Sent To Your Email Account");
+            Get.toNamed(
+              RoutesName.verifyEmailScreen,
+              arguments: {
+                'Accountid': value['Accountid'],
+                'email': emailController.value.text,
+              },
+            );
           }
         })
         .onError((error, stackTrace) {

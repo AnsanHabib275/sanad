@@ -4,19 +4,20 @@ import 'package:sanad/models/jobs/jobs_list_model.dart';
 import 'package:sanad/models/jobs/jobs_model.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/viewModels/controller/navigation/home/jobs_view_model.dart';
+import '../../../../models/jobs/my_jobs_model.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 
-class JobsCartWidget extends StatefulWidget {
-  final JobsModel jobs;
+class MyJobsCartWidget extends StatefulWidget {
+  final MyJobsModel myJobs;
 
-  const JobsCartWidget({super.key, required this.jobs});
+  const MyJobsCartWidget({super.key, required this.myJobs});
 
   @override
-  State<JobsCartWidget> createState() => _JobsCartWidgetState();
+  State<MyJobsCartWidget> createState() => _MyJobsCartWidgetState();
 }
 
-class _JobsCartWidgetState extends State<JobsCartWidget> {
+class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
   @override
   Widget build(BuildContext context) {
     final jobsVM = Get.find<JobsViewModel>();
@@ -46,7 +47,7 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
               Row(
                 children: [
                   Text(
-                    widget.jobs.jobName.toString(),
+                    widget.myJobs.jobName.toString(),
                     style: TextStyle(
                       fontSize: Get.height * Utils.getResponsiveSize(20),
                       fontFamily: 'Manrope',
@@ -70,7 +71,7 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                         vertical: Get.height * Utils.getResponsiveHeight(2),
                       ),
                       child: Text(
-                        widget.jobs.isPrivate!
+                        widget.myJobs.isPrivate!
                             ? 'private_job'.tr
                             : 'public_job'.tr,
                         style: TextStyle(
@@ -98,7 +99,7 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
               ),
               SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
               Text(
-                widget.jobs.companyName.toString(),
+                widget.myJobs.companyName.toString(),
                 style: TextStyle(
                   fontSize: Get.height * Utils.getResponsiveSize(14),
                   fontFamily: 'Manrope',
@@ -107,7 +108,7 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                 ),
               ),
               Text(
-                widget.jobs.jobLocation.toString(),
+                widget.myJobs.jobLocation.toString(),
                 style: TextStyle(
                   fontSize: Get.height * Utils.getResponsiveSize(14),
                   fontFamily: 'Manrope',
@@ -133,7 +134,7 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                         vertical: Get.height * Utils.getResponsiveHeight(2),
                       ),
                       child: Text(
-                        widget.jobs.jobType.toString(),
+                        widget.myJobs.jobType.toString(),
                         style: TextStyle(
                           fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Inter',
@@ -159,12 +160,38 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                         vertical: Get.height * Utils.getResponsiveHeight(2),
                       ),
                       child: Text(
-                        widget.jobs.salaryRange.toString(),
+                        widget.myJobs.salaryRange.toString(),
                         style: TextStyle(
                           fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           color: AppColor.textPrimaryColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColor.cardItemSelectedBgColor,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(
+                          Get.height * Utils.getResponsiveHeight(6),
+                        ),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: Get.width * Utils.getResponsiveWidth(12),
+                        vertical: Get.height * Utils.getResponsiveHeight(2),
+                      ),
+                      child: Text(
+                        widget.myJobs.applied.toString(),
+                        style: TextStyle(
+                          fontSize: Get.height * Utils.getResponsiveSize(14),
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.cardItemSelectedTextColor,
                         ),
                       ),
                     ),
