@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Get.toNamed(RoutesName.loginScreen);
+      Get.toNamed(RoutesName.onBoardingScreen);
     });
   }
 
@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: PopScope(
           canPop: false,
           child: Scaffold(
-            backgroundColor: AppColor.primaryColor,
+            backgroundColor: AppColor.logoColor,
             body: Stack(
               children: [
                 Image(

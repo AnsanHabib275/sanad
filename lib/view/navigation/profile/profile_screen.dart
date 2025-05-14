@@ -29,7 +29,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(ImageAssets.bg),
+              image: AssetImage(ImageAssets.splashBg),
               fit: BoxFit.cover,
             ),
           ),

@@ -20,7 +20,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       child: Scaffold(
         backgroundColor: AppColor.whiteColor,
         appBar: AppBar(
-          backgroundColor: AppColor.appBarLightBackground,
+          backgroundColor: AppColor.whiteColor,
           centerTitle: true,
           title: Text('payment'.tr),
           titleTextStyle: TextStyle(
@@ -28,6 +28,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
             fontFamily: 'Manrope',
             fontWeight: FontWeight.w600,
             fontSize: Get.height * Utils.getResponsiveSize(24),
+          ),
+          shape: Border(
+            bottom: BorderSide(
+              color: AppColor.searchBarBorderColor,
+              width: 1.0,
+            ),
           ),
         ),
         body: Padding(

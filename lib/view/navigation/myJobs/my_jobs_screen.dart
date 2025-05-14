@@ -74,6 +74,12 @@ class _MyJobsScreenState extends State<MyJobsScreen> {
             fontWeight: FontWeight.w600,
             fontSize: Get.height * Utils.getResponsiveSize(24),
           ),
+          shape: Border(
+            bottom: BorderSide(
+              color: AppColor.searchBarBorderColor,
+              width: 1.0,
+            ),
+          ),
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(

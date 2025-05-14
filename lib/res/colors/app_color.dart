@@ -5,8 +5,10 @@ class AppColor {
   static const Color whiteColor = Colors.white;
   static const Color redColor = Colors.red;
   static const transparent = Colors.transparent;
+  static const logoColor = Color(0xFF008597);
   static const primaryColor = Color(0xFF339DAC);
   static const textPrimaryColor = Color(0xFF0C1320);
+  static const textBodyColor = Color(0xFF475467);
   static const textDarkPrimaryColor = Color(0xFFF9FAFB);
   static const textSecondaryColor = Color(0xFF667085);
   static const textDarkSecondaryColor = Color(0xFF98A2B3);
@@ -24,6 +26,7 @@ class AppColor {
   static const cardItemSelectedTextColor = Color(0xFF008597);
   static const tabsBgColor = Color(0xFFF9FAFB);
   static const tabsBorderColor = Color(0xFFEAECF0);
+  static const skipTextColor = Color(0xFF717171);
 
   static const orange = Color(0xFFFFB800);
   static const blue = Color(0xFF48DEFF);

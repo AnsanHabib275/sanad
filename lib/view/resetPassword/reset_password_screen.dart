@@ -46,6 +46,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 fontFamily: 'Manrope',
               ),
             ),
+            shape: Border(
+              bottom: BorderSide(
+                color: AppColor.searchBarBorderColor,
+                width: 1.0,
+              ),
+            ),
           ),
           extendBody: true,
           extendBodyBehindAppBar: true,

@@ -3,6 +3,7 @@ import 'package:sanad/view/navigation/account/account_screen.dart';
 import 'package:sanad/view/navigation/home/home_screen.dart';
 import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
 import 'package:sanad/view/navigation/payment/payment_screen.dart';
+import 'package:sanad/view/navigation/wallet/wallet_screen.dart';
 import 'package:sanad/viewModels/controller/navigation/navigation_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -56,6 +57,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
         bottomNavigationBar: Obx(() {
           return BottomNavigationBar(
+            elevation: 3,
             showUnselectedLabels: true,
             showSelectedLabels: true,
             type: BottomNavigationBarType.fixed,
@@ -91,53 +93,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
             onTap: _handleNavigationChange,
           );
         }),
-
-        // Container(
-        //   margin: EdgeInsets.only(
-        //     bottom: Get.height * Utils.getResponsiveHeight(44),
-        //     left: Get.height * Utils.getResponsiveHeight(20),
-        //     right: Get.height * Utils.getResponsiveHeight(20),
-        //   ),
-        //   height: Get.height * Utils.getResponsiveHeight(68),
-        //   decoration: BoxDecoration(
-        //     color: AppColor.bottomNavigation,
-        //     borderRadius: BorderRadius.all(Radius.circular(34)),
-        //   ),
-        //   child: Row(
-        //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //     children: [
-        //       _buildNavItem(
-        //         0,
-        //         IconAssets.icBnSearch,
-        //         IconAssets.icBnSearchSelected,
-        //       ),
-        //       _buildNavItem(1, IconAssets.icBnJob, IconAssets.icBnJobSelected),
-        //       _buildNavItem(
-        //         2,
-        //         IconAssets.icBnWallet,
-        //         IconAssets.icBnWalletSelected,
-        //       ),
-        //       _buildNavItem(
-        //         3,
-        //         IconAssets.icBnAccount,
-        //         IconAssets.icBnAccountSelected,
-        //       ),
-        //     ],
-        //   ),
-        // ),
       ),
     );
-  }
-
-  Widget _buildNavItem(int index, String icon, String activeIcon) {
-    return Obx(() {
-      return IconButton(
-        onPressed: () => _handleNavigationChange(index),
-        icon: Image.asset(
-          navigationVM.currentIndex.value == index ? activeIcon : icon,
-        ),
-      );
-    });
   }
 
   void _handleNavigationChange(int index) {
@@ -150,7 +107,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         navigationVM.changeScreen(MyJobsScreen());
         break;
       case 2:
-        navigationVM.changeScreen(PaymentScreen());
+        navigationVM.changeScreen(WalletScreen());
         break;
       case 3:
         navigationVM.changeScreen(AccountScreen());

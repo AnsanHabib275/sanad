@@ -1,9 +1,18 @@
 class ImageAssets {
+  static const String androidIcon = 'assets/images/android_icon.png';
+  static const String androidIconDark = 'assets/images/android_icon_dark.png';
+  static const String iosIcon = 'assets/images/ios_icon.png';
+  static const String iosIconDark = 'assets/images/ios_icon_dark.png';
   static const String appLogoLarge = 'assets/images/app_logo_large.png';
   static const String appLogo = 'assets/images/app_logo.png';
   static const String appLogoSmall = 'assets/images/app_logo_small.png';
   static const String splashBg = 'assets/images/splash_bg.png';
-  static const String bg = 'assets/images/bg.png';
+  static const String onBoardingBg = 'assets/images/on_boarding_bg.png';
+  static const String ob1 = 'assets/images/ob_1.png';
+  static const String ob2 = 'assets/images/ob_2.png';
+  static const String ob3 = 'assets/images/ob_3.png';
+  static const String obPageSelected = 'assets/images/ob_page_selected.png';
+  static const String obPageUnselected = 'assets/images/ob_page_unselected.png';
   static const String imgActiveJobs = 'assets/images/img_active_jobs.png';
   static const String imgAllJobs = 'assets/images/img_all_jobs.png';
   static const String imgAnalyticsGraph =

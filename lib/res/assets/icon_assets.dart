@@ -30,6 +30,8 @@ class IconAssets {
   static const String icMapPin = 'assets/icons/ic_map_pin.png';
   static const String icMyJob = 'assets/icons/ic_my_job.png';
   static const String icNotifications = 'assets/icons/ic_notifications.png';
+  static const String icNotificationsFilled =
+      'assets/icons/ic_notifications_filled.png';
   static const String icPassword = 'assets/icons/ic_password.png';
   static const String icPayment = 'assets/icons/ic_payment.png';
   static const String icPostLogo = 'assets/icons/ic_post_logo.png';

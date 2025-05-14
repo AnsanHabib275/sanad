@@ -1,6 +1,8 @@
 import 'package:sanad/models/jobs/jobs_list_model.dart';
 import 'package:sanad/models/jobs/jobs_model.dart';
+import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/colors/app_color.dart';
+import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/view/navigation/home/widget/input_location_widget.dart';
 import 'package:sanad/view/navigation/home/widget/input_search_widget.dart';
@@ -73,6 +75,25 @@ class _HomeScreenState extends State<HomeScreen> {
             fontFamily: 'Manrope',
             fontWeight: FontWeight.w600,
             fontSize: Get.height * Utils.getResponsiveSize(24),
+          ),
+          actions: [
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(RoutesName.notificationScreen);
+              },
+              child: Image.asset(
+                IconAssets.icNotificationsFilled,
+                height: Get.height * Utils.getResponsiveHeight(24),
+                width: Get.width * Utils.getResponsiveWidth(24),
+              ),
+            ),
+            SizedBox(width: Get.width * Utils.getResponsiveWidth(16)),
+          ],
+          shape: Border(
+            bottom: BorderSide(
+              color: AppColor.searchBarBorderColor,
+              width: 1.0,
+            ),
           ),
         ),
         body: Padding(

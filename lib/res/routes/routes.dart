@@ -1,6 +1,10 @@
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/routes/routes_name.dart';
+import 'package:sanad/view/navigation/account/account_screen.dart';
+import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
+import 'package:sanad/view/navigation/payment/payment_screen.dart';
+import 'package:sanad/view/navigation/wallet/wallet_screen.dart';
 import 'package:sanad/view/selectRole/select_role_screen.dart';
 import 'package:sanad/view/signup/individual/sign_up_individual_screen.dart';
 
@@ -73,6 +77,34 @@ class AppRoutes {
     GetPage(
       name: RoutesName.homeScreen,
       page: () => HomeScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.myJobsScreen,
+      page: () => MyJobsScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.accountScreen,
+      page: () => AccountScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.walletScreen,
+      page: () => WalletScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.paymentsScreen,
+      page: () => PaymentScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
