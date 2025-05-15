@@ -5,7 +5,6 @@ import 'package:sanad/view/resetPassword/widget/input_new_password_widget.dart';
 import 'package:sanad/view/resetPassword/widget/next_button_widget.dart';
 
 import '../../res/assets/icon_assets.dart';
-import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../utils/utils.dart';
 

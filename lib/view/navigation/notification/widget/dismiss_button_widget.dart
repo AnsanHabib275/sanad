@@ -14,8 +14,8 @@ class DismissButtonWidget extends StatelessWidget {
     return RoundButton(
       buttonColor: AppColor.appBarLightBackground,
       textColor: AppColor.textPrimaryColor,
+      fontWeight: FontWeight.w500,
       width: 147,
-      height: 40,
       title: 'dismiss'.tr,
       // loading: deleteAccountVM.loading.value,
       onPress: () {

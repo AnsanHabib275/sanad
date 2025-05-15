@@ -14,22 +14,24 @@ class NextButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RoundButton(
-      title: onBoardingVM.currentPage.value < 2 ? 'next'.tr : 'continue'.tr,
-      onPress: () {
-        if (onBoardingVM.currentPage.value < 2) {
-          pageController.nextPage(
-            duration: const Duration(milliseconds: 100),
-            curve: Curves.linear,
-          );
-        } else {
-          Get.toNamed(RoutesName.loginScreen);
-        }
-        // userVM.saveFirstUse(false).then((value) {
-        //   Get.delete<OnBoardingViewModel>();
-        //   Get.offAllNamed(RoutesName.signUpScreen);
-        // });
-      },
-    );
+    return Obx(() {
+      return RoundButton(
+        title: onBoardingVM.currentPage.value <= 1 ? 'next'.tr : 'continue'.tr,
+        onPress: () {
+          if (onBoardingVM.currentPage.value < 2) {
+            pageController.nextPage(
+              duration: const Duration(milliseconds: 100),
+              curve: Curves.linear,
+            );
+          } else {
+            Get.toNamed(RoutesName.loginScreen);
+          }
+          // userVM.saveFirstUse(false).then((value) {
+          //   Get.delete<OnBoardingViewModel>();
+          //   Get.offAllNamed(RoutesName.signUpScreen);
+          // });
+        },
+      );
+    });
   }
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:sanad/models/jobs/jobs_list_model.dart';
-import 'package:sanad/repository/jobRepository/jobs_repository.dart';
+import 'package:sanad/models/home/jobs_list_model.dart';
+import 'package:sanad/repository/myJobsRepository/my_jobs_repository.dart';
 import '../../../../data/response/status.dart';
 
 class MyJobsViewModel extends GetxController {
-  final _api = JobsRepository();
+  final _api = MyJobsRepository();
 
   final rxRequestStatus = Status.loading.obs;
   var jobsDataList = <Jobs>[].obs;
@@ -25,11 +25,11 @@ class MyJobsViewModel extends GetxController {
     selectedTab.value = tabText;
   }
 
-  Future<void> jobsListApi() async {
+  Future<void> myJobsListApi() async {
     try {
       loading.value = true;
       error.value = '';
-      final result = await _api.jobsListApi();
+      final result = await _api.myJobsListApi();
       final jobsHistory = JobsListModel.fromJson(result);
 
       if (jobsHistory.isSuccessfull == true) {

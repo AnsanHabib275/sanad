@@ -1,0 +1,222 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
+import 'package:sanad/view/navigation/rateUs/widget/input_message_widget.dart';
+import 'package:sanad/view/navigation/rateUs/widget/submit_button_widget.dart';
+import 'package:sanad/viewModels/controller/navigation/rateUs/rate_us_view_model.dart';
+
+import '../../../res/assets/icon_assets.dart';
+import '../../../res/colors/app_color.dart';
+import '../../../utils/utils.dart';
+
+class RateUsScreen extends StatefulWidget {
+  const RateUsScreen({super.key});
+
+  @override
+  State<RateUsScreen> createState() => _RateUsScreenState();
+}
+
+class _RateUsScreenState extends State<RateUsScreen> {
+  final rateUsVM = Get.put(RateUsViewModel());
+  final formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+          backgroundColor: AppColor.whiteColor,
+          appBar: AppBar(
+            backgroundColor: AppColor.whiteColor,
+            centerTitle: true,
+            title: Text('rate_us'.tr),
+            titleTextStyle: TextStyle(
+              color: AppColor.textPrimaryColor,
+              fontFamily: 'Manrope',
+              fontWeight: FontWeight.w600,
+              fontSize: Get.height * Utils.getResponsiveSize(24),
+            ),
+            shape: Border(
+              bottom: BorderSide(
+                color: AppColor.searchBarBorderColor,
+                width: 1.0,
+              ),
+            ),
+          ),
+          body: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: Get.width * Utils.getResponsiveWidth(16),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColor.whiteColor,
+                      border: Border.all(
+                        color: AppColor.searchBarBorderColor,
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        Get.height * Utils.getResponsiveSize(12),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(16),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal:
+                                Get.width * Utils.getResponsiveWidth(16),
+                          ),
+                          child: Text(
+                            'rate_us_dot'.tr,
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              color: AppColor.textPrimaryColor,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(16),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(4),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal:
+                                Get.width * Utils.getResponsiveWidth(16),
+                          ),
+                          child: Text(
+                            'rate_us_and_write_your_feedback'.tr,
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              color: AppColor.textSecondaryColor,
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(12),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(16),
+                        ),
+                        Divider(
+                          color: AppColor.searchBarBorderColor,
+                          height: Get.height * Utils.getResponsiveHeight(1),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(16),
+                        ),
+                        Form(
+                          key: formKey,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(16),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'your_message'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color: AppColor.textPrimaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(12),
+                                ),
+                                InputMessageWidget(),
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(12),
+                                ),
+                                Text(
+                                  'write_your_feedback_and_remarks'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color: AppColor.textBodyColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(12),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(16),
+                        ),
+                        Divider(
+                          color: AppColor.searchBarBorderColor,
+                          height: Get.height * Utils.getResponsiveHeight(1),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(16),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: RatingBar.builder(
+                            initialRating: rateUsVM.rating.value,
+                            minRating: 0,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            itemCount: 5,
+                            itemSize: Get.height * Utils.getResponsiveSize(24),
+                            itemPadding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(3),
+                            ),
+                            itemBuilder:
+                                (context, _) => Image.asset(
+                                  IconAssets.icRating,
+                                  color: Colors.amber,
+                                ),
+                            onRatingUpdate:
+                                (rating) => rateUsVM.rating.value = rating,
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(16),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  SubmitButtonWidget(formKey: formKey),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(20)),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

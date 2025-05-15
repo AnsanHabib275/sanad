@@ -16,7 +16,8 @@ class IconAssets {
   static const String icBnSearchSelected =
       'assets/icons/ic_bn_search_selected.png';
   static const String icBnWallet = 'assets/icons/ic_bn_wallet.png';
-  static const String icBnWalletSelected = 'assets/icons/ic_bn_wallet.png';
+  static const String icBnWalletSelected =
+      'assets/icons/ic_bn_wallet_selected.png';
   static const String icBookmark = 'assets/icons/ic_bookmark.png';
   static const String icCheckCircleSelected =
       'assets/icons/ic_check_circle_selected.png';
@@ -50,4 +51,7 @@ class IconAssets {
       'assets/icons/ic_password_visible.png';
   static const String icInvisiblePassword =
       'assets/icons/ic_password_invisible.png';
+  static const String icRating = 'assets/icons/ic_rating.png';
+  static const String icRecentTransactions =
+      'assets/icons/ic_recent_transactions.png';
 }

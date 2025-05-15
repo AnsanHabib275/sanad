@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/routes/routes_name.dart';
+import 'package:sanad/view/navigation/account/widget/no_button_widget.dart'
+    show NoButtonWidget;
+import 'package:sanad/view/navigation/account/widget/yes_button_widget.dart';
 import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
 
 import '../../../res/assets/image_assets.dart';
@@ -295,6 +298,9 @@ class _AccountScreenState extends State<AccountScreen> {
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
+                        onTap: () {
+                          Get.toNamed(RoutesName.transactionsScreen);
+                        },
                       ),
                       ListTile(
                         minTileHeight:
@@ -365,6 +371,9 @@ class _AccountScreenState extends State<AccountScreen> {
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
+                        onTap: () {
+                          Get.toNamed(RoutesName.rateUsScreen);
+                        },
                       ),
 
                       ListTile(
@@ -384,6 +393,9 @@ class _AccountScreenState extends State<AccountScreen> {
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
+                        onTap: () {
+                          Get.toNamed(RoutesName.aboutScreen);
+                        },
                       ),
                       ListTile(
                         minTileHeight:
@@ -420,12 +432,87 @@ class _AccountScreenState extends State<AccountScreen> {
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
+                        onTap: () {
+                          showLogoutDialog();
+                        },
                       ),
                     ],
                   ),
                 ),
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(120)),
               ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void showLogoutDialog() {
+    Get.dialog(
+      MediaQuery(
+        data: MediaQuery.of(
+          context,
+        ).copyWith(textScaler: TextScaler.linear(1.0)),
+        child: Dialog(
+          backgroundColor: AppColor.whiteColor,
+          elevation: 4,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              Get.height * Utils.getResponsiveSize(12),
+            ),
+          ),
+          child: SizedBox(
+            height: Get.height * Utils.getResponsiveHeight(250),
+            width: Get.width * Utils.getResponsiveWidth(400),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(24),
+                vertical: Get.height * Utils.getResponsiveHeight(24),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    height: Get.height * Utils.getResponsiveHeight(61),
+                    width: Get.width * Utils.getResponsiveWidth(61),
+                    ImageAssets.imgSignOut,
+                  ),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(13)),
+                  Text(
+                    'sign_out_dash'.tr,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: Get.height * Utils.getResponsiveSize(18),
+                      fontFamily: 'Manrope',
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.textPrimaryColor,
+                    ),
+                  ),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
+                  Text(
+                    'confirm_sign_out'.tr,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: Get.height * Utils.getResponsiveSize(14),
+                      fontFamily: 'Manrope',
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.textBodyColor,
+                    ),
+                  ),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(32)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(child: YesButtonWidget()),
+                      SizedBox(width: Get.width * Utils.getResponsiveWidth(12)),
+                      Expanded(child: NoButtonWidget()),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

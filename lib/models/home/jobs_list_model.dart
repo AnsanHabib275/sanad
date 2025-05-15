@@ -10,8 +10,8 @@ class JobsListModel {
       isSuccessfull: json["IsSuccessfull"],
       message: json["message"],
       jobs:
-          json["jobs"] != null
-              ? List<Jobs>.from(json["jobs"].map((x) => Jobs.fromJson(x)))
+          json["myJobs"] != null
+              ? List<Jobs>.from(json["myJobs"].map((x) => Jobs.fromJson(x)))
               : [],
     );
   }

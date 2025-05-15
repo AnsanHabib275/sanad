@@ -18,12 +18,12 @@ class InputNoteWidget extends StatelessWidget {
         focusNode: signUpVM.noteFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        // validator: (value) {
-        //   if (value == null || value.isEmpty) {
-        //     return 'name_cannot_be_blank'.tr;
-        //   }
-        //   return null;
-        // },
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'note_cannot_be_blank'.tr;
+          }
+          return null;
+        },
         style: TextStyle(
           color: AppColor.textPrimaryColor,
           fontSize: Get.height * Utils.getResponsiveSize(14),
@@ -88,10 +88,9 @@ class InputNoteWidget extends StatelessWidget {
             borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
           ),
         ),
-        keyboardType: TextInputType.text,
-        minLines: 1,
+        keyboardType: TextInputType.multiline,
+        minLines: null,
         maxLines: null,
-        textInputAction: TextInputAction.done,
       );
     });
   }

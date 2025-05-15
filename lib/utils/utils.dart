@@ -83,7 +83,7 @@ class Utils {
   static hideKeyboardGlobally() {
     final isKeyboardOpen = MediaQuery.of(Get.context!).viewInsets.bottom > 0;
     if (isKeyboardOpen) {
-      FocusManager.instance.primaryFocus?.unfocus();
+      // FocusManager.instance.primaryFocus?.unfocus();
     }
   }
 }

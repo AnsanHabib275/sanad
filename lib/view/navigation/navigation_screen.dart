@@ -1,8 +1,7 @@
-import 'package:sanad/utils/utils.dart';
+import 'package:flutter/services.dart';
 import 'package:sanad/view/navigation/account/account_screen.dart';
 import 'package:sanad/view/navigation/home/home_screen.dart';
 import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
-import 'package:sanad/view/navigation/payment/payment_screen.dart';
 import 'package:sanad/view/navigation/wallet/wallet_screen.dart';
 import 'package:sanad/viewModels/controller/navigation/navigation_view_model.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,6 @@ import '../../res/assets/icon_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../viewModels/controller/navigation/notification/notification_view_model.dart';
 import '../../viewModels/controller/userPreference/user_preference_view_model.dart';
-// import '../../viewModels/services/notification_services.dart';
 
 class NavigationScreen extends StatefulWidget {
   final int initialIndex;
@@ -44,55 +42,64 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      child: Scaffold(
-        extendBody: true,
-        body: Obx(() {
-          // if (userVM.userEid.value.isEmpty) {
-          //   return Center(child: CircularProgressIndicator());
-          // }
-          return navigationVM.currentScreen.value ?? SizedBox();
-        }),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        systemNavigationBarColor: Theme.of(context).scaffoldBackgroundColor,
+        systemNavigationBarIconBrightness:
+            Theme.of(context).brightness == Brightness.dark
+                ? Brightness.light
+                : Brightness.dark,
+      ),
+      child: PopScope(
+        canPop: false,
+        child: Scaffold(
+          extendBody: true,
+          body: Obx(() {
+            // if (userVM.userEid.value.isEmpty) {
+            //   return Center(child: CircularProgressIndicator());
+            // }
+            return navigationVM.currentScreen.value ?? SizedBox();
+          }),
 
-        bottomNavigationBar: Obx(() {
-          return BottomNavigationBar(
-            elevation: 3,
-            showUnselectedLabels: true,
-            showSelectedLabels: true,
-            type: BottomNavigationBarType.fixed,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.icBnSearch),
-                activeIcon: Image.asset(IconAssets.icBnSearchSelected),
-                label: 'find_jobs'.tr,
+          bottomNavigationBar: Obx(() {
+            return BottomNavigationBar(
+              elevation: 3,
+              showUnselectedLabels: true,
+              showSelectedLabels: true,
+              type: BottomNavigationBarType.fixed,
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Image.asset(IconAssets.icBnSearch),
+                  activeIcon: Image.asset(IconAssets.icBnSearchSelected),
+                  label: 'find_jobs'.tr,
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(IconAssets.icBnJob),
+                  activeIcon: Image.asset(IconAssets.icBnJobSelected),
+                  label: 'my_jobs'.tr,
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(IconAssets.icBnWallet),
+                  activeIcon: Image.asset(IconAssets.icBnWalletSelected),
+                  label: 'wallet'.tr,
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(IconAssets.icBnAccount),
+                  activeIcon: Image.asset(IconAssets.icBnAccountSelected),
+                  label: 'account'.tr,
+                ),
+              ],
+              currentIndex: navigationVM.currentIndex.value,
+              selectedItemColor: AppColor.selectedBnColor,
+              selectedIconTheme: IconThemeData(color: AppColor.selectedBnColor),
+              unselectedIconTheme: IconThemeData(
+                color: AppColor.unselectedBnColor,
               ),
-              BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.icBnJob),
-                activeIcon: Image.asset(IconAssets.icBnJobSelected),
-                label: 'my_jobs'.tr,
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.icBnWallet),
-                activeIcon: Image.asset(IconAssets.icBnWalletSelected),
-                label: 'wallet'.tr,
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset(IconAssets.icBnAccount),
-                activeIcon: Image.asset(IconAssets.icBnAccountSelected),
-                label: 'account'.tr,
-              ),
-            ],
-            currentIndex: navigationVM.currentIndex.value,
-            selectedItemColor: AppColor.selectedBnColor,
-            selectedIconTheme: IconThemeData(color: AppColor.selectedBnColor),
-            unselectedIconTheme: IconThemeData(
-              color: AppColor.unselectedBnColor,
-            ),
-            unselectedItemColor: AppColor.unselectedBnColor,
-            onTap: _handleNavigationChange,
-          );
-        }),
+              unselectedItemColor: AppColor.unselectedBnColor,
+              onTap: _handleNavigationChange,
+            );
+          }),
+        ),
       ),
     );
   }

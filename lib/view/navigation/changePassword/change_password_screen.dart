@@ -5,7 +5,6 @@ import 'package:sanad/view/navigation/changePassword/widget/input_old_password_w
 import 'package:sanad/view/navigation/changePassword/widget/update_password_button_widget.dart';
 
 import '../../../res/assets/icon_assets.dart';
-import '../../../res/assets/image_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
 import '../navigation_screen.dart';

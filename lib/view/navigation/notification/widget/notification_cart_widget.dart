@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/models/notification/notifications_model.dart';
-import 'package:sanad/res/urls/app_url.dart';
 import 'package:sanad/view/navigation/notification/widget/dismiss_button_widget.dart';
 import 'package:sanad/view/navigation/notification/widget/dismiss_large_button_widget.dart';
 import 'package:sanad/view/navigation/notification/widget/submit_button_widget.dart';
-import '../../../../models/notification/notification_list_model.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
@@ -106,7 +104,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                         padding: EdgeInsets.only(
                           top: Get.height * Utils.getResponsiveHeight(12),
                         ),
-                        child: Expanded(child: DismissLargeButtonWidget()),
+                        child: DismissLargeButtonWidget(),
                       )
                       : SizedBox(),
                 ],

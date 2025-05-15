@@ -19,4 +19,7 @@ class RoutesName {
   static const String changePasswordScreen = '/change_password_screen';
   static const String otpScreen = '/otp_screen';
   static const String paymentsScreen = '/payments_screen';
+  static const String rateUsScreen = '/rate_us_screen';
+  static const String aboutScreen = '/about_screen';
+  static const String transactionsScreen = '/transactions_screen';
 }

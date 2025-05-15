@@ -27,6 +27,10 @@ class AppColor {
   static const tabsBgColor = Color(0xFFF9FAFB);
   static const tabsBorderColor = Color(0xFFEAECF0);
   static const skipTextColor = Color(0xFF717171);
+  static const successTextColor = Color(0xFF00BB65);
+  static const successBgColor = Color(0xFFD7FFEC);
+  static const indigoTextColor = Color(0xFF42389D);
+  static const indigoBgColor = Color(0xFFE5EDFF);
 
   static const orange = Color(0xFFFFB800);
   static const blue = Color(0xFF48DEFF);

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:sanad/models/jobs/jobs_list_model.dart';
-import 'package:sanad/repository/jobRepository/jobs_repository.dart';
+import 'package:sanad/models/home/jobs_list_model.dart';
+import 'package:sanad/repository/transactionsRepository/transactions_repository.dart';
 import '../../../../data/response/status.dart';
 
-class JobsViewModel extends GetxController {
-  final _api = JobsRepository();
+class TransactionsViewModel extends GetxController {
+  final _api = TransactionsRepository();
 
   final rxRequestStatus = Status.loading.obs;
   var jobsDataList = <Jobs>[].obs;
@@ -20,11 +20,11 @@ class JobsViewModel extends GetxController {
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
   void setError(String value) => error.value = value;
 
-  Future<void> jobsListApi() async {
+  Future<void> transactionsListApi() async {
     try {
       loading.value = true;
       error.value = '';
-      final result = await _api.jobsListApi();
+      final result = await _api.transactionsListApi();
       final jobsHistory = JobsListModel.fromJson(result);
 
       if (jobsHistory.isSuccessfull == true) {
@@ -65,7 +65,7 @@ class JobsViewModel extends GetxController {
 
   @override
   void dispose() {
-    Get.delete<JobsViewModel>();
+    Get.delete<TransactionsViewModel>();
     super.dispose();
   }
 }

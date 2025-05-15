@@ -24,4 +24,9 @@ class ImageAssets {
   static const String imgRiyalWallet = 'assets/images/img_riyal_wallet.png';
   static const String imgSuccessFull = 'assets/images/img_success_full.png';
   static const String imgResetDone = 'assets/images/img_reset_done.png';
+  static const String imgEmptyTransactions =
+      'assets/images/img_empty_transactions.png';
+  static const String imgSignOut = 'assets/images/img_sign_out.png';
+  static const String imgTransactionDownload =
+      'assets/images/img_transaction_download.png';
 }

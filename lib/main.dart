@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:path/path.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/localization/languages.dart';
 import 'package:sanad/res/routes/routes.dart';
@@ -9,7 +8,7 @@ import 'package:sanad/res/routes/routes_name.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  FocusManager.instance.primaryFocus?.unfocus();
+  // FocusManager.instance.primaryFocus?.unfocus();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -18,11 +17,6 @@ void main() {
       systemNavigationBarIconBrightness: Brightness.dark,
       systemNavigationBarContrastEnforced: false,
       systemNavigationBarDividerColor: Colors.transparent,
-      // systemNavigationBarColor: Theme.of(context).primaryColor,
-      //  systemNavigationBarIconBrightness:
-      //  Theme.of(context).brightness == Brightness.dark
-      //      ? Brightness.light
-      //      : Brightness.dark,
     ),
   );
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -68,7 +62,8 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      initialRoute: RoutesName.splashScreen,
+      // initialRoute: RoutesName.splashScreen,
+      initialRoute: RoutesName.navigationScreen,
       getPages: AppRoutes.appRoutes(),
     );
   }

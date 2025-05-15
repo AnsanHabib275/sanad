@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
-import 'package:sanad/viewModels/controller/navigation/home/jobs_view_model.dart';
+import 'package:sanad/viewModels/controller/navigation/home/home_view_model.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 
@@ -9,7 +9,7 @@ class InputSearchWidget extends StatelessWidget {
   final Function(String) onSearch;
 
   InputSearchWidget({super.key, required this.onSearch});
-  final jobsVM = Get.put(JobsViewModel());
+  final jobsVM = Get.put(HomeViewModel());
   @override
   Widget build(BuildContext context) {
     // return Obx(() {
@@ -27,7 +27,7 @@ class InputSearchWidget extends StatelessWidget {
           fontWeight: FontWeight.w400,
         ),
       ),
-      hintText: 'search_hint'.tr,
+      hintText: 'search_home_hint'.tr,
       hintStyle: WidgetStateProperty.all(
         TextStyle(
           color: AppColor.darkGrey,

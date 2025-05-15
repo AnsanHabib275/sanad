@@ -1,5 +1,3 @@
-import 'package:sanad/models/jobs/jobs_list_model.dart';
-import 'package:sanad/models/jobs/jobs_model.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/routes/routes_name.dart';
@@ -9,8 +7,9 @@ import 'package:sanad/view/navigation/home/widget/input_search_widget.dart';
 import 'package:sanad/view/navigation/home/widget/jobs_cart_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/viewModels/controller/navigation/home/jobs_view_model.dart';
-import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
+import 'package:sanad/viewModels/controller/navigation/home/home_view_model.dart';
+
+import '../../../models/home/jobs_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,7 +19,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final jobsVM = Get.put(JobsViewModel());
+  final jobsVM = Get.put(HomeViewModel());
   final List<JobsModel> jobsItems = [
     JobsModel(
       1,

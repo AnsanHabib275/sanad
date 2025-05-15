@@ -17,5 +17,8 @@ class AppUrl {
       "$baseUrl/api/MarkNotificationViewed/";
   static String chatListUrl = "$baseUrl/api/History/";
   static String sendMessageUrl = "$baseUrl/api/SendFromUser/";
-  static String jobsUrl = "$baseUrl/api/SendFromUser/";
+  static String jobsUrl = "$baseUrl/api/Jobs/";
+  static String myJobsUrl = "$baseUrl/api/MyJobs/";
+  static String rateUsUrl = "$baseUrl/api/RateUs/";
+  static String transactionsUrl = "$baseUrl/api/Transactions/";
 }

@@ -4,7 +4,6 @@ import 'package:sanad/viewModels/controller/navigation/notification/notification
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../res/assets/icon_assets.dart';
-import '../../../res/assets/image_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
 
@@ -73,20 +72,21 @@ class _NotificationScreenState extends State<NotificationScreen> {
               fontFamily: 'Manrope',
             ),
           ),
-          shape: Border(
-            bottom: BorderSide(
-              color: AppColor.searchBarBorderColor,
-              width: 1.0,
-            ),
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(1.0),
+            child: Container(color: AppColor.searchBarBorderColor, height: 1.0),
           ),
+          // shape: Border(
+          //   bottom: BorderSide(color: AppColor.searchBarBorderColor, width: 1.0),
+          // ),
         ),
-        extendBody: true,
-        extendBodyBehindAppBar: true,
         body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: Get.width * Utils.getResponsiveWidth(16),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
               Expanded(
@@ -106,84 +106,6 @@ class _NotificationScreenState extends State<NotificationScreen> {
               ),
             ],
           ),
-          // child: Obx(() {
-          //   // if (notificationVM.loading.value) {
-          //   //   return const Center(child: CircularProgressIndicator());
-          //   // }
-          //   //
-          //   // if (notificationVM.notificationDataList.isEmpty) {
-          //   //   return Center(child: Text('no_notification'.tr));
-          //   // }
-          //   return ListView.builder(
-          //     itemCount: notificationsItems.length,
-          //     itemBuilder: (context, index) {
-          //       return NotificationCartWidget(
-          //         notifications: notificationsItems[index],
-          //       );
-          //     },
-          //   );
-          //
-          //   // return ListView(
-          //   //   children:
-          //   //       notificationVM.groupedNotificationsList.entries
-          //   //           .where((entry) => entry.value.isNotEmpty)
-          //   //           .map(
-          //   //             (entry) => Column(
-          //   //               crossAxisAlignment: CrossAxisAlignment.start,
-          //   //               children: [
-          //   //                 SizedBox(
-          //   //                   height:
-          //   //                       Get.height * Utils.getResponsiveHeight(10),
-          //   //                 ),
-          //   //                 Text(
-          //   //                   entry.key,
-          //   //                   style: TextStyle(
-          //   //                     color: AppColor.darkGrey,
-          //   //                     fontSize:
-          //   //                         Get.height * Utils.getResponsiveSize(14),
-          //   //                     fontWeight: FontWeight.w600,
-          //   //                     fontFamily: 'Manrope',
-          //   //                   ),
-          //   //                 ),
-          //   //                 SizedBox(
-          //   //                   height:
-          //   //                       Get.height * Utils.getResponsiveHeight(10),
-          //   //                 ),
-          //   //                 ...entry.value.map(
-          //   //                   (notification) => Padding(
-          //   //                     padding: EdgeInsets.only(
-          //   //                       bottom:
-          //   //                           Get.height *
-          //   //                           Utils.getResponsiveHeight(10),
-          //   //                     ),
-          //   //                     child: NotificationCartWidget(
-          //   //                       notifications: notification,
-          //   //                     ),
-          //   //                   ),
-          //   //                 ),
-          //   //               ],
-          //   //             ),
-          //   //           )
-          //   //           .toList(),
-          //   // );
-          //
-          //   // return StreamBuilder<List<Notifications>>(
-          //   //   stream: notificationVM.notifications,
-          //   //   builder: (context, snapshot) {
-          //   //     // if (snapshot.hasData) {
-          //   //     return ListView.builder(
-          //   //       itemCount: snapshot.data!.length,
-          //   //       itemBuilder: (context, index) {
-          //   //         return NotificationCartWidget(
-          //   //           notifications: snapshot.data![index],
-          //   //         );
-          //   //       },
-          //   //     );
-          //   //     // }
-          //   //     // return const Center(child: CircularProgressIndicator());
-          //   //   },
-          //   // );
-          // }),
         ),
       ),
     );

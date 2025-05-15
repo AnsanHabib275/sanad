@@ -1,4 +1,3 @@
-import 'package:sanad/res/assets/image_assets.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/view/otp/widget/input_otp_widget.dart';

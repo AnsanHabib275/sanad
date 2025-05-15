@@ -9,7 +9,6 @@ import 'package:sanad/viewModels/controller/onBoarding/onboarding_view_model.dar
 import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
 import '../../models/onBoarding/on_boarding_list_model.dart';
 import '../../res/colors/app_color.dart';
-import '../../res/routes/routes_name.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -158,14 +157,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                       padding: EdgeInsets.symmetric(
                         horizontal: Get.width * Utils.getResponsiveWidth(32),
                       ),
-                      child: NextButtonWidget(
-                        pageController: _pageController,
-                        // buttonText:
-                        //     onBoardingVM.currentPage.value ==
-                        //             tutorialPages.length
-                        //         ? 'continue'.tr
-                        //         : 'next'.tr,
-                      ),
+                      child: NextButtonWidget(pageController: _pageController),
                     ),
                     SizedBox(
                       height: Get.height * Utils.getResponsiveHeight(70),

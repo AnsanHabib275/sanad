@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/models/jobs/jobs_list_model.dart';
-import 'package:sanad/models/jobs/jobs_model.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
-import 'package:sanad/viewModels/controller/navigation/home/jobs_view_model.dart';
-import '../../../../models/jobs/my_jobs_model.dart';
+import '../../../../models/myJobs/my_jobs_model.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 
@@ -20,7 +17,6 @@ class MyJobsCartWidget extends StatefulWidget {
 class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
   @override
   Widget build(BuildContext context) {
-    final jobsVM = Get.find<JobsViewModel>();
     return SizedBox(
       width: double.infinity,
       // child: Obx(() {
@@ -71,7 +67,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                         vertical: Get.height * Utils.getResponsiveHeight(2),
                       ),
                       child: Text(
-                        widget.myJobs.isPrivate!
+                        widget.myJobs.isPrivate
                             ? 'private_job'.tr
                             : 'public_job'.tr,
                         style: TextStyle(
