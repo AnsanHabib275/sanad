@@ -75,7 +75,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(16),
+                      height: Get.height * Utils.getResponsiveHeight(32),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -104,7 +104,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                       ],
                     ),
                     SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(57),
+                      height: Get.height * Utils.getResponsiveHeight(40),
                     ),
                     Expanded(
                       child: PageView.builder(

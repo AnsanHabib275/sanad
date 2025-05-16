@@ -110,8 +110,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpOneController.value,
@@ -121,8 +122,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpTwoController.value,
@@ -132,8 +134,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpThreeController.value,
@@ -144,8 +147,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpFourController.value,
@@ -155,8 +159,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpFiveController.value,
@@ -166,8 +171,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpSixController.value,

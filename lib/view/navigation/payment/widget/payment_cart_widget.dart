@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/models/payment/payment_model.dart';
 import 'package:sanad/models/transactions/transactions_model.dart';
 import 'package:sanad/res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 
-class TransactionsCartWidget extends StatefulWidget {
-  final TransactionsModel transaction;
+class PaymentCartWidget extends StatefulWidget {
+  final PaymentModel payment;
 
-  const TransactionsCartWidget({super.key, required this.transaction});
+  const PaymentCartWidget({super.key, required this.payment});
 
   @override
-  State<TransactionsCartWidget> createState() => _TransactionsCartWidgetState();
+  State<PaymentCartWidget> createState() => _PaymentCartWidgetState();
 }
 
-class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
+class _PaymentCartWidgetState extends State<PaymentCartWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,7 +37,7 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                   vertical: Get.height * Utils.getResponsiveHeight(16),
                 ),
                 child: Text(
-                  widget.transaction.paymentID,
+                  widget.payment.paymentID,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: AppColor.textPrimaryColor,
@@ -57,7 +58,7 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                   vertical: Get.height * Utils.getResponsiveHeight(16),
                 ),
                 child: Text(
-                  widget.transaction.amount,
+                  widget.payment.amount,
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     color: AppColor.textPrimaryColor,
@@ -80,9 +81,11 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                 child: Container(
                   decoration: BoxDecoration(
                     color:
-                        widget.transaction.paymentMethod == 'Card'
+                        widget.payment.status == 'Expired'
+                            ? AppColor.errorBgColor
+                            : widget.payment.status == 'Hired'
                             ? AppColor.successBgColor
-                            : AppColor.indigoBgColor,
+                            : AppColor.runningBgColor,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(6),
@@ -95,15 +98,17 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                       vertical: Get.height * Utils.getResponsiveHeight(2),
                     ),
                     child: Text(
-                      widget.transaction.paymentMethod,
+                      widget.payment.status,
                       style: TextStyle(
                         fontSize: Get.height * Utils.getResponsiveSize(12),
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w500,
                         color:
-                            widget.transaction.paymentMethod == 'Card'
+                            widget.payment.status == 'Expired'
+                                ? AppColor.errorTextColor
+                                : widget.payment.status == 'Hired'
                                 ? AppColor.successTextColor
-                                : AppColor.indigoTextColor,
+                                : AppColor.runningTextColor,
                       ),
                     ),
                   ),

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/view/navigation/about/about_screen.dart';
 import 'package:sanad/view/navigation/account/account_screen.dart';
+import 'package:sanad/view/navigation/help/help_screen.dart';
 import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
 import 'package:sanad/view/navigation/payment/payment_screen.dart';
 import 'package:sanad/view/navigation/rateUs/rate_us_screen.dart';
@@ -196,6 +197,13 @@ class AppRoutes {
     GetPage(
       name: RoutesName.transactionsScreen,
       page: () => TransactionsScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.helpScreen,
+      page: () => HelpScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,

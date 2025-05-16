@@ -414,6 +414,9 @@ class _AccountScreenState extends State<AccountScreen> {
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
+                        onTap: () {
+                          Get.toNamed(RoutesName.helpScreen);
+                        },
                       ),
                       ListTile(
                         minTileHeight:
@@ -485,20 +488,22 @@ class _AccountScreenState extends State<AccountScreen> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: Get.height * Utils.getResponsiveSize(18),
-                      fontFamily: 'Manrope',
+                      fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
                       color: AppColor.textPrimaryColor,
                     ),
                   ),
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
-                  Text(
-                    'confirm_sign_out'.tr,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: Get.height * Utils.getResponsiveSize(14),
-                      fontFamily: 'Manrope',
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.textBodyColor,
+                  FittedBox(
+                    child: Text(
+                      'confirm_sign_out'.tr,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: Get.height * Utils.getResponsiveSize(14),
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.textBodyColor,
+                      ),
                     ),
                   ),
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(32)),

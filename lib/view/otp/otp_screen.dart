@@ -112,8 +112,9 @@ class _OTPScreenState extends State<OTPScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 eID: eID,
                                 controller: otpVM.otpOneController.value,
@@ -122,8 +123,9 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 eID: eID,
                                 controller: otpVM.otpTwoController.value,
@@ -132,8 +134,9 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 eID: eID,
                                 controller: otpVM.otpThreeController.value,
@@ -142,8 +145,9 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 eID: eID,
                                 controller: otpVM.otpFourController.value,
@@ -152,8 +156,9 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 eID: eID,
                                 controller: otpVM.otpFiveController.value,
@@ -162,8 +167,9 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: 55,
-                              height: 55,
+                              width: Get.width * Utils.getResponsiveWidth(55),
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 eID: eID,
                                 controller: otpVM.otpSixController.value,

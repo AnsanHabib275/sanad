@@ -33,7 +33,7 @@ class Languages extends Translations {
       'join_as_an_individual': 'Join as an individual',
       'password_at_least': 'Password (6+ characters)',
       'by_clicking_agree_join_or_continue_you_agree_to_the_linkedIn':
-          'By clicking Agree & Join or Continue, you agree to the LinkedIn ',
+          'By clicking Agree & Join or Continue, you agree to the\nLinkedIn ',
       'user_agreement': 'User Agreement',
       'privacy_policy': 'Privacy Policy',
       'and': ', and , ',
@@ -146,6 +146,15 @@ class Languages extends Translations {
       'amount': 'Amount',
       'payment_method': 'Payment Method',
       'action': 'Action',
+      'yes': 'Yes',
+      'no': 'No',
+      'help_title': 'This Help Is Here for  Lorem ipsum sit',
+      'help_description':
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.',
+      'payment_history': 'Payment History',
+      'track_your_list_of_payment_here': 'Track your list of payments here',
+      'payment_capital': 'PAYMENT',
+      'status': 'Status',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

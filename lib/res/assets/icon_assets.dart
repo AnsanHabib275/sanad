@@ -54,4 +54,5 @@ class IconAssets {
   static const String icRating = 'assets/icons/ic_rating.png';
   static const String icRecentTransactions =
       'assets/icons/ic_recent_transactions.png';
+  static const String icHelpArrow = 'assets/icons/ic_help_arrow.png';
 }

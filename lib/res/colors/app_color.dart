@@ -31,6 +31,10 @@ class AppColor {
   static const successBgColor = Color(0xFFD7FFEC);
   static const indigoTextColor = Color(0xFF42389D);
   static const indigoBgColor = Color(0xFFE5EDFF);
+  static const errorTextColor = Color(0xFFD92D20);
+  static const errorBgColor = Color(0xFFFDE8E8);
+  static const runningTextColor = Color(0xFF723B13);
+  static const runningBgColor = Color(0xFFFDF6B2);
 
   static const orange = Color(0xFFFFB800);
   static const blue = Color(0xFF48DEFF);

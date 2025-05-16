@@ -116,6 +116,7 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                       Align(
                         alignment: Alignment.center,
                         child: RichText(
+                          textAlign: TextAlign.center,
                           text: TextSpan(
                             children: [
                               TextSpan(

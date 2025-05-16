@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/viewModels/controller/navigation/transactions/transactions_view_model.dart';
-import '../../../../res/colors/app_color.dart';
-import '../../../../utils/utils.dart';
+
+import 'package:sanad/res/colors/app_color.dart';
+import 'package:sanad/utils/utils.dart';
 
 class InputSearchWidget extends StatelessWidget {
   final Function(String) onSearch;

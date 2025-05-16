@@ -22,4 +22,5 @@ class RoutesName {
   static const String rateUsScreen = '/rate_us_screen';
   static const String aboutScreen = '/about_screen';
   static const String transactionsScreen = '/transactions_screen';
+  static const String helpScreen = '/help_screen';
 }

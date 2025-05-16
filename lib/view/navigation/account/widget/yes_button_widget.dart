@@ -17,11 +17,12 @@ class YesButtonWidget extends StatelessWidget {
       textColor: AppColor.textPrimaryColor,
       fontWeight: FontWeight.w500,
       width: 170,
+      height: 40,
       title: 'yes'.tr,
       onPress: () {
         Get.back();
         // userVM.removeUser();
-        // Get.offAllNamed(RoutesName.loginScreen);
+        Get.offAllNamed(RoutesName.loginScreen);
       },
     );
   }

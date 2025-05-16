@@ -17,12 +17,12 @@ class TransactionsScreen extends StatefulWidget {
 class _TransactionsScreenState extends State<TransactionsScreen> {
   final transactionsVM = Get.put(TransactionsViewModel());
   final List<TransactionsModel> transactionsItems = [
-    TransactionsModel(1, 'P-ID-001', '2300', 'Card'),
-    TransactionsModel(2, 'P-ID-002', '670', 'Wallet'),
-    TransactionsModel(3, 'P-ID-003', '234', 'Wallet'),
-    TransactionsModel(4, 'P-ID-004', '5000', 'Card'),
-    TransactionsModel(5, 'P-ID-005', '2300', 'Wallet'),
-    TransactionsModel(6, 'P-ID-006', '560', 'Card'),
+    TransactionsModel(1, 'P-ID-001', '\$2300', 'Card'),
+    TransactionsModel(2, 'P-ID-002', '-\$670', 'Wallet'),
+    TransactionsModel(3, 'P-ID-003', '\$234', 'Wallet'),
+    TransactionsModel(4, 'P-ID-004', '\$5000', 'Card'),
+    TransactionsModel(5, 'P-ID-005', '\$2300', 'Wallet'),
+    TransactionsModel(6, 'P-ID-006', '\$560', 'Card'),
   ];
 
   @override
@@ -61,7 +61,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                 onSearch: (query) => transactionsVM.filterJobs(query),
               ),
               SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
-              SingleChildScrollView(
+              Flexible(
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -76,8 +76,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                     ),
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(16),
@@ -123,91 +124,105 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                         width: double.infinity,
                         color: AppColor.appBarLightBackground,
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SizedBox(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      Get.width * Utils.getResponsiveWidth(16),
-                                  vertical:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
-                                child: Text(
-                                  'payment_id'.tr,
-                                  style: TextStyle(
-                                    color: AppColor.textBodyColor,
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w600,
-                                    fontSize:
+                              width: Get.width * Utils.getResponsiveWidth(97),
+                              child: Center(
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        Get.width * Utils.getResponsiveWidth(5),
+                                    vertical:
                                         Get.height *
-                                        Utils.getResponsiveSize(12),
+                                        Utils.getResponsiveHeight(16),
+                                  ),
+                                  child: Text(
+                                    'payment_id'.tr,
+                                    style: TextStyle(
+                                      color: AppColor.textBodyColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize:
+                                          Get.height *
+                                          Utils.getResponsiveSize(12),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      Get.width * Utils.getResponsiveWidth(16),
-                                  vertical:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
-                                child: Text(
-                                  'amount'.tr,
-                                  style: TextStyle(
-                                    color: AppColor.textBodyColor,
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w600,
-                                    fontSize:
+                              width: Get.width * Utils.getResponsiveWidth(97),
+                              child: Center(
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        Get.width * Utils.getResponsiveWidth(5),
+                                    vertical:
                                         Get.height *
-                                        Utils.getResponsiveSize(12),
+                                        Utils.getResponsiveHeight(16),
+                                  ),
+                                  child: Text(
+                                    'amount'.tr,
+                                    style: TextStyle(
+                                      color: AppColor.textBodyColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize:
+                                          Get.height *
+                                          Utils.getResponsiveSize(12),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      Get.width * Utils.getResponsiveWidth(16),
-                                  vertical:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
-                                child: Text(
-                                  'payment_method'.tr,
-                                  style: TextStyle(
-                                    color: AppColor.textBodyColor,
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w600,
-                                    fontSize:
+                              width: Get.width * Utils.getResponsiveWidth(127),
+                              child: Center(
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        Get.width * Utils.getResponsiveWidth(5),
+                                    vertical:
                                         Get.height *
-                                        Utils.getResponsiveSize(12),
+                                        Utils.getResponsiveHeight(16),
+                                  ),
+                                  child: Text(
+                                    'payment_method'.tr,
+                                    style: TextStyle(
+                                      color: AppColor.textBodyColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize:
+                                          Get.height *
+                                          Utils.getResponsiveSize(12),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      Get.width * Utils.getResponsiveWidth(16),
-                                  vertical:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
-                                child: Text(
-                                  'action'.tr,
-                                  style: TextStyle(
-                                    color: AppColor.textBodyColor,
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w600,
-                                    fontSize:
+                              width: Get.width * Utils.getResponsiveWidth(74),
+                              child: Center(
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        Get.width * Utils.getResponsiveWidth(5),
+                                    vertical:
                                         Get.height *
-                                        Utils.getResponsiveSize(12),
+                                        Utils.getResponsiveHeight(16),
+                                  ),
+                                  child: Text(
+                                    'action'.tr,
+                                    style: TextStyle(
+                                      color: AppColor.textBodyColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize:
+                                          Get.height *
+                                          Utils.getResponsiveSize(12),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -215,16 +230,18 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                           ],
                         ),
                       ),
-                      // Expanded(
-                      //   child: ListView.builder(
-                      //     itemCount: transactionsItems.length,
-                      //     itemBuilder: (context, index) {
-                      //       return TransactionsCartWidget(
-                      //         transaction: transactionsItems[index],
-                      //       );
-                      //     },
-                      //   ),
-                      // ),
+                      Flexible(
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          itemCount: transactionsItems.length,
+                          itemBuilder: (context, index) {
+                            return TransactionsCartWidget(
+                              transaction: transactionsItems[index],
+                            );
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),
