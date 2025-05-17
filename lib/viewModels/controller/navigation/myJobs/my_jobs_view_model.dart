@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:sanad/models/home/jobs_list_model.dart';
+import 'package:sanad/models/myJobs/my_jobs_list_model.dart';
 import 'package:sanad/repository/myJobsRepository/my_jobs_repository.dart';
 import '../../../../data/response/status.dart';
 
@@ -8,8 +8,8 @@ class MyJobsViewModel extends GetxController {
   final _api = MyJobsRepository();
 
   final rxRequestStatus = Status.loading.obs;
-  var jobsDataList = <Jobs>[].obs;
-  var filteredJobsDataList = <Jobs>[].obs;
+  var jobsDataList = <MyJobs>[].obs;
+  var filteredJobsDataList = <MyJobs>[].obs;
   RxString error = ''.obs;
   RxString selectedTab = 'applied'.obs;
   RxBool loading = false.obs;
@@ -30,10 +30,10 @@ class MyJobsViewModel extends GetxController {
       loading.value = true;
       error.value = '';
       final result = await _api.myJobsListApi();
-      final jobsHistory = JobsListModel.fromJson(result);
+      final jobsHistory = MyJobsListModel.fromJson(result);
 
       if (jobsHistory.isSuccessfull == true) {
-        processJobsData(jobsHistory.jobs ?? []);
+        processJobsData(jobsHistory.myJobs ?? []);
       } else {
         error.value = jobsHistory.message ?? 'no_jobs'.tr;
       }
@@ -41,15 +41,13 @@ class MyJobsViewModel extends GetxController {
       error.value = e.toString();
     } finally {
       loading.value = false;
-      update(); // Add explicit update
+      update();
     }
   }
 
-  void processJobsData(List<Jobs> data) {
+  void processJobsData(List<MyJobs> data) {
     jobsDataList.assignAll(data);
-
-    // Force update filtered lists
-    update(); // Add explicit update
+    update();
   }
 
   @override

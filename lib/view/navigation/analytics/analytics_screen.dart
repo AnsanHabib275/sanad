@@ -6,14 +6,14 @@ import 'package:sanad/view/navigation/wallet/widget/deposit_now_button_widget.da
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
 
-class WalletScreen extends StatefulWidget {
-  const WalletScreen({super.key});
+class AnalyticsScreen extends StatefulWidget {
+  const AnalyticsScreen({super.key});
 
   @override
-  State<WalletScreen> createState() => _WalletScreenState();
+  State<AnalyticsScreen> createState() => _AnalyticsScreenState();
 }
 
-class _WalletScreenState extends State<WalletScreen> {
+class _AnalyticsScreenState extends State<AnalyticsScreen> {
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -22,9 +22,14 @@ class _WalletScreenState extends State<WalletScreen> {
         backgroundColor: AppColor.whiteColor,
         appBar: AppBar(
           backgroundColor: AppColor.whiteColor,
-          automaticallyImplyLeading: false,
+          leading: IconButton(
+            icon: Image.asset(IconAssets.icArrowLeft,
+              height: Get.height * Utils.getResponsiveHeight(24),
+              width: Get.width * Utils.getResponsiveWidth(24),),
+            onPressed: () => Get.back(),
+          ),
           centerTitle: true,
-          title: Text('wallet'.tr),
+          title: Text('analytics'.tr),
           titleTextStyle: TextStyle(
             color: AppColor.textPrimaryColor,
             fontFamily: 'Manrope',
@@ -70,20 +75,33 @@ class _WalletScreenState extends State<WalletScreen> {
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              'total_balance'.tr,
+                              'wallet'.tr,
                               style: TextStyle(
                                 color: AppColor.textPrimaryColor,
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w700,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(14),
+                              ),
+                            ),
+                            SizedBox(
+                              height: Get.height * Utils.getResponsiveHeight(8),
+                            ),
+                            Text(
+                              'your_wallet'.tr,
+                              style: TextStyle(
+                                color: AppColor.textPrimaryColor,
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w700,
+                                fontSize:
+                                Get.height * Utils.getResponsiveSize(14),
                               ),
                             ),
                             SizedBox(

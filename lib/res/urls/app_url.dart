@@ -21,4 +21,6 @@ class AppUrl {
   static String myJobsUrl = "$baseUrl/api/MyJobs/";
   static String rateUsUrl = "$baseUrl/api/RateUs/";
   static String transactionsUrl = "$baseUrl/api/Transactions/";
+  static String paymentsUrl = "$baseUrl/api/Payments/";
+  static String helpUrl = "$baseUrl/api/Help/";
 }

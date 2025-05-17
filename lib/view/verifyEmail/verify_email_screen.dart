@@ -33,7 +33,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
           appBar: AppBar(
             backgroundColor: AppColor.whiteColor,
             leading: IconButton(
-              icon: Image.asset(IconAssets.icArrowLeft),
+              icon: Image.asset(IconAssets.icArrowLeft,
+                height: Get.height * Utils.getResponsiveHeight(24),
+                width: Get.width * Utils.getResponsiveWidth(24),),
               onPressed: () => Get.back(),
             ),
             centerTitle: true,

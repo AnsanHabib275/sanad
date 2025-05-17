@@ -27,6 +27,6 @@ class ImageAssets {
   static const String imgEmptyTransactions =
       'assets/images/img_empty_transactions.png';
   static const String imgSignOut = 'assets/images/img_sign_out.png';
-  static const String imgTransactionDownload =
-      'assets/images/img_transaction_download.png';
+  static const String imgTransactionDownload = 'assets/images/img_transaction_download.png';
+  static const String imgDownload = 'assets/images/img_download.png';
 }

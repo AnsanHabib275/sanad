@@ -11,6 +11,7 @@ import '../../../res/assets/image_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../res/urls/app_url.dart';
 import '../../../utils/utils.dart';
+import '../navigation_screen.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -185,7 +186,8 @@ class _AccountScreenState extends State<AccountScreen> {
                           fontWeight: FontWeight.w500,
                         ),
                         onTap: () {
-                          Get.toNamed(RoutesName.myJobsScreen);
+                          Get.offAll(() => NavigationScreen(initialIndex: 1));
+                          // Get.toNamed(RoutesName.myJobsScreen);
                         },
                       ),
 
@@ -228,6 +230,9 @@ class _AccountScreenState extends State<AccountScreen> {
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
+                        onTap: () {
+                          Get.toNamed(RoutesName.analyticsScreen);
+                        },
                       ),
                     ],
                   ),
@@ -278,7 +283,8 @@ class _AccountScreenState extends State<AccountScreen> {
                           fontWeight: FontWeight.w500,
                         ),
                         onTap: () {
-                          Get.toNamed(RoutesName.walletScreen);
+                          Get.offAll(() => NavigationScreen(initialIndex: 2));
+                          // Get.toNamed(RoutesName.walletScreen);
                         },
                       ),
                       ListTile(
@@ -470,8 +476,8 @@ class _AccountScreenState extends State<AccountScreen> {
             width: Get.width * Utils.getResponsiveWidth(400),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: Get.width * Utils.getResponsiveWidth(24),
-                vertical: Get.height * Utils.getResponsiveHeight(24),
+                horizontal: Get.width * Utils.getResponsiveWidth(20),
+                vertical: Get.height * Utils.getResponsiveHeight(20),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:sanad/models/home/jobs_list_model.dart';
+import 'package:sanad/models/transactions/transactions_list_model.dart';
 import 'package:sanad/repository/transactionsRepository/transactions_repository.dart';
 import '../../../../data/response/status.dart';
 
@@ -8,8 +8,8 @@ class TransactionsViewModel extends GetxController {
   final _api = TransactionsRepository();
 
   final rxRequestStatus = Status.loading.obs;
-  var jobsDataList = <Jobs>[].obs;
-  var filteredJobsDataList = <Jobs>[].obs;
+  var transactionsDataList = <Transactions>[].obs;
+  var filteredTransactionsDataList = <Transactions>[].obs;
   RxString error = ''.obs;
   RxBool loading = false.obs;
   RxString errorMessage = ''.obs;
@@ -25,42 +25,40 @@ class TransactionsViewModel extends GetxController {
       loading.value = true;
       error.value = '';
       final result = await _api.transactionsListApi();
-      final jobsHistory = JobsListModel.fromJson(result);
+      final transactionsHistory = TransactionsListModel.fromJson(result);
 
-      if (jobsHistory.isSuccessfull == true) {
-        processJobsData(jobsHistory.jobs ?? []);
+      if (transactionsHistory.isSuccessfull == true) {
+        processTransactionsData(transactionsHistory.transactions ?? []);
       } else {
-        error.value = jobsHistory.message ?? 'no_jobs'.tr;
+        error.value = transactionsHistory.message ?? 'no_transactions'.tr;
       }
     } catch (e) {
       error.value = e.toString();
     } finally {
       loading.value = false;
-      update(); // Add explicit update
+      update();
     }
   }
 
-  void processJobsData(List<Jobs> data) {
-    jobsDataList.assignAll(data);
-
-    // Force update filtered lists
-    filterJobs(searchController.value.text);
-    update(); // Add explicit update
+  void processTransactionsData(List<Transactions> data) {
+    transactionsDataList.assignAll(data);
+    filterTransactions(searchController.value.text);
+    update();
   }
 
-  void filterJobs(String query) {
+  void filterTransactions(String query) {
     final searchTerm = query.toLowerCase();
-    filteredJobsDataList.assignAll(
-      jobsDataList.where((item) => _matchesSearch(item, searchTerm)).toList(),
+    filteredTransactionsDataList.assignAll(
+      transactionsDataList.where((item) => _matchesSearch(item, searchTerm)).toList(),
     );
     update(); // Add explicit update
   }
 
-  bool _matchesSearch(Jobs item, String searchTerm) {
-    return item.jobId.toString().contains(searchTerm) ||
-        item.jobName.toString().contains(searchTerm) ||
-        item.jobType.toString().contains(searchTerm) ||
-        item.jobLocation.toString().contains(searchTerm);
+  bool _matchesSearch(Transactions item, String searchTerm) {
+    return item.transactionID.toString().contains(searchTerm) ||
+        item.paymentID.toString().contains(searchTerm) ||
+        item.amount.toString().contains(searchTerm) ||
+        item.paymentMethod.toString().contains(searchTerm);
   }
 
   @override

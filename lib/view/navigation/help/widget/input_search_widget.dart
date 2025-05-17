@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
-import 'package:sanad/viewModels/controller/navigation/transactions/transactions_view_model.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
+import '../../../../viewModels/controller/navigation/help/help_view_model.dart';
 
 class InputSearchWidget extends StatelessWidget {
   final Function(String) onSearch;
 
   InputSearchWidget({super.key, required this.onSearch});
-  final transactionsVM = Get.put(TransactionsViewModel());
+  final helpVM = Get.put(HelpViewModel());
   @override
   Widget build(BuildContext context) {
     // return Obx(() {
     return SearchBar(
       elevation: WidgetStatePropertyAll(0),
-      controller: transactionsVM.searchController.value,
-      focusNode: transactionsVM.searchFocusNode.value,
+      controller: helpVM.searchController.value,
+      focusNode: helpVM.searchFocusNode.value,
       keyboardType: TextInputType.text,
       textInputAction: TextInputAction.done,
       textStyle: WidgetStateProperty.all(

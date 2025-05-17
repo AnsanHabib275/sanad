@@ -29,9 +29,12 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         },
         child: Scaffold(
           appBar: AppBar(
+            // toolbarHeight: Get.height * Utils.getResponsiveHeight(50),
             backgroundColor: AppColor.whiteColor,
             leading: IconButton(
-              icon: Image.asset(IconAssets.icArrowLeft),
+              icon: Image.asset(IconAssets.icArrowLeft,
+                height: Get.height * Utils.getResponsiveHeight(24),
+                width: Get.width * Utils.getResponsiveWidth(24),),
               onPressed: () => Get.back(),
             ),
             centerTitle: true,

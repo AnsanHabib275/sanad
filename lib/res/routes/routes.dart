@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/view/navigation/about/about_screen.dart';
 import 'package:sanad/view/navigation/account/account_screen.dart';
+import 'package:sanad/view/navigation/analytics/analytics_screen.dart';
 import 'package:sanad/view/navigation/help/help_screen.dart';
 import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
 import 'package:sanad/view/navigation/payment/payment_screen.dart';
@@ -19,6 +20,7 @@ import '../../view/navigation/changePassword/change_password_screen.dart';
 import '../../view/navigation/home/home_screen.dart';
 import '../../view/navigation/navigation_screen.dart';
 import '../../view/navigation/notification/notification_screen.dart';
+import '../../view/navigation/payment/payment_detail_screen.dart';
 import '../../view/navigation/profile/profile_screen.dart';
 import '../../view/otp/otp_screen.dart';
 import '../../view/resetPassword/reset_done_screen.dart';
@@ -114,22 +116,19 @@ class AppRoutes {
       curve: Curves.easeInOut,
     ),
     GetPage(
+      name: RoutesName.paymentDetailScreen,
+      page: () => PaymentDetailScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
       name: RoutesName.notificationScreen,
       page: () => NotificationScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
     ),
-
-    // GetPage(
-    //   name: RoutesName.fakeProductScreen,
-    //   // page: () => FakeProductScreen(),
-    //   page: () => const DarkStatusBarWrapper(child: FakeProductScreen()),
-    //   middlewares: [StatusBarMiddleware(darkStatusBar: true)],
-    //   transitionDuration: Duration(milliseconds: 300),
-    //   transition: Transition.leftToRightWithFade,
-    //   curve: Curves.easeInOut,
-    // ),
     GetPage(
       name: RoutesName.profileScreen,
       page: () => ProfileScreen(),
@@ -204,6 +203,13 @@ class AppRoutes {
     GetPage(
       name: RoutesName.helpScreen,
       page: () => HelpScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.analyticsScreen,
+      page: () => AnalyticsScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/models/help/help_model.dart';
-import 'package:sanad/models/transactions/transactions_model.dart';
 import 'package:sanad/view/navigation/help/widget/help_cart_widget.dart';
 import 'package:sanad/view/navigation/transactions/widget/input_search_widget.dart';
-import 'package:sanad/view/navigation/transactions/widget/transactions_cart_widget.dart';
-import 'package:sanad/viewModels/controller/navigation/transactions/transactions_view_model.dart';
+import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
+import '../../../viewModels/controller/navigation/help/help_view_model.dart';
 
 class HelpScreen extends StatefulWidget {
   const HelpScreen({super.key});
@@ -17,7 +16,7 @@ class HelpScreen extends StatefulWidget {
 }
 
 class _HelpScreenState extends State<HelpScreen> {
-  final transactionsVM = Get.put(TransactionsViewModel());
+  final helpVM = Get.put(HelpViewModel());
   final List<HelpModel> helpItems = [
     HelpModel(
       1,
@@ -45,6 +44,12 @@ class _HelpScreenState extends State<HelpScreen> {
         backgroundColor: AppColor.whiteColor,
         appBar: AppBar(
           backgroundColor: AppColor.whiteColor,
+          leading: IconButton(
+            icon: Image.asset(IconAssets.icArrowLeft,
+              height: Get.height * Utils.getResponsiveHeight(24),
+              width: Get.width * Utils.getResponsiveWidth(24),),
+            onPressed: () => Get.back(),
+          ),
           centerTitle: true,
           title: Text('help'.tr),
           titleTextStyle: TextStyle(
@@ -71,7 +76,7 @@ class _HelpScreenState extends State<HelpScreen> {
                 horizontal: Get.width * Utils.getResponsiveWidth(16),
               ),
               child: InputSearchWidget(
-                onSearch: (query) => transactionsVM.filterJobs(query),
+                onSearch: (query) => helpVM.filterHelp(query),
               ),
             ),
             SizedBox(height: Get.height * Utils.getResponsiveHeight(32)),

@@ -1,23 +1,23 @@
-class JobsListModel {
+class MyJobsListModel {
   bool? isSuccessfull;
   String? message;
-  List<Jobs>? jobs;
+  List<MyJobs>? myJobs;
 
-  JobsListModel({this.isSuccessfull, this.message, this.jobs});
+  MyJobsListModel({this.isSuccessfull, this.message, this.myJobs});
 
-  factory JobsListModel.fromJson(Map<String, dynamic> json) {
-    return JobsListModel(
+  factory MyJobsListModel.fromJson(Map<String, dynamic> json) {
+    return MyJobsListModel(
       isSuccessfull: json["IsSuccessfull"],
       message: json["message"],
-      jobs:
-          json["jobs"] != null
-              ? List<Jobs>.from(json["jobs"].map((x) => Jobs.fromJson(x)))
+      myJobs:
+          json["myJobs"] != null
+              ? List<MyJobs>.from(json["myJobs"].map((x) => MyJobs.fromJson(x)))
               : [],
     );
   }
 }
 
-class Jobs {
+class MyJobs {
   int? jobId;
   String? jobName;
   bool? isPrivate;
@@ -25,8 +25,9 @@ class Jobs {
   String? jobLocation;
   String? jobType;
   String? salaryRange;
+  String? applied;
 
-  Jobs({
+  MyJobs({
     this.jobId,
     this.jobName,
     this.isPrivate,
@@ -34,10 +35,11 @@ class Jobs {
     this.jobLocation,
     this.jobType,
     this.salaryRange,
+    this.applied,
   });
 
-  factory Jobs.fromJson(Map<String, dynamic> json) {
-    return Jobs(
+  factory MyJobs.fromJson(Map<String, dynamic> json) {
+    return MyJobs(
       jobId: json['JobId'],
       jobName: json['JobName'],
       isPrivate: json['IsPrivate'],
@@ -45,6 +47,7 @@ class Jobs {
       jobLocation: json['JobLocation'],
       jobType: json['JobType'],
       salaryRange: json['SalaryRange'],
+      applied: json['applied'],
     );
   }
 }

@@ -119,8 +119,25 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                   horizontal: Get.width * Utils.getResponsiveWidth(5),
                   vertical: Get.height * Utils.getResponsiveHeight(16),
                 ),
-                child: Center(
-                  child: Image.asset(ImageAssets.imgTransactionDownload),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColor.appBarLightBackground,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        Get.height * Utils.getResponsiveHeight(8),
+                      ),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * Utils.getResponsiveWidth(12),
+                      vertical: Get.height * Utils.getResponsiveHeight(8),
+                    ),
+                    child: Image.asset(ImageAssets.imgDownload,
+                      height: Get.height * Utils.getResponsiveHeight(18),
+                      width: Get.width * Utils.getResponsiveWidth(18),
+                    ),
+                  ),
                 ),
               ),
             ),

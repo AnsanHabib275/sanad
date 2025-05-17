@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/models/payment/payment_model.dart';
 import 'package:sanad/view/navigation/payment/widget/payment_cart_widget.dart';
+import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
-import '../../../viewModels/controller/navigation/transactions/transactions_view_model.dart';
+import '../../../viewModels/controller/navigation/payments/payments_view_model.dart';
 import '../payment//widget/input_search_widget.dart';
 
 class PaymentScreen extends StatefulWidget {
@@ -15,14 +16,14 @@ class PaymentScreen extends StatefulWidget {
 }
 
 class _PaymentScreenState extends State<PaymentScreen> {
-  final transactionsVM = Get.put(TransactionsViewModel());
+  final paymentsVM = Get.put(PaymentsViewModel());
   final List<PaymentModel> paymentItems = [
-    PaymentModel('P-ID-001', '\$2300', 'Expired'),
-    PaymentModel('P-ID-002', '-\$670', 'Hired'),
-    PaymentModel('P-ID-003', '\$234', 'Running'),
-    PaymentModel('P-ID-004', '\$5000', 'Expired'),
-    PaymentModel('P-ID-005', '\$2300', 'Running'),
-    PaymentModel('P-ID-006', '\$560', 'Hired'),
+    PaymentModel('P-ID-001','Dec 12, 2024', '\$2300', 'Expired'),
+    PaymentModel('P-ID-002','Dec 12, 2024', '-\$670', 'Hired'),
+    PaymentModel('P-ID-003','Dec 12, 2024', '\$234', 'Running'),
+    PaymentModel('P-ID-004','Dec 12, 2024', '\$5000', 'Expired'),
+    PaymentModel('P-ID-005','Dec 12, 2024', '\$2300', 'Running'),
+    PaymentModel('P-ID-006','Dec 12, 2024', '\$560', 'Hired'),
   ];
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
         backgroundColor: AppColor.whiteColor,
         appBar: AppBar(
           backgroundColor: AppColor.whiteColor,
+          leading: IconButton(
+            icon: Image.asset(IconAssets.icArrowLeft,
+              height: Get.height * Utils.getResponsiveHeight(24),
+              width: Get.width * Utils.getResponsiveWidth(24),),
+            onPressed: () => Get.back(),
+          ),
           centerTitle: true,
           title: Text('payments'.tr),
           titleTextStyle: TextStyle(
@@ -57,7 +64,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             children: [
               SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
               InputSearchWidget(
-                onSearch: (query) => transactionsVM.filterJobs(query),
+                onSearch: (query) => paymentsVM.filterPayment(query),
               ),
               SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
               Flexible(

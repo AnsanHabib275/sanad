@@ -32,6 +32,12 @@ class _RateUsScreenState extends State<RateUsScreen> {
           backgroundColor: AppColor.whiteColor,
           appBar: AppBar(
             backgroundColor: AppColor.whiteColor,
+            leading: IconButton(
+              icon: Image.asset(IconAssets.icArrowLeft,
+                height: Get.height * Utils.getResponsiveHeight(24),
+                width: Get.width * Utils.getResponsiveWidth(24),),
+              onPressed: () => Get.back(),
+            ),
             centerTitle: true,
             title: Text('rate_us'.tr),
             titleTextStyle: TextStyle(
@@ -184,7 +190,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
                           alignment: Alignment.center,
                           child: RatingBar.builder(
                             initialRating: rateUsVM.rating.value,
-                            minRating: 0,
+                            minRating: 0.0,
                             direction: Axis.horizontal,
                             allowHalfRating: true,
                             itemCount: 5,

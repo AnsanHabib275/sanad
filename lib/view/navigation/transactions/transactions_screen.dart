@@ -4,6 +4,7 @@ import 'package:sanad/models/transactions/transactions_model.dart';
 import 'package:sanad/view/navigation/transactions/widget/input_search_widget.dart';
 import 'package:sanad/view/navigation/transactions/widget/transactions_cart_widget.dart';
 import 'package:sanad/viewModels/controller/navigation/transactions/transactions_view_model.dart';
+import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
 
@@ -33,6 +34,12 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
         backgroundColor: AppColor.whiteColor,
         appBar: AppBar(
           backgroundColor: AppColor.whiteColor,
+          leading: IconButton(
+            icon: Image.asset(IconAssets.icArrowLeft,
+              height: Get.height * Utils.getResponsiveHeight(24),
+              width: Get.width * Utils.getResponsiveWidth(24),),
+            onPressed: () => Get.back(),
+          ),
           centerTitle: true,
           title: Text('transactions'.tr),
           titleTextStyle: TextStyle(
@@ -58,7 +65,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
             children: [
               SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
               InputSearchWidget(
-                onSearch: (query) => transactionsVM.filterJobs(query),
+                onSearch: (query) => transactionsVM.filterTransactions(query),
               ),
               SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
               Flexible(
