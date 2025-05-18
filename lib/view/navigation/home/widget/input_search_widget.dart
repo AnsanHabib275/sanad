@@ -30,7 +30,7 @@ class InputSearchWidget extends StatelessWidget {
       hintText: 'search_home_hint'.tr,
       hintStyle: WidgetStateProperty.all(
         TextStyle(
-          color: AppColor.darkGrey,
+          color: AppColor.textSecondaryColor,
           fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Manrope',
           fontWeight: FontWeight.w400,

@@ -28,8 +28,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(
-            backgroundColor: AppColor.transparent,
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             leading: IconButton(
               icon: Image.asset(IconAssets.icArrowLeft),
               onPressed:
@@ -39,7 +40,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             title: Text(
               'change_password'.tr,
               style: TextStyle(
-                color: AppColor.blue,
+                color: AppColor.textPrimaryColor,
                 fontSize: Get.height * Utils.getResponsiveSize(20),
                 fontWeight: FontWeight.w600,
                 fontFamily: 'Outfit',
@@ -60,7 +61,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     'please_enter_the_following_credentials'.tr,
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: AppColor.grey,
+                      color: AppColor.appBarLightBackground,
                       fontSize: Get.height * Utils.getResponsiveSize(14),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w400,
@@ -77,7 +78,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           'existing_password'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.darkGrey,
+                            color: AppColor.textSecondaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -94,7 +95,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           'new_password'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.darkGrey,
+                            color: AppColor.textSecondaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,

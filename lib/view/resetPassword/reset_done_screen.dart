@@ -23,6 +23,7 @@ class _ResetDoneScreenState extends State<ResetDoneScreen> {
         //   return false;
         // },
         child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: Get.width * Utils.getResponsiveWidth(32),

@@ -29,9 +29,9 @@ class _RateUsScreenState extends State<RateUsScreen> {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
-          backgroundColor: AppColor.whiteColor,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(
-            backgroundColor: AppColor.whiteColor,
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             leading: IconButton(
               icon: Image.asset(IconAssets.icArrowLeft,
                 height: Get.height * Utils.getResponsiveHeight(24),
@@ -202,7 +202,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
                             itemBuilder:
                                 (context, _) => Image.asset(
                                   IconAssets.icRating,
-                                  color: Colors.amber,
+                                  color: AppColor.ratedStarColor,
                                 ),
                             onRatingUpdate:
                                 (rating) => rateUsVM.rating.value = rating,

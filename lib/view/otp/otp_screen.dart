@@ -32,8 +32,9 @@ class _OTPScreenState extends State<OTPScreen> {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(
-            backgroundColor: AppColor.whiteColor,
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             leading: IconButton(
               icon: Image.asset(IconAssets.icArrowLeft,
                 height: Get.height * Utils.getResponsiveHeight(24),
@@ -193,7 +194,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         child: Text(
                           'resend_code'.tr,
                           style: TextStyle(
-                            color: AppColor.primaryColor,
+                            color: AppColor.primaryButtonColor,
                             decoration: TextDecoration.underline,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',

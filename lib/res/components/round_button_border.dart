@@ -8,8 +8,8 @@ class RoundButtonBorder extends StatelessWidget {
   const RoundButtonBorder(
       {super.key,
       this.buttonColor = AppColor.transparent,
-      this.borderColor = AppColor.blue,
-      this.textColor = AppColor.blue,
+      this.borderColor = AppColor.searchBarBorderColor,
+      this.textColor = AppColor.textSecondaryColor,
       this.progressColor = AppColor.whiteColor,
       required this.title,
       required this.onPress,

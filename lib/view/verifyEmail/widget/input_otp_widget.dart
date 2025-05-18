@@ -60,7 +60,7 @@ class InputOTPWidget extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: AppColor.primaryColor, // Default border color
+            color: AppColor.primaryButtonColor, // Default border color
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
@@ -69,7 +69,7 @@ class InputOTPWidget extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: AppColor.primaryColor, // Default border color
+            color: AppColor.primaryButtonColor, // Default border color
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(

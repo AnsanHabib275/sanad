@@ -4,6 +4,7 @@ import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/view/navigation/account/widget/no_button_widget.dart'
     show NoButtonWidget;
+import 'package:sanad/view/navigation/account/widget/theme_toggle_widget.dart';
 import 'package:sanad/view/navigation/account/widget/yes_button_widget.dart';
 import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
 
@@ -27,9 +28,9 @@ class _AccountScreenState extends State<AccountScreen> {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
       child: Scaffold(
-        backgroundColor: AppColor.whiteColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-          backgroundColor: AppColor.whiteColor,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text('account'.tr),
@@ -360,6 +361,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      ThemeToggleWidget(),
                       ListTile(
                         minTileHeight:
                             Get.height * Utils.getResponsiveHeight(48),

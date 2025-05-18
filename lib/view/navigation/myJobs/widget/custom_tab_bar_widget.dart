@@ -84,7 +84,7 @@ class _CustomTabBarState extends State<CustomTabBar>
                         fontWeight: FontWeight.w600,
                         color:
                             myJobsVM.selectedTab.value == 'applied'
-                                ? AppColor.primaryColor
+                                ? AppColor.primaryButtonColor
                                 : myJobsVM.selectedTab.value == 'saved'
                                 ? AppColor.textSecondaryColor
                                 : AppColor.textSecondaryColor,
@@ -126,7 +126,7 @@ class _CustomTabBarState extends State<CustomTabBar>
                         fontWeight: FontWeight.w600,
                         color:
                             myJobsVM.selectedTab.value == 'saved'
-                                ? AppColor.primaryColor
+                                ? AppColor.primaryButtonColor
                                 : myJobsVM.selectedTab.value == 'applied'
                                 ? AppColor.textSecondaryColor
                                 : AppColor.textSecondaryColor,
@@ -168,7 +168,7 @@ class _CustomTabBarState extends State<CustomTabBar>
                         fontWeight: FontWeight.w600,
                         color:
                             myJobsVM.selectedTab.value == 'invitation'
-                                ? AppColor.primaryColor
+                                ? AppColor.primaryButtonColor
                                 : myJobsVM.selectedTab.value == 'applied'
                                 ? AppColor.textSecondaryColor
                                 : AppColor.textSecondaryColor,

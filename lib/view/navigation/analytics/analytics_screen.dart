@@ -19,9 +19,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
       child: Scaffold(
-        backgroundColor: AppColor.whiteColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-          backgroundColor: AppColor.whiteColor,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           leading: IconButton(
             icon: Image.asset(IconAssets.icArrowLeft,
               height: Get.height * Utils.getResponsiveHeight(24),
@@ -168,7 +168,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                             Text(
                               'deposits'.tr,
                               style: TextStyle(
-                                color: AppColor.primaryColor,
+                                color: AppColor.primaryButtonColor,
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w700,
                                 fontSize:
@@ -231,7 +231,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                             Text(
                               'refunds'.tr,
                               style: TextStyle(
-                                color: AppColor.primaryColor,
+                                color: AppColor.primaryButtonColor,
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w700,
                                 fontSize:

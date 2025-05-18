@@ -28,9 +28,10 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(
             // toolbarHeight: Get.height * Utils.getResponsiveHeight(50),
-            backgroundColor: AppColor.whiteColor,
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             leading: IconButton(
               icon: Image.asset(IconAssets.icArrowLeft,
                 height: Get.height * Utils.getResponsiveHeight(24),

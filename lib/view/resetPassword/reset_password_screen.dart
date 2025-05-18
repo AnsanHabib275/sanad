@@ -29,8 +29,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(
-            backgroundColor: AppColor.whiteColor,
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             leading: IconButton(
               icon: Image.asset(IconAssets.icArrowLeft,
                 height: Get.height * Utils.getResponsiveHeight(24),

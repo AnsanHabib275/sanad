@@ -25,6 +25,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: Get.width * Utils.getResponsiveWidth(32),

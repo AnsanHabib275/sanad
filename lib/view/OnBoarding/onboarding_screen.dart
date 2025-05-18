@@ -55,6 +55,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
         // child: PopScope(
         //   canPop: false,
         child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Stack(
             children: [
               Positioned(
@@ -94,7 +95,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                                   Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w400,
-                              color: AppColor.darkGrey,
+                              color: AppColor.textSecondaryColor,
                             ),
                           ),
                         ),
