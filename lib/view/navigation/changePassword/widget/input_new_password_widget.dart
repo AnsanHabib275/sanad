@@ -30,56 +30,19 @@ class InputNewPasswordWidget extends StatelessWidget {
               changePasswordVM.errorMessage.value.isEmpty
                   ? null
                   : changePasswordVM.errorMessage.value,
-          errorStyle: TextStyle(
-            color: AppColor.redColor,
-            fontSize: Get.height * Utils.getResponsiveSize(14),
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w400,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(
-              color: AppColor.editTextBorderColor,
-              width: 1.0,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(
-              color: AppColor.editTextBorderColor,
-              width: 1.0,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(
-              color: AppColor.editTextBorderColor,
-              width: 1.0,
-            ),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
-          ),
+          errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
+          border: Theme.of(context).inputDecorationTheme.border,
+          enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
+          focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
+          errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
+          focusedErrorBorder:
+              Theme.of(context).inputDecorationTheme.focusedErrorBorder,
           suffixIcon: IconButton(
             icon: Image.asset(
               changePasswordVM.isVisible.value
                   ? IconAssets.icInvisiblePassword
                   : IconAssets.icVisiblePassword,
+              color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () {
               changePasswordVM.isVisible.value =

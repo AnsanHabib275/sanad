@@ -59,27 +59,26 @@ class _NotificationScreenState extends State<NotificationScreen> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           leading: IconButton(
-            icon: Image.asset(IconAssets.icArrowLeft,
+            icon: Image.asset(
+              IconAssets.icArrowLeft,
               height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),),
+              width: Get.width * Utils.getResponsiveWidth(24),
+              color: Theme.of(context).iconTheme.color,
+            ),
             onPressed: () => Get.back(),
           ),
           centerTitle: true,
-          title: Text(
-            'notifications'.tr,
-            style: TextStyle(
-              color: AppColor.textPrimaryColor,
-              fontSize: Get.height * Utils.getResponsiveSize(24),
-              fontWeight: FontWeight.w600,
-              fontFamily: 'Manrope',
-            ),
-          ),
+          title: Text('notifications'.tr),
+          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(1.0),
-            child: Container(color: AppColor.searchBarBorderColor, height: 1.0),
+            child: Container(
+              color: Theme.of(context).dividerColor,
+              height: 1.0,
+            ),
           ),
           // shape: Border(
-          //   bottom: BorderSide(color: AppColor.searchBarBorderColor, width: 1.0),
+          //   bottom: BorderSide(color: Theme.of(context).cardTheme.surfaceTintColor!, width: 1.0),
           // ),
         ),
         body: Padding(

@@ -21,17 +21,23 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
     return Container(
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(color: AppColor.searchBarBorderColor, width: 1.0),
+          bottom: BorderSide(
+            color: Theme.of(context).cardTheme.surfaceTintColor!,
+            width: 1.0,
+          ),
         ),
       ),
       child: GestureDetector(
-        onTap: (){
-          Get.toNamed(RoutesName.paymentDetailScreen,arguments: {
-            'paymentID': widget.payment.paymentID,
-            'paymentDate':widget.payment.paymentDate,
-            'amount':widget.payment.amount,
-            'status':widget.payment.status,
-          });
+        onTap: () {
+          Get.toNamed(
+            RoutesName.paymentDetailScreen,
+            arguments: {
+              'paymentID': widget.payment.paymentID,
+              'paymentDate': widget.payment.paymentDate,
+              'amount': widget.payment.amount,
+              'status': widget.payment.status,
+            },
+          );
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -49,7 +55,7 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                     widget.payment.paymentID,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: AppColor.textPrimaryColor,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
                       fontSize: Get.height * Utils.getResponsiveSize(14),
@@ -70,7 +76,7 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                     widget.payment.amount,
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                      color: AppColor.textPrimaryColor,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
                       fontSize: Get.height * Utils.getResponsiveSize(14),
@@ -135,7 +141,7 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                   ),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: AppColor.appBarLightBackground,
+                      color: Theme.of(context).cardTheme.color,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           Get.height * Utils.getResponsiveHeight(8),
@@ -147,7 +153,8 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                         horizontal: Get.width * Utils.getResponsiveWidth(12),
                         vertical: Get.height * Utils.getResponsiveHeight(8),
                       ),
-                      child: Image.asset(ImageAssets.imgDownload,
+                      child: Image.asset(
+                        ImageAssets.imgDownload,
                         height: Get.height * Utils.getResponsiveHeight(18),
                         width: Get.width * Utils.getResponsiveWidth(18),
                       ),

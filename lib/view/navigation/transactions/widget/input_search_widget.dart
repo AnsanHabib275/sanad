@@ -21,7 +21,7 @@ class InputSearchWidget extends StatelessWidget {
       textInputAction: TextInputAction.done,
       textStyle: WidgetStateProperty.all(
         TextStyle(
-          color: AppColor.textPrimaryColor,
+          color: Theme.of(context).textTheme.bodyLarge!.color,
           fontSize: Get.height * Utils.getResponsiveSize(14),
           fontFamily: 'Manrope',
           fontWeight: FontWeight.w500,
@@ -29,18 +29,16 @@ class InputSearchWidget extends StatelessWidget {
       ),
       hintText: 'search_hint'.tr,
       hintStyle: WidgetStateProperty.all(
-        TextStyle(
-          color: AppColor.textSecondaryColor,
-          fontSize: Get.height * Utils.getResponsiveSize(14),
-          fontFamily: 'Manrope',
-          fontWeight: FontWeight.w500,
-        ),
+        Theme.of(context).inputDecorationTheme.hintStyle,
       ),
       leading: Image.asset(IconAssets.icSearch),
       // backgroundColor: WidgetStateProperty.all(AppColor.whiteColor),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
-          side: BorderSide(color: AppColor.searchBarBorderColor, width: 1.0),
+          side: BorderSide(
+            color: Theme.of(context).cardTheme.surfaceTintColor!,
+            width: 1.0,
+          ),
           borderRadius: BorderRadius.circular(
             Get.height * Utils.getResponsiveSize(8),
           ),

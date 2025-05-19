@@ -56,7 +56,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     'please_fill_the_required_information'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: AppColor.textPrimaryColor,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: Get.height * Utils.getResponsiveSize(20),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
@@ -73,7 +73,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'full_name'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -90,7 +90,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'tagline'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -107,7 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'phone_number'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -124,7 +124,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'email'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -141,7 +141,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'password_at_least'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -158,7 +158,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'upload_profile_picture'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -175,7 +175,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'add_note'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,

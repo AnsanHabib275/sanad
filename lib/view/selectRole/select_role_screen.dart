@@ -44,7 +44,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                   'are_you_company_or_recruiter'.tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: AppColor.textPrimaryColor,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                     fontSize: Get.height * Utils.getResponsiveSize(24),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w400,
@@ -68,7 +68,10 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                             ),
                           ),
                           border: Border.all(
-                            color: AppColor.editTextBorderColor,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).inputDecorationTheme.border!.borderSide.color,
                             width: 1.0,
                           ),
                         ),
@@ -81,6 +84,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                                   Get.height * Utils.getResponsiveHeight(34),
                               width: Get.width * Utils.getResponsiveWidth(34),
                               image: AssetImage(IconAssets.icCompany),
+                              color: Theme.of(context).iconTheme.color,
                             ),
                             SizedBox(
                               height:
@@ -90,7 +94,10 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                               'company'.tr,
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: AppColor.textSecondaryColor,
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.bodyMedium!.color!,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(20),
                                 fontFamily: 'Manrope',
@@ -116,7 +123,10 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                             ),
                           ),
                           border: Border.all(
-                            color: AppColor.editTextBorderColor,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).inputDecorationTheme.border!.borderSide.color,
                             width: 1.0,
                           ),
                         ),
@@ -129,6 +139,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                                   Get.height * Utils.getResponsiveHeight(34),
                               width: Get.width * Utils.getResponsiveWidth(34),
                               image: AssetImage(IconAssets.icRecruiter),
+                              color: Theme.of(context).iconTheme.color,
                             ),
                             SizedBox(
                               height:
@@ -138,7 +149,10 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                               'recruiter'.tr,
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: AppColor.textSecondaryColor,
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.bodyMedium!.color!,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(20),
                                 fontFamily: 'Manrope',

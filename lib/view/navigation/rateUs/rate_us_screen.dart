@@ -33,22 +33,20 @@ class _RateUsScreenState extends State<RateUsScreen> {
           appBar: AppBar(
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             leading: IconButton(
-              icon: Image.asset(IconAssets.icArrowLeft,
+              icon: Image.asset(
+                IconAssets.icArrowLeft,
                 height: Get.height * Utils.getResponsiveHeight(24),
-                width: Get.width * Utils.getResponsiveWidth(24),),
+                width: Get.width * Utils.getResponsiveWidth(24),
+                color: Theme.of(context).iconTheme.color,
+              ),
               onPressed: () => Get.back(),
             ),
             centerTitle: true,
             title: Text('rate_us'.tr),
-            titleTextStyle: TextStyle(
-              color: AppColor.textPrimaryColor,
-              fontFamily: 'Manrope',
-              fontWeight: FontWeight.w600,
-              fontSize: Get.height * Utils.getResponsiveSize(24),
-            ),
+            titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
             shape: Border(
               bottom: BorderSide(
-                color: AppColor.searchBarBorderColor,
+                color: Theme.of(context).dividerColor,
                 width: 1.0,
               ),
             ),
@@ -63,9 +61,8 @@ class _RateUsScreenState extends State<RateUsScreen> {
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColor.whiteColor,
                       border: Border.all(
-                        color: AppColor.searchBarBorderColor,
+                        color: Theme.of(context).cardTheme.surfaceTintColor!,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(
@@ -88,7 +85,8 @@ class _RateUsScreenState extends State<RateUsScreen> {
                             'rate_us_dot'.tr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              color: AppColor.textPrimaryColor,
+                              color:
+                                  Theme.of(context).textTheme.bodyLarge!.color,
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
@@ -108,7 +106,10 @@ class _RateUsScreenState extends State<RateUsScreen> {
                             'rate_us_and_write_your_feedback'.tr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              color: AppColor.textSecondaryColor,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).textTheme.bodyMedium!.color!,
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(12),
                               fontFamily: 'Manrope',
@@ -120,7 +121,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
                           height: Get.height * Utils.getResponsiveHeight(16),
                         ),
                         Divider(
-                          color: AppColor.searchBarBorderColor,
+                          color: Theme.of(context).dividerColor,
                           height: Get.height * Utils.getResponsiveHeight(1),
                         ),
                         SizedBox(
@@ -141,7 +142,10 @@ class _RateUsScreenState extends State<RateUsScreen> {
                                   'your_message'.tr,
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    color: AppColor.textPrimaryColor,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).textTheme.bodyLarge!.color,
                                     fontSize:
                                         Get.height *
                                         Utils.getResponsiveSize(14),
@@ -164,7 +168,10 @@ class _RateUsScreenState extends State<RateUsScreen> {
                                   'write_your_feedback_and_remarks'.tr,
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    color: AppColor.textBodyColor,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).textTheme.bodySmall!.color!,
                                     fontSize:
                                         Get.height *
                                         Utils.getResponsiveSize(12),
@@ -180,7 +187,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
                           height: Get.height * Utils.getResponsiveHeight(16),
                         ),
                         Divider(
-                          color: AppColor.searchBarBorderColor,
+                          color: Theme.of(context).dividerColor,
                           height: Get.height * Utils.getResponsiveHeight(1),
                         ),
                         SizedBox(

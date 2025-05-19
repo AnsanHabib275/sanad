@@ -52,8 +52,9 @@ class InputOTPWidget extends StatelessWidget {
           vertical: Get.height * Utils.getResponsiveHeight(12),
         ),
         border: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: AppColor.editTextBorderColor,
+          borderSide: BorderSide(
+            color:
+                Theme.of(context).inputDecorationTheme.border!.borderSide.color,
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(

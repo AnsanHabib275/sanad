@@ -59,7 +59,7 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                         'join_as_an_individual'.tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: AppColor.textPrimaryColor,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: Get.height * Utils.getResponsiveSize(24),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w600,
@@ -78,7 +78,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                               'email'.tr,
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                color: AppColor.textPrimaryColor,
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.bodyLarge!.color,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(14),
                                 fontFamily: 'Manrope',
@@ -97,7 +100,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                               'password_at_least'.tr,
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                color: AppColor.textPrimaryColor,
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.bodyLarge!.color,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(14),
                                 fontFamily: 'Manrope',
@@ -129,7 +135,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                       Get.height * Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                 ),
                               ),
                               TextSpan(
@@ -139,7 +148,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                       Get.height * Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                   decoration: TextDecoration.underline,
                                 ),
                                 recognizer:
@@ -156,7 +168,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                       Get.height * Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                 ),
                               ),
                               TextSpan(
@@ -166,7 +181,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                       Get.height * Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                   decoration: TextDecoration.underline,
                                 ),
                                 recognizer:
@@ -183,7 +201,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                       Get.height * Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                 ),
                               ),
                               TextSpan(
@@ -193,7 +214,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                       Get.height * Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                   decoration: TextDecoration.underline,
                                 ),
                                 recognizer:
@@ -225,7 +249,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                               fontWeight: FontWeight.w400,
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(12),
-                              color: AppColor.textSecondaryColor,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).textTheme.bodyMedium!.color!,
                             ),
                           ),
                           SizedBox(
@@ -243,7 +270,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                 fontWeight: FontWeight.w500,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(12),
-                                color: AppColor.textPrimaryColor,
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.bodyLarge!.color,
                               ),
                             ),
                           ),
@@ -263,7 +293,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                               fontWeight: FontWeight.w400,
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(12),
-                              color: AppColor.textSecondaryColor,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).textTheme.bodyMedium!.color!,
                             ),
                           ),
                           SizedBox(
@@ -281,7 +314,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                 fontWeight: FontWeight.w500,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(12),
-                                color: AppColor.textPrimaryColor,
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.bodyLarge!.color,
                               ),
                             ),
                           ),

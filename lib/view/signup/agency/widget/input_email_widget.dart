@@ -35,71 +35,23 @@ class InputEmailWidget extends StatelessWidget {
             signUpVM.passwordFocusNode.value,
           );
         },
-        style: TextStyle(
-          color: AppColor.textPrimaryColor,
-          fontSize: Get.height * Utils.getResponsiveSize(14),
-          fontFamily: 'Manrope',
-          fontWeight: FontWeight.w500,
-        ),
+        style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
           hint: Text('email_hint'.tr),
-          hintStyle: TextStyle(
-            color: AppColor.textSecondaryColor,
-            fontSize: Get.height * Utils.getResponsiveSize(14),
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w500,
-          ),
+          hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               signUpVM.apiErrorMessage.value.isNotEmpty
                   ? signUpVM.apiErrorMessage.value
                   : signUpVM.errorMessage.value.isNotEmpty
                   ? signUpVM.errorMessage.value
                   : null,
-          errorStyle: TextStyle(
-            color: AppColor.redColor,
-            fontSize: Get.height * Utils.getResponsiveSize(14),
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w400,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(
-              color: AppColor.editTextBorderColor,
-              width: 1.0,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(
-              color: AppColor.editTextBorderColor,
-              width: 1.0,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(
-              color: AppColor.editTextBorderColor,
-              width: 1.0,
-            ),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
-          ),
+          errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
+          border: Theme.of(context).inputDecorationTheme.border,
+          enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
+          focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
+          errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
+          focusedErrorBorder:
+              Theme.of(context).inputDecorationTheme.focusedErrorBorder,
         ),
         keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.done,

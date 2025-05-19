@@ -18,77 +18,33 @@ class InputPasswordWidget extends StatelessWidget {
         focusNode: loginVM.passwordFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        style: TextStyle(
-          color: AppColor.textPrimaryColor,
-          fontSize: Get.height * Utils.getResponsiveSize(14),
-          fontFamily: 'Manrope',
-          fontWeight: FontWeight.w500,
-        ),
+        style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
           hint: Text('password_hint'.tr),
-          hintStyle: TextStyle(
-            color: AppColor.textSecondaryColor,
-            fontSize: Get.height * Utils.getResponsiveSize(14),
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w500,
-          ),
+          hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               loginVM.apiErrorMessage.value.isNotEmpty
                   ? loginVM.apiErrorMessage.value
                   : loginVM.errorMessage.value.isNotEmpty
                   ? loginVM.errorMessage.value
                   : null,
-          errorStyle: TextStyle(
-            color: AppColor.redColor,
-            fontSize: Get.height * Utils.getResponsiveSize(14),
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w400,
+          errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
+          border: Theme.of(context).inputDecorationTheme.border,
+          enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
+          focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
+          errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
+          focusedErrorBorder:
+              Theme.of(context).inputDecorationTheme.focusedErrorBorder,
+          prefixIcon: Image.asset(
+            IconAssets.icPassword,
+            color: Theme.of(context).iconTheme.color,
           ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(
-              color: AppColor.editTextBorderColor,
-              width: 1.0,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(
-              color: AppColor.editTextBorderColor,
-              width: 1.0,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(
-              color: AppColor.editTextBorderColor,
-              width: 1.0,
-            ),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(Get.height * Utils.getResponsiveSize(8)),
-            ),
-            borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
-          ),
-          prefixIcon: Image.asset(IconAssets.icPassword),
           suffixIcon: IconButton(
             icon: Image.asset(
               loginVM.isVisible.value
                   ? IconAssets.icInvisiblePassword
                   : IconAssets.icVisiblePassword,
+              color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () {
               loginVM.isVisible.value = !loginVM.isVisible.value;

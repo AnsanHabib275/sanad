@@ -25,15 +25,10 @@ class _WalletScreenState extends State<WalletScreen> {
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text('wallet'.tr),
-          titleTextStyle: TextStyle(
-            color: AppColor.textPrimaryColor,
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w600,
-            fontSize: Get.height * Utils.getResponsiveSize(24),
-          ),
+          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
           shape: Border(
             bottom: BorderSide(
-              color: AppColor.searchBarBorderColor,
+              color: Theme.of(context).dividerColor,
               width: 1.0,
             ),
           ),
@@ -52,14 +47,13 @@ class _WalletScreenState extends State<WalletScreen> {
                   height: Get.height * Utils.getResponsiveHeight(90),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: AppColor.whiteColor,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
                       ),
                     ),
                     border: Border.all(
-                      color: AppColor.searchBarBorderColor,
+                      color: Theme.of(context).cardTheme.surfaceTintColor!,
                       width: 1.0,
                     ),
                   ),
@@ -79,7 +73,10 @@ class _WalletScreenState extends State<WalletScreen> {
                             Text(
                               'total_balance'.tr,
                               style: TextStyle(
-                                color: AppColor.textPrimaryColor,
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.bodyLarge!.color,
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w700,
                                 fontSize:
@@ -100,7 +97,10 @@ class _WalletScreenState extends State<WalletScreen> {
                                           Utils.getResponsiveSize(20),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w700,
-                                      color: AppColor.textPrimaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyLarge!.color,
                                     ),
                                   ),
                                   TextSpan(
@@ -111,7 +111,10 @@ class _WalletScreenState extends State<WalletScreen> {
                                           Utils.getResponsiveSize(20),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w700,
-                                      color: AppColor.textPrimaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyLarge!.color,
                                     ),
                                   ),
                                 ],
@@ -132,14 +135,14 @@ class _WalletScreenState extends State<WalletScreen> {
                         height: Get.height * Utils.getResponsiveHeight(80),
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: AppColor.whiteColor,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
                               Get.height * Utils.getResponsiveHeight(8),
                             ),
                           ),
                           border: Border.all(
-                            color: AppColor.searchBarBorderColor,
+                            color:
+                                Theme.of(context).cardTheme.surfaceTintColor!,
                             width: 1.0,
                           ),
                         ),
@@ -168,7 +171,10 @@ class _WalletScreenState extends State<WalletScreen> {
                                           Utils.getResponsiveSize(18),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
-                                      color: AppColor.textPrimaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyLarge!.color,
                                     ),
                                   ),
                                   TextSpan(
@@ -179,7 +185,10 @@ class _WalletScreenState extends State<WalletScreen> {
                                           Utils.getResponsiveSize(18),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
-                                      color: AppColor.textPrimaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyLarge!.color,
                                     ),
                                   ),
                                 ],
@@ -195,14 +204,14 @@ class _WalletScreenState extends State<WalletScreen> {
                         height: Get.height * Utils.getResponsiveHeight(80),
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: AppColor.whiteColor,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
                               Get.height * Utils.getResponsiveHeight(8),
                             ),
                           ),
                           border: Border.all(
-                            color: AppColor.searchBarBorderColor,
+                            color:
+                                Theme.of(context).cardTheme.surfaceTintColor!,
                             width: 1.0,
                           ),
                         ),
@@ -231,7 +240,10 @@ class _WalletScreenState extends State<WalletScreen> {
                                           Utils.getResponsiveSize(18),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
-                                      color: AppColor.textPrimaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyLarge!.color,
                                     ),
                                   ),
                                   TextSpan(
@@ -242,7 +254,10 @@ class _WalletScreenState extends State<WalletScreen> {
                                           Utils.getResponsiveSize(18),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
-                                      color: AppColor.textPrimaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyLarge!.color,
                                     ),
                                   ),
                                 ],
@@ -259,14 +274,13 @@ class _WalletScreenState extends State<WalletScreen> {
                   height: Get.height * Utils.getResponsiveHeight(461),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: AppColor.whiteColor,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
                       ),
                     ),
                     border: Border.all(
-                      color: AppColor.searchBarBorderColor,
+                      color: Theme.of(context).cardTheme.surfaceTintColor!,
                       width: 1.0,
                     ),
                   ),
@@ -286,7 +300,10 @@ class _WalletScreenState extends State<WalletScreen> {
                             Text(
                               'recent_transactions'.tr,
                               style: TextStyle(
-                                color: AppColor.textPrimaryColor,
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.bodyLarge!.color,
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w700,
                                 fontSize:
@@ -315,7 +332,10 @@ class _WalletScreenState extends State<WalletScreen> {
                               Text(
                                 'empty_transactions'.tr,
                                 style: TextStyle(
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
                                   fontSize:

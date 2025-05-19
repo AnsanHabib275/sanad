@@ -10,8 +10,8 @@ class DismissLargeButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RoundButton(
-      buttonColor: AppColor.appBarLightBackground,
-      textColor: AppColor.textPrimaryColor,
+      buttonColor: AppColor.secondaryButtonColor,
+      textColor: Theme.of(context).textTheme.bodyLarge!.color!,
       fontWeight: FontWeight.w500,
       width: 306,
       title: 'dismiss'.tr,

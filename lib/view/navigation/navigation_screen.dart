@@ -43,8 +43,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
+      // value:
+      //     Get.isDarkMode
+      //         ? SystemUiOverlayStyle.light
+      //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor: Theme.of(context).scaffoldBackgroundColor,
+        systemNavigationBarColor:
+            Theme.of(context).navigationBarTheme.backgroundColor,
         systemNavigationBarIconBrightness:
             Theme.of(context).brightness == Brightness.dark
                 ? Brightness.light
@@ -90,12 +95,18 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 ),
               ],
               currentIndex: navigationVM.currentIndex.value,
-              selectedItemColor: AppColor.selectedBnColor,
-              selectedIconTheme: IconThemeData(color: AppColor.selectedBnColor),
-              unselectedIconTheme: IconThemeData(
-                color: AppColor.unselectedBnColor,
-              ),
-              unselectedItemColor: AppColor.unselectedBnColor,
+              selectedItemColor:
+                  Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+              unselectedItemColor:
+                  Theme.of(
+                    context,
+                  ).bottomNavigationBarTheme.unselectedItemColor,
+              selectedIconTheme:
+                  Theme.of(context).bottomNavigationBarTheme.selectedIconTheme,
+              unselectedIconTheme:
+                  Theme.of(
+                    context,
+                  ).bottomNavigationBarTheme.unselectedIconTheme,
               onTap: _handleNavigationChange,
             );
           }),

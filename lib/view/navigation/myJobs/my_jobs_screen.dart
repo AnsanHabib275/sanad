@@ -67,15 +67,10 @@ class _MyJobsScreenState extends State<MyJobsScreen> {
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text('my_jobs'.tr),
-          titleTextStyle: TextStyle(
-            color: AppColor.textPrimaryColor,
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w600,
-            fontSize: Get.height * Utils.getResponsiveSize(24),
-          ),
+          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
           shape: Border(
             bottom: BorderSide(
-              color: AppColor.searchBarBorderColor,
+              color: Theme.of(context).dividerColor,
               width: 1.0,
             ),
           ),

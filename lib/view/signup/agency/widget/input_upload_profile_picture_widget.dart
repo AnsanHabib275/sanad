@@ -19,7 +19,12 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
             height: Get.height * Utils.getResponsiveHeight(46),
             width: Get.width * 1,
             decoration: BoxDecoration(
-              border: Border.all(color: AppColor.editTextBorderColor),
+              border: Border.all(
+                color:
+                    Theme.of(
+                      context,
+                    ).inputDecorationTheme.border!.borderSide.color,
+              ),
               borderRadius: BorderRadius.circular(
                 Get.height * Utils.getResponsiveSize(8),
               ),
@@ -34,7 +39,7 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                     height: Get.height * Utils.getResponsiveHeight(46),
                     width: Get.width * Utils.getResponsiveWidth(115),
                     decoration: BoxDecoration(
-                      color: AppColor.background,
+                      color: AppColor.secondaryButtonColor,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(
                           Get.height * Utils.getResponsiveSize(8),
@@ -49,7 +54,7 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                         'choose_file'.tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: AppColor.textPrimaryColor,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                           fontSize: Get.height * Utils.getResponsiveSize(14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -61,7 +66,10 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                 Container(
                   height: Get.height * Utils.getResponsiveHeight(46),
                   width: Get.width * Utils.getResponsiveWidth(1),
-                  color: AppColor.editTextBorderColor,
+                  color:
+                      Theme.of(
+                        context,
+                      ).inputDecorationTheme.border!.borderSide.color,
                 ),
                 Expanded(
                   child: Padding(
@@ -75,7 +83,7 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        color: AppColor.textPrimaryColor,
+                        color: Theme.of(context).textTheme.bodyLarge!.color,
                         fontSize: Get.height * Utils.getResponsiveSize(14),
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w500,

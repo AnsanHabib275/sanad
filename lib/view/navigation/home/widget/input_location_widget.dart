@@ -29,7 +29,7 @@ class InputLocationWidget extends StatelessWidget {
             Text(
               'location'.tr,
               style: TextStyle(
-                color: AppColor.textSecondaryColor,
+                color: Theme.of(context).textTheme.bodyMedium!.color!,
                 fontSize: Get.height * Utils.getResponsiveSize(14),
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w500,
@@ -37,7 +37,7 @@ class InputLocationWidget extends StatelessWidget {
             ),
           ],
         ),
-      ), // Color of the divider
+      ),
     );
     // });
   }

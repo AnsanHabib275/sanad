@@ -21,22 +21,20 @@ class _AboutScreenState extends State<AboutScreen> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           leading: IconButton(
-            icon: Image.asset(IconAssets.icArrowLeft,
+            icon: Image.asset(
+              IconAssets.icArrowLeft,
               height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),),
+              width: Get.width * Utils.getResponsiveWidth(24),
+              color: Theme.of(context).iconTheme.color,
+            ),
             onPressed: () => Get.back(),
           ),
           centerTitle: true,
           title: Text('about'.tr),
-          titleTextStyle: TextStyle(
-            color: AppColor.textPrimaryColor,
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w600,
-            fontSize: Get.height * Utils.getResponsiveSize(24),
-          ),
+          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
           shape: Border(
             bottom: BorderSide(
-              color: AppColor.searchBarBorderColor,
+              color: Theme.of(context).dividerColor,
               width: 1.0,
             ),
           ),
@@ -50,7 +48,7 @@ class _AboutScreenState extends State<AboutScreen> {
             child: Text(
               'about_description'.tr,
               style: TextStyle(
-                color: AppColor.textSecondaryColor,
+                color: Theme.of(context).textTheme.bodyMedium!.color!,
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w500,
                 fontSize: Get.height * Utils.getResponsiveSize(14),

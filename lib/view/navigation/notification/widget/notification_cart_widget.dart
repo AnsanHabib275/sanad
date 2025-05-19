@@ -27,11 +27,13 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColor.whiteColor,
         borderRadius: BorderRadius.all(
           Radius.circular(Get.height * Utils.getResponsiveHeight(4)),
         ),
-        border: Border.all(color: AppColor.searchBarBorderColor, width: 1.0),
+        border: Border.all(
+          color: Theme.of(context).cardTheme.surfaceTintColor!,
+          width: 1.0,
+        ),
       ),
       child: Padding(
         padding: EdgeInsets.all(Get.height * Utils.getResponsiveHeight(16)),
@@ -70,7 +72,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                       fontSize: Get.height * Utils.getResponsiveSize(18),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w600,
-                      color: AppColor.textPrimaryColor,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                   Text(
@@ -79,7 +81,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                       fontSize: Get.height * Utils.getResponsiveSize(14),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
-                      color: AppColor.textBodyColor,
+                      color: Theme.of(context).textTheme.bodySmall!.color!,
                     ),
                   ),
                   widget.notifications.notificationType == 'invitation'

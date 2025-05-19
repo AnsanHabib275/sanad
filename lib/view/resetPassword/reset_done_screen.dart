@@ -42,7 +42,7 @@ class _ResetDoneScreenState extends State<ResetDoneScreen> {
                   'password_reset_successfully'.tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: AppColor.textPrimaryColor,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                     fontSize: Get.height * Utils.getResponsiveSize(24),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w600,
@@ -53,7 +53,7 @@ class _ResetDoneScreenState extends State<ResetDoneScreen> {
                   'password_reset_description'.tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: AppColor.textPrimaryColor,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                     fontSize: Get.height * Utils.getResponsiveSize(14),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w400,

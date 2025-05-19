@@ -33,24 +33,20 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
             // toolbarHeight: Get.height * Utils.getResponsiveHeight(50),
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             leading: IconButton(
-              icon: Image.asset(IconAssets.icArrowLeft,
+              icon: Image.asset(
+                IconAssets.icArrowLeft,
                 height: Get.height * Utils.getResponsiveHeight(24),
-                width: Get.width * Utils.getResponsiveWidth(24),),
+                width: Get.width * Utils.getResponsiveWidth(24),
+                color: Theme.of(context).iconTheme.color,
+              ),
               onPressed: () => Get.back(),
             ),
             centerTitle: true,
-            title: Text(
-              'forgot_password'.tr,
-              style: TextStyle(
-                color: AppColor.textPrimaryColor,
-                fontSize: Get.height * Utils.getResponsiveSize(24),
-                fontWeight: FontWeight.w600,
-                fontFamily: 'Manrope',
-              ),
-            ),
+            title: Text('forgot_password'.tr),
+            titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
             shape: Border(
               bottom: BorderSide(
-                color: AppColor.searchBarBorderColor,
+                color: Theme.of(context).dividerColor,
                 width: 1.0,
               ),
             ),
@@ -69,7 +65,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     'no_worries_enter_your_email_for_reset_password'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: AppColor.textPrimaryColor,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       fontSize: Get.height * Utils.getResponsiveSize(14),
                       fontWeight: FontWeight.w400,
                       fontFamily: 'Manrope',
@@ -86,7 +82,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           'email'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontWeight: FontWeight.w500,
                             fontFamily: 'Manrope',

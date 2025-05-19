@@ -7,14 +7,12 @@ import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/res/themes/app_themes.dart';
 import 'package:sanad/viewModels/services/theme_service.dart';
 
- void main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final themeService = Get.put(ThemeService());
   await themeService.init();
   SystemChrome.setSystemUIOverlayStyle(
-    Get.isDarkMode
-        ? SystemUiOverlayStyle.light
-        : SystemUiOverlayStyle.dark,
+    Get.isDarkMode ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
     // const SystemUiOverlayStyle(
     //   statusBarColor: Colors.transparent,
     //   statusBarIconBrightness: Brightness.dark,
@@ -40,8 +38,8 @@ class MyApp extends StatelessWidget {
       translations: Languages(),
       locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
-      theme: AppThemes.lightTheme,
-      darkTheme: AppThemes.darkTheme,
+      theme: AppThemes.lightTheme(MediaQuery.of(context).size.height),
+      darkTheme: AppThemes.darkTheme(MediaQuery.of(context).size.height),
       themeMode: themeService.themeMode,
       initialRoute: RoutesName.splashScreen,
       // initialRoute: RoutesName.navigationScreen,

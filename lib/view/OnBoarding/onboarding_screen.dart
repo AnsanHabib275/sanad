@@ -43,8 +43,13 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
+      // value:
+      //     Get.isDarkMode
+      //         ? SystemUiOverlayStyle.light
+      //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor: Theme.of(context).scaffoldBackgroundColor,
+        systemNavigationBarColor:
+            Theme.of(context).navigationBarTheme.backgroundColor,
         systemNavigationBarIconBrightness:
             Theme.of(context).brightness == Brightness.dark
                 ? Brightness.light
@@ -95,7 +100,10 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                                   Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w400,
-                              color: AppColor.textSecondaryColor,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).textTheme.bodyMedium!.color!,
                             ),
                           ),
                         ),

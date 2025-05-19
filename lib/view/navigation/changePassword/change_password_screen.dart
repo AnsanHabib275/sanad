@@ -37,15 +37,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   () => Get.offAll(() => NavigationScreen(initialIndex: 4)),
             ),
             centerTitle: true,
-            title: Text(
-              'change_password'.tr,
-              style: TextStyle(
-                color: AppColor.textPrimaryColor,
-                fontSize: Get.height * Utils.getResponsiveSize(20),
-                fontWeight: FontWeight.w600,
-                fontFamily: 'Outfit',
-              ),
-            ),
+            title: Text('change_password'.tr),
+            titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
           ),
           extendBody: true,
           extendBodyBehindAppBar: true,
@@ -61,7 +54,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     'please_enter_the_following_credentials'.tr,
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: AppColor.appBarLightBackground,
+                      color: Theme.of(context).textTheme.bodyMedium!.color!,
                       fontSize: Get.height * Utils.getResponsiveSize(14),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w400,
@@ -78,7 +71,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           'existing_password'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textSecondaryColor,
+                            color:
+                                Theme.of(context).textTheme.bodyMedium!.color!,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -95,7 +89,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           'new_password'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textSecondaryColor,
+                            color:
+                                Theme.of(context).textTheme.bodyMedium!.color!,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,

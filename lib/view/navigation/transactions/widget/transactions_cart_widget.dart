@@ -20,7 +20,10 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
     return Container(
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(color: AppColor.searchBarBorderColor, width: 1.0),
+          bottom: BorderSide(
+            color: Theme.of(context).cardTheme.surfaceTintColor!,
+            width: 1.0,
+          ),
         ),
       ),
       child: Row(
@@ -39,7 +42,7 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                   widget.transaction.paymentID,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: AppColor.textPrimaryColor,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w400,
                     fontSize: Get.height * Utils.getResponsiveSize(14),
@@ -60,7 +63,7 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                   widget.transaction.amount,
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    color: AppColor.textPrimaryColor,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
                     fontSize: Get.height * Utils.getResponsiveSize(14),
@@ -121,7 +124,7 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                 ),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppColor.appBarLightBackground,
+                    color: Theme.of(context).cardTheme.color,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -133,7 +136,8 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                       horizontal: Get.width * Utils.getResponsiveWidth(12),
                       vertical: Get.height * Utils.getResponsiveHeight(8),
                     ),
-                    child: Image.asset(ImageAssets.imgDownload,
+                    child: Image.asset(
+                      ImageAssets.imgDownload,
                       height: Get.height * Utils.getResponsiveHeight(18),
                       width: Get.width * Utils.getResponsiveWidth(18),
                     ),

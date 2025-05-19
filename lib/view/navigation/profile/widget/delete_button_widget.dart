@@ -13,7 +13,7 @@ class DeleteButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        buttonColor: AppColor.appBarLightBackground,
+        buttonColor: AppColor.secondaryButtonColor,
         textColor: AppColor.background,
         width: 119,
         height: 40,

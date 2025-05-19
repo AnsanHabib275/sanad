@@ -23,10 +23,12 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
       //   return InkWell(
       //     onTap: () {},
       child: Card(
-        color: AppColor.whiteColor,
         elevation: 2,
         shape: RoundedRectangleBorder(
-          side: BorderSide(color: AppColor.searchBarBorderColor, width: 1.0),
+          side: BorderSide(
+            color: Theme.of(context).cardTheme.surfaceTintColor!,
+            width: 1.0,
+          ),
           borderRadius: BorderRadius.circular(
             Get.height * Utils.getResponsiveSize(8),
           ),
@@ -48,7 +50,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                       fontSize: Get.height * Utils.getResponsiveSize(20),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w700,
-                      color: AppColor.textPrimaryColor,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                     ),
                   ),
                   SizedBox(width: Get.width * Utils.getResponsiveWidth(12)),
@@ -74,7 +76,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                           fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
-                          color: AppColor.textPrimaryColor,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
                     ),
@@ -100,7 +102,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                   fontSize: Get.height * Utils.getResponsiveSize(14),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w500,
-                  color: AppColor.textSecondaryColor,
+                  color: Theme.of(context).textTheme.bodyMedium!.color!,
                 ),
               ),
               Text(
@@ -109,7 +111,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                   fontSize: Get.height * Utils.getResponsiveSize(14),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w500,
-                  color: AppColor.textSecondaryColor,
+                  color: Theme.of(context).textTheme.bodyMedium!.color!,
                 ),
               ),
               SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
@@ -135,7 +137,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                           fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
-                          color: AppColor.textPrimaryColor,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
                     ),
@@ -161,7 +163,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                           fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
-                          color: AppColor.textPrimaryColor,
+                          color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
                       ),
                     ),

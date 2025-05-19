@@ -24,8 +24,13 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
+      // value:
+      //     Get.isDarkMode
+      //         ? SystemUiOverlayStyle.light
+      //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor: Theme.of(context).scaffoldBackgroundColor,
+        systemNavigationBarColor:
+            Theme.of(context).navigationBarTheme.backgroundColor,
         systemNavigationBarIconBrightness:
             Theme.of(context).brightness == Brightness.dark
                 ? Brightness.light
@@ -68,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           'sign_in_to_sanad'.tr,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(24),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w600,
@@ -87,7 +92,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 'email'.tr,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                   fontSize:
                                       Get.height * Utils.getResponsiveSize(14),
                                   fontFamily: 'Manrope',
@@ -107,7 +115,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 'password'.tr,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                   fontSize:
                                       Get.height * Utils.getResponsiveSize(14),
                                   fontFamily: 'Manrope',
@@ -136,7 +147,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: Text(
                                 'forgot_password_with_question'.tr,
                                 style: TextStyle(
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                   fontSize:
                                       Get.height * Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
@@ -164,7 +178,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontWeight: FontWeight.w400,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(12),
-                                color: AppColor.textSecondaryColor,
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).textTheme.bodyMedium!.color!,
                               ),
                             ),
                             SizedBox(
@@ -182,7 +199,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontWeight: FontWeight.w500,
                                   fontSize:
                                       Get.height * Utils.getResponsiveSize(12),
-                                  color: AppColor.textPrimaryColor,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).textTheme.bodyLarge!.color,
                                 ),
                               ),
                             ),

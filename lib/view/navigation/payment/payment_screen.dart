@@ -18,12 +18,12 @@ class PaymentScreen extends StatefulWidget {
 class _PaymentScreenState extends State<PaymentScreen> {
   final paymentsVM = Get.put(PaymentsViewModel());
   final List<PaymentModel> paymentItems = [
-    PaymentModel('P-ID-001','Dec 12, 2024', '\$2300', 'Expired'),
-    PaymentModel('P-ID-002','Dec 12, 2024', '-\$670', 'Hired'),
-    PaymentModel('P-ID-003','Dec 12, 2024', '\$234', 'Running'),
-    PaymentModel('P-ID-004','Dec 12, 2024', '\$5000', 'Expired'),
-    PaymentModel('P-ID-005','Dec 12, 2024', '\$2300', 'Running'),
-    PaymentModel('P-ID-006','Dec 12, 2024', '\$560', 'Hired'),
+    PaymentModel('P-ID-001', 'Dec 12, 2024', '\$2300', 'Expired'),
+    PaymentModel('P-ID-002', 'Dec 12, 2024', '-\$670', 'Hired'),
+    PaymentModel('P-ID-003', 'Dec 12, 2024', '\$234', 'Running'),
+    PaymentModel('P-ID-004', 'Dec 12, 2024', '\$5000', 'Expired'),
+    PaymentModel('P-ID-005', 'Dec 12, 2024', '\$2300', 'Running'),
+    PaymentModel('P-ID-006', 'Dec 12, 2024', '\$560', 'Hired'),
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,22 +34,20 @@ class _PaymentScreenState extends State<PaymentScreen> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           leading: IconButton(
-            icon: Image.asset(IconAssets.icArrowLeft,
+            icon: Image.asset(
+              IconAssets.icArrowLeft,
               height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),),
+              width: Get.width * Utils.getResponsiveWidth(24),
+              color: Theme.of(context).iconTheme.color,
+            ),
             onPressed: () => Get.back(),
           ),
           centerTitle: true,
           title: Text('payments'.tr),
-          titleTextStyle: TextStyle(
-            color: AppColor.textPrimaryColor,
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w600,
-            fontSize: Get.height * Utils.getResponsiveSize(24),
-          ),
+          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
           shape: Border(
             bottom: BorderSide(
-              color: AppColor.searchBarBorderColor,
+              color: Theme.of(context).dividerColor,
               width: 1.0,
             ),
           ),
@@ -77,7 +75,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       ),
                     ),
                     border: Border.all(
-                      color: AppColor.searchBarBorderColor,
+                      color: Theme.of(context).cardTheme.surfaceTintColor!,
                       width: 1.0,
                     ),
                   ),
@@ -97,7 +95,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           'payment_history'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w700,
@@ -115,7 +113,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           'track_your_list_of_payment_here'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textSecondaryColor,
+                            color:
+                                Theme.of(context).textTheme.bodyMedium!.color!,
                             fontSize: Get.height * Utils.getResponsiveSize(12),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -128,7 +127,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       Container(
                         height: Get.height * Utils.getResponsiveHeight(50),
                         width: double.infinity,
-                        color: AppColor.appBarLightBackground,
+                        color: Theme.of(context).cardTheme.color,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -147,7 +146,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                   child: Text(
                                     'payment_capital'.tr,
                                     style: TextStyle(
-                                      color: AppColor.textBodyColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodySmall!.color!,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       fontSize:
@@ -172,7 +174,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                   child: Text(
                                     'amount'.tr,
                                     style: TextStyle(
-                                      color: AppColor.textBodyColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodySmall!.color!,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       fontSize:
@@ -197,7 +202,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                   child: Text(
                                     'status'.tr,
                                     style: TextStyle(
-                                      color: AppColor.textBodyColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodySmall!.color!,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       fontSize:
@@ -222,7 +230,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                   child: Text(
                                     'action'.tr,
                                     style: TextStyle(
-                                      color: AppColor.textBodyColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodySmall!.color!,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       fontSize:

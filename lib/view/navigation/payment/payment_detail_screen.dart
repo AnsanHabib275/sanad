@@ -26,22 +26,20 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           leading: IconButton(
-            icon: Image.asset(IconAssets.icArrowLeft,
+            icon: Image.asset(
+              IconAssets.icArrowLeft,
               height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),),
+              width: Get.width * Utils.getResponsiveWidth(24),
+              color: Theme.of(context).iconTheme.color,
+            ),
             onPressed: () => Get.back(),
           ),
           centerTitle: true,
           title: Text('payment_details'.tr),
-          titleTextStyle: TextStyle(
-            color: AppColor.textPrimaryColor,
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w600,
-            fontSize: Get.height * Utils.getResponsiveSize(24),
-          ),
+          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
           shape: Border(
             bottom: BorderSide(
-              color: AppColor.searchBarBorderColor,
+              color: Theme.of(context).dividerColor,
               width: 1.0,
             ),
           ),
@@ -65,7 +63,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                       ),
                     ),
                     border: Border.all(
-                      color: AppColor.searchBarBorderColor,
+                      color: Theme.of(context).cardTheme.surfaceTintColor!,
                       width: 1.0,
                     ),
                   ),
@@ -85,7 +83,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                           'payment_details'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textPrimaryColor,
+                            color: Theme.of(context).textTheme.bodyLarge!.color,
                             fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w700,
@@ -103,7 +101,8 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                           'track_your_payment_details_here'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: AppColor.textSecondaryColor,
+                            color:
+                                Theme.of(context).textTheme.bodyMedium!.color!,
                             fontSize: Get.height * Utils.getResponsiveSize(12),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -113,9 +112,14 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(16),
                       ),
-                      Divider(color: AppColor.searchBarBorderColor,height: Get.height * Utils.getResponsiveHeight(1),),
+                      Divider(
+                        color: Theme.of(context).dividerColor,
+                        height: Get.height * Utils.getResponsiveHeight(1),
+                      ),
                       Padding(
-                        padding: EdgeInsets.all(Get.height * Utils.getResponsiveHeight(16)),
+                        padding: EdgeInsets.all(
+                          Get.height * Utils.getResponsiveHeight(16),
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,7 +133,10 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                   Text(
                                     'payment_id'.tr,
                                     style: TextStyle(
-                                      color: AppColor.textSecondaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyMedium!.color!,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
@@ -138,95 +145,138 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Get.height * Utils.getResponsiveHeight(8),
+                                    height:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(8),
                                   ),
                                   Text(
                                     paymentID,
                                     style: TextStyle(
-                                      color: AppColor.textPrimaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyLarge!.color,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
-                                      Get.height *
+                                          Get.height *
                                           Utils.getResponsiveSize(18),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Get.height * Utils.getResponsiveHeight(20),
+                                    height:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(20),
                                   ),
                                   Text(
                                     'payment_amount'.tr,
                                     style: TextStyle(
-                                      color: AppColor.textSecondaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyMedium!.color!,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
-                                      Get.height *
+                                          Get.height *
                                           Utils.getResponsiveSize(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Get.height * Utils.getResponsiveHeight(8),
+                                    height:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(8),
                                   ),
                                   Text(
                                     amount,
                                     style: TextStyle(
-                                      color: AppColor.textPrimaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyLarge!.color,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
-                                      Get.height *
+                                          Get.height *
                                           Utils.getResponsiveSize(18),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Get.height * Utils.getResponsiveHeight(20),
+                                    height:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(20),
                                   ),
                                   Text(
                                     'invoice'.tr,
                                     style: TextStyle(
-                                      color: AppColor.textSecondaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyMedium!.color!,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
-                                      Get.height *
+                                          Get.height *
                                           Utils.getResponsiveSize(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Get.height * Utils.getResponsiveHeight(8),
+                                    height:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(8),
                                   ),
                                   Container(
                                     decoration: BoxDecoration(
-                                      color: AppColor.appBarLightBackground,
+                                      color: Theme.of(context).cardTheme.color,
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(
-                                          Get.height * Utils.getResponsiveHeight(8),
+                                          Get.height *
+                                              Utils.getResponsiveHeight(8),
                                         ),
                                       ),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsets.symmetric(
-                                        horizontal: Get.width * Utils.getResponsiveWidth(12),
-                                        vertical: Get.height * Utils.getResponsiveHeight(8),
+                                        horizontal:
+                                            Get.width *
+                                            Utils.getResponsiveWidth(12),
+                                        vertical:
+                                            Get.height *
+                                            Utils.getResponsiveHeight(8),
                                       ),
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          Image.asset(ImageAssets.imgDownload,
-                                            height: Get.height * Utils.getResponsiveHeight(18),
-                                            width: Get.width * Utils.getResponsiveWidth(18),
+                                          Image.asset(
+                                            ImageAssets.imgDownload,
+                                            height:
+                                                Get.height *
+                                                Utils.getResponsiveHeight(18),
+                                            width:
+                                                Get.width *
+                                                Utils.getResponsiveWidth(18),
                                           ),
-                                          SizedBox(width: Get.width * Utils.getResponsiveWidth(8),),
+                                          SizedBox(
+                                            width:
+                                                Get.width *
+                                                Utils.getResponsiveWidth(8),
+                                          ),
                                           Text(
                                             'download_invoice'.tr,
                                             style: TextStyle(
-                                              fontSize: Get.height * Utils.getResponsiveSize(12),
+                                              fontSize:
+                                                  Get.height *
+                                                  Utils.getResponsiveSize(12),
                                               fontFamily: 'Manrope',
                                               fontWeight: FontWeight.w500,
-                                              color: AppColor.textPrimaryColor,
+                                              color:
+                                                  Theme.of(
+                                                    context,
+                                                  ).textTheme.bodyLarge!.color,
                                             ),
                                           ),
                                         ],
@@ -236,7 +286,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                 ],
                               ),
                             ),
-                            SizedBox(width: Get.width * Utils.getResponsiveWidth(16),),
+                            SizedBox(
+                              width: Get.width * Utils.getResponsiveWidth(16),
+                            ),
                             Expanded(
                               flex: 1,
                               child: Column(
@@ -246,76 +298,98 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                   Text(
                                     'payment_date'.tr,
                                     style: TextStyle(
-                                      color: AppColor.textSecondaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyMedium!.color!,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
-                                      Get.height *
+                                          Get.height *
                                           Utils.getResponsiveSize(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Get.height * Utils.getResponsiveHeight(8),
+                                    height:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(8),
                                   ),
                                   Text(
                                     paymentDate,
                                     style: TextStyle(
-                                      color: AppColor.textPrimaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyLarge!.color,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
-                                      Get.height *
+                                          Get.height *
                                           Utils.getResponsiveSize(18),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Get.height * Utils.getResponsiveHeight(20),
+                                    height:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(20),
                                   ),
                                   Text(
                                     'status'.tr,
                                     style: TextStyle(
-                                      color: AppColor.textSecondaryColor,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.bodyMedium!.color!,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
-                                      Get.height *
+                                          Get.height *
                                           Utils.getResponsiveSize(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Get.height * Utils.getResponsiveHeight(8),
+                                    height:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(8),
                                   ),
                                   Container(
                                     decoration: BoxDecoration(
                                       color:
-                                      status == 'Expired'
-                                          ? AppColor.errorBgColor
-                                          : status == 'Hired'
-                                          ? AppColor.successBgColor
-                                          : AppColor.runningBgColor,
+                                          status == 'Expired'
+                                              ? AppColor.errorBgColor
+                                              : status == 'Hired'
+                                              ? AppColor.successBgColor
+                                              : AppColor.runningBgColor,
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(
-                                          Get.height * Utils.getResponsiveHeight(6),
+                                          Get.height *
+                                              Utils.getResponsiveHeight(6),
                                         ),
                                       ),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsets.symmetric(
-                                        horizontal: Get.width * Utils.getResponsiveWidth(10),
-                                        vertical: Get.height * Utils.getResponsiveHeight(2),
+                                        horizontal:
+                                            Get.width *
+                                            Utils.getResponsiveWidth(10),
+                                        vertical:
+                                            Get.height *
+                                            Utils.getResponsiveHeight(2),
                                       ),
                                       child: Text(
                                         status,
                                         style: TextStyle(
-                                          fontSize: Get.height * Utils.getResponsiveSize(12),
+                                          fontSize:
+                                              Get.height *
+                                              Utils.getResponsiveSize(12),
                                           fontFamily: 'Inter',
                                           fontWeight: FontWeight.w500,
                                           color:
-                                          status == 'Expired'
-                                              ? AppColor.errorTextColor
-                                              : status == 'Hired'
-                                              ? AppColor.successTextColor
-                                              : AppColor.runningTextColor,
+                                              status == 'Expired'
+                                                  ? AppColor.errorTextColor
+                                                  : status == 'Hired'
+                                                  ? AppColor.successTextColor
+                                                  : AppColor.runningTextColor,
                                         ),
                                       ),
                                     ),

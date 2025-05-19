@@ -25,7 +25,10 @@ class _HelpCartWidgetState extends State<HelpCartWidget> {
       ),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: AppColor.searchBarBorderColor, width: 1.0),
+          border: Border.all(
+            color: Theme.of(context).cardTheme.surfaceTintColor!,
+            width: 1.0,
+          ),
           borderRadius: BorderRadius.all(
             Radius.circular(Get.height * Utils.getResponsiveSize(12)),
           ),
@@ -41,7 +44,7 @@ class _HelpCartWidgetState extends State<HelpCartWidget> {
                   widget.help.helpText,
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    color: AppColor.textPrimaryColor,
+                    color: Theme.of(context).textTheme.bodyLarge!.color,
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w700,
                     fontSize: Get.height * Utils.getResponsiveSize(14),

@@ -29,6 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     Utils.hideKeyboardGlobally();
     return AnnotatedRegion<SystemUiOverlayStyle>(
+      // value:  Get.isDarkMode ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
         systemNavigationBarColor: Theme.of(context).primaryColor,
         systemNavigationBarIconBrightness:
@@ -41,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: PopScope(
           canPop: false,
           child: Scaffold(
-            backgroundColor: Theme.of(context).splashColor , //  .primaryColor,
+            backgroundColor: Theme.of(context).splashColor, //  .primaryColor,
             // backgroundColor: AppColor.logoColor,
             body: Stack(
               children: [

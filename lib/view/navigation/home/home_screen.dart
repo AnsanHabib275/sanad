@@ -69,12 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text('home'.tr),
-          titleTextStyle: TextStyle(
-            color: AppColor.textPrimaryColor,
-            fontFamily: 'Manrope',
-            fontWeight: FontWeight.w600,
-            fontSize: Get.height * Utils.getResponsiveSize(24),
-          ),
+          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
           actions: [
             GestureDetector(
               onTap: () {
@@ -90,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
           shape: Border(
             bottom: BorderSide(
-              color: AppColor.searchBarBorderColor,
+              color: Theme.of(context).dividerColor,
               width: 1.0,
             ),
           ),
@@ -112,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Radius.circular(Get.height * Utils.getResponsiveHeight(8)),
                   ),
                   border: Border.all(
-                    color: AppColor.searchBarBorderColor,
+                    color: Theme.of(context).cardTheme.surfaceTintColor!,
                     width: 1.0,
                   ),
                 ),
@@ -125,8 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     VerticalDivider(
                       width: Get.width * Utils.getResponsiveWidth(1),
-                      color:
-                          AppColor.searchBarBorderColor, // Color of the divider
+                      color: Theme.of(context).dividerColor,
                     ),
                     InputLocationWidget(),
                   ],
@@ -136,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 'jobs_for_you'.tr,
                 style: TextStyle(
-                  color: AppColor.textPrimaryColor,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                   fontSize: Get.height * Utils.getResponsiveSize(18),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w600,
@@ -146,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 'jobs_based_on_your_activity'.tr,
                 style: TextStyle(
-                  color: AppColor.textSecondaryColor,
+                  color: Theme.of(context).textTheme.bodyMedium!.color!,
                   fontSize: Get.height * Utils.getResponsiveSize(14),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w500,
