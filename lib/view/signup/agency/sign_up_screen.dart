@@ -13,6 +13,8 @@ import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
+import '../../../res/themes/app_themes.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -56,7 +58,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     'please_fill_the_required_information'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textPrimaryColor,
                       fontSize: Get.height * Utils.getResponsiveSize(20),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
@@ -73,7 +78,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'full_name'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -90,7 +98,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'tagline'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -107,7 +118,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'phone_number'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -124,7 +138,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'email'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -141,7 +158,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'password_at_least'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -158,7 +178,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'upload_profile_picture'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -175,7 +198,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'add_note'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,

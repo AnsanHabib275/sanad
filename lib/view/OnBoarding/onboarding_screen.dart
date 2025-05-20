@@ -9,6 +9,7 @@ import 'package:sanad/viewModels/controller/onBoarding/onboarding_view_model.dar
 import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
 import '../../models/onBoarding/on_boarding_list_model.dart';
 import '../../res/colors/app_color.dart';
+import '../../res/themes/app_themes.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -48,8 +49,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
       //         ? SystemUiOverlayStyle.light
       //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor:
-            Theme.of(context).navigationBarTheme.backgroundColor,
+        systemNavigationBarColor: Theme.of(context).secondaryHeaderColor,
         systemNavigationBarIconBrightness:
             Theme.of(context).brightness == Brightness.dark
                 ? Brightness.light
@@ -64,13 +64,14 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
           body: Stack(
             children: [
               Positioned(
-                top: -250,
+                top: -100,
                 left: -157,
                 right: -157,
                 child: Image.asset(
                   ImageAssets.onBoardingBg,
                   height: Get.height * Utils.getResponsiveHeight(744),
                   width: Get.width * Utils.getResponsiveWidth(744),
+                  // color: AppColor.obBoardingLogoBgWith12Per,
                 ),
               ),
               Positioned(
@@ -85,6 +86,8 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Spacer(),
                         TextButton(
@@ -103,7 +106,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                               color:
                                   Theme.of(
                                     context,
-                                  ).textTheme.bodyMedium!.color!,
+                                  ).extension<AppColors>()?.skipText,
                             ),
                           ),
                         ),
@@ -111,9 +114,6 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                           width: Get.width * Utils.getResponsiveWidth(16),
                         ),
                       ],
-                    ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(40),
                     ),
                     Expanded(
                       child: PageView.builder(

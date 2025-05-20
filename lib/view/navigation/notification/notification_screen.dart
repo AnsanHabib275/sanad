@@ -78,7 +78,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
             ),
           ),
           // shape: Border(
-          //   bottom: BorderSide(color: Theme.of(context).cardTheme.surfaceTintColor!, width: 1.0),
+          //   bottom: BorderSide(color: Theme.of(context).dividerColor, width: 1.0),
           // ),
         ),
         body: Padding(

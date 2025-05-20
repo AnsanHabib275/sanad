@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
 import '../../res/routes/routes_name.dart';
+import '../../res/themes/app_themes.dart';
 import '../../viewModels/controller/login/login_view_model.dart';
 import '../login/widget/input_email_widget.dart';
 import '../login/widget/input_password_widget.dart';
@@ -29,8 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
       //         ? SystemUiOverlayStyle.light
       //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor:
-            Theme.of(context).navigationBarTheme.backgroundColor,
+        systemNavigationBarColor: Theme.of(context).secondaryHeaderColor,
         systemNavigationBarIconBrightness:
             Theme.of(context).brightness == Brightness.dark
                 ? Brightness.light
@@ -73,7 +73,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           'sign_in_to_sanad'.tr,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(24),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w600,
@@ -93,9 +96,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                   fontSize:
                                       Get.height * Utils.getResponsiveSize(14),
                                   fontFamily: 'Manrope',
@@ -116,9 +119,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                   fontSize:
                                       Get.height * Utils.getResponsiveSize(14),
                                   fontFamily: 'Manrope',
@@ -148,9 +151,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 'forgot_password_with_question'.tr,
                                 style: TextStyle(
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                   fontSize:
                                       Get.height * Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
@@ -179,9 +182,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(12),
                                 color:
-                                    Theme.of(
-                                      context,
-                                    ).textTheme.bodyMedium!.color!,
+                                    Theme.of(context)
+                                        .extension<AppColors>()
+                                        ?.textSecondaryColor,
                               ),
                             ),
                             SizedBox(
@@ -200,9 +203,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontSize:
                                       Get.height * Utils.getResponsiveSize(12),
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                 ),
                               ),
                             ),

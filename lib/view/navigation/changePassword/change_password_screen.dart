@@ -6,6 +6,7 @@ import 'package:sanad/view/navigation/changePassword/widget/update_password_butt
 
 import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
+import '../../../res/themes/app_themes.dart';
 import '../../../utils/utils.dart';
 import '../navigation_screen.dart';
 
@@ -54,7 +55,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     'please_enter_the_following_credentials'.tr,
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyMedium!.color!,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textSecondaryColor,
                       fontSize: Get.height * Utils.getResponsiveSize(14),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w400,
@@ -72,7 +76,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color:
-                                Theme.of(context).textTheme.bodyMedium!.color!,
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -90,7 +96,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color:
-                                Theme.of(context).textTheme.bodyMedium!.color!,
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,

@@ -11,6 +11,8 @@ import '../../../res/routes/routes_name.dart';
 import 'package:sanad/view/signup/individual//widget/input_email_widget.dart';
 import 'package:sanad/view/signup/individual//widget/input_password_widget.dart';
 
+import '../../../res/themes/app_themes.dart';
+
 class SignUpIndividualScreen extends StatefulWidget {
   const SignUpIndividualScreen({super.key});
 
@@ -59,7 +61,10 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                         'join_as_an_individual'.tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
                           fontSize: Get.height * Utils.getResponsiveSize(24),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w600,
@@ -81,7 +86,7 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                 color:
                                     Theme.of(
                                       context,
-                                    ).textTheme.bodyLarge!.color,
+                                    ).extension<AppColors>()?.textPrimaryColor,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(14),
                                 fontFamily: 'Manrope',
@@ -103,7 +108,7 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                 color:
                                     Theme.of(
                                       context,
-                                    ).textTheme.bodyLarge!.color,
+                                    ).extension<AppColors>()?.textPrimaryColor,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(14),
                                 fontFamily: 'Manrope',
@@ -136,9 +141,9 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                 ),
                               ),
                               TextSpan(
@@ -149,9 +154,9 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                   decoration: TextDecoration.underline,
                                 ),
                                 recognizer:
@@ -169,9 +174,9 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                 ),
                               ),
                               TextSpan(
@@ -182,9 +187,9 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                   decoration: TextDecoration.underline,
                                 ),
                                 recognizer:
@@ -202,9 +207,9 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                 ),
                               ),
                               TextSpan(
@@ -215,9 +220,9 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                   decoration: TextDecoration.underline,
                                 ),
                                 recognizer:
@@ -252,7 +257,7 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                               color:
                                   Theme.of(
                                     context,
-                                  ).textTheme.bodyMedium!.color!,
+                                  ).extension<AppColors>()?.textSecondaryColor,
                             ),
                           ),
                           SizedBox(
@@ -273,7 +278,7 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                 color:
                                     Theme.of(
                                       context,
-                                    ).textTheme.bodyLarge!.color,
+                                    ).extension<AppColors>()?.textPrimaryColor,
                               ),
                             ),
                           ),
@@ -296,7 +301,7 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                               color:
                                   Theme.of(
                                     context,
-                                  ).textTheme.bodyMedium!.color!,
+                                  ).extension<AppColors>()?.textSecondaryColor,
                             ),
                           ),
                           SizedBox(
@@ -317,7 +322,7 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                 color:
                                     Theme.of(
                                       context,
-                                    ).textTheme.bodyLarge!.color,
+                                    ).extension<AppColors>()?.textPrimaryColor,
                               ),
                             ),
                           ),

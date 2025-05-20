@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/res/colors/app_color.dart';
 
 import '../../../../res/components/round_button.dart';
+import '../../../../res/themes/app_themes.dart';
 
 class DismissLargeButtonWidget extends StatelessWidget {
   const DismissLargeButtonWidget({super.key});
@@ -10,8 +11,8 @@ class DismissLargeButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RoundButton(
-      buttonColor: AppColor.secondaryButtonColor,
-      textColor: Theme.of(context).textTheme.bodyLarge!.color!,
+      buttonColor: Theme.of(context).extension<AppColors>()!.buttonBg,
+      textColor: Theme.of(context).extension<AppColors>()!.textPrimaryColor,
       fontWeight: FontWeight.w500,
       width: 306,
       title: 'dismiss'.tr,

@@ -63,7 +63,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                       ),
                     ),
                     border: Border.all(
-                      color: Theme.of(context).cardTheme.surfaceTintColor!,
+                      color: Theme.of(context).dividerColor,
                       width: 1.0,
                     ),
                   ),
@@ -83,7 +83,10 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                           'payment_details'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w700,
@@ -102,7 +105,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color:
-                                Theme.of(context).textTheme.bodyMedium!.color!,
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(12),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -134,9 +139,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                     'payment_id'.tr,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium!.color!,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
@@ -153,9 +158,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                     paymentID,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyLarge!.color,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
@@ -172,9 +177,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                     'payment_amount'.tr,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium!.color!,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
@@ -191,9 +196,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                     amount,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyLarge!.color,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
@@ -210,9 +215,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                     'invoice'.tr,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium!.color!,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
@@ -274,9 +279,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               fontFamily: 'Manrope',
                                               fontWeight: FontWeight.w500,
                                               color:
-                                                  Theme.of(
-                                                    context,
-                                                  ).textTheme.bodyLarge!.color,
+                                                  Theme.of(context)
+                                                      .extension<AppColors>()
+                                                      ?.textPrimaryColor,
                                             ),
                                           ),
                                         ],
@@ -299,9 +304,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                     'payment_date'.tr,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium!.color!,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
@@ -318,9 +323,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                     paymentDate,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyLarge!.color,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:
@@ -337,9 +342,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                     'status'.tr,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyMedium!.color!,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       fontSize:

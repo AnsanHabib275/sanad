@@ -53,7 +53,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       ),
                     ),
                     border: Border.all(
-                      color: Theme.of(context).cardTheme.surfaceTintColor!,
+                      color: Theme.of(context).dividerColor,
                       width: 1.0,
                     ),
                   ),
@@ -76,7 +76,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                 color:
                                     Theme.of(
                                       context,
-                                    ).textTheme.bodyLarge!.color,
+                                    ).extension<AppColors>()?.textPrimaryColor,
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w700,
                                 fontSize:
@@ -98,9 +98,9 @@ class _WalletScreenState extends State<WalletScreen> {
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w700,
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyLarge!.color,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
                                     ),
                                   ),
                                   TextSpan(
@@ -112,9 +112,9 @@ class _WalletScreenState extends State<WalletScreen> {
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w700,
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyLarge!.color,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
                                     ),
                                   ),
                                 ],
@@ -172,9 +172,9 @@ class _WalletScreenState extends State<WalletScreen> {
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyLarge!.color,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
                                     ),
                                   ),
                                   TextSpan(
@@ -186,9 +186,9 @@ class _WalletScreenState extends State<WalletScreen> {
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyLarge!.color,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
                                     ),
                                   ),
                                 ],
@@ -241,9 +241,9 @@ class _WalletScreenState extends State<WalletScreen> {
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyLarge!.color,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
                                     ),
                                   ),
                                   TextSpan(
@@ -255,9 +255,9 @@ class _WalletScreenState extends State<WalletScreen> {
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodyLarge!.color,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
                                     ),
                                   ),
                                 ],
@@ -280,7 +280,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       ),
                     ),
                     border: Border.all(
-                      color: Theme.of(context).cardTheme.surfaceTintColor!,
+                      color: Theme.of(context).dividerColor,
                       width: 1.0,
                     ),
                   ),
@@ -303,7 +303,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                 color:
                                     Theme.of(
                                       context,
-                                    ).textTheme.bodyLarge!.color,
+                                    ).extension<AppColors>()?.textPrimaryColor,
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w700,
                                 fontSize:
@@ -333,9 +333,9 @@ class _WalletScreenState extends State<WalletScreen> {
                                 'empty_transactions'.tr,
                                 style: TextStyle(
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).textTheme.bodyLarge!.color,
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
                                   fontSize:

@@ -7,7 +7,6 @@ import 'package:sanad/viewModels/controller/navigation/navigation_view_model.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../res/assets/icon_assets.dart';
-import '../../res/colors/app_color.dart';
 import '../../viewModels/controller/navigation/notification/notification_view_model.dart';
 import '../../viewModels/controller/userPreference/user_preference_view_model.dart';
 
@@ -48,8 +47,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
       //         ? SystemUiOverlayStyle.light
       //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor:
-            Theme.of(context).navigationBarTheme.backgroundColor,
+        systemNavigationBarColor: Theme.of(context).secondaryHeaderColor,
         systemNavigationBarIconBrightness:
             Theme.of(context).brightness == Brightness.dark
                 ? Brightness.light

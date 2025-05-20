@@ -1,6 +1,7 @@
 import 'package:sanad/viewModels/controller/forgetPassword/forget_password_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
 
@@ -42,6 +43,10 @@ class InputEmailWidget extends StatelessWidget {
           errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
           focusedErrorBorder:
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
+          prefixIcon: Image.asset(
+            IconAssets.icEmail,
+            color: Theme.of(context).iconTheme.color,
+          ),
         ),
         keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.done,

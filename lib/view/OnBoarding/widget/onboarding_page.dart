@@ -4,6 +4,7 @@ import 'package:sanad/utils/utils.dart';
 
 import '../../../models/onBoarding/on_boarding_list_model.dart';
 import '../../../res/colors/app_color.dart';
+import '../../../res/themes/app_themes.dart';
 
 class OnBoardingPage extends StatelessWidget {
   final OnBoardingListModel onBoardingList;
@@ -19,11 +20,11 @@ class OnBoardingPage extends StatelessWidget {
             Image.asset(
               onBoardingList.imagePath,
               height: Get.height * Utils.getResponsiveHeight(350),
-              width: Get.width * 1,
+              width: Get.width * Utils.getResponsiveWidth(511),
               fit: BoxFit.contain,
-              color: Theme.of(context).iconTheme.color,
+              // color: Theme.of(context).iconTheme.color,
             ),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(100)),
+            SizedBox(height: Get.height * Utils.getResponsiveHeight(155)),
             Text(
               onBoardingList.title,
               textAlign: TextAlign.center,
@@ -31,7 +32,8 @@ class OnBoardingPage extends StatelessWidget {
                 fontSize: Get.height * Utils.getResponsiveSize(24),
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w800,
-                color: Theme.of(context).textTheme.bodyLarge!.color,
+                color:
+                    Theme.of(context).extension<AppColors>()?.textPrimaryColor,
               ),
             ),
             SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
@@ -42,7 +44,8 @@ class OnBoardingPage extends StatelessWidget {
                 fontSize: Get.height * Utils.getResponsiveSize(14),
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w400,
-                color: Theme.of(context).textTheme.bodyLarge!.color,
+                color:
+                    Theme.of(context).extension<AppColors>()?.textPrimaryColor,
               ),
             ),
           ],

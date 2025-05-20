@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/viewModels/controller/navigation/home/home_view_model.dart';
 import '../../../../res/colors/app_color.dart';
+import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 
 class InputLocationWidget extends StatelessWidget {
@@ -24,12 +25,16 @@ class InputLocationWidget extends StatelessWidget {
               IconAssets.icMapPin,
               height: Get.height * Utils.getResponsiveHeight(24),
               width: Get.width * Utils.getResponsiveWidth(24),
+              color: Theme.of(context).iconTheme.color,
             ),
             SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
             Text(
               'location'.tr,
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyMedium!.color!,
+                color:
+                    Theme.of(
+                      context,
+                    ).extension<AppColors>()?.textSecondaryColor,
                 fontSize: Get.height * Utils.getResponsiveSize(14),
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w500,

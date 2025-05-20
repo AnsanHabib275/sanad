@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/view/resetPassword/widget/login_button_widget.dart';
 import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
+import '../../res/themes/app_themes.dart';
 import '../../utils/utils.dart';
 
 class ResetDoneScreen extends StatefulWidget {
@@ -42,7 +43,10 @@ class _ResetDoneScreenState extends State<ResetDoneScreen> {
                   'password_reset_successfully'.tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<AppColors>()?.textPrimaryColor,
                     fontSize: Get.height * Utils.getResponsiveSize(24),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w600,
@@ -53,7 +57,10 @@ class _ResetDoneScreenState extends State<ResetDoneScreen> {
                   'password_reset_description'.tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<AppColors>()?.textPrimaryColor,
                     fontSize: Get.height * Utils.getResponsiveSize(14),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w400,

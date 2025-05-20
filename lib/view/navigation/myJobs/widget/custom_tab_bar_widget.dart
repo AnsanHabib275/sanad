@@ -14,23 +14,6 @@ class CustomTabBar extends StatefulWidget {
 class _CustomTabBarState extends State<CustomTabBar>
     with SingleTickerProviderStateMixin {
   final myJobsVM = Get.put(MyJobsViewModel());
-  late AnimationController _animationController;
-
-  @override
-  void initState() {
-    super.initState();
-    // complaintsVM.complaintsListApi();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 300),
-    );
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +42,7 @@ class _CustomTabBarState extends State<CustomTabBar>
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    // complaintsVM.isSolved.value = false;
-                    _animationController.reverse();
                     myJobsVM.setSelectionTab('applied');
-                    // complaintsVM.complaintsListApi();
-                    // complaintsVM.toggleSolved(false);
                   },
                   child: Container(
                     height: double.infinity,
@@ -101,11 +80,7 @@ class _CustomTabBarState extends State<CustomTabBar>
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    // complaintsVM.isSolved.value = true;
-                    _animationController.forward();
                     myJobsVM.setSelectionTab('saved');
-                    // complaintsVM.complaintsListApi();
-                    // complaintsVM.toggleSolved(true);
                   },
                   child: Container(
                     height: double.infinity,
@@ -143,11 +118,7 @@ class _CustomTabBarState extends State<CustomTabBar>
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    // complaintsVM.isSolved.value = true;
-                    _animationController.forward();
                     myJobsVM.setSelectionTab('invitation');
-                    // complaintsVM.complaintsListApi();
-                    // complaintsVM.toggleSolved(true);
                   },
                   child: Container(
                     height: double.infinity,

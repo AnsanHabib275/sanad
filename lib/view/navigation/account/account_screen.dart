@@ -10,6 +10,7 @@ import 'package:sanad/viewModels/controller/userPreference/user_preference_view_
 
 import '../../../res/assets/image_assets.dart';
 import '../../../res/colors/app_color.dart';
+import '../../../res/themes/app_themes.dart';
 import '../../../res/urls/app_url.dart';
 import '../../../utils/utils.dart';
 import '../navigation_screen.dart';
@@ -56,13 +57,14 @@ class _AccountScreenState extends State<AccountScreen> {
                   height: Get.height * Utils.getResponsiveHeight(82),
                   width: double.infinity,
                   decoration: BoxDecoration(
+                    color: Theme.of(context).cardTheme.color,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(4),
                       ),
                     ),
                     border: Border.all(
-                      color: Theme.of(context).cardTheme.surfaceTintColor!,
+                      color: Theme.of(context).dividerColor,
                       width: 1.0,
                     ),
                   ),
@@ -100,7 +102,10 @@ class _AccountScreenState extends State<AccountScreen> {
                       fontSize: Get.height * Utils.getResponsiveSize(20),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w600,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textPrimaryColor,
                     ),
                     subtitle: Text(
                       // userVM.userEmail.value,
@@ -110,7 +115,10 @@ class _AccountScreenState extends State<AccountScreen> {
                       fontSize: Get.height * Utils.getResponsiveSize(14),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
-                      color: Theme.of(context).textTheme.bodySmall!.color!,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textBodyColor,
                     ),
                   ),
                 ),
@@ -118,7 +126,10 @@ class _AccountScreenState extends State<AccountScreen> {
                 Text(
                   'account'.tr,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<AppColors>()?.textPrimaryColor,
                     fontSize: Get.height * Utils.getResponsiveSize(18),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w600,
@@ -127,13 +138,14 @@ class _AccountScreenState extends State<AccountScreen> {
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
+                    color: Theme.of(context).cardTheme.color,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
                       ),
                     ),
                     border: Border.all(
-                      color: Theme.of(context).cardTheme.surfaceTintColor!,
+                      color: Theme.of(context).dividerColor,
                       width: 1.0,
                     ),
                   ),
@@ -150,10 +162,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icProfile,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('profile'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -171,10 +187,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icMyJob,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('my_jobs'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -194,10 +214,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icNotifications,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('notifications'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -216,10 +240,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icAnalytics,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('analytics'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -235,7 +263,10 @@ class _AccountScreenState extends State<AccountScreen> {
                 Text(
                   'payments'.tr,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<AppColors>()?.textPrimaryColor,
                     fontSize: Get.height * Utils.getResponsiveSize(18),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w600,
@@ -244,13 +275,14 @@ class _AccountScreenState extends State<AccountScreen> {
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
+                    color: Theme.of(context).cardTheme.color,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
                       ),
                     ),
                     border: Border.all(
-                      color: Theme.of(context).cardTheme.surfaceTintColor!,
+                      color: Theme.of(context).dividerColor,
                       width: 1.0,
                     ),
                   ),
@@ -267,10 +299,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icWallet,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('wallet'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -288,10 +324,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icTransactions,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('transactions'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -309,10 +349,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icPayment,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('payments_method'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -328,7 +372,10 @@ class _AccountScreenState extends State<AccountScreen> {
                 Text(
                   'settings'.tr,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<AppColors>()?.textPrimaryColor,
                     fontSize: Get.height * Utils.getResponsiveSize(18),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w600,
@@ -337,13 +384,14 @@ class _AccountScreenState extends State<AccountScreen> {
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
+                    color: Theme.of(context).cardTheme.color,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
                       ),
                     ),
                     border: Border.all(
-                      color: Theme.of(context).cardTheme.surfaceTintColor!,
+                      color: Theme.of(context).dividerColor,
                       width: 1.0,
                     ),
                   ),
@@ -361,10 +409,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icRateUs,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('rate_us'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -383,10 +435,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icAbout,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('about'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -404,10 +460,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icHelp,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('help'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -425,10 +485,14 @@ class _AccountScreenState extends State<AccountScreen> {
                           IconAssets.icSignOut,
                           height: Get.height * Utils.getResponsiveHeight(24),
                           width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('sign_out'.tr),
                         titleTextStyle: TextStyle(
-                          color: Theme.of(context).textTheme.bodySmall!.color!,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
                           fontSize: Get.height * Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -457,6 +521,7 @@ class _AccountScreenState extends State<AccountScreen> {
         ).copyWith(textScaler: TextScaler.linear(1.0)),
         child: Dialog(
           elevation: 4,
+          backgroundColor: Theme.of(context).cardTheme.color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               Get.height * Utils.getResponsiveSize(12),
@@ -487,7 +552,10 @@ class _AccountScreenState extends State<AccountScreen> {
                       fontSize: Get.height * Utils.getResponsiveSize(18),
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textPrimaryColor,
                     ),
                   ),
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
@@ -499,7 +567,10 @@ class _AccountScreenState extends State<AccountScreen> {
                         fontSize: Get.height * Utils.getResponsiveSize(14),
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w400,
-                        color: Theme.of(context).textTheme.bodySmall!.color!,
+                        color:
+                            Theme.of(
+                              context,
+                            ).extension<AppColors>()?.textBodyColor,
                       ),
                     ),
                   ),

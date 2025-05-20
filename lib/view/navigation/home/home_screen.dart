@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:sanad/viewModels/controller/navigation/home/home_view_model.dart';
 
 import '../../../models/home/jobs_model.dart';
+import '../../../res/themes/app_themes.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -107,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Radius.circular(Get.height * Utils.getResponsiveHeight(8)),
                   ),
                   border: Border.all(
-                    color: Theme.of(context).cardTheme.surfaceTintColor!,
+                    color: Theme.of(context).dividerColor,
                     width: 1.0,
                   ),
                 ),
@@ -130,7 +131,10 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 'jobs_for_you'.tr,
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyLarge!.color,
+                  color:
+                      Theme.of(
+                        context,
+                      ).extension<AppColors>()?.textPrimaryColor,
                   fontSize: Get.height * Utils.getResponsiveSize(18),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w600,
@@ -140,7 +144,10 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 'jobs_based_on_your_activity'.tr,
                 style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyMedium!.color!,
+                  color:
+                      Theme.of(
+                        context,
+                      ).extension<AppColors>()?.textSecondaryColor,
                   fontSize: Get.height * Utils.getResponsiveSize(14),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w500,

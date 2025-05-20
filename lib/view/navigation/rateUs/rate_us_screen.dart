@@ -62,7 +62,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
                   Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Theme.of(context).cardTheme.surfaceTintColor!,
+                        color: Theme.of(context).dividerColor,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(
@@ -86,7 +86,9 @@ class _RateUsScreenState extends State<RateUsScreen> {
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyLarge!.color,
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
@@ -109,7 +111,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
                               color:
                                   Theme.of(
                                     context,
-                                  ).textTheme.bodyMedium!.color!,
+                                  ).extension<AppColors>()?.textSecondaryColor,
                               fontSize:
                                   Get.height * Utils.getResponsiveSize(12),
                               fontFamily: 'Manrope',
@@ -143,9 +145,9 @@ class _RateUsScreenState extends State<RateUsScreen> {
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     color:
-                                        Theme.of(
-                                          context,
-                                        ).textTheme.bodyLarge!.color,
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
                                     fontSize:
                                         Get.height *
                                         Utils.getResponsiveSize(14),
@@ -171,7 +173,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
                                     color:
                                         Theme.of(
                                           context,
-                                        ).textTheme.bodySmall!.color!,
+                                        ).extension<AppColors>()?.textBodyColor,
                                     fontSize:
                                         Get.height *
                                         Utils.getResponsiveSize(12),

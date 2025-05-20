@@ -21,10 +21,7 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
     return Container(
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(
-            color: Theme.of(context).cardTheme.surfaceTintColor!,
-            width: 1.0,
-          ),
+          bottom: BorderSide(color: Theme.of(context).dividerColor, width: 1.0),
         ),
       ),
       child: GestureDetector(
@@ -55,7 +52,10 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                     widget.payment.paymentID,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textSecondaryColor,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
                       fontSize: Get.height * Utils.getResponsiveSize(14),
@@ -76,7 +76,10 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                     widget.payment.amount,
                     textAlign: TextAlign.start,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textSecondaryColor,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
                       fontSize: Get.height * Utils.getResponsiveSize(14),

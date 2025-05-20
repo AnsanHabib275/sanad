@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../res/assets/icon_assets.dart';
+import '../../res/themes/app_themes.dart';
 
 class VerifyEmailScreen extends StatefulWidget {
   const VerifyEmailScreen({super.key});
@@ -70,7 +71,10 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                       Text(
                         'enter_your_security_code_we_sent_to'.tr,
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
                           fontSize: Get.height * Utils.getResponsiveSize(14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
@@ -79,7 +83,10 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                       Text(
                         email,
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
                           fontSize: Get.height * Utils.getResponsiveSize(14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
@@ -94,7 +101,10 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           'otp_code'.tr,
                           textAlign: TextAlign.start,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,

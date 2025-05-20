@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../res/assets/icon_assets.dart';
+import '../../res/themes/app_themes.dart';
 
 class OTPScreen extends StatefulWidget {
   const OTPScreen({super.key});
@@ -72,7 +73,10 @@ class _OTPScreenState extends State<OTPScreen> {
                       Text(
                         'enter_your_security_code_we_sent_to'.tr,
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
                           fontSize: Get.height * Utils.getResponsiveSize(14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
@@ -81,7 +85,10 @@ class _OTPScreenState extends State<OTPScreen> {
                       Text(
                         email,
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
                           fontSize: Get.height * Utils.getResponsiveSize(14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
@@ -96,7 +103,10 @@ class _OTPScreenState extends State<OTPScreen> {
                           'otp_code'.tr,
                           textAlign: TextAlign.start,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,

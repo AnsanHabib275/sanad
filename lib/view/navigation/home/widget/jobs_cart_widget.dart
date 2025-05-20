@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import '../../../../models/home/jobs_model.dart';
 import '../../../../res/colors/app_color.dart';
+import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 
 class JobsCartWidget extends StatefulWidget {
@@ -24,11 +25,9 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
       //     onTap: () {},
       child: Card(
         elevation: 2,
+        color: Theme.of(context).cardTheme.color,
         shape: RoundedRectangleBorder(
-          side: BorderSide(
-            color: Theme.of(context).cardTheme.surfaceTintColor!,
-            width: 1.0,
-          ),
+          side: BorderSide(color: Theme.of(context).dividerColor, width: 1.0),
           borderRadius: BorderRadius.circular(
             Get.height * Utils.getResponsiveSize(8),
           ),
@@ -50,13 +49,17 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                       fontSize: Get.height * Utils.getResponsiveSize(20),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w700,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textPrimaryColor,
                     ),
                   ),
                   SizedBox(width: Get.width * Utils.getResponsiveWidth(12)),
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColor.cardItemBgColor,
+                      color:
+                          Theme.of(context).extension<AppColors>()?.containerBg,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           Get.height * Utils.getResponsiveHeight(6),
@@ -76,7 +79,10 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                           fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
                         ),
                       ),
                     ),
@@ -102,7 +108,10 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                   fontSize: Get.height * Utils.getResponsiveSize(14),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w500,
-                  color: Theme.of(context).textTheme.bodyMedium!.color!,
+                  color:
+                      Theme.of(
+                        context,
+                      ).extension<AppColors>()?.textSecondaryColor,
                 ),
               ),
               Text(
@@ -111,7 +120,10 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                   fontSize: Get.height * Utils.getResponsiveSize(14),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w500,
-                  color: Theme.of(context).textTheme.bodyMedium!.color!,
+                  color:
+                      Theme.of(
+                        context,
+                      ).extension<AppColors>()?.textSecondaryColor,
                 ),
               ),
               SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
@@ -119,7 +131,8 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColor.cardItemBgColor,
+                      color:
+                          Theme.of(context).extension<AppColors>()?.containerBg,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           Get.height * Utils.getResponsiveHeight(6),
@@ -137,7 +150,10 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                           fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
                         ),
                       ),
                     ),
@@ -145,7 +161,8 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                   SizedBox(width: Get.width * Utils.getResponsiveWidth(8)),
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColor.cardItemBgColor,
+                      color:
+                          Theme.of(context).extension<AppColors>()?.containerBg,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           Get.height * Utils.getResponsiveHeight(6),
@@ -163,7 +180,10 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                           fontSize: Get.height * Utils.getResponsiveSize(12),
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
                         ),
                       ),
                     ),

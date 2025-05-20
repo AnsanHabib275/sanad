@@ -2,6 +2,7 @@ import 'package:sanad/viewModels/controller/verifyEmail/verify_email_view_model.
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../res/themes/app_themes.dart';
 import '../../../utils/utils.dart';
 import '../../../res/colors/app_color.dart';
 
@@ -38,7 +39,7 @@ class InputOTPWidget extends StatelessWidget {
         }
       },
       style: TextStyle(
-        color: AppColor.otpTextColor,
+        color: Theme.of(context).extension<AppColors>()?.otpText,
         fontSize: Get.height * Utils.getResponsiveSize(18),
         fontFamily: 'Manrope',
         fontWeight: FontWeight.w600,

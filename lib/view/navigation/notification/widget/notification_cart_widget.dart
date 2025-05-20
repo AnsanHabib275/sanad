@@ -6,6 +6,7 @@ import 'package:sanad/view/navigation/notification/widget/dismiss_large_button_w
 import 'package:sanad/view/navigation/notification/widget/submit_button_widget.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
+import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/navigation/notification/notification_view_model.dart';
 
@@ -30,10 +31,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
         borderRadius: BorderRadius.all(
           Radius.circular(Get.height * Utils.getResponsiveHeight(4)),
         ),
-        border: Border.all(
-          color: Theme.of(context).cardTheme.surfaceTintColor!,
-          width: 1.0,
-        ),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
       ),
       child: Padding(
         padding: EdgeInsets.all(Get.height * Utils.getResponsiveHeight(16)),
@@ -72,7 +70,10 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                       fontSize: Get.height * Utils.getResponsiveSize(18),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w600,
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textSecondaryColor,
                     ),
                   ),
                   Text(
@@ -81,7 +82,10 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                       fontSize: Get.height * Utils.getResponsiveSize(14),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
-                      color: Theme.of(context).textTheme.bodySmall!.color!,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textBodyColor,
                     ),
                   ),
                   widget.notifications.notificationType == 'invitation'

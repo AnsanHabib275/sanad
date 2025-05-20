@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
+import '../../../res/themes/app_themes.dart';
 import '../../../utils/utils.dart';
 
 class AboutScreen extends StatefulWidget {
@@ -48,7 +49,10 @@ class _AboutScreenState extends State<AboutScreen> {
             child: Text(
               'about_description'.tr,
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyMedium!.color!,
+                color:
+                    Theme.of(
+                      context,
+                    ).extension<AppColors>()?.textSecondaryColor,
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w500,
                 fontSize: Get.height * Utils.getResponsiveSize(14),

@@ -43,7 +43,6 @@ class _SplashScreenState extends State<SplashScreen> {
           canPop: false,
           child: Scaffold(
             backgroundColor: Theme.of(context).splashColor, //  .primaryColor,
-            // backgroundColor: AppColor.logoColor,
             body: Stack(
               children: [
                 Image(

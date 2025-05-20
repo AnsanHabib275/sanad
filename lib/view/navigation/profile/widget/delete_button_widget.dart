@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/components/round_button.dart';
+import '../../../../res/themes/app_themes.dart';
 
 class DeleteButtonWidget extends StatelessWidget {
   const DeleteButtonWidget({super.key});
@@ -13,8 +14,8 @@ class DeleteButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        buttonColor: AppColor.secondaryButtonColor,
-        textColor: AppColor.background,
+        buttonColor: Theme.of(context).extension<AppColors>()!.buttonBg,
+        textColor: Theme.of(context).extension<AppColors>()!.textPrimaryColor,
         width: 119,
         height: 40,
         radius: 30,

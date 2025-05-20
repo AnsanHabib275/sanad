@@ -19,7 +19,6 @@ class InputPasswordWidget extends StatelessWidget {
         focusNode: signUpVM.passwordFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
         onFieldSubmitted: (value) {
           Utils.fieldFocusChange(
             context,
@@ -27,6 +26,7 @@ class InputPasswordWidget extends StatelessWidget {
             signUpVM.noteFocusNode.value,
           );
         },
+        style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
           hint: Text('password_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,

@@ -5,6 +5,7 @@ import 'package:sanad/view/forgetPassword/widget/input_email_widget.dart';
 
 import '../../res/assets/icon_assets.dart';
 import '../../res/colors/app_color.dart';
+import '../../res/themes/app_themes.dart';
 import '../../utils/utils.dart';
 import '../../viewModels/controller/forgetPassword/forget_password_view_model.dart';
 
@@ -60,12 +61,19 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(124)),
+                  SizedBox(
+                    height:
+                        kToolbarHeight +
+                        Get.height * Utils.getResponsiveHeight(24),
+                  ),
                   Text(
                     'no_worries_enter_your_email_for_reset_password'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textPrimaryColor,
                       fontSize: Get.height * Utils.getResponsiveSize(14),
                       fontWeight: FontWeight.w400,
                       fontFamily: 'Manrope',
@@ -82,7 +90,10 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           'email'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontWeight: FontWeight.w500,
                             fontFamily: 'Manrope',

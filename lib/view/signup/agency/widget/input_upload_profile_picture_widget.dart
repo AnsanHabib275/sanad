@@ -4,6 +4,8 @@ import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
+import '../../../../res/themes/app_themes.dart';
+
 class InputUploadProfilePictureWidget extends StatelessWidget {
   InputUploadProfilePictureWidget({super.key});
 
@@ -39,7 +41,7 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                     height: Get.height * Utils.getResponsiveHeight(46),
                     width: Get.width * Utils.getResponsiveWidth(115),
                     decoration: BoxDecoration(
-                      color: AppColor.secondaryButtonColor,
+                      color: Theme.of(context).extension<AppColors>()?.buttonBg,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(
                           Get.height * Utils.getResponsiveSize(8),
@@ -54,7 +56,10 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                         'choose_file'.tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
                           fontSize: Get.height * Utils.getResponsiveSize(14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
@@ -66,10 +71,7 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                 Container(
                   height: Get.height * Utils.getResponsiveHeight(46),
                   width: Get.width * Utils.getResponsiveWidth(1),
-                  color:
-                      Theme.of(
-                        context,
-                      ).inputDecorationTheme.border!.borderSide.color,
+                  color: Theme.of(context).extension<AppColors>()?.cardBg,
                 ),
                 Expanded(
                   child: Padding(
@@ -78,15 +80,18 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                       vertical: Get.height * Utils.getResponsiveHeight(12),
                     ),
                     child: Text(
-                      'add_note'.tr,
+                      'choose_file_hint'.tr,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyLarge!.color,
+                        color:
+                            Theme.of(
+                              context,
+                            ).extension<AppColors>()?.textPrimaryColor,
                         fontSize: Get.height * Utils.getResponsiveSize(14),
                         fontFamily: 'Manrope',
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),

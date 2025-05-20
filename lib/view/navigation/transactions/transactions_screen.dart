@@ -76,7 +76,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                       ),
                     ),
                     border: Border.all(
-                      color: Theme.of(context).cardTheme.surfaceTintColor!,
+                      color: Theme.of(context).dividerColor,
                       width: 1.0,
                     ),
                   ),
@@ -96,7 +96,10 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                           'transaction_history'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w700,
@@ -115,7 +118,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color:
-                                Theme.of(context).textTheme.bodyMedium!.color!,
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(12),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
@@ -148,9 +153,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                     'payment_id'.tr,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodySmall!.color!,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textBodyColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       fontSize:
@@ -176,9 +181,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                     'amount'.tr,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodySmall!.color!,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textBodyColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       fontSize:
@@ -204,9 +209,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                     'payment_method'.tr,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodySmall!.color!,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textBodyColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       fontSize:
@@ -232,9 +237,9 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                     'action'.tr,
                                     style: TextStyle(
                                       color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.bodySmall!.color!,
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textBodyColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       fontSize:

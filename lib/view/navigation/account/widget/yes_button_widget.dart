@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../res/colors/app_color.dart';
+import '../../../../res/themes/app_themes.dart';
 import '../../../../viewModels/controller/userPreference/user_preference_view_model.dart';
 
 class YesButtonWidget extends StatelessWidget {
@@ -13,10 +14,8 @@ class YesButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RoundButton(
-      // buttonColor: Theme.of(context).buttonTheme.c,
-      buttonColor: AppColor.secondaryButtonColor,
-      // textColor: Theme.of(context).buttonTheme.textTheme.,
-      textColor: Theme.of(context).textTheme.bodyLarge!.color!,
+      buttonColor: Theme.of(context).extension<AppColors>()!.buttonBg,
+      textColor: Theme.of(context).extension<AppColors>()!.textPrimaryColor,
       fontWeight: FontWeight.w500,
       width: 170,
       height: 40,

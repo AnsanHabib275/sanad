@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../res/assets/image_assets.dart';
 import '../../res/colors/app_color.dart';
+import '../../res/themes/app_themes.dart';
 
 class SelectRoleScreen extends StatefulWidget {
   const SelectRoleScreen({super.key});
@@ -44,7 +45,10 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                   'are_you_company_or_recruiter'.tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyLarge!.color,
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<AppColors>()?.textPrimaryColor,
                     fontSize: Get.height * Utils.getResponsiveSize(24),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w400,
@@ -95,9 +99,9 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color:
-                                    Theme.of(
-                                      context,
-                                    ).textTheme.bodyMedium!.color!,
+                                    Theme.of(context)
+                                        .extension<AppColors>()
+                                        ?.textSecondaryColor,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(20),
                                 fontFamily: 'Manrope',
@@ -150,9 +154,9 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color:
-                                    Theme.of(
-                                      context,
-                                    ).textTheme.bodyMedium!.color!,
+                                    Theme.of(context)
+                                        .extension<AppColors>()
+                                        ?.textSecondaryColor,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(20),
                                 fontFamily: 'Manrope',
