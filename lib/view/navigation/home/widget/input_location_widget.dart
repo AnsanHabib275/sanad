@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/viewModels/controller/navigation/home/home_view_model.dart';
-import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 

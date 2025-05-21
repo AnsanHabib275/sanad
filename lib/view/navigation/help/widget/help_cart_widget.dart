@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/models/help/help_model.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
-import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 
@@ -26,7 +25,7 @@ class _HelpCartWidgetState extends State<HelpCartWidget> {
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).cardTheme.color,
+          color: Theme.of(context).extension<AppColors>()!.cardBg,
           border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
           borderRadius: BorderRadius.all(
             Radius.circular(Get.height * Utils.getResponsiveSize(12)),

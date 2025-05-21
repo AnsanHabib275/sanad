@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/models/transactions/transactions_model.dart';
 import 'package:sanad/res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
+import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 
 class TransactionsCartWidget extends StatefulWidget {
@@ -42,7 +43,7 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                     color:
                         Theme.of(
                           context,
-                        ).extension<AppColors>()?.textSecondaryColor,
+                        ).extension<AppColors>()?.textPrimaryColor,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w400,
                     fontSize: Get.height * Utils.getResponsiveSize(14),
@@ -66,7 +67,7 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                     color:
                         Theme.of(
                           context,
-                        ).extension<AppColors>()?.textSecondaryColor,
+                        ).extension<AppColors>()?.textPrimaryColor,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
                     fontSize: Get.height * Utils.getResponsiveSize(14),
@@ -127,7 +128,7 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                 ),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).cardTheme.color,
+                    color: AppColor.secondaryButtonColor,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),

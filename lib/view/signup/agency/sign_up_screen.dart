@@ -9,7 +9,6 @@ import 'package:sanad/view/signup/agency/widget/input_tagline_widget.dart';
 import 'package:sanad/view/signup/agency/widget/input_upload_profile_picture_widget.dart';
 import 'package:sanad/view/signup/agency/widget/continue_button_widget.dart';
 import '../../../res/assets/image_assets.dart';
-import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 

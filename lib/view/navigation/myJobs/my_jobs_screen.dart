@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:sanad/view/navigation/myJobs/widget/custom_tab_bar_widget.dart';
 import 'package:sanad/view/navigation/myJobs/widget/my_jobs_cart_widget.dart';
 import '../../../models/myJobs/my_jobs_model.dart';
-import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
 
 class MyJobsScreen extends StatefulWidget {

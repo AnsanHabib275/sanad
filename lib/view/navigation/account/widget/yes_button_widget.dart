@@ -3,7 +3,6 @@ import 'package:sanad/res/routes/routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../viewModels/controller/userPreference/user_preference_view_model.dart';
 

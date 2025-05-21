@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:sanad/models/payment/payment_model.dart';
 import 'package:sanad/view/navigation/payment/widget/payment_cart_widget.dart';
 import '../../../res/assets/icon_assets.dart';
-import '../../../res/colors/app_color.dart';
 import '../../../res/themes/app_themes.dart';
 import '../../../utils/utils.dart';
 import '../../../viewModels/controller/navigation/payments/payments_view_model.dart';
@@ -99,7 +98,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                             color:
                                 Theme.of(
                                   context,
-                                ).extension<AppColors>()?.textSecondaryColor,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w700,
@@ -133,7 +132,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       Container(
                         height: Get.height * Utils.getResponsiveHeight(50),
                         width: double.infinity,
-                        color: Theme.of(context).cardTheme.color,
+                        color:
+                            Theme.of(context).extension<AppColors>()!.buttonBg,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,

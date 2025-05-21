@@ -1,8 +1,6 @@
 import 'package:sanad/res/assets/icon_assets.dart';
-import 'package:sanad/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../res/colors/app_color.dart';
 import '../../../viewModels/controller/login/login_view_model.dart';
 
 class InputPasswordWidget extends StatelessWidget {

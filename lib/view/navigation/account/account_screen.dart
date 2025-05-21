@@ -9,7 +9,6 @@ import 'package:sanad/view/navigation/account/widget/yes_button_widget.dart';
 import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
 
 import '../../../res/assets/image_assets.dart';
-import '../../../res/colors/app_color.dart';
 import '../../../res/themes/app_themes.dart';
 import '../../../res/urls/app_url.dart';
 import '../../../utils/utils.dart';
@@ -57,7 +56,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   height: Get.height * Utils.getResponsiveHeight(82),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).cardTheme.color,
+                    color: Theme.of(context).extension<AppColors>()!.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(4),
@@ -138,7 +137,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).cardTheme.color,
+                    color: Theme.of(context).extension<AppColors>()!.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -275,7 +274,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).cardTheme.color,
+                    color: Theme.of(context).extension<AppColors>()!.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -384,7 +383,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).cardTheme.color,
+                    color: Theme.of(context).extension<AppColors>()!.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -521,7 +520,7 @@ class _AccountScreenState extends State<AccountScreen> {
         ).copyWith(textScaler: TextScaler.linear(1.0)),
         child: Dialog(
           elevation: 4,
-          backgroundColor: Theme.of(context).cardTheme.color,
+          backgroundColor: Theme.of(context).extension<AppColors>()!.cardBg,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               Get.height * Utils.getResponsiveSize(12),

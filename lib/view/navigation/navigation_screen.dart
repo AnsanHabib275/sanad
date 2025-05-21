@@ -7,6 +7,8 @@ import 'package:sanad/viewModels/controller/navigation/navigation_view_model.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../res/assets/icon_assets.dart';
+import '../../res/colors/app_color.dart';
+import '../../res/themes/app_themes.dart';
 import '../../viewModels/controller/navigation/notification/notification_view_model.dart';
 import '../../viewModels/controller/userPreference/user_preference_view_model.dart';
 
@@ -47,11 +49,22 @@ class _NavigationScreenState extends State<NavigationScreen> {
       //         ? SystemUiOverlayStyle.light
       //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
-        systemNavigationBarColor: Theme.of(context).secondaryHeaderColor,
+        statusBarColor: AppColor.transparent,
+        statusBarIconBrightness:
+            Theme.of(context).brightness == Brightness.dark
+                ? Brightness.light
+                : Brightness.dark,
+        statusBarBrightness:
+            Theme.of(context).brightness == Brightness.dark
+                ? Brightness.dark
+                : Brightness.light,
+        systemNavigationBarColor: Theme.of(context).extension<AppColors>()?.bg,
         systemNavigationBarIconBrightness:
             Theme.of(context).brightness == Brightness.dark
                 ? Brightness.light
                 : Brightness.dark,
+        systemNavigationBarContrastEnforced: false,
+        systemNavigationBarDividerColor: Colors.transparent,
       ),
       child: PopScope(
         canPop: false,
@@ -72,22 +85,34 @@ class _NavigationScreenState extends State<NavigationScreen> {
               type: BottomNavigationBarType.fixed,
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: Image.asset(IconAssets.icBnSearch),
+                  icon: Image.asset(
+                    IconAssets.icBnSearch,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
                   activeIcon: Image.asset(IconAssets.icBnSearchSelected),
                   label: 'find_jobs'.tr,
                 ),
                 BottomNavigationBarItem(
-                  icon: Image.asset(IconAssets.icBnJob),
+                  icon: Image.asset(
+                    IconAssets.icBnJob,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
                   activeIcon: Image.asset(IconAssets.icBnJobSelected),
                   label: 'my_jobs'.tr,
                 ),
                 BottomNavigationBarItem(
-                  icon: Image.asset(IconAssets.icBnWallet),
+                  icon: Image.asset(
+                    IconAssets.icBnWallet,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
                   activeIcon: Image.asset(IconAssets.icBnWalletSelected),
                   label: 'wallet'.tr,
                 ),
                 BottomNavigationBarItem(
-                  icon: Image.asset(IconAssets.icBnAccount),
+                  icon: Image.asset(
+                    IconAssets.icBnAccount,
+                    color: Theme.of(context).iconTheme.color,
+                  ),
                   activeIcon: Image.asset(IconAssets.icBnAccountSelected),
                   label: 'account'.tr,
                 ),

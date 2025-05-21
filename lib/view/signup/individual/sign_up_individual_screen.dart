@@ -6,7 +6,6 @@ import 'package:sanad/view/signup/individual/widget/agree_and_join_button_widget
 import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
 import '../../../res/assets/image_assets.dart';
-import 'package:sanad/res/colors/app_color.dart';
 import '../../../res/routes/routes_name.dart';
 import 'package:sanad/view/signup/individual//widget/input_email_widget.dart';
 import 'package:sanad/view/signup/individual//widget/input_password_widget.dart';

@@ -56,7 +56,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   height: Get.height * Utils.getResponsiveHeight(90),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).cardTheme.color,
+                    color: Theme.of(context).extension<AppColors>()!.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -161,7 +161,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                         height: Get.height * Utils.getResponsiveHeight(80),
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Theme.of(context).cardTheme.color,
+                          color:
+                              Theme.of(context).extension<AppColors>()!.cardBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
                               Get.height * Utils.getResponsiveHeight(8),
@@ -236,8 +237,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                             ),
                           ),
                           border: Border.all(
-                            color:
-                                Theme.of(context).cardTheme.surfaceTintColor!,
+                            color: Theme.of(context).dividerColor,
                             width: 1.0,
                           ),
                         ),
@@ -300,7 +300,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   height: Get.height * Utils.getResponsiveHeight(461),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).cardTheme.color,
+                    color: Theme.of(context).extension<AppColors>()!.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),

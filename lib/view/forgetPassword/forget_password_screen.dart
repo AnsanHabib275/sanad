@@ -4,7 +4,6 @@ import 'package:sanad/view/forgetPassword/widget/forget_password_button_widget.d
 import 'package:sanad/view/forgetPassword/widget/input_email_widget.dart';
 
 import '../../res/assets/icon_assets.dart';
-import '../../res/colors/app_color.dart';
 import '../../res/themes/app_themes.dart';
 import '../../utils/utils.dart';
 import '../../viewModels/controller/forgetPassword/forget_password_view_model.dart';
@@ -64,7 +63,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   SizedBox(
                     height:
                         kToolbarHeight +
-                        Get.height * Utils.getResponsiveHeight(24),
+                        Get.height * Utils.getResponsiveHeight(74),
                   ),
                   Text(
                     'no_worries_enter_your_email_for_reset_password'.tr,

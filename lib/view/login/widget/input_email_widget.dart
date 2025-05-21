@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../res/assets/icon_assets.dart';
-import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
 import '../../../viewModels/controller/login/login_view_model.dart';
 

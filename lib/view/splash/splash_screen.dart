@@ -1,5 +1,4 @@
 import 'package:flutter/services.dart';
-import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -29,13 +28,27 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     Utils.hideKeyboardGlobally();
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      // value:  Get.isDarkMode ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
+      // value:
+      //     Get.isDarkMode
+      //         ? SystemUiOverlayStyle.light
+      //         : SystemUiOverlayStyle.light,
       value: SystemUiOverlayStyle(
+        statusBarColor: Theme.of(context).primaryColor,
+        statusBarIconBrightness:
+            Theme.of(context).brightness == Brightness.dark
+                ? Brightness.light
+                : Brightness.light,
+        statusBarBrightness:
+            Theme.of(context).brightness == Brightness.dark
+                ? Brightness.dark
+                : Brightness.light,
         systemNavigationBarColor: Theme.of(context).primaryColor,
         systemNavigationBarIconBrightness:
             Theme.of(context).brightness == Brightness.dark
                 ? Brightness.light
                 : Brightness.dark,
+        systemNavigationBarContrastEnforced: false,
+        systemNavigationBarDividerColor: Colors.transparent,
       ),
       child: MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1)),

@@ -4,7 +4,6 @@ import 'package:sanad/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../res/assets/image_assets.dart';
-import '../../res/colors/app_color.dart';
 import '../../res/themes/app_themes.dart';
 
 class SelectRoleScreen extends StatefulWidget {

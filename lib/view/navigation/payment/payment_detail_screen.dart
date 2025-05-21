@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/res/assets/image_assets.dart';
 import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
+import '../../../res/themes/app_themes.dart';
 import '../../../utils/utils.dart';
 
 class PaymentDetailScreen extends StatefulWidget {
@@ -57,6 +58,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
+                    color: Theme.of(context).extension<AppColors>()!.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(12),
@@ -86,7 +88,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                             color:
                                 Theme.of(
                                   context,
-                                ).extension<AppColors>()?.textSecondaryColor,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w700,
@@ -232,7 +234,10 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                   ),
                                   Container(
                                     decoration: BoxDecoration(
-                                      color: Theme.of(context).cardTheme.color,
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).extension<AppColors>()?.buttonBg,
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(
                                           Get.height *
@@ -264,6 +269,10 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                             width:
                                                 Get.width *
                                                 Utils.getResponsiveWidth(18),
+                                            color:
+                                                Theme.of(
+                                                  context,
+                                                ).iconTheme.color,
                                           ),
                                           SizedBox(
                                             width:
@@ -281,7 +290,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               color:
                                                   Theme.of(context)
                                                       .extension<AppColors>()
-                                                      ?.textPrimaryColor,
+                                                      ?.buttonText,
                                             ),
                                           ),
                                         ],

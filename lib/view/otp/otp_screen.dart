@@ -68,7 +68,9 @@ class _OTPScreenState extends State<OTPScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(124),
+                        height:
+                            kToolbarHeight +
+                            Get.height * Utils.getResponsiveHeight(74),
                       ),
                       Text(
                         'enter_your_security_code_we_sent_to'.tr,

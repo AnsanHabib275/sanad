@@ -49,11 +49,22 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
       //         ? SystemUiOverlayStyle.light
       //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
+        statusBarColor: AppColor.transparent,
+        statusBarIconBrightness:
+            Theme.of(context).brightness == Brightness.dark
+                ? Brightness.light
+                : Brightness.dark,
+        statusBarBrightness:
+            Theme.of(context).brightness == Brightness.dark
+                ? Brightness.dark
+                : Brightness.light,
         systemNavigationBarColor: Theme.of(context).secondaryHeaderColor,
         systemNavigationBarIconBrightness:
             Theme.of(context).brightness == Brightness.dark
                 ? Brightness.light
                 : Brightness.dark,
+        systemNavigationBarContrastEnforced: false,
+        systemNavigationBarDividerColor: Colors.transparent,
       ),
       child: MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1)),

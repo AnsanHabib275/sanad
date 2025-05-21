@@ -5,7 +5,7 @@ import 'package:sanad/view/navigation/transactions/widget/input_search_widget.da
 import 'package:sanad/view/navigation/transactions/widget/transactions_cart_widget.dart';
 import 'package:sanad/viewModels/controller/navigation/transactions/transactions_view_model.dart';
 import '../../../res/assets/icon_assets.dart';
-import '../../../res/colors/app_color.dart';
+import '../../../res/themes/app_themes.dart';
 import '../../../utils/utils.dart';
 
 class TransactionsScreen extends StatefulWidget {
@@ -99,7 +99,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                             color:
                                 Theme.of(
                                   context,
-                                ).extension<AppColors>()?.textSecondaryColor,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(16),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w700,
@@ -133,7 +133,8 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                       Container(
                         height: Get.height * Utils.getResponsiveHeight(50),
                         width: double.infinity,
-                        color: Theme.of(context).cardTheme.color,
+                        color:
+                            Theme.of(context).extension<AppColors>()!.buttonBg,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,

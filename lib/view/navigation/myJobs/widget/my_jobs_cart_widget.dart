@@ -25,7 +25,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
       //     onTap: () {},
       child: Card(
         elevation: 2,
-        color: Theme.of(context).cardTheme.color,
+        color: Theme.of(context).extension<AppColors>()!.cardBg,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Theme.of(context).dividerColor, width: 1.0),
           borderRadius: BorderRadius.circular(

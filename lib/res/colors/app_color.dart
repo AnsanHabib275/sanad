@@ -42,7 +42,9 @@ class AppColor {
   static const Color borderPrimaryColor = Color(0xFFF2F4F7);
   static const Color borderSecondaryColor = Color(0xFFD0D5DD);
   static const Color unselectedBnTextColor = Color(0xFF475467);
-  static const Color tabsBgColor = Colors.white;
+  static const Color tabsBgColor = Color(0xFFF9FAFB);
+  static const Color selectedTabsBgColor = Colors.white;
+  static const Color tabsBorderColor = Color(0xFFEAECF0);
   static const Color otpTextColor = Color(0xFF1E232C);
   static const Color cardBgColor = Colors.white;
   static const Color cardSelectedBgColor = Color(0xFFE6F3F5);
@@ -63,7 +65,9 @@ class AppColor {
   static const Color borderPrimaryDarkColor = Color(0xFF101828);
   static const Color borderSecondaryDarkColor = Color(0xFF1D2939);
   static const Color unselectedBnTextDarkColor = Color(0xFFF2F4F7);
-  static const Color tabsBgDarkColor = Color(0xFF101828);
+  static const Color tabsBgDarkColor = Color(0xFF1D2939);
+  static const Color selectedTabsBgDarkColor = Color(0xFF101828);
+  static const Color tabsBorderDarkColor = Color(0xFF101828);
   static const Color otpTextDarkColor = Colors.white;
   static const Color cardBgDarkColor = Color(0xFF0C1320);
   static const Color cardSelectedBgDarkColor = Color(0xFF00383F);

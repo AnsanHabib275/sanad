@@ -1,5 +1,4 @@
 import 'package:sanad/res/assets/icon_assets.dart';
-import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/view/navigation/home/widget/input_location_widget.dart';
@@ -104,6 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: Get.height * Utils.getResponsiveHeight(40),
                 width: double.infinity,
                 decoration: BoxDecoration(
+                  color: Theme.of(context).extension<AppColors>()?.cardBg,
                   borderRadius: BorderRadius.all(
                     Radius.circular(Get.height * Utils.getResponsiveHeight(8)),
                   ),

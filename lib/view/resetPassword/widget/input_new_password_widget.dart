@@ -1,9 +1,7 @@
 import 'package:sanad/viewModels/controller/resetPassword/reset_password_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../res/assets/icon_assets.dart';
-import '../../../res/colors/app_color.dart';
 import '../../../utils/utils.dart';
 
 class InputNewPasswordWidget extends StatelessWidget {

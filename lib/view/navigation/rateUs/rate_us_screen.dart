@@ -7,6 +7,7 @@ import 'package:sanad/viewModels/controller/navigation/rateUs/rate_us_view_model
 
 import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
+import '../../../res/themes/app_themes.dart';
 import '../../../utils/utils.dart';
 
 class RateUsScreen extends StatefulWidget {
@@ -61,6 +62,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                   Container(
                     decoration: BoxDecoration(
+                      color: Theme.of(context).extension<AppColors>()!.cardBg,
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
                         width: 1,
@@ -202,6 +204,9 @@ class _RateUsScreenState extends State<RateUsScreen> {
                             minRating: 0.0,
                             direction: Axis.horizontal,
                             allowHalfRating: true,
+                            unratedColor: Theme.of(context).iconTheme.color,
+                            glow: true,
+                            glowColor: AppColor.ratedStarColor,
                             itemCount: 5,
                             itemSize: Get.height * Utils.getResponsiveSize(24),
                             itemPadding: EdgeInsets.symmetric(
@@ -211,7 +216,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
                             itemBuilder:
                                 (context, _) => Image.asset(
                                   IconAssets.icRating,
-                                  color: AppColor.ratedStarColor,
+                                  // color: AppColor.ratedStarColor,
                                 ),
                             onRatingUpdate:
                                 (rating) => rateUsVM.rating.value = rating,

@@ -1,10 +1,10 @@
 import 'package:flutter/services.dart';
+import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/view/login/widget/login_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../res/assets/image_assets.dart';
-import '../../res/colors/app_color.dart';
 import '../../res/routes/routes_name.dart';
 import '../../res/themes/app_themes.dart';
 import '../../viewModels/controller/login/login_view_model.dart';
@@ -30,11 +30,22 @@ class _LoginScreenState extends State<LoginScreen> {
       //         ? SystemUiOverlayStyle.light
       //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
+        statusBarColor: AppColor.transparent,
+        statusBarIconBrightness:
+            Theme.of(context).brightness == Brightness.dark
+                ? Brightness.light
+                : Brightness.dark,
+        statusBarBrightness:
+            Theme.of(context).brightness == Brightness.dark
+                ? Brightness.dark
+                : Brightness.light,
         systemNavigationBarColor: Theme.of(context).secondaryHeaderColor,
         systemNavigationBarIconBrightness:
             Theme.of(context).brightness == Brightness.dark
                 ? Brightness.light
                 : Brightness.dark,
+        systemNavigationBarContrastEnforced: false,
+        systemNavigationBarDividerColor: Colors.transparent,
       ),
       child: MediaQuery(
         data: MediaQuery.of(

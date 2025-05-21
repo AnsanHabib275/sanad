@@ -5,7 +5,6 @@ import 'package:sanad/view/resetPassword/widget/input_new_password_widget.dart';
 import 'package:sanad/view/resetPassword/widget/next_button_widget.dart';
 
 import '../../res/assets/icon_assets.dart';
-import '../../res/colors/app_color.dart';
 import '../../res/themes/app_themes.dart';
 import '../../utils/utils.dart';
 
@@ -62,7 +61,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(124)),
+                  SizedBox(
+                    height:
+                        kToolbarHeight +
+                        Get.height * Utils.getResponsiveHeight(74),
+                  ),
                   Text(
                     'reset_password_description'.tr,
                     textAlign: TextAlign.center,

@@ -4,6 +4,7 @@ import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/assets/image_assets.dart';
 import 'package:sanad/view/navigation/wallet/widget/deposit_now_button_widget.dart';
 import '../../../res/colors/app_color.dart';
+import '../../../res/themes/app_themes.dart';
 import '../../../utils/utils.dart';
 
 class WalletScreen extends StatefulWidget {
@@ -47,6 +48,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   height: Get.height * Utils.getResponsiveHeight(90),
                   width: double.infinity,
                   decoration: BoxDecoration(
+                    color: Theme.of(context).extension<AppColors>()!.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -135,14 +137,15 @@ class _WalletScreenState extends State<WalletScreen> {
                         height: Get.height * Utils.getResponsiveHeight(80),
                         width: double.infinity,
                         decoration: BoxDecoration(
+                          color:
+                              Theme.of(context).extension<AppColors>()!.cardBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
                               Get.height * Utils.getResponsiveHeight(8),
                             ),
                           ),
                           border: Border.all(
-                            color:
-                                Theme.of(context).cardTheme.surfaceTintColor!,
+                            color: Theme.of(context).dividerColor,
                             width: 1.0,
                           ),
                         ),
@@ -204,14 +207,15 @@ class _WalletScreenState extends State<WalletScreen> {
                         height: Get.height * Utils.getResponsiveHeight(80),
                         width: double.infinity,
                         decoration: BoxDecoration(
+                          color:
+                              Theme.of(context).extension<AppColors>()!.cardBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
                               Get.height * Utils.getResponsiveHeight(8),
                             ),
                           ),
                           border: Border.all(
-                            color:
-                                Theme.of(context).cardTheme.surfaceTintColor!,
+                            color: Theme.of(context).dividerColor,
                             width: 1.0,
                           ),
                         ),
@@ -274,6 +278,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   height: Get.height * Utils.getResponsiveHeight(461),
                   width: double.infinity,
                   decoration: BoxDecoration(
+                    color: Theme.of(context).extension<AppColors>()!.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -333,9 +338,9 @@ class _WalletScreenState extends State<WalletScreen> {
                                 'empty_transactions'.tr,
                                 style: TextStyle(
                                   color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
+                                      Theme.of(
+                                        context,
+                                      ).extension<AppColors>()?.textBodyColor,
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
                                   fontSize:

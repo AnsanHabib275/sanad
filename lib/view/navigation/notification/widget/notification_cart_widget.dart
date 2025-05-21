@@ -5,7 +5,6 @@ import 'package:sanad/view/navigation/notification/widget/dismiss_button_widget.
 import 'package:sanad/view/navigation/notification/widget/dismiss_large_button_widget.dart';
 import 'package:sanad/view/navigation/notification/widget/submit_button_widget.dart';
 import '../../../../res/assets/image_assets.dart';
-import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/navigation/notification/notification_view_model.dart';
@@ -28,6 +27,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
+        color: Theme.of(context).extension<AppColors>()!.cardBg,
         borderRadius: BorderRadius.all(
           Radius.circular(Get.height * Utils.getResponsiveHeight(4)),
         ),
@@ -73,7 +73,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                       color:
                           Theme.of(
                             context,
-                          ).extension<AppColors>()?.textSecondaryColor,
+                          ).extension<AppColors>()?.textPrimaryColor,
                     ),
                   ),
                   Text(

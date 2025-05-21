@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
 import 'package:sanad/viewModels/controller/navigation/myJobs/my_jobs_view_model.dart';
 
 import '../../../../res/colors/app_color.dart';
@@ -14,7 +15,7 @@ class CustomTabBar extends StatefulWidget {
 
 class _CustomTabBarState extends State<CustomTabBar>
     with SingleTickerProviderStateMixin {
-  final myJobsVM = Get.put(MyJobsViewModel());
+  final applyJobVM = Get.put(ApplyJobViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -40,19 +41,17 @@ class _CustomTabBarState extends State<CustomTabBar>
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    myJobsVM.setSelectionTab('applied');
+                    applyJobVM.setSelectionTab('general');
                   },
                   child: Container(
                     height: double.infinity,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color:
-                          myJobsVM.selectedTab.value == 'applied'
+                          applyJobVM.selectedTab.value == 'general'
                               ? Theme.of(
                                 context,
                               ).extension<AppColors>()!.selectedTabsBg
-                              : myJobsVM.selectedTab.value == 'saved'
-                              ? AppColor.transparent
                               : AppColor.transparent,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
@@ -61,17 +60,19 @@ class _CustomTabBarState extends State<CustomTabBar>
                       ),
                     ),
                     child: Text(
-                      'applied'.tr,
+                      'general'.tr,
                       style: TextStyle(
                         fontSize: Get.height * Utils.getResponsiveSize(14),
-                        fontFamily: 'Inter',
+                        fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                         color:
-                            myJobsVM.selectedTab.value == 'applied'
-                                ? AppColor.primaryButtonColor
-                                : myJobsVM.selectedTab.value == 'saved'
-                                ? AppColor.textSecondaryColor
-                                : AppColor.textSecondaryColor,
+                            applyJobVM.selectedTab.value == 'general'
+                                ? Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor
+                                : Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textBodyColor,
                       ),
                     ),
                   ),
@@ -80,19 +81,17 @@ class _CustomTabBarState extends State<CustomTabBar>
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    myJobsVM.setSelectionTab('saved');
+                    applyJobVM.setSelectionTab('requirements');
                   },
                   child: Container(
                     height: double.infinity,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color:
-                          myJobsVM.selectedTab.value == 'saved'
+                          applyJobVM.selectedTab.value == 'requirements'
                               ? Theme.of(
                                 context,
                               ).extension<AppColors>()!.selectedTabsBg
-                              : myJobsVM.selectedTab.value == 'applied'
-                              ? AppColor.transparent
                               : AppColor.transparent,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
@@ -101,57 +100,19 @@ class _CustomTabBarState extends State<CustomTabBar>
                       ),
                     ),
                     child: Text(
-                      'saved'.tr,
+                      'requirements'.tr,
                       style: TextStyle(
                         fontSize: Get.height * Utils.getResponsiveSize(14),
-                        fontFamily: 'Inter',
+                        fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                         color:
-                            myJobsVM.selectedTab.value == 'saved'
-                                ? AppColor.primaryButtonColor
-                                : myJobsVM.selectedTab.value == 'applied'
-                                ? AppColor.textSecondaryColor
-                                : AppColor.textSecondaryColor,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    myJobsVM.setSelectionTab('invitation');
-                  },
-                  child: Container(
-                    height: double.infinity,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color:
-                          myJobsVM.selectedTab.value == 'invitation'
-                              ? Theme.of(
-                                context,
-                              ).extension<AppColors>()!.selectedTabsBg
-                              : myJobsVM.selectedTab.value == 'applied'
-                              ? AppColor.transparent
-                              : AppColor.transparent,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          Get.height * Utils.getResponsiveHeight(6),
-                        ),
-                      ),
-                    ),
-                    child: Text(
-                      'invitation'.tr,
-                      style: TextStyle(
-                        fontSize: Get.height * Utils.getResponsiveSize(14),
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w600,
-                        color:
-                            myJobsVM.selectedTab.value == 'invitation'
-                                ? AppColor.primaryButtonColor
-                                : myJobsVM.selectedTab.value == 'applied'
-                                ? AppColor.textSecondaryColor
-                                : AppColor.textSecondaryColor,
+                            applyJobVM.selectedTab.value == 'requirements'
+                                ? Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor
+                                : Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textBodyColor,
                       ),
                     ),
                   ),

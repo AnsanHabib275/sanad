@@ -167,6 +167,13 @@ class Languages extends Translations {
       'no_payments': 'No Payments',
       'no_transactions': 'No Transactions',
       'your_wallet': 'Your wallet',
+      'view_job': 'View Job',
+      'job_details': 'Job Details',
+      'description': 'Description',
+      'experience_required': 'Experience Required',
+      'candidates_required': 'Candidates required',
+      'general': 'General',
+      'requirements': 'Requirements',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

@@ -88,15 +88,18 @@ class AppThemes {
         primary: AppColor.primaryColor,
         secondary: AppColor.secondaryColor,
         surface: AppColor.surface,
-        onSurface: AppColor.blackColor,
+        onSurface: AppColor.onSurface,
       ),
       extensions: <ThemeExtension<dynamic>>[
         AppColors(
           bg: AppColor.background,
           buttonBg: AppColor.secondaryButtonColor,
+          buttonText: AppColor.secondaryButtonTextColor,
           cardSelectedBg: AppColor.cardSelectedBgColor,
           cardBg: AppColor.cardBgColor,
           tabsBg: AppColor.tabsBgColor,
+          selectedTabsBg: AppColor.selectedTabsBgColor,
+          tabsBorderColor: AppColor.tabsBorderColor,
           containerBg: AppColor.containerBgColor,
           otpText: AppColor.otpTextColor,
           skipText: AppColor.skipTextColor,
@@ -114,8 +117,9 @@ class AppThemes {
       tabBarTheme: TabBarThemeData(
         indicator: BoxDecoration(
           color: ThemeData.light().extension<AppColors>()?.tabsBg,
-          // border: Border(
-          //   bottom: BorderSide(color: Colors.blue, width: 2),
+          // border: Border.all(
+          //   color: ThemeData.light().extension<AppColors>().tabsBorderColor ?? AppColor.tabsBorderColor,
+          //   width: 1,
           // ),
         ),
         labelColor: AppColor.tabSelectedTextColor,
@@ -143,11 +147,6 @@ class AppThemes {
         iconTheme: IconThemeData(color: AppColor.secondaryIconDarkColor),
       ),
       dividerColor: AppColor.borderPrimaryDarkColor,
-      textTheme: TextTheme(
-        bodyLarge: TextStyle(color: AppColor.textPrimaryDarkColor),
-        bodyMedium: TextStyle(color: AppColor.textSecondaryDarkColor),
-        bodySmall: TextStyle(color: AppColor.textBodyDarkColor),
-      ),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: TextStyle(
           color: AppColor.textSecondaryDarkColor,
@@ -215,15 +214,18 @@ class AppThemes {
         primary: AppColor.primaryDarkColor,
         secondary: AppColor.secondaryDarkColor,
         surface: AppColor.darkSurface,
-        onSurface: AppColor.whiteColor,
+        onSurface: AppColor.darkOnSurface,
       ),
       extensions: <ThemeExtension<dynamic>>[
         AppColors(
           bg: AppColor.darkBackground,
           buttonBg: AppColor.secondaryButtonDarkColor,
+          buttonText: AppColor.secondaryButtonTextDarkColor,
           cardSelectedBg: AppColor.cardSelectedBgDarkColor,
           cardBg: AppColor.cardBgDarkColor,
           tabsBg: AppColor.tabsBgDarkColor,
+          selectedTabsBg: AppColor.selectedTabsBgDarkColor,
+          tabsBorderColor: AppColor.tabsBorderDarkColor,
           containerBg: AppColor.containerBgDarkColor,
           otpText: AppColor.otpTextDarkColor,
           skipText: AppColor.skipTextDarkColor,
@@ -241,8 +243,9 @@ class AppThemes {
       tabBarTheme: TabBarThemeData(
         indicator: BoxDecoration(
           color: ThemeData.dark().extension<AppColors>()?.tabsBg,
-          // border: Border(
-          //   bottom: BorderSide(color: Colors.blue, width: 2),
+          // border: Border.all(
+          //   color: ThemeData.dark().extension<AppColors>()!.tabsBorderColor,
+          //   width: 1,
           // ),
         ),
         labelColor: AppColor.tabSelectedTextColor,
@@ -255,9 +258,12 @@ class AppThemes {
 class AppColors extends ThemeExtension<AppColors> {
   final Color bg;
   final Color buttonBg;
+  final Color buttonText;
   final Color cardSelectedBg;
   final Color cardBg;
   final Color tabsBg;
+  final Color selectedTabsBg;
+  final Color tabsBorderColor;
   final Color containerBg;
   final Color otpText;
   final Color skipText;
@@ -268,9 +274,12 @@ class AppColors extends ThemeExtension<AppColors> {
   AppColors({
     required this.bg,
     required this.buttonBg,
+    required this.buttonText,
     required this.cardSelectedBg,
     required this.cardBg,
     required this.tabsBg,
+    required this.selectedTabsBg,
+    required this.tabsBorderColor,
     required this.containerBg,
     required this.otpText,
     required this.skipText,
@@ -283,9 +292,12 @@ class AppColors extends ThemeExtension<AppColors> {
   ThemeExtension<AppColors> copyWith({
     Color? bg,
     Color? buttonBg,
+    Color? buttonText,
     Color? cardSelectedBg,
     Color? cardBg,
     Color? tabsBg,
+    Color? selectedTabsBg,
+    Color? tabsBorderColor,
     Color? containerBg,
     Color? otpText,
     Color? skipText,
@@ -296,9 +308,12 @@ class AppColors extends ThemeExtension<AppColors> {
     return AppColors(
       bg: bg ?? this.bg,
       buttonBg: buttonBg ?? this.buttonBg,
+      buttonText: buttonText ?? this.buttonText,
       cardSelectedBg: cardSelectedBg ?? this.cardSelectedBg,
       cardBg: cardBg ?? this.cardBg,
       tabsBg: tabsBg ?? this.tabsBg,
+      selectedTabsBg: selectedTabsBg ?? this.selectedTabsBg,
+      tabsBorderColor: tabsBorderColor ?? this.tabsBorderColor,
       containerBg: containerBg ?? this.containerBg,
       otpText: otpText ?? this.otpText,
       skipText: skipText ?? this.skipText,
@@ -316,9 +331,12 @@ class AppColors extends ThemeExtension<AppColors> {
     return AppColors(
       bg: Color.lerp(bg, other.bg, t)!,
       buttonBg: Color.lerp(buttonBg, other.buttonBg, t)!,
+      buttonText: Color.lerp(buttonText, other.buttonText, t)!,
       cardSelectedBg: Color.lerp(cardSelectedBg, other.cardSelectedBg, t)!,
       cardBg: Color.lerp(cardBg, other.cardBg, t)!,
       tabsBg: Color.lerp(tabsBg, other.tabsBg, t)!,
+      selectedTabsBg: Color.lerp(selectedTabsBg, other.selectedTabsBg, t)!,
+      tabsBorderColor: Color.lerp(tabsBorderColor, other.tabsBorderColor, t)!,
       containerBg: Color.lerp(containerBg, other.containerBg, t)!,
       otpText: Color.lerp(otpText, other.otpText, t)!,
       skipText: Color.lerp(skipText, other.skipText, t)!,

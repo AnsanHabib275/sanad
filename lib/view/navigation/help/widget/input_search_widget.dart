@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
-import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/navigation/help/help_view_model.dart';
@@ -16,7 +15,7 @@ class InputSearchWidget extends StatelessWidget {
     // return Obx(() {
     return SearchBar(
       backgroundColor: WidgetStateProperty.all(
-        Theme.of(context).cardTheme.color,
+        Theme.of(context).extension<AppColors>()!.cardBg,
       ),
       elevation: WidgetStatePropertyAll(0),
       controller: helpVM.searchController.value,

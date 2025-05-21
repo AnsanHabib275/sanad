@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/view/resetPassword/widget/login_button_widget.dart';
 import '../../res/assets/image_assets.dart';
-import '../../res/colors/app_color.dart';
 import '../../res/themes/app_themes.dart';
 import '../../utils/utils.dart';
 
