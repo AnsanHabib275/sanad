@@ -22,11 +22,7 @@ class _CustomTabBarState extends State<CustomTabBar>
       height: Get.height * Utils.getResponsiveHeight(44),
       decoration: BoxDecoration(
         color: Theme.of(context).extension<AppColors>()?.tabsBg,
-        border: Border.all(
-          // color: Theme.of(context).extension<AppColors>()!.tabsBorderColor,
-          color: Theme.of(context).dividerColor,
-          width: 1,
-        ),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 1),
         borderRadius: BorderRadius.all(
           Radius.circular(Get.height * Utils.getResponsiveHeight(10)),
         ),

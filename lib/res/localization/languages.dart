@@ -174,6 +174,26 @@ class Languages extends Translations {
       'candidates_required': 'Candidates required',
       'general': 'General',
       'requirements': 'Requirements',
+      'additional_requirements': 'Additional Requirements',
+      'are_you_open_to_relocating':
+          'Would you prefer to work remotely, or are you open to relocating?',
+      'open_to_relocating': 'Open to Relocating',
+      'software_programs_do_you_know':
+          'Which of the following software programs do you know? (You can select multiple options.)',
+      'how_many_years_of_experience':
+          'How many years of experience do you have?',
+      'should_have_an_experience':
+          'Should have an experience of more or equal to 5 Years',
+      'apply_now': 'Apply Now',
+      'apply_job': 'Apply Job',
+      'linkedin_account': 'LinkedIn Account',
+      'optional': ' (Optional)',
+      'linkedin_account_hint': 'Input text',
+      'upload_resume': 'Upload Resume',
+      'discard': 'Discard',
+      'click_to_upload': 'Click to upload',
+      'drag_and_drop': ' or drag and drop',
+      'file_format': 'SVG, PNG, JPG or GIF (MAX. 800x400px)',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

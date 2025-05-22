@@ -26,14 +26,25 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
           Get.toNamed(
             RoutesName.viewJobScreen,
             arguments: {
+              'isPrivate': widget.jobs.isPrivate,
               'jobName': widget.jobs.jobName,
               'jobCategory': 'Marketing & Advertisement',
               'companyName': widget.jobs.companyName,
               'location': widget.jobs.jobLocation,
               'jobType': widget.jobs.jobType,
-              'professionalStatus': 'Intermediate',
+              // 'professionalStatus': 'Intermediate',
               'salaryRange': widget.jobs.salaryRange,
-              'cvCount': '10 SAR/CV',
+              // 'cvCount': '10 SAR/CV',
+              'jobSpecifications': [
+                widget.jobs.jobType,
+                'Intermediate',
+                widget.jobs.salaryRange,
+                '10 SAR/CV',
+                widget.jobs.jobType,
+                'Intermediate',
+                widget.jobs.salaryRange,
+                '10 SAR/CV',
+              ],
               'experienceRequired': '3 years',
               'candidatesRequired': '2',
               'jobDescription':
