@@ -4,7 +4,8 @@ import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/view/navigation/about/about_screen.dart';
 import 'package:sanad/view/navigation/account/account_screen.dart';
 import 'package:sanad/view/navigation/analytics/analytics_screen.dart';
-import 'package:sanad/view/navigation/applyJob/apply_job_screen.dart';
+import 'package:sanad/view/navigation/applyJob/additionalRequirementJob/additional_requirements_job_screen.dart';
+import 'package:sanad/view/navigation/applyJob/generalJob/apply_job_screen.dart';
 import 'package:sanad/view/navigation/help/help_screen.dart';
 import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
 import 'package:sanad/view/navigation/payment/payment_screen.dart';
@@ -18,6 +19,7 @@ import 'package:sanad/view/signup/individual/sign_up_individual_screen.dart';
 import '../../view/OnBoarding/onboarding_screen.dart';
 import '../../view/forgetPassword/forget_password_screen.dart';
 import '../../view/login/login_screen.dart';
+import '../../view/navigation/applyJob/reviewJob/review_job_screen.dart';
 import '../../view/navigation/changePassword/change_password_screen.dart';
 import '../../view/navigation/home/home_screen.dart';
 import '../../view/navigation/navigation_screen.dart';
@@ -226,6 +228,20 @@ class AppRoutes {
     GetPage(
       name: RoutesName.applyJobScreen,
       page: () => ApplyJobScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.additionalRequirementsJobScreen,
+      page: () => AdditionalRequirementsJobScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.reviewJobScreen,
+      page: () => ReviewJobScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,

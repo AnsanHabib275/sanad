@@ -7,11 +7,15 @@ class ApplyJobViewModel extends GetxController {
   final _api = ApplyJobRepository();
 
   final linkedinAccountController = TextEditingController().obs;
+  final experienceYearController = TextEditingController().obs;
 
   final rxRequestStatus = Status.loading.obs;
   RxString error = ''.obs;
   RxString selectedTab = 'general'.obs;
   RxBool loading = false.obs;
+  RxBool isCheckRelocate = false.obs;
+  RxBool isCheckPortfolio = false.obs;
+  RxBool isCheckCertification = false.obs;
   RxString errorMessage = ''.obs;
 
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;

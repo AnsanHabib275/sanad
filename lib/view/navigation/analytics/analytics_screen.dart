@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/assets/image_assets.dart';
-import 'package:sanad/view/navigation/wallet/widget/deposit_now_button_widget.dart';
-import '../../../res/colors/app_color.dart';
+import 'package:sanad/view/navigation/analytics/widget/analytics_chart_widget.dart';
 import '../../../res/themes/app_themes.dart';
 import '../../../utils/utils.dart';
 
@@ -50,10 +49,10 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
-                  height: Get.height * Utils.getResponsiveHeight(90),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()!.cardBg,
@@ -70,15 +69,15 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: Get.width * Utils.getResponsiveWidth(16),
-                      vertical: Get.height * Utils.getResponsiveHeight(10),
+                      vertical: Get.height * Utils.getResponsiveHeight(16),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'wallet'.tr,
@@ -103,8 +102,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                     Theme.of(
                                       context,
                                     ).extension<AppColors>()?.textBodyColor,
-                                fontFamily: 'Manrope',
-                                fontWeight: FontWeight.w700,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w400,
                                 fontSize:
                                     Get.height * Utils.getResponsiveSize(14),
                               ),
@@ -148,7 +147,11 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                             ),
                           ],
                         ),
-                        DepositNowButtonWidget(),
+                        Image.asset(
+                          ImageAssets.imgRiyalWallet,
+                          height: Get.height * Utils.getResponsiveHeight(48),
+                          width: Get.width * Utils.getResponsiveWidth(48),
+                        ),
                       ],
                     ),
                   ),
@@ -158,7 +161,6 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   children: [
                     Expanded(
                       child: Container(
-                        height: Get.height * Utils.getResponsiveHeight(80),
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color:
@@ -173,64 +175,70 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                             width: 1.0,
                           ),
                         ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'deposits'.tr,
-                              style: TextStyle(
-                                color: AppColor.primaryButtonColor,
-                                fontFamily: 'Manrope',
-                                fontWeight: FontWeight.w700,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(14),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal:
+                                Get.width * Utils.getResponsiveWidth(16),
+                            vertical:
+                                Get.height * Utils.getResponsiveHeight(16),
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                ImageAssets.imgAllJobs,
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(48),
+                                width: Get.width * Utils.getResponsiveWidth(48),
                               ),
-                            ),
-                            RichText(
-                              text: TextSpan(
+                              SizedBox(
+                                width: Get.width * Utils.getResponsiveWidth(16),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  TextSpan(
-                                    text: '0',
+                                  Text(
+                                    'all_jobs'.tr,
                                     style: TextStyle(
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(18),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
                                       color:
                                           Theme.of(context)
                                               .extension<AppColors>()
                                               ?.textPrimaryColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w400,
+                                      fontSize:
+                                          Get.height *
+                                          Utils.getResponsiveSize(11),
                                     ),
                                   ),
-                                  TextSpan(
-                                    text: 'riyal'.tr,
+                                  Text(
+                                    '2,456',
                                     style: TextStyle(
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(18),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
                                       color:
                                           Theme.of(context)
                                               .extension<AppColors>()
                                               ?.textPrimaryColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize:
+                                          Get.height *
+                                          Utils.getResponsiveSize(18),
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                    SizedBox(width: Get.width * Utils.getResponsiveWidth(14)),
+                    SizedBox(width: Get.width * Utils.getResponsiveWidth(16)),
                     Expanded(
                       child: Container(
-                        height: Get.height * Utils.getResponsiveHeight(80),
                         width: double.infinity,
                         decoration: BoxDecoration(
+                          color:
+                              Theme.of(context).extension<AppColors>()!.cardBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
                               Get.height * Utils.getResponsiveHeight(8),
@@ -241,55 +249,60 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                             width: 1.0,
                           ),
                         ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'refunds'.tr,
-                              style: TextStyle(
-                                color: AppColor.primaryButtonColor,
-                                fontFamily: 'Manrope',
-                                fontWeight: FontWeight.w700,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(14),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal:
+                                Get.width * Utils.getResponsiveWidth(16),
+                            vertical:
+                                Get.height * Utils.getResponsiveHeight(16),
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                ImageAssets.imgActiveJobs,
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(48),
+                                width: Get.width * Utils.getResponsiveWidth(48),
                               ),
-                            ),
-                            RichText(
-                              text: TextSpan(
+                              SizedBox(
+                                width: Get.width * Utils.getResponsiveWidth(16),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  TextSpan(
-                                    text: '0',
+                                  Text(
+                                    'active_jobs'.tr,
                                     style: TextStyle(
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(18),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
                                       color:
                                           Theme.of(context)
                                               .extension<AppColors>()
                                               ?.textPrimaryColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w400,
+                                      fontSize:
+                                          Get.height *
+                                          Utils.getResponsiveSize(11),
                                     ),
                                   ),
-                                  TextSpan(
-                                    text: 'riyal'.tr,
+                                  Text(
+                                    '1590',
                                     style: TextStyle(
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(18),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
                                       color:
                                           Theme.of(context)
                                               .extension<AppColors>()
                                               ?.textPrimaryColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize:
+                                          Get.height *
+                                          Utils.getResponsiveSize(18),
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -297,7 +310,6 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 ),
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
-                  height: Get.height * Utils.getResponsiveHeight(461),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()!.cardBg,
@@ -311,21 +323,22 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                       width: 1.0,
                     ),
                   ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: Get.width * Utils.getResponsiveWidth(20),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(16),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(16),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Get.width * Utils.getResponsiveWidth(20),
                         ),
-                        Row(
+                        child: Row(
                           children: [
                             Text(
-                              'recent_transactions'.tr,
+                              'application_response'.tr,
                               style: TextStyle(
                                 color:
                                     Theme.of(
@@ -339,41 +352,232 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                             ),
                             Spacer(),
                             Image.asset(IconAssets.icRecentTransactions),
+                            SizedBox(
+                              width: Get.width * Utils.getResponsiveWidth(8),
+                            ),
+                            Text(
+                              'accepted'.tr,
+                              style: TextStyle(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).extension<AppColors>()?.textBodyColor,
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w400,
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(12),
+                              ),
+                            ),
                           ],
                         ),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                ImageAssets.imgEmptyTransactions,
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(60),
-                                width: Get.width * Utils.getResponsiveWidth(47),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(18),
-                              ),
-                              Text(
-                                'empty_transactions'.tr,
-                                style: TextStyle(
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(32),
+                      ),
+                      AnalyticsChartWidget(),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(24),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Get.width * Utils.getResponsiveWidth(16),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
                                   color:
                                       Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
+                                          .extension<AppColors>()!
+                                          .cvSubmittedCardBgColor,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                    ),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        Get.width *
+                                        Utils.getResponsiveWidth(26),
+                                    vertical:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(12),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color:
+                                              Theme.of(context)
+                                                  .extension<AppColors>()!
+                                                  .cvSubmittedCountBgColor,
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(
+                                              Get.height *
+                                                  Utils.getResponsiveHeight(
+                                                    100,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                Get.width *
+                                                Utils.getResponsiveWidth(7),
+                                            vertical:
+                                                Get.height *
+                                                Utils.getResponsiveHeight(9),
+                                          ),
+                                          child: Text(
+                                            '40',
+                                            style: TextStyle(
+                                              color:
+                                                  Theme.of(context)
+                                                      .extension<AppColors>()
+                                                      ?.cvSubmittedCountTextColor,
+                                              fontFamily: 'Inter',
+                                              fontWeight: FontWeight.w500,
+                                              fontSize:
+                                                  Get.height *
+                                                  Utils.getResponsiveSize(14),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height:
+                                            Get.height *
+                                            Utils.getResponsiveHeight(8),
+                                      ),
+                                      Text(
+                                        'total_cv_submitted'.tr,
+                                        style: TextStyle(
+                                          color:
+                                              Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.cvSubmittedCountTextColor,
+                                          fontFamily: 'Inter',
+                                          fontWeight: FontWeight.w500,
+                                          fontSize:
+                                              Get.height *
+                                              Utils.getResponsiveSize(14),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              width: Get.width * Utils.getResponsiveWidth(12),
+                            ),
+                            Expanded(
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()!
+                                          .cvAcceptedCardBgColor,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                    ),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        Get.width *
+                                        Utils.getResponsiveWidth(26),
+                                    vertical:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(12),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color:
+                                              Theme.of(context)
+                                                  .extension<AppColors>()!
+                                                  .cvAcceptedCountBgColor,
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(
+                                              Get.height *
+                                                  Utils.getResponsiveHeight(
+                                                    100,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                Get.width *
+                                                Utils.getResponsiveWidth(7),
+                                            vertical:
+                                                Get.height *
+                                                Utils.getResponsiveHeight(9),
+                                          ),
+                                          child: Text(
+                                            '32',
+                                            style: TextStyle(
+                                              color:
+                                                  Theme.of(context)
+                                                      .extension<AppColors>()
+                                                      ?.cvAcceptedCountTextColor,
+                                              fontFamily: 'Inter',
+                                              fontWeight: FontWeight.w500,
+                                              fontSize:
+                                                  Get.height *
+                                                  Utils.getResponsiveSize(14),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height:
+                                            Get.height *
+                                            Utils.getResponsiveHeight(8),
+                                      ),
+                                      Text(
+                                        'total_cv_accepted'.tr,
+                                        style: TextStyle(
+                                          color:
+                                              Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.cvAcceptedCountTextColor,
+                                          fontFamily: 'Inter',
+                                          fontWeight: FontWeight.w500,
+                                          fontSize:
+                                              Get.height *
+                                              Utils.getResponsiveSize(14),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(16),
+                      ),
+                    ],
                   ),
                 ),
               ],

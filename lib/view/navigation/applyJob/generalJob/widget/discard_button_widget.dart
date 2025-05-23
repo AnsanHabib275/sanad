@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../res/components/round_button.dart';
-import '../../../../res/themes/app_themes.dart';
+import '../../../../../res/components/round_button.dart';
+import '../../../../../res/themes/app_themes.dart';
 
 class DiscardButtonWidget extends StatelessWidget {
   const DiscardButtonWidget({super.key});

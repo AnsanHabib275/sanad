@@ -27,4 +27,7 @@ class RoutesName {
   static const String analyticsScreen = '/analytics_screen';
   static const String viewJobScreen = '/view_job_screen';
   static const String applyJobScreen = '/apply_job_screen';
+  static const String additionalRequirementsJobScreen =
+      '/additional_requirements_job_screen';
+  static const String reviewJobScreen = '/review_job_screen';
 }

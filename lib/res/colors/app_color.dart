@@ -22,6 +22,7 @@ class AppColor {
   static const Color selectedBnTextColor = Color(0xFF339DAC);
   static const Color cardSelectedTextColor = Color(0xFF008597);
   static const Color tabSelectedTextColor = Color(0xFF339DAC);
+  static const Color blueColor = Color(0xFF068EFF);
   static var obBoardingLogoBgWith12Per = Color(
     0xFF339DAC,
   ).withAlpha((0.12 * 255).toInt());
@@ -38,6 +39,7 @@ class AppColor {
   static const Color textSecondaryColor = Color(0xFF667085);
   static const Color textBodyColor = Color(0xFF475467);
   static const Color skipTextColor = Color(0xFF717171);
+  static const Color primaryIconLightColor = Color(0xFF101828);
   static const Color secondaryIconColor = Color(0xFF475467);
   static const Color borderPrimaryColor = Color(0xFFF2F4F7);
   static const Color borderSecondaryColor = Color(0xFFD0D5DD);
@@ -49,6 +51,12 @@ class AppColor {
   static const Color cardBgColor = Colors.white;
   static const Color cardSelectedBgColor = Color(0xFFE6F3F5);
   static const Color containerBgColor = Color(0xFFEAECF0);
+  static const Color cvSubmittedCardBgColor = Color(0xFFEDFAFA);
+  static const Color cvSubmittedCountBgColor = Color(0xFFD5F5F6);
+  static const Color cvSubmittedCountTextColor = Color(0xFF047481);
+  static const Color cvAcceptedCardBgColor = Color(0xFFEBF5FF);
+  static const Color cvAcceptedCountBgColor = Color(0xFFE1EFFE);
+  static const Color cvAcceptedCountTextColor = Color(0xFF1C64F2);
   // Dark Theme Colors
   static const Color primaryDarkColor = Color(0xFF101828);
   static const Color secondaryDarkColor = Color(0xFF101828);
@@ -61,6 +69,7 @@ class AppColor {
   static const Color textSecondaryDarkColor = Color(0xFF98A2B3);
   static const Color textBodyDarkColor = Color(0xFFEAECF0);
   static const Color skipTextDarkColor = Colors.white;
+  static const Color primaryIconDarkColor = Color(0xFFF2F4F7);
   static const Color secondaryIconDarkColor = Color(0xFFF2F4F7);
   static const Color borderPrimaryDarkColor = Color(0xFF101828);
   static const Color borderSecondaryDarkColor = Color(0xFF1D2939);
@@ -72,4 +81,18 @@ class AppColor {
   static const Color cardBgDarkColor = Color(0xFF0C1320);
   static const Color cardSelectedBgDarkColor = Color(0xFF00383F);
   static const Color containerBgDarkColor = Color(0xFF1D2939);
+  static Color cvSubmittedCardBgDarkColor = Color(
+    0xFF047481,
+  ).withAlpha((0.3 * 255).toInt());
+  static Color cvSubmittedCountBgDarkColor = Color(
+    0xFF047481,
+  ).withAlpha((0.5 * 255).toInt());
+  static const Color cvSubmittedCountTextDarkColor = Colors.white;
+  static Color cvAcceptedCardBgDarkColor = Color(
+    0xFF0188FF,
+  ).withAlpha((0.3 * 255).toInt());
+  static Color cvAcceptedCountBgDarkColor = Color(
+    0xFF0188FF,
+  ).withAlpha((0.5 * 255).toInt());
+  static const Color cvAcceptedCountTextDarkColor = Colors.white;
 }
