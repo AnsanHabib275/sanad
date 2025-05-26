@@ -151,7 +151,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                             Utils.getResponsiveSize(11),
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
-                                        color: AppColor.cardSelectedTextColor,
+                                        color: AppColor.primaryColor,
                                       ),
                                     ),
                                   ),

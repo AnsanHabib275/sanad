@@ -30,4 +30,5 @@ class RoutesName {
   static const String additionalRequirementsJobScreen =
       '/additional_requirements_job_screen';
   static const String reviewJobScreen = '/review_job_screen';
+  static const String editProfileScreen = '/edit_profile_screen';
 }

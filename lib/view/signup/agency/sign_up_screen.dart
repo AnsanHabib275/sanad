@@ -4,7 +4,6 @@ import 'package:sanad/view/signup/agency/widget/input_email_widget.dart';
 import 'package:sanad/view/signup/agency/widget/input_full_name_widget.dart';
 import 'package:sanad/view/signup/agency/widget/input_note_widget.dart';
 import 'package:sanad/view/signup/agency/widget/input_password_widget.dart';
-import 'package:sanad/view/signup/agency/widget/input_phone_number_widget.dart';
 import 'package:sanad/view/signup/agency/widget/input_tagline_widget.dart';
 import 'package:sanad/view/signup/agency/widget/input_upload_profile_picture_widget.dart';
 import 'package:sanad/view/signup/agency/widget/continue_button_widget.dart';
@@ -13,6 +12,7 @@ import 'package:sanad/utils/utils.dart';
 import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
 import '../../../res/themes/app_themes.dart';
+import '../agency/widget/input_mobile_number_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -129,7 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                           height: Get.height * Utils.getResponsiveHeight(8),
                         ),
-                        InputPhoneNumberWidget(),
+                        InputMobileNumberWidget(),
                         SizedBox(
                           height: Get.height * Utils.getResponsiveHeight(16),
                         ),

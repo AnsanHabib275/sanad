@@ -31,4 +31,5 @@ class ImageAssets {
       'assets/images/img_transaction_download.png';
   static const String imgDownload = 'assets/images/img_download.png';
   static const String imgPdf = 'assets/images/img_pdf.png';
+  static const String imgAddPhoto = 'assets/images/img_add_photo.png';
 }

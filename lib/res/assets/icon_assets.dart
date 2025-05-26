@@ -55,4 +55,5 @@ class IconAssets {
   static const String icRecentTransactions =
       'assets/icons/ic_recent_transactions.png';
   static const String icHelpArrow = 'assets/icons/ic_help_arrow.png';
+  static const String icArrowDown = 'assets/icons/ic_arrow_down.png';
 }

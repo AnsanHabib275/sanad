@@ -20,12 +20,14 @@ class AppColor {
   static const Color primaryProgressBarColor = Colors.white;
   static const Color primaryIconColor = Color(0xFF339DAC);
   static const Color selectedBnTextColor = Color(0xFF339DAC);
-  static const Color cardSelectedTextColor = Color(0xFF008597);
   static const Color tabSelectedTextColor = Color(0xFF339DAC);
   static const Color blueColor = Color(0xFF068EFF);
-  static var obBoardingLogoBgWith12Per = Color(
-    0xFF339DAC,
-  ).withAlpha((0.12 * 255).toInt());
+  static Color primaryWith30Per = Color(
+    0xFF008597,
+  ).withAlpha((0.3 * 255).toInt());
+  static Color primaryChartColorWith0Per = Color(
+    0xFF95A4FC,
+  ).withAlpha((0.0 * 255).toInt());
 
   // Light Theme Colors
   static const Color primaryColor = Color(0xFF008597);

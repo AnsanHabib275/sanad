@@ -19,17 +19,27 @@ import 'package:http/http.dart' as http;
 class UpdateProfileViewModel extends GetxController {
   final _api = UpdateProfileRepository();
   final userVM = Get.find<UserPreference>();
-  final nameController = TextEditingController().obs;
+  final firstNameController = TextEditingController().obs;
+  final lastNameController = TextEditingController().obs;
   final countryCodeController = TextEditingController().obs;
   final phoneNumberController = TextEditingController().obs;
-  final genderController = TextEditingController().obs;
-  final dateOfBirthController = TextEditingController().obs;
+  final emailController = TextEditingController().obs;
+  final streetController = TextEditingController().obs;
+  final cityController = TextEditingController().obs;
+  final postalCodeController = TextEditingController().obs;
+  final countryController = TextEditingController().obs;
+  final descriptionController = TextEditingController().obs;
 
-  final nameFocusNode = FocusNode().obs;
+  final firstNameFocusNode = FocusNode().obs;
+  final lastNameFocusNode = FocusNode().obs;
   final countryCodeFocusNode = FocusNode().obs;
   final phoneNumberFocusNode = FocusNode().obs;
-  final genderFocusNode = FocusNode().obs;
-  final dateOfBirthFocusNode = FocusNode().obs;
+  final emailFocusNode = FocusNode().obs;
+  final streetFocusNode = FocusNode().obs;
+  final cityFocusNode = FocusNode().obs;
+  final postalCodeFocusNode = FocusNode().obs;
+  final countryFocusNode = FocusNode().obs;
+  final descriptionFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
   RxBool isEnable = false.obs;
@@ -92,11 +102,15 @@ class UpdateProfileViewModel extends GetxController {
     Map<String, String> data = {
       "E_ID": Get.find<UserPreference>().userEid.value,
       "ImageURL": imagePath.value,
-      "FullName": nameController.value.text,
+      "FirstName": firstNameController.value.text,
+      "LastName": lastNameController.value.text,
       "CountryCode": countryCodeController.value.text,
-      "MobileNumbre": phoneNumberController.value.text,
-      "Gender": genderController.value.text,
-      "DOB": Utils.apiFormatDate(dateOfBirthController.value.text),
+      "MobileNumber": phoneNumberController.value.text,
+      "Street": streetController.value.text,
+      "City": cityController.value.text,
+      "PostalCode": postalCodeController.value.text,
+      "Country": countryController.value.text,
+      "Description": descriptionController.value.text,
     };
     _api
         .updateProfileApi(data)

@@ -9,6 +9,7 @@ import 'package:sanad/view/navigation/applyJob/generalJob/apply_job_screen.dart'
 import 'package:sanad/view/navigation/help/help_screen.dart';
 import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
 import 'package:sanad/view/navigation/payment/payment_screen.dart';
+import 'package:sanad/view/navigation/profile/edit_profile_screen.dart';
 import 'package:sanad/view/navigation/rateUs/rate_us_screen.dart';
 import 'package:sanad/view/navigation/transactions/transactions_screen.dart';
 import 'package:sanad/view/navigation/viewJob/view_job_screen.dart';
@@ -242,6 +243,13 @@ class AppRoutes {
     GetPage(
       name: RoutesName.reviewJobScreen,
       page: () => ReviewJobScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.editProfileScreen,
+      page: () => EditProfileScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,

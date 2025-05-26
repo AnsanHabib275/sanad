@@ -13,8 +13,6 @@ class LoginServices extends GetxController {
     } else if (userVM.userEid.isEmpty) {
       Get.offAllNamed(RoutesName.loginScreen);
     } else if (userVM.userImageURL.isEmpty ||
-        userVM.userGender.isEmpty ||
-        userVM.userDob.isEmpty ||
         userVM.userCountryCode.isEmpty ||
         userVM.userMobileNumber.isEmpty) {
       Get.offAllNamed(RoutesName.navigationScreen);

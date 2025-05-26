@@ -41,8 +41,9 @@ class MyApp extends StatelessWidget {
       theme: AppThemes.lightTheme(MediaQuery.of(context).size.height),
       darkTheme: AppThemes.darkTheme(MediaQuery.of(context).size.height),
       themeMode: themeService.themeMode,
-      // initialRoute: RoutesName.splashScreen,
-      initialRoute: RoutesName.navigationScreen,
+      initialRoute: RoutesName.splashScreen,
+      // initialRoute: RoutesName.loginScreen,
+      // initialRoute: RoutesName.navigationScreen,
       getPages: AppRoutes.appRoutes(),
     );
   }

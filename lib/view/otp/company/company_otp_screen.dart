@@ -1,28 +1,28 @@
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/view/otp/widget/input_otp_widget.dart';
-import 'package:sanad/view/otp/widget/next_button_widget.dart';
+import 'package:sanad/view/otp/company/widget/input_otp_widget.dart';
+import 'package:sanad/view/otp/company/widget/next_button_widget.dart';
 import 'package:sanad/viewModels/controller/otp/otp_view_model.dart';
 import 'package:sanad/viewModels/controller/resendCode/resend_code_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../res/assets/icon_assets.dart';
-import '../../res/themes/app_themes.dart';
+import '../../../res/assets/icon_assets.dart';
+import '../../../res/themes/app_themes.dart';
 
-class OTPScreen extends StatefulWidget {
-  const OTPScreen({super.key});
+class CompanyOTPScreen extends StatefulWidget {
+  const CompanyOTPScreen({super.key});
 
   @override
-  State<OTPScreen> createState() => _OTPScreenState();
+  State<CompanyOTPScreen> createState() => _CompanyOTPScreenState();
 }
 
-class _OTPScreenState extends State<OTPScreen> {
+class _CompanyOTPScreenState extends State<CompanyOTPScreen> {
   final otpVM = Get.put(OTPViewModel());
   final resendCodeVM = Get.put(ResendCodeViewModel());
   final _formKey = GlobalKey<FormState>();
-  final accountId = Get.arguments['Accountid'] ?? '';
-  final mobileNumber = Get.arguments['MobileNumber'] ?? '';
+  final eID = Get.arguments['eID'] ?? '';
+  final email = Get.arguments['email'] ?? '';
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         ),
                       ),
                       Text(
-                        mobileNumber,
+                        email,
                         style: TextStyle(
                           color:
                               Theme.of(
@@ -127,6 +127,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               height:
                                   Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
+                                eID: eID,
                                 controller: otpVM.otpOneController.value,
                                 focusNode: otpVM.otpOneFocusNode.value,
                                 nextFocusNode: otpVM.otpTwoFocusNode.value,
@@ -137,6 +138,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               height:
                                   Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
+                                eID: eID,
                                 controller: otpVM.otpTwoController.value,
                                 focusNode: otpVM.otpTwoFocusNode.value,
                                 nextFocusNode: otpVM.otpThreeFocusNode.value,
@@ -147,6 +149,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               height:
                                   Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
+                                eID: eID,
                                 controller: otpVM.otpThreeController.value,
                                 focusNode: otpVM.otpThreeFocusNode.value,
                                 nextFocusNode: otpVM.otpFourFocusNode.value,
@@ -157,6 +160,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               height:
                                   Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
+                                eID: eID,
                                 controller: otpVM.otpFourController.value,
                                 focusNode: otpVM.otpFourFocusNode.value,
                                 nextFocusNode: otpVM.otpFiveFocusNode.value,
@@ -167,6 +171,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               height:
                                   Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
+                                eID: eID,
                                 controller: otpVM.otpFiveController.value,
                                 focusNode: otpVM.otpFiveFocusNode.value,
                                 nextFocusNode: otpVM.otpSixFocusNode.value,
@@ -177,6 +182,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               height:
                                   Get.height * Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
+                                eID: eID,
                                 controller: otpVM.otpSixController.value,
                                 focusNode: otpVM.otpSixFocusNode.value,
                                 // nextFocusNode: otpVM.otpFourFocusNode.value,
@@ -190,7 +196,7 @@ class _OTPScreenState extends State<OTPScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          resendCodeVM.resendCodeApi(accountId);
+                          resendCodeVM.resendCodeApi(email);
                           otpVM.clearFields();
                         },
                         child: Text(
@@ -207,7 +213,7 @@ class _OTPScreenState extends State<OTPScreen> {
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(39),
                       ),
-                      NextButtonWidget(formKey: _formKey),
+                      NextButtonWidget(formKey: _formKey, eID: eID),
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(20),
                       ),

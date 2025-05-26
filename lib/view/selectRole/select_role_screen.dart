@@ -59,7 +59,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Get.toNamed(RoutesName.signUpScreen);
+                        // Get.toNamed(RoutesName.signUpScreen);
                       },
                       child: Container(
                         height: Get.height * Utils.getResponsiveHeight(108),

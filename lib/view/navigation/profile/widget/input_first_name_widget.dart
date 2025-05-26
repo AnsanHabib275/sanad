@@ -1,42 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
+import 'package:sanad/viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
-class InputTaglineWidget extends StatelessWidget {
-  InputTaglineWidget({super.key});
+class InputFirstNameWidget extends StatelessWidget {
+  InputFirstNameWidget({super.key});
 
-  final signUpVM = Get.put(SignUpViewModel());
+  final updateProfileVM = Get.put(UpdateProfileViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: signUpVM.taglineController.value,
-        focusNode: signUpVM.taglineFocusNode.value,
+        controller: updateProfileVM.firstNameController.value,
+        focusNode: updateProfileVM.firstNameFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'tagline_error'.tr;
+            return 'first_name_error'.tr;
           }
           return null;
         },
         onFieldSubmitted: (value) {
           Utils.fieldFocusChange(
             context,
-            signUpVM.taglineFocusNode.value,
-            signUpVM.mobileNumberFocusNode.value,
+            updateProfileVM.firstNameFocusNode.value,
+            updateProfileVM.lastNameFocusNode.value,
           );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hint: Text('tagline_hint'.tr),
+          hint: Text('first_name_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
-              signUpVM.errorMessage.value.isEmpty
+              updateProfileVM.errorMessage.value.isEmpty
                   ? null
-                  : signUpVM.errorMessage.value,
+                  : updateProfileVM.errorMessage.value,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
           border: Theme.of(context).inputDecorationTheme.border,
           enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
@@ -45,7 +46,7 @@ class InputTaglineWidget extends StatelessWidget {
           focusedErrorBorder:
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
         ),
-        keyboardType: TextInputType.text,
+        keyboardType: TextInputType.name,
         textInputAction: TextInputAction.done,
       );
     });

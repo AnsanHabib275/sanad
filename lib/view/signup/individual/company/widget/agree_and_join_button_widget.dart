@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
-import '../../../../res/routes/routes_name.dart';
+import '../../../../../res/routes/routes_name.dart';
 
 class AgreeAndJoinButtonWidget extends StatelessWidget {
   AgreeAndJoinButtonWidget({super.key, required this.formKey});

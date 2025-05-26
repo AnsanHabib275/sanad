@@ -24,7 +24,7 @@ class NextButtonWidget extends StatelessWidget {
               curve: Curves.linear,
             );
           } else {
-            Get.toNamed(RoutesName.loginScreen);
+            Get.toNamed(RoutesName.selectRoleScreen);
           }
           // userVM.saveFirstUse(false).then((value) {
           //   Get.delete<OnBoardingViewModel>();

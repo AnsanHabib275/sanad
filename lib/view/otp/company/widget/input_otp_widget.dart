@@ -2,17 +2,19 @@ import 'package:sanad/viewModels/controller/otp/otp_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../res/themes/app_themes.dart';
-import '../../../utils/utils.dart';
-import '../../../res/colors/app_color.dart';
+import '../../../../res/colors/app_color.dart';
+import '../../../../res/themes/app_themes.dart';
+import '../../../../utils/utils.dart';
 
 class InputOTPWidget extends StatelessWidget {
+  final String eID;
   final TextEditingController controller;
   final FocusNode focusNode;
   final FocusNode? nextFocusNode;
 
   InputOTPWidget({
     super.key,
+    required this.eID,
     required this.controller,
     required this.focusNode,
     this.nextFocusNode,

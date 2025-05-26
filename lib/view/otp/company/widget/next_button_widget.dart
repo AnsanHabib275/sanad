@@ -4,12 +4,13 @@ import 'package:sanad/viewModels/controller/otp/otp_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/utils.dart';
+import '../../../../utils/utils.dart';
 
 class NextButtonWidget extends StatelessWidget {
-  NextButtonWidget({super.key, required this.formKey});
+  NextButtonWidget({super.key, required this.formKey, required this.eID});
 
   final GlobalKey<FormState> formKey;
+  final String eID;
   final otpVM = Get.put(OTPViewModel());
 
   @override
@@ -20,7 +21,10 @@ class NextButtonWidget extends StatelessWidget {
         loading: otpVM.loading.value,
         onPress: () {
           Utils.hideKeyboardGlobally();
-          Get.toNamed(RoutesName.signUpScreen);
+          Get.toNamed(
+            RoutesName.resetPasswordScreen,
+            arguments: {'eID': 'bdjshdfjshvd'},
+          );
           // if (formKey.currentState!.validate()) {
           // if (otpVM.isOtpFilled.value) {
           //   otpVM.otpApi(eID);

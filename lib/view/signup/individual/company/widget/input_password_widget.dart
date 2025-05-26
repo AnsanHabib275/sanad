@@ -1,12 +1,13 @@
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
+
+import '../../../../../viewModels/controller/signup/company/company_sign_up_view_model.dart';
 
 class InputPasswordWidget extends StatelessWidget {
   InputPasswordWidget({super.key});
 
-  final signUpVM = Get.put(SignUpViewModel());
+  final signUpVM = Get.put(CompanySignUpViewModel());
 
   @override
   Widget build(BuildContext context) {

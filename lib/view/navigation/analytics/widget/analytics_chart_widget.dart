@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:get/get.dart';
+import 'package:sanad/res/colors/app_color.dart';
 
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
@@ -15,19 +16,29 @@ class AnalyticsChartWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         horizontal: Get.width * Utils.getResponsiveWidth(16),
       ),
-      child: BarChart(
-        BarChartData(
-          alignment: BarChartAlignment.spaceAround,
+      child: LineChart(
+        LineChartData(
+          minY: 0,
           maxY: 40,
-          barTouchData: BarTouchData(enabled: false),
-          titlesData: FlTitlesData(
+          lineTouchData: LineTouchData(enabled: false),
+          gridData: FlGridData(
             show: true,
-            bottomTitles: AxisTitles(
+            drawVerticalLine: false,
+            horizontalInterval: 10,
+            verticalInterval: 43,
+            getDrawingHorizontalLine:
+                (value) => FlLine(
+                  color: Theme.of(context).dividerColor,
+                  strokeWidth: 1,
+                ),
+          ),
+          titlesData: FlTitlesData(
+            leftTitles: AxisTitles(
               sideTitles: SideTitles(
                 showTitles: true,
                 getTitlesWidget: (value, meta) {
                   return Text(
-                    '',
+                    value.toInt().toString(),
                     style: TextStyle(
                       color:
                           Theme.of(
@@ -37,89 +48,49 @@ class AnalyticsChartWidget extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontSize: Get.height * Utils.getResponsiveSize(12),
                     ),
-                  ); // Empty X-axis labels
-                },
-              ),
-            ),
-            leftTitles: AxisTitles(
-              sideTitles: SideTitles(
-                showTitles: true,
-                getTitlesWidget: (value, meta) {
-                  return Text(value.toInt().toString());
+                  );
                 },
                 interval: 10,
                 reservedSize: 30,
               ),
             ),
+            bottomTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
             topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
             rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
           ),
-          gridData: FlGridData(
-            show: true,
-            drawVerticalLine: false,
-            horizontalInterval: 10,
-            getDrawingHorizontalLine:
-                (value) => FlLine(
-                  color: Theme.of(context).dividerColor,
-                  strokeWidth: 1,
-                ),
-          ),
           borderData: FlBorderData(show: false),
-          barGroups: [
-            BarChartGroupData(
-              x: 0,
-              barRods: [
-                BarChartRodData(
-                  toY: 40,
-                  color: Colors.blue,
-                  width: 20,
-                  borderRadius: BorderRadius.zero,
-                ),
+          lineBarsData: [
+            LineChartBarData(
+              spots: [
+                FlSpot(0, 13),
+                FlSpot(0.3, 14),
+                FlSpot(0.9, 11),
+                FlSpot(1.4, 13),
+                FlSpot(1.9, 12),
+                FlSpot(3, 23),
+                FlSpot(4, 18),
+                FlSpot(6, 31),
+                FlSpot(7, 29),
+                FlSpot(8, 32),
               ],
-            ),
-            BarChartGroupData(
-              x: 1,
-              barRods: [
-                BarChartRodData(
-                  toY: 30,
-                  color: Colors.blue,
-                  width: 20,
-                  borderRadius: BorderRadius.zero,
+              isCurved: true,
+              curveSmoothness: 0.4, // More natural waves
+              color: AppColor.primaryColor,
+              barWidth: 2,
+              belowBarData: BarAreaData(
+                show: true,
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    AppColor.primaryWith30Per,
+                    AppColor.primaryChartColorWith0Per,
+                  ],
+                  stops: [0.0, 1.0], // Gradient only below line
                 ),
-              ],
-            ),
-            BarChartGroupData(
-              x: 2,
-              barRods: [
-                BarChartRodData(
-                  toY: 20,
-                  color: Colors.blue,
-                  width: 20,
-                  borderRadius: BorderRadius.zero,
-                ),
-              ],
-            ),
-            BarChartGroupData(
-              x: 3,
-              barRods: [
-                BarChartRodData(
-                  toY: 10,
-                  color: Colors.blue,
-                  width: 20,
-                  borderRadius: BorderRadius.zero,
-                ),
-              ],
-            ),
-            BarChartGroupData(
-              x: 4,
-              barRods: [
-                BarChartRodData(
-                  toY: 0,
-                  color: Colors.blue,
-                  width: 20,
-                  borderRadius: BorderRadius.zero,
-                ),
-              ],
+                cutOffY: 0, // Gradient stops at Y=0
+              ),
+              dotData: FlDotData(show: false),
             ),
           ],
         ),

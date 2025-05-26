@@ -1,50 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/utils/utils.dart';
+import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
-import '../../../res/assets/icon_assets.dart';
-import '../../../utils/utils.dart';
-import '../../../viewModels/controller/login/login_view_model.dart';
+import '../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 
-class InputEmailWidget extends StatelessWidget {
-  InputEmailWidget({super.key});
+class InputCityWidget extends StatelessWidget {
+  InputCityWidget({super.key});
 
-  final loginVM = Get.put(LoginViewModel());
+  final updateProfileVM = Get.put(UpdateProfileViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: loginVM.emailController,
-        focusNode: loginVM.emailFocusNode.value,
+        controller: updateProfileVM.cityController.value,
+        focusNode: updateProfileVM.cityFocusNode.value,
         enableSuggestions: true,
-        autocorrect: false,
-        autofocus: false,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
-          if (value == null ||
-              value.isEmpty ||
-              !RegExp(
-                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-              ).hasMatch(value)) {
-            return 'email_not_valid'.tr;
+          if (value == null || value.isEmpty) {
+            return 'city_error'.tr;
           }
           return null;
         },
         onFieldSubmitted: (value) {
           Utils.fieldFocusChange(
             context,
-            loginVM.emailFocusNode.value,
-            loginVM.passwordFocusNode.value,
+            updateProfileVM.cityFocusNode.value,
+            updateProfileVM.postalCodeFocusNode.value,
           );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hint: Text('email_hint'.tr),
+          hint: Text('city_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
-              loginVM.errorMessage.value.isEmpty
+              updateProfileVM.errorMessage.value.isEmpty
                   ? null
-                  : loginVM.errorMessage.value,
+                  : updateProfileVM.errorMessage.value,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
           border: Theme.of(context).inputDecorationTheme.border,
           enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
@@ -52,12 +46,8 @@ class InputEmailWidget extends StatelessWidget {
           errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
           focusedErrorBorder:
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
-          prefixIcon: Image.asset(
-            IconAssets.icEmail,
-            color: Theme.of(context).iconTheme.color,
-          ),
         ),
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: TextInputType.streetAddress,
         textInputAction: TextInputAction.done,
       );
     });

@@ -212,7 +212,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                           fontSize: Get.height * Utils.getResponsiveSize(14),
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
-                          color: AppColor.cardSelectedTextColor,
+                          color: AppColor.primaryColor,
                         ),
                       ),
                     ),

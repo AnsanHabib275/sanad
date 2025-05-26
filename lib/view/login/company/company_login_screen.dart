@@ -1,29 +1,35 @@
 import 'package:flutter/services.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/view/login/widget/input_mobile_number_widget.dart';
 import 'package:sanad/view/login/widget/login_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../res/assets/image_assets.dart';
-import '../../res/routes/routes_name.dart';
-import '../../res/themes/app_themes.dart';
-import '../../viewModels/controller/login/login_view_model.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+import '../../../res/assets/image_assets.dart';
+import '../../../res/routes/routes_name.dart';
+import '../../../res/themes/app_themes.dart';
+import '../../../viewModels/controller/login/login_view_model.dart';
+import '../../forgetPassword/widget/input_email_widget.dart';
+import '../../signup/agency/widget/input_password_widget.dart';
+
+class CompanyLoginScreen extends StatefulWidget {
+  const CompanyLoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<CompanyLoginScreen> createState() => _CompanyLoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _CompanyLoginScreenState extends State<CompanyLoginScreen> {
   final loginVM = Get.put(LoginViewModel());
   final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
+      // value:
+      //     Get.isDarkMode
+      //         ? SystemUiOverlayStyle.light
+      //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
         statusBarColor: AppColor.transparent,
         statusBarIconBrightness:
@@ -89,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(70),
+                          height: Get.height * Utils.getResponsiveHeight(32),
                         ),
                         Form(
                           key: formKey,
@@ -98,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'mobile_number'.tr,
+                                'email'.tr,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   color:
@@ -115,16 +121,66 @@ class _LoginScreenState extends State<LoginScreen> {
                                 height:
                                     Get.height * Utils.getResponsiveHeight(8),
                               ),
-                              InputMobileNumberWidget(),
+                              InputEmailWidget(),
+                              SizedBox(
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(20),
+                              ),
+                              Text(
+                                'password'.tr,
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(14),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(8),
+                              ),
+                              InputPasswordWidget(),
                             ],
                           ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(20),
+                        ),
+                        Row(
+                          children: [
+                            const Spacer(),
+                            InkWell(
+                              onTap: () {
+                                Utils.hideKeyboardGlobally();
+                                Get.toNamed(RoutesName.forgetPasswordScreen);
+                              },
+                              child: Text(
+                                'forgot_password_with_question'.tr,
+                                style: TextStyle(
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: Get.height * Utils.getResponsiveHeight(16),
                         ),
                         LoginButtonWidget(formKey: formKey),
                         SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(70),
+                          height: Get.height * Utils.getResponsiveHeight(32),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,

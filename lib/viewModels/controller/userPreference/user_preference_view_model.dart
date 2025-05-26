@@ -5,12 +5,17 @@ import '../../../models/login/login_model.dart';
 class UserPreference extends GetxController {
   RxString userEid = ''.obs;
   RxString userFullName = ''.obs;
+  RxString userFirstName = ''.obs;
+  RxString userLastName = ''.obs;
   RxString userEmail = ''.obs;
   RxString userImageURL = ''.obs;
   RxString userMobileNumber = ''.obs;
   RxString userCountryCode = ''.obs;
-  RxString userGender = ''.obs;
-  RxString userDob = ''.obs;
+  RxString userStreet = ''.obs;
+  RxString userCity = ''.obs;
+  RxString userPostalCode = ''.obs;
+  RxString userCountry = ''.obs;
+  RxString userDescription = ''.obs;
   RxBool isNotificationEnabled = false.obs;
 
   @override
@@ -24,12 +29,17 @@ class UserPreference extends GetxController {
     var user = await getUser();
     userEid.value = user.user?.eID ?? '';
     userFullName.value = user.user?.fullName ?? '';
+    userFirstName.value = user.user?.firstName ?? '';
+    userLastName.value = user.user?.lastName ?? '';
     userEmail.value = user.user?.email ?? '';
     userImageURL.value = user.user?.imageURL ?? '';
     userMobileNumber.value = user.user?.mobileNumbre ?? '';
     userCountryCode.value = user.user?.countryCode ?? '';
-    userGender.value = user.user?.gender ?? '';
-    userDob.value = user.user?.dOB ?? '';
+    userStreet.value = user.user?.street ?? '';
+    userCity.value = user.user?.city ?? '';
+    userPostalCode.value = user.user?.postalCode ?? '';
+    userCountry.value = user.user?.country ?? '';
+    userDescription.value = user.user?.description ?? '';
   }
 
   Future<bool> saveUser(LoginModel responseModel) async {
@@ -43,8 +53,11 @@ class UserPreference extends GetxController {
     sp.setString('userMobileNumber', responseModel.user?.mobileNumbre ?? '');
     sp.setString('user_creationDate', responseModel.user?.creationDate ?? '');
     sp.setString('userEid', responseModel.user?.eID ?? '');
-    sp.setString('userDob', responseModel.user?.dOB ?? '');
-    sp.setString('userGender', responseModel.user?.gender ?? '');
+    sp.setString('userStreet', responseModel.user?.street ?? '');
+    sp.setString('userCity', responseModel.user?.city ?? '');
+    sp.setString('userPostalCode', responseModel.user?.postalCode ?? '');
+    sp.setString('userCountry', responseModel.user?.country ?? '');
+    sp.setString('userDescription', responseModel.user?.description ?? '');
     sp.setString('userCountryCode', responseModel.user?.countryCode ?? '');
     sp.setString('userImageURL', responseModel.user?.imageURL ?? '');
     sp.setInt('errorcode', responseModel.errorcode ?? 0);
@@ -87,8 +100,11 @@ class UserPreference extends GetxController {
       mobileNumbre: sp.getString('userMobileNumber') ?? '',
       creationDate: sp.getString('user_creationDate') ?? '',
       eID: sp.getString('userEid') ?? '',
-      dOB: sp.getString('userDob') ?? '',
-      gender: sp.getString('userGender') ?? '',
+      street: sp.getString('userStreet') ?? '',
+      city: sp.getString('userCity') ?? '',
+      postalCode: sp.getString('userPostalCode') ?? '',
+      country: sp.getString('userCountry') ?? '',
+      description: sp.getString('userDescription') ?? '',
       countryCode: sp.getString('userCountryCode') ?? '',
       imageURL: sp.getString('userImageURL') ?? '',
     );

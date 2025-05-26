@@ -37,19 +37,30 @@ class User {
   String? gender;
   String? countryCode;
   String? imageURL;
+  String? street;
+  String? city;
+  String? postalCode;
+  String? country;
+  String? description;
 
-  User(
-      {this.fullName,
-      this.email,
-      this.creationDate,
-      this.eID,
-      this.firstName,
-      this.lastName,
-      this.mobileNumbre,
-      this.dOB,
-      this.gender,
-      this.countryCode,
-      this.imageURL});
+  User({
+    this.fullName,
+    this.email,
+    this.creationDate,
+    this.eID,
+    this.firstName,
+    this.lastName,
+    this.mobileNumbre,
+    this.dOB,
+    this.gender,
+    this.countryCode,
+    this.imageURL,
+    this.street,
+    this.city,
+    this.postalCode,
+    this.country,
+    this.description,
+  });
 
   User.fromJson(Map<String, dynamic> json) {
     fullName = json['FullName'];
@@ -63,6 +74,11 @@ class User {
     gender = json['Gender'];
     countryCode = json['CountryCode'];
     imageURL = json['ImageURL'];
+    street = json['Street'];
+    city = json['City'];
+    postalCode = json['PostalCode'];
+    country = json['Country'];
+    description = json['Description'];
   }
 
   Map<String, dynamic> toJson() {
@@ -78,6 +94,11 @@ class User {
     data['Gender'] = gender;
     data['CountryCode'] = countryCode;
     data['ImageURL'] = imageURL;
+    data['Street'] = street;
+    data['City'] = city;
+    data['PostalCode'] = postalCode;
+    data['Country'] = country;
+    data['Description'] = description;
     return data;
   }
 }
