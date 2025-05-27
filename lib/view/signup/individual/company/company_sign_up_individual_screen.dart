@@ -8,7 +8,7 @@ import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/routes/routes_name.dart';
 import '../../../../res/themes/app_themes.dart';
-import '../../agency/widget/input_password_widget.dart';
+// import '../../agency/widget/input_password_widget.dart';
 import '../../individual/company/widget/input_email_widget.dart';
 
 class CompanySignUpIndividualScreen extends StatefulWidget {
@@ -118,7 +118,7 @@ class _CompanySignUpIndividualScreenState
                             SizedBox(
                               height: Get.height * Utils.getResponsiveHeight(8),
                             ),
-                            InputPasswordWidget(),
+                            // InputPasswordWidget(),
                           ],
                         ),
                       ),

@@ -2,7 +2,6 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:sanad/viewModels/controller/login/login_view_model.dart';
 import 'package:sanad/viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 import '../../../../../res/assets/icon_assets.dart';
 import '../../../../../res/colors/app_color.dart';

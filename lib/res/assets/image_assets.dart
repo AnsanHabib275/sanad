@@ -10,6 +10,8 @@ class ImageAssets {
   static const String onBoardingBg = 'assets/images/on_boarding_bg.png';
   static const String ob1 = 'assets/images/ob_1.png';
   static const String ob2 = 'assets/images/ob_2.png';
+  static const String ob2Dark = 'assets/images/ob_2_dark.png';
+  static const String ob3Dark = 'assets/images/ob_3_dark.png';
   static const String ob3 = 'assets/images/ob_3.png';
   static const String obPageSelected = 'assets/images/ob_page_selected.png';
   static const String obPageUnselected = 'assets/images/ob_page_unselected.png';

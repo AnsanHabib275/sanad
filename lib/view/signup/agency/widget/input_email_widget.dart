@@ -30,7 +30,7 @@ class InputEmailWidget extends StatelessWidget {
           Utils.fieldFocusChange(
             context,
             signUpVM.emailFocusNode.value,
-            signUpVM.passwordFocusNode.value,
+            signUpVM.organizationTypeFocusNode.value,
           );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,

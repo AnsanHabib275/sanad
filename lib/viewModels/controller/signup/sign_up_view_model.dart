@@ -1,10 +1,20 @@
+import 'dart:io';
+
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:http_parser/http_parser.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:mime/mime.dart';
+import 'package:path/path.dart' as path;
 import 'package:phone_number/phone_number.dart';
 import '../../../repository/signupRepository/sign_up_repository.dart';
 import '../../../res/routes/routes_name.dart';
+import '../../../res/urls/app_url.dart';
 import '../../../utils/utils.dart';
+import 'package:http/http.dart' as http;
+import '../userPreference/user_preference_view_model.dart';
 
 class SignUpViewModel extends GetxController {
   final _api = SignUpRepository();
@@ -14,21 +24,20 @@ class SignUpViewModel extends GetxController {
   final countryCodeController = TextEditingController().obs;
   final mobileNumberController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
-  final passwordController = TextEditingController().obs;
-  final noteController = TextEditingController().obs;
+  final organizationTypeController = TextEditingController().obs;
 
   final fullNameFocusNode = FocusNode().obs;
   final taglineFocusNode = FocusNode().obs;
   final countryCodeFocusNode = FocusNode().obs;
   final mobileNumberFocusNode = FocusNode().obs;
   final emailFocusNode = FocusNode().obs;
-  final passwordFocusNode = FocusNode().obs;
-  final noteFocusNode = FocusNode().obs;
+  final organizationTypeFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
   RxBool isEnable = true.obs;
   RxString imagePath = ''.obs;
+  RxString filePath = ''.obs;
   RxString imagePathError = ''.obs;
   RxString errorMessage = ''.obs;
   RxString apiErrorMessage = ''.obs;
@@ -99,8 +108,8 @@ class SignUpViewModel extends GetxController {
       'CountryCode': countryCodeController.value.text,
       'MobileNumber': mobileNumberController.value.text,
       'Email': emailController.value.text,
-      'Password': passwordController.value.text,
-      'Note': noteController.value.text,
+      // 'Password': passwordController.value.text,
+      // 'Note': noteController.value.text,
     };
     _api
         .signUpApi(data)
@@ -154,6 +163,86 @@ class SignUpViewModel extends GetxController {
         .onError((error, stackTrace) {
           loading.value = false;
           apiErrorMessage.value = error.toString();
+        });
+  }
+
+  final ImagePicker picker = ImagePicker();
+
+  Future<void> getImageFromCamera() async {
+    final XFile? image = await picker.pickImage(
+      source: ImageSource.camera,
+      imageQuality: 85,
+      preferredCameraDevice: CameraDevice.rear,
+    );
+
+    if (image != null) {
+      await handleImageFile(image);
+    }
+  }
+
+  Future<void> getImageFromGallery() async {
+    final XFile? image = await picker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 85,
+    );
+
+    if (image != null) {
+      await handleImageFile(image);
+    }
+  }
+
+  Future<void> handleImageFile(XFile xFile) async {
+    try {
+      final File file = File(xFile.path);
+
+      if (await file.exists()) {
+        final String fileName = path.basename(file.path);
+        final String mimeType = lookupMimeType(file.path) ?? 'image/jpeg';
+        filePath.value = file.path;
+        final multipartFile = await http.MultipartFile.fromPath(
+          'file',
+          file.path,
+          filename: fileName,
+          contentType: MediaType.parse(mimeType),
+        );
+
+        await uploadProfileImageApi(multipartFile);
+      } else {
+        if (kDebugMode) {
+          print('File does not exist at path: ${file.path}');
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error handling file: $e');
+      }
+    }
+  }
+
+  Future<void> uploadProfileImageApi(http.MultipartFile file) async {
+    loading.value = true;
+    Map<String, String> data = {
+      'E_ID': Get.find<UserPreference>().userEid.value.trim(),
+    };
+    List<http.MultipartFile> files = [];
+    files.add(file);
+    _api
+        .uploadProfileImageApi(data, files)
+        .then((value) {
+          loading.value = false;
+          if (value['IsSuccessfull'] == false) {
+            Utils.toastMessage(value['message']);
+          } else {
+            String imageUrl = value['imageURL'];
+            imagePath.value = AppUrl.baseUrl + imageUrl;
+            if (kDebugMode) {
+              print(AppUrl.baseUrl + imageUrl);
+            }
+          }
+        })
+        .onError((error, stackTrace) {
+          loading.value = false;
+          Utils.toastMessage(error.toString());
         });
   }
 }

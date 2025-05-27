@@ -167,55 +167,6 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                               ),
                               SizedBox(
                                 height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'looking_to_create_an_account_for_an_agency'
-                                        .tr,
-                                    textScaler: TextScaler.linear(1),
-                                    style: TextStyle(
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w400,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textSecondaryColor,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width:
-                                        Get.width * Utils.getResponsiveWidth(4),
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      Utils.hideKeyboardGlobally();
-                                      Get.offAllNamed(RoutesName.signUpScreen);
-                                    },
-                                    child: Text(
-                                      'signup_as_agency'.tr,
-                                      style: TextStyle(
-                                        fontFamily: 'Manrope',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(12),
-                                        color:
-                                            Theme.of(context)
-                                                .extension<AppColors>()
-                                                ?.textPrimaryColor,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height:
                                     Get.height * Utils.getResponsiveHeight(20),
                               ),
                             ],

@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
+import 'package:sanad/view/login/company/widget/input_password_widget.dart';
 import 'package:sanad/view/login/widget/login_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,6 @@ import '../../../res/routes/routes_name.dart';
 import '../../../res/themes/app_themes.dart';
 import '../../../viewModels/controller/login/login_view_model.dart';
 import '../../forgetPassword/widget/input_email_widget.dart';
-import '../../signup/agency/widget/input_password_widget.dart';
 
 class CompanyLoginScreen extends StatefulWidget {
   const CompanyLoginScreen({super.key});

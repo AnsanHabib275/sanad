@@ -30,12 +30,12 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
       'ob_1_description'.tr,
     ),
     OnBoardingListModel(
-      ImageAssets.ob2,
+      Get.isDarkMode ? ImageAssets.ob2Dark : ImageAssets.ob2,
       'ob_2_title'.tr,
       'ob_2_description'.tr,
     ),
     OnBoardingListModel(
-      ImageAssets.ob3,
+      Get.isDarkMode ? ImageAssets.ob3Dark : ImageAssets.ob3,
       'ob_3_title'.tr,
       'ob_3_description'.tr,
     ),

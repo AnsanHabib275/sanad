@@ -15,7 +15,7 @@ class LoginButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        title: 'sign_in'.tr,
+        title: 'login'.tr,
         loading: loginVM.loading.value,
         onPress: () {
           Utils.hideKeyboardGlobally();

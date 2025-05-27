@@ -6,7 +6,6 @@ import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/userPreference/user_preference_view_model.dart';
 import '../../../res/assets/icon_assets.dart';
 import '../../../res/themes/app_themes.dart';
-import '../../../res/urls/app_url.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
