@@ -11,8 +11,10 @@ import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
 import 'package:sanad/view/navigation/payment/payment_screen.dart';
 import 'package:sanad/view/navigation/profile/edit_profile_screen.dart';
 import 'package:sanad/view/navigation/rateUs/rate_us_screen.dart';
+import 'package:sanad/view/navigation/submittedCV/submitted_cv_screen.dart';
 import 'package:sanad/view/navigation/transactions/transactions_screen.dart';
 import 'package:sanad/view/navigation/viewJob/view_job_screen.dart';
+import 'package:sanad/view/navigation/viewJobDetail/view_job_detail_screen.dart';
 import 'package:sanad/view/navigation/wallet/wallet_screen.dart';
 import 'package:sanad/view/selectRole/select_role_screen.dart';
 import 'package:sanad/view/signup/individual/sign_up_individual_screen.dart';
@@ -250,6 +252,20 @@ class AppRoutes {
     GetPage(
       name: RoutesName.editProfileScreen,
       page: () => EditProfileScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.submittedCvScreen,
+      page: () => SubmittedCVScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.viewJobDetailScreen,
+      page: () => ViewJobDetailScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,

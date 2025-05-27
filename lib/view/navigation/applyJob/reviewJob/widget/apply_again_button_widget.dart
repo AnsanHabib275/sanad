@@ -1,6 +1,7 @@
 import 'package:sanad/res/components/round_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/res/routes/routes_name.dart';
 
 import '../../../../../res/themes/app_themes.dart';
 
@@ -17,9 +18,7 @@ class ApplyAgainButtonWidget extends StatelessWidget {
       height: 40,
       title: 'apply_again'.tr,
       onPress: () {
-        Get.back();
-        // userVM.removeUser();
-        // Get.offAllNamed(RoutesName.loginScreen);
+        Get.offAllNamed(RoutesName.applyJobScreen);
       },
     );
   }

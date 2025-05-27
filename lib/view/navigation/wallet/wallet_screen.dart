@@ -48,7 +48,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   height: Get.height * Utils.getResponsiveHeight(90),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()!.cardBg,
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -138,7 +138,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color:
-                              Theme.of(context).extension<AppColors>()!.cardBg,
+                              Theme.of(context).extension<AppColors>()?.cardBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
                               Get.height * Utils.getResponsiveHeight(8),
@@ -208,7 +208,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color:
-                              Theme.of(context).extension<AppColors>()!.cardBg,
+                              Theme.of(context).extension<AppColors>()?.cardBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
                               Get.height * Utils.getResponsiveHeight(8),
@@ -278,7 +278,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   height: Get.height * Utils.getResponsiveHeight(461),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()!.cardBg,
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),

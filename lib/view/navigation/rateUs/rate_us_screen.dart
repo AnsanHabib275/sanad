@@ -62,7 +62,7 @@ class _RateUsScreenState extends State<RateUsScreen> {
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                   Container(
                     decoration: BoxDecoration(
-                      color: Theme.of(context).extension<AppColors>()!.cardBg,
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
                         width: 1,

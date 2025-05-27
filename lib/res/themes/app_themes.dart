@@ -260,7 +260,7 @@ class AppThemes {
         indicator: BoxDecoration(
           color: ThemeData.dark().extension<AppColors>()?.tabsBg,
           // border: Border.all(
-          //   color: ThemeData.dark().extension<AppColors>()!.tabsBorderColor,
+          //   color: ThemeData.dark().extension<AppColors>()?.tabsBorderColor,
           //   width: 1,
           // ),
         ),

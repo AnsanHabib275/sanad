@@ -38,6 +38,7 @@ class IconAssets {
   static const String icPostLogo = 'assets/icons/ic_post_logo.png';
   static const String icProfile = 'assets/icons/ic_profile.png';
   static const String icProfileEdit = 'assets/icons/ic_profile_edit.png';
+  static const String icEditProfile = 'assets/icons/ic_edit_profile.png';
   static const String icProfileVerified =
       'assets/icons/ic_profile_verified.png';
   static const String icRateUs = 'assets/icons/ic_rate_us.png';

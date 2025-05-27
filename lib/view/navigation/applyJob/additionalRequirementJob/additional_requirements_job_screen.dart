@@ -82,7 +82,7 @@ class _AdditionalRequirementsJobScreenState
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                   Container(
                     decoration: BoxDecoration(
-                      color: Theme.of(context).extension<AppColors>()!.cardBg,
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           Get.height * Utils.getResponsiveHeight(8),
@@ -298,7 +298,7 @@ class _AdditionalRequirementsJobScreenState
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).extension<AppColors>()!.cardBg,
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           Get.height * Utils.getResponsiveHeight(8),
@@ -437,7 +437,7 @@ class _AdditionalRequirementsJobScreenState
                               color:
                                   Theme.of(
                                     context,
-                                  ).extension<AppColors>()!.cardBg,
+                                  ).extension<AppColors>()?.cardBg,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(
                                   Get.height * Utils.getResponsiveHeight(8),

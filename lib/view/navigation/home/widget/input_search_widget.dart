@@ -15,7 +15,7 @@ class InputSearchWidget extends StatelessWidget {
     // return Obx(() {
     return SearchBar(
       backgroundColor: WidgetStateProperty.all(
-        Theme.of(context).extension<AppColors>()!.cardBg,
+        Theme.of(context).extension<AppColors>()?.cardBg,
       ),
       elevation: WidgetStatePropertyAll(0),
       controller: jobsVM.searchController.value,

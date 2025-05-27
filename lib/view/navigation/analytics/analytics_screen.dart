@@ -55,7 +55,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()!.cardBg,
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -164,7 +164,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color:
-                              Theme.of(context).extension<AppColors>()!.cardBg,
+                              Theme.of(context).extension<AppColors>()?.cardBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
                               Get.height * Utils.getResponsiveHeight(8),
@@ -238,7 +238,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color:
-                              Theme.of(context).extension<AppColors>()!.cardBg,
+                              Theme.of(context).extension<AppColors>()?.cardBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
                               Get.height * Utils.getResponsiveHeight(8),
@@ -312,7 +312,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()!.cardBg,
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -388,10 +388,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()!
-                                          .cvSubmittedCardBgColor,
+                                  color: Theme.of(context)
+                                      .extension<AppColors>()!
+                                      .cvSubmittedCardBgColor,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(
                                       Get.height * Utils.getResponsiveHeight(8),
@@ -413,29 +412,23 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Container(
+                                        height: Get.height * Utils.getResponsiveHeight(32),
+                                        width: Get.width * Utils.getResponsiveWidth(32),
                                         decoration: BoxDecoration(
                                           color:
-                                              Theme.of(context)
-                                                  .extension<AppColors>()!
-                                                  .cvSubmittedCountBgColor,
+                                          Theme.of(context)
+                                              .extension<AppColors>()!
+                                              .cvSubmittedCountBgColor,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(
                                               Get.height *
                                                   Utils.getResponsiveHeight(
-                                                    100,
+                                                    9999,
                                                   ),
                                             ),
                                           ),
                                         ),
-                                        child: Padding(
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal:
-                                                Get.width *
-                                                Utils.getResponsiveWidth(7),
-                                            vertical:
-                                                Get.height *
-                                                Utils.getResponsiveHeight(9),
-                                          ),
+                                        child: Center(
                                           child: Text(
                                             '40',
                                             style: TextStyle(
@@ -484,9 +477,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()!
-                                          .cvAcceptedCardBgColor,
+                                  Theme.of(context)
+                                      .extension<AppColors>()!
+                                      .cvAcceptedCardBgColor,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(
                                       Get.height * Utils.getResponsiveHeight(8),
@@ -508,6 +501,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Container(
+                                        height: Get.height * Utils.getResponsiveHeight(32),
+                                        width: Get.width * Utils.getResponsiveWidth(32),
                                         decoration: BoxDecoration(
                                           color:
                                               Theme.of(context)
@@ -517,20 +512,12 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                             Radius.circular(
                                               Get.height *
                                                   Utils.getResponsiveHeight(
-                                                    100,
+                                                    9999,
                                                   ),
                                             ),
                                           ),
                                         ),
-                                        child: Padding(
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal:
-                                                Get.width *
-                                                Utils.getResponsiveWidth(7),
-                                            vertical:
-                                                Get.height *
-                                                Utils.getResponsiveHeight(9),
-                                          ),
+                                        child: Center(
                                           child: Text(
                                             '32',
                                             style: TextStyle(

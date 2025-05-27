@@ -31,4 +31,6 @@ class RoutesName {
       '/additional_requirements_job_screen';
   static const String reviewJobScreen = '/review_job_screen';
   static const String editProfileScreen = '/edit_profile_screen';
+  static const String submittedCvScreen = '/submitted_cv_screen';
+  static const String viewJobDetailScreen = '/view_job_detail_screen';
 }

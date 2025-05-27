@@ -25,7 +25,7 @@ class _HelpCartWidgetState extends State<HelpCartWidget> {
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).extension<AppColors>()!.cardBg,
+          color: Theme.of(context).extension<AppColors>()?.cardBg,
           border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
           borderRadius: BorderRadius.all(
             Radius.circular(Get.height * Utils.getResponsiveSize(12)),

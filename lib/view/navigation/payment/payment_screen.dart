@@ -69,6 +69,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(12),
@@ -133,7 +134,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         height: Get.height * Utils.getResponsiveHeight(50),
                         width: double.infinity,
                         color:
-                            Theme.of(context).extension<AppColors>()!.buttonBg,
+                            Theme.of(context).extension<AppColors>()?.containerBg,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,

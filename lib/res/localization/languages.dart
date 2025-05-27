@@ -254,6 +254,11 @@ class Languages extends Translations {
       'organization_type_hint': 'Select Type',
       'organization_type_error': 'Please select organization type',
       'login': 'Login',
+      'view_job_details': 'View Job Details',
+      'submitted_cv': "Submitted CV's",
+      'bought': 'Bought',
+      'sign_up': 'Sign up',
+      'dark_mode': 'Dark Mode',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
+import 'package:sanad/res/routes/routes_name.dart';
 import '../../../../models/myJobs/my_jobs_model.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
@@ -21,11 +22,42 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
     return SizedBox(
       width: double.infinity,
       // child: Obx(() {
-      //   return InkWell(
-      //     onTap: () {},
+        child:  InkWell(
+          onTap: () {
+            Get.toNamed(RoutesName.viewJobDetailScreen,
+              arguments: {
+                'isPrivate': widget.myJobs.isPrivate,
+                'jobName': widget.myJobs.jobName,
+                'jobCategory': 'Marketing & Advertisement',
+                'companyName': widget.myJobs.companyName,
+                'location': widget.myJobs.jobLocation,
+                'jobType': widget.myJobs.jobType,
+                // 'professionalStatus': 'Intermediate',
+                'salaryRange': widget.myJobs.salaryRange,
+                // 'cvCount': '10 SAR/CV',
+                'myJobSpecifications': [
+                  widget.myJobs.jobType,
+                  'Intermediate',
+                  widget.myJobs.salaryRange,
+                  '10 SAR/CV',
+                ],
+                'experienceRequired': '3 years',
+                'candidatesRequired': '2',
+                'jobDescription':
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+                'isOpenToRelocating': 'false',
+                'softwarePrograms': [
+                  'Framer',
+                  'Figma',
+                  'Adobe XD',
+                  'Adobe Photoshop',
+                ],
+              },
+            );
+          },
       child: Card(
         elevation: 2,
-        color: Theme.of(context).extension<AppColors>()!.cardBg,
+        color: Theme.of(context).extension<AppColors>()?.cardBg,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Theme.of(context).dividerColor, width: 1.0),
           borderRadius: BorderRadius.circular(
@@ -223,7 +255,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
           ),
         ),
       ),
-      //   );
+        ),
       // }),
     );
   }

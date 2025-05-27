@@ -81,7 +81,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()!.cardBg,
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -136,7 +136,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                                 userVM.userImageURL.isEmpty
                                                     ? Image.asset(
                                                       ImageAssets
-                                                          .imgDummyProfile,
+                                                          .imgDummyPicture,
                                                       height:
                                                           Get.height *
                                                           Utils.getResponsiveHeight(
@@ -198,7 +198,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                                         ) {
                                                           return Image.asset(
                                                             ImageAssets
-                                                                .imgDummyProfile,
+                                                                .imgDummyPicture,
                                                             height:
                                                                 Get.height *
                                                                 Utils.getResponsiveHeight(

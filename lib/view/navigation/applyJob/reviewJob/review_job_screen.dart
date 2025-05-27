@@ -66,7 +66,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                   Container(
                     decoration: BoxDecoration(
-                      color: Theme.of(context).extension<AppColors>()!.cardBg,
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           Get.height * Utils.getResponsiveHeight(12),
@@ -122,12 +122,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               color:
                                   Theme.of(
                                     context,
-                                  ).extension<AppColors>()?.containerBg,
+                                  ).scaffoldBackgroundColor,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(
                                   Get.height * Utils.getResponsiveHeight(8),
                                 ),
                               ),
+                              border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
@@ -179,7 +180,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).extension<AppColors>()!.cardBg,
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           Get.height * Utils.getResponsiveHeight(12),

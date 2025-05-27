@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/routes/routes_name.dart';
-import 'package:sanad/view/navigation/account/widget/no_button_widget.dart'
-    show NoButtonWidget;
+import 'package:sanad/view/navigation/account/widget/no_button_widget.dart';
 import 'package:sanad/view/navigation/account/widget/theme_toggle_widget.dart';
 import 'package:sanad/view/navigation/account/widget/yes_button_widget.dart';
 import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
@@ -12,6 +11,7 @@ import '../../../res/assets/image_assets.dart';
 import '../../../res/themes/app_themes.dart';
 import '../../../res/urls/app_url.dart';
 import '../../../utils/utils.dart';
+import '../../../viewModels/services/theme_service.dart';
 import '../navigation_screen.dart';
 
 class AccountScreen extends StatefulWidget {
@@ -23,6 +23,8 @@ class AccountScreen extends StatefulWidget {
 
 class _AccountScreenState extends State<AccountScreen> {
   final userVM = Get.put(UserPreference());
+  final themeService = Get.find<ThemeService>();
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -56,7 +58,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   height: Get.height * Utils.getResponsiveHeight(82),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()!.cardBg,
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(4),
@@ -137,7 +139,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()!.cardBg,
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -274,7 +276,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()!.cardBg,
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -383,7 +385,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()!.cardBg,
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(8),
@@ -399,6 +401,62 @@ class _AccountScreenState extends State<AccountScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ThemeToggleWidget(),
+                      // SizedBox(
+                      //  height: Get.height * Utils.getResponsiveHeight(48),
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //     crossAxisAlignment: CrossAxisAlignment.center,
+                      //     children: [
+                      //       // ListTile(
+                      //       //   minTileHeight:
+                      //       //   Get.height * Utils.getResponsiveHeight(48),
+                      //       //   horizontalTitleGap:
+                      //       //   Get.width * Utils.getResponsiveWidth(6),
+                      //       //   leading: Image.asset(
+                      //       //     IconAssets.icRateUs,
+                      //       //     height: Get.height * Utils.getResponsiveHeight(24),
+                      //       //     width: Get.width * Utils.getResponsiveWidth(24),
+                      //       //     color: Theme.of(context).iconTheme.color,
+                      //       //   ),
+                      //       //   title: Text('dark_mode'.tr),
+                      //       //   titleTextStyle: TextStyle(
+                      //       //     color:
+                      //       //     Theme.of(
+                      //       //       context,
+                      //       //     ).extension<AppColors>()?.textBodyColor,
+                      //       //     fontSize: Get.height * Utils.getResponsiveSize(16),
+                      //       //     fontFamily: 'Manrope',
+                      //       //     fontWeight: FontWeight.w500,
+                      //       //   ),
+                      //       //   onTap: () {
+                      //       //     themeService.toggleTheme();
+                      //       //   },
+                      //       // ),
+                      //         Image.asset(
+                      //           IconAssets.icRateUs,
+                      //           height: Get.height * Utils.getResponsiveHeight(24),
+                      //           width: Get.width * Utils.getResponsiveWidth(24),
+                      //           color: Theme.of(context).iconTheme.color,
+                      //         ),
+                      //       Text('dark_mode'.tr,style: TextStyle(
+                      //           color:
+                      //           Theme.of(
+                      //             context,
+                      //           ).extension<AppColors>()?.textBodyColor,
+                      //           fontSize: Get.height * Utils.getResponsiveSize(16),
+                      //           fontFamily: 'Manrope',
+                      //           fontWeight: FontWeight.w500,
+                      //         ),
+                      //         ),
+                      //       Switch(
+                      //         value: themeService.themeMode == ThemeMode.dark,
+                      //         onChanged: (value) {
+                      //           themeService.toggleTheme();
+                      //         },
+                      //       )
+                      //     ],
+                      //   ),
+                      // ),
                       ListTile(
                         minTileHeight:
                             Get.height * Utils.getResponsiveHeight(48),
@@ -520,7 +578,7 @@ class _AccountScreenState extends State<AccountScreen> {
         ).copyWith(textScaler: TextScaler.linear(1.0)),
         child: Dialog(
           elevation: 4,
-          backgroundColor: Theme.of(context).extension<AppColors>()!.cardBg,
+          backgroundColor: Theme.of(context).extension<AppColors>()?.cardBg,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               Get.height * Utils.getResponsiveSize(12),

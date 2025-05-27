@@ -58,7 +58,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()!.cardBg,
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         Get.height * Utils.getResponsiveHeight(12),

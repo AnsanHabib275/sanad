@@ -27,7 +27,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Theme.of(context).extension<AppColors>()!.cardBg,
+        color: Theme.of(context).extension<AppColors>()?.cardBg,
         borderRadius: BorderRadius.all(
           Radius.circular(Get.height * Utils.getResponsiveHeight(4)),
         ),

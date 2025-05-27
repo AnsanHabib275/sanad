@@ -24,7 +24,7 @@ class _CustomTabBarState extends State<CustomTabBar>
       decoration: BoxDecoration(
         color: Theme.of(context).extension<AppColors>()?.tabsBg,
         border: Border.all(
-          // color: Theme.of(context).extension<AppColors>()!.tabsBorderColor,
+          // color: Theme.of(context).extension<AppColors>()?.tabsBorderColor,
           color: Theme.of(context).dividerColor,
           width: 1,
         ),
@@ -50,7 +50,7 @@ class _CustomTabBarState extends State<CustomTabBar>
                           myJobsVM.selectedTab.value == 'applied'
                               ? Theme.of(
                                 context,
-                              ).extension<AppColors>()!.selectedTabsBg
+                              ).extension<AppColors>()?.selectedTabsBg
                               : myJobsVM.selectedTab.value == 'saved'
                               ? AppColor.transparent
                               : AppColor.transparent,
@@ -90,7 +90,7 @@ class _CustomTabBarState extends State<CustomTabBar>
                           myJobsVM.selectedTab.value == 'saved'
                               ? Theme.of(
                                 context,
-                              ).extension<AppColors>()!.selectedTabsBg
+                              ).extension<AppColors>()?.selectedTabsBg
                               : myJobsVM.selectedTab.value == 'applied'
                               ? AppColor.transparent
                               : AppColor.transparent,
@@ -130,7 +130,7 @@ class _CustomTabBarState extends State<CustomTabBar>
                           myJobsVM.selectedTab.value == 'invitation'
                               ? Theme.of(
                                 context,
-                              ).extension<AppColors>()!.selectedTabsBg
+                              ).extension<AppColors>()?.selectedTabsBg
                               : myJobsVM.selectedTab.value == 'applied'
                               ? AppColor.transparent
                               : AppColor.transparent,

@@ -97,7 +97,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       child:
                                           signUpVM.imagePath.isEmpty
                                               ? Image.asset(
-                                                ImageAssets.imgDummyProfile,
+                                                ImageAssets.imgDummyPicture,
                                                 height:
                                                     Get.height *
                                                     Utils.getResponsiveHeight(
@@ -158,7 +158,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                   ) {
                                                     return Image.asset(
                                                       ImageAssets
-                                                          .imgDummyProfile,
+                                                          .imgDummyPicture,
                                                       height:
                                                           Get.height *
                                                           Utils.getResponsiveHeight(

@@ -75,7 +75,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
                   Container(
                     decoration: BoxDecoration(
-                      color: Theme.of(context).extension<AppColors>()!.cardBg,
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           Get.height * Utils.getResponsiveHeight(8),
@@ -291,7 +291,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).extension<AppColors>()!.cardBg,
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           Get.height * Utils.getResponsiveHeight(8),
@@ -359,7 +359,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                               color:
                                   Theme.of(
                                     context,
-                                  ).extension<AppColors>()!.cardBg,
+                                  ).extension<AppColors>()?.cardBg,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(
                                   Get.height * Utils.getResponsiveHeight(12),

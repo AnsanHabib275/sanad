@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/view/navigation/viewJob/widget/apply_now_button_widget.dart';
-import 'package:sanad/view/navigation/viewJob/widget/custom_tab_bar_widget.dart';
-import 'package:sanad/view/navigation/viewJob/widget/job_specifications_cart_widget.dart';
-import 'package:sanad/view/navigation/viewJob/widget/software_program_cart_widget.dart';
+import 'package:sanad/view/navigation/viewJobDetail/widget/submit_button_widget.dart';
+import 'package:sanad/view/navigation/viewJobDetail/widget/custom_tab_bar_widget.dart';
+import 'package:sanad/view/navigation/viewJobDetail/widget/job_specifications_cart_widget.dart';
+import 'package:sanad/view/navigation/viewJobDetail/widget/software_program_cart_widget.dart';
 import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../res/themes/app_themes.dart';
 import '../../../utils/utils.dart';
 import '../../../viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
 
-class ViewJobScreen extends StatefulWidget {
-  const ViewJobScreen({super.key});
+class ViewJobDetailScreen extends StatefulWidget {
+  const ViewJobDetailScreen({super.key});
 
   @override
-  State<ViewJobScreen> createState() => _ViewJobScreenState();
+  State<ViewJobDetailScreen> createState() => _ViewJobDetailScreenState();
 }
 
-class _ViewJobScreenState extends State<ViewJobScreen> {
+class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
   final applyJobVM = Get.put(ApplyJobViewModel());
 
   final isPrivate = Get.arguments['isPrivate'] ?? false;
@@ -30,7 +30,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
   final salaryRange = Get.arguments['salaryRange'] ?? '';
   // final cvCount = Get.arguments['cvCount'] ?? '';
   final List<String> jobSpecifications =
-      Get.arguments['jobSpecifications'] ?? [];
+      Get.arguments['myJobSpecifications'] ?? [];
   final experienceRequired = Get.arguments['experienceRequired'] ?? '';
   final candidatesRequired = Get.arguments['candidatesRequired'] ?? '';
   final jobDescription = Get.arguments['jobDescription'] ?? '';
@@ -59,7 +59,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
             onPressed: () => Get.back(),
           ),
           centerTitle: true,
-          title: Text('view_job'.tr),
+          title: Text('view_job_details'.tr),
           titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
           shape: Border(
             bottom: BorderSide(
@@ -94,122 +94,21 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                             width: Get.width * Utils.getResponsiveWidth(32),
                           ),
                           SizedBox(
-                            width: Get.width * Utils.getResponsiveWidth(16),
+                            width: Get.width * Utils.getResponsiveWidth(12),
                           ),
                           Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                  jobName,
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(20),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(2),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.cardSelectedBg,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(
-                                        Get.height *
-                                            Utils.getResponsiveHeight(6),
-                                      ),
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal:
-                                          Get.width *
-                                          Utils.getResponsiveWidth(12),
-                                      vertical:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(2),
-                                    ),
-                                    child: Text(
-                                      jobCategory,
-                                      style: TextStyle(
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(11),
-                                        fontFamily: 'Manrope',
-                                        fontWeight: FontWeight.w500,
-                                        color: AppColor.primaryColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
-                                RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: companyName,
-                                        style: TextStyle(
-                                          fontSize:
-                                              Get.height *
-                                              Utils.getResponsiveSize(14),
-                                          fontFamily: 'Manrope',
-                                          fontWeight: FontWeight.w500,
-                                          color:
-                                              Theme.of(context)
-                                                  .extension<AppColors>()
-                                                  ?.textSecondaryColor,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: ' | '.tr,
-                                        style: TextStyle(
-                                          fontSize:
-                                              Get.height *
-                                              Utils.getResponsiveSize(14),
-                                          fontFamily: 'Manrope',
-                                          fontWeight: FontWeight.w500,
-                                          color:
-                                              Theme.of(context)
-                                                  .extension<AppColors>()
-                                                  ?.textSecondaryColor,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: location,
-                                        style: TextStyle(
-                                          fontSize:
-                                              Get.height *
-                                              Utils.getResponsiveSize(14),
-                                          fontFamily: 'Manrope',
-                                          fontWeight: FontWeight.w500,
-                                          color:
-                                              Theme.of(context)
-                                                  .extension<AppColors>()
-                                                  ?.textSecondaryColor,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                            child: Text(companyName,
+                              style: TextStyle(
+                                fontSize:
+                                Get.height *
+                                    Utils.getResponsiveSize(14),
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w500,
+                                color:
+                                Theme.of(context)
+                                    .extension<AppColors>()
+                                    ?.textSecondaryColor,
+                              ),),
                           ),
                           SizedBox(
                             width: Get.width * Utils.getResponsiveWidth(16),
@@ -231,7 +130,73 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(16),
+                      height: Get.height * Utils.getResponsiveHeight(12),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: Get.width * Utils.getResponsiveWidth(16),
+                      ),
+                      child: Text(
+                        jobName,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          color:
+                          Theme.of(context)
+                              .extension<AppColors>()
+                              ?.textPrimaryColor,
+                          fontSize:
+                          Get.height *
+                              Utils.getResponsiveSize(20),
+                          fontFamily: 'Manrope',
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(2),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: Get.width * Utils.getResponsiveWidth(16),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color:
+                          Theme.of(context)
+                              .extension<AppColors>()
+                              ?.cardSelectedBg,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(
+                              Get.height *
+                                  Utils.getResponsiveHeight(6),
+                            ),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal:
+                            Get.width *
+                                Utils.getResponsiveWidth(10),
+                            vertical:
+                            Get.height *
+                                Utils.getResponsiveHeight(2),
+                          ),
+                          child: Text(
+                            jobCategory,
+                            style: TextStyle(
+                              fontSize:
+                              Get.height *
+                                  Utils.getResponsiveSize(11),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              color: AppColor.primaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: Get.height * Utils.getResponsiveHeight(12),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
@@ -920,7 +885,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                   horizontal: Get.width * Utils.getResponsiveWidth(16),
                   vertical: Get.height * Utils.getResponsiveHeight(16),
                 ),
-                child: ApplyNowButtonWidget(
+                child: SubmitButtonWidget(
                   isPrivate: isPrivate,
                   jobName: jobName,
                   companyName: companyName,

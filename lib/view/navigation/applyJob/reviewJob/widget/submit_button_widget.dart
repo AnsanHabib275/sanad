@@ -30,7 +30,7 @@ class SubmitButtonWidget extends StatelessWidget {
         ).copyWith(textScaler: TextScaler.linear(1.0)),
         child: Dialog(
           elevation: 4,
-          backgroundColor: Theme.of(context).extension<AppColors>()!.cardBg,
+          backgroundColor: Theme.of(context).extension<AppColors>()?.cardBg,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               Get.height * Utils.getResponsiveSize(12),

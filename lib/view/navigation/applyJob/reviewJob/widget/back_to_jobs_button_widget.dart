@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/components/round_button.dart';
+import '../../../navigation_screen.dart';
 
 class BackToJobsButtonWidget extends StatelessWidget {
   const BackToJobsButtonWidget({super.key});
@@ -13,7 +14,7 @@ class BackToJobsButtonWidget extends StatelessWidget {
       height: 40,
       title: 'back_to_jobs'.tr,
       onPress: () {
-        Get.back();
+        Get.offAll(() => NavigationScreen(initialIndex: 0));
       },
     );
   }

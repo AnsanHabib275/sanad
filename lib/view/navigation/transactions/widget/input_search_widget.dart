@@ -33,7 +33,7 @@ class InputSearchWidget extends StatelessWidget {
         color: Theme.of(context).iconTheme.color,
       ),
       backgroundColor: WidgetStateProperty.all(
-        Theme.of(context).extension<AppColors>()!.cardBg,
+        Theme.of(context).extension<AppColors>()?.cardBg,
       ),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
