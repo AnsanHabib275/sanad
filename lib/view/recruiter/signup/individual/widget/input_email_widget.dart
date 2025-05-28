@@ -1,42 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
-import '../../../../../viewModels/controller/recruiter/navigation/updateProfile/update_profile_view_model.dart';
+import 'package:sanad/viewModels/controller/recruiter/signup/sign_up_view_model.dart';
 
-class InputCountryWidget extends StatelessWidget {
-  InputCountryWidget({super.key});
+class InputEmailWidget extends StatelessWidget {
+  InputEmailWidget({super.key});
 
-  final updateProfileVM = Get.put(UpdateProfileViewModel());
+  final signUpVM = Get.put(SignUpViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: updateProfileVM.countryController.value,
-        focusNode: updateProfileVM.countryFocusNode.value,
+        controller: signUpVM.emailController.value,
+        focusNode: signUpVM.emailFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'country_error'.tr;
+          if (value == null ||
+              value.isEmpty ||
+              !RegExp(
+                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+              ).hasMatch(value)) {
+            return 'email_not_valid'.tr;
           }
           return null;
         },
         onFieldSubmitted: (value) {
           Utils.fieldFocusChange(
             context,
-            updateProfileVM.countryFocusNode.value,
-            updateProfileVM.taglineFocusNode.value,
+            signUpVM.emailFocusNode.value,
+            signUpVM.organizationTypeFocusNode.value,
           );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hint: Text('country_hint'.tr),
+          hint: Text('email_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
-              updateProfileVM.errorMessage.value.isEmpty
-                  ? null
-                  : updateProfileVM.errorMessage.value,
+              signUpVM.apiErrorMessage.value.isNotEmpty
+                  ? signUpVM.apiErrorMessage.value
+                  : signUpVM.errorMessage.value.isNotEmpty
+                  ? signUpVM.errorMessage.value
+                  : null,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
           border: Theme.of(context).inputDecorationTheme.border,
           enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
@@ -45,7 +51,7 @@ class InputCountryWidget extends StatelessWidget {
           focusedErrorBorder:
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
         ),
-        keyboardType: TextInputType.streetAddress,
+        keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.done,
       );
     });

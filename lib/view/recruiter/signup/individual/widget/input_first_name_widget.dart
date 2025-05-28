@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/viewModels/controller/recruiter/signup/sign_up_view_model.dart';
 
-class InputFullNameWidget extends StatelessWidget {
-  InputFullNameWidget({super.key});
+class InputFirstNameWidget extends StatelessWidget {
+  InputFirstNameWidget({super.key});
 
   final signUpVM = Get.put(SignUpViewModel());
 
@@ -12,26 +12,26 @@ class InputFullNameWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: signUpVM.fullNameController.value,
-        focusNode: signUpVM.fullNameFocusNode.value,
+        controller: signUpVM.firstNameController.value,
+        focusNode: signUpVM.firstNameFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'full_name_error'.tr;
+            return 'first_name_error'.tr;
           }
           return null;
         },
         onFieldSubmitted: (value) {
           Utils.fieldFocusChange(
             context,
-            signUpVM.fullNameFocusNode.value,
-            signUpVM.taglineFocusNode.value,
+            signUpVM.firstNameFocusNode.value,
+            signUpVM.lastNameFocusNode.value,
           );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hint: Text('full_name_hint'.tr),
+          hint: Text('first_name_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               signUpVM.errorMessage.value.isEmpty

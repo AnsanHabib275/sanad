@@ -10,14 +10,14 @@ import '../../../../res/routes/routes_name.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../viewModels/controller/recruiter/signup/sign_up_view_model.dart';
 
-class SignUpIndividualScreen extends StatefulWidget {
-  const SignUpIndividualScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignUpIndividualScreen> createState() => _SignUpIndividualScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final signUpVM = Get.put(SignUpViewModel());
   final formKey = GlobalKey<FormState>();
 
@@ -161,6 +161,54 @@ class _SignUpIndividualScreenState extends State<SignUpIndividualScreen> {
                                             Theme.of(context)
                                                 .extension<AppColors>()
                                                 ?.textPrimaryColor,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height:
+                                Get.height * Utils.getResponsiveHeight(16),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'looking_to_create_an_account_for_an_agency'.tr,
+                                    textScaler: TextScaler.linear(1),
+                                    style: TextStyle(
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w400,
+                                      fontSize:
+                                      Get.height *
+                                          Utils.getResponsiveSize(12),
+                                      color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width:
+                                    Get.width * Utils.getResponsiveWidth(4),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Utils.hideKeyboardGlobally();
+                                      Get.offAllNamed(RoutesName.agencySignUpScreen);
+                                    },
+                                    child: Text(
+                                      'signup_as_agency'.tr,
+                                      style: TextStyle(
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                        fontSize:
+                                        Get.height *
+                                            Utils.getResponsiveSize(12),
+                                        color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
                                       ),
                                     ),
                                   ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/view/recruiter/navigation/profile/widget/input_city_widget.dart';
 import 'package:sanad/view/recruiter/navigation/profile/widget/input_country_widget.dart';
-import 'package:sanad/view/recruiter/navigation/profile/widget/input_description_widget.dart';
+import 'package:sanad/view/recruiter/navigation/profile/widget/input_tagline_widget.dart';
 import 'package:sanad/view/recruiter/navigation/profile/widget/input_first_name_widget.dart';
 import 'package:sanad/view/recruiter/navigation/profile/widget/input_last_name_widget.dart';
 import 'package:sanad/view/recruiter/navigation/profile/widget/input_postal_code_widget.dart';
@@ -442,7 +442,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 height:
                                     Get.height * Utils.getResponsiveHeight(8),
                               ),
-                              InputDescriptionWidget(),
+                              InputTaglineWidget(),
                             ],
                           ),
                         ),

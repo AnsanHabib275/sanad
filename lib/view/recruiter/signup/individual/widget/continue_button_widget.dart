@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/components/round_button.dart';
+import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/viewModels/controller/company/companySignup/company_sign_up_view_model.dart';
+import 'package:sanad/viewModels/controller/recruiter/signup/sign_up_view_model.dart';
 
-import '../../../../../res/routes/routes_name.dart';
-
-class AgreeAndJoinButtonWidget extends StatelessWidget {
-  AgreeAndJoinButtonWidget({super.key, required this.formKey});
+class ContinueButtonWidget extends StatelessWidget {
+  ContinueButtonWidget({super.key, required this.formKey});
 
   final GlobalKey<FormState> formKey;
-  final signUpVM = Get.put(CompanySignUpViewModel());
+  final signUpVM = Get.put(SignUpViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return RoundButton(
-        title: 'agree_and_join'.tr,
+        title: 'continue'.tr,
         loading: signUpVM.loading.value,
         onPress: () {
           Utils.hideKeyboardGlobally();
@@ -25,7 +24,7 @@ class AgreeAndJoinButtonWidget extends StatelessWidget {
             arguments: {'Accountid': '1', 'email': 'a@gimpmail.com'},
           );
           // if (formKey.currentState!.validate()) {
-          //   signUpVM.signUpIndividualApi();
+          //   signUpVM.signUpApi();
           // }
         },
       );

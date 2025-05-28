@@ -1,42 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
-import '../../../../../viewModels/controller/recruiter/navigation/updateProfile/update_profile_view_model.dart';
+import 'package:sanad/viewModels/controller/recruiter/signup/sign_up_view_model.dart';
 
-class InputCountryWidget extends StatelessWidget {
-  InputCountryWidget({super.key});
+class InputTaglineWidget extends StatelessWidget {
+  InputTaglineWidget({super.key});
 
-  final updateProfileVM = Get.put(UpdateProfileViewModel());
+  final signUpVM = Get.put(SignUpViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: updateProfileVM.countryController.value,
-        focusNode: updateProfileVM.countryFocusNode.value,
+        controller: signUpVM.taglineController.value,
+        focusNode: signUpVM.taglineFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'country_error'.tr;
+            return 'tagline_error'.tr;
           }
           return null;
         },
         onFieldSubmitted: (value) {
           Utils.fieldFocusChange(
             context,
-            updateProfileVM.countryFocusNode.value,
-            updateProfileVM.taglineFocusNode.value,
+            signUpVM.taglineFocusNode.value,
+            signUpVM.mobileNumberFocusNode.value,
           );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hint: Text('country_hint'.tr),
+          hint: Text('tagline_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
-              updateProfileVM.errorMessage.value.isEmpty
+              signUpVM.errorMessage.value.isEmpty
                   ? null
-                  : updateProfileVM.errorMessage.value,
+                  : signUpVM.errorMessage.value,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
           border: Theme.of(context).inputDecorationTheme.border,
           enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
@@ -45,7 +45,7 @@ class InputCountryWidget extends StatelessWidget {
           focusedErrorBorder:
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
         ),
-        keyboardType: TextInputType.streetAddress,
+        keyboardType: TextInputType.text,
         textInputAction: TextInputAction.done,
       );
     });

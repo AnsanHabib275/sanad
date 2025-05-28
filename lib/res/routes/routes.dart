@@ -1,6 +1,7 @@
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/routes/routes_name.dart';
+import 'package:sanad/view/company/companyLogin/company_login_screen.dart';
 import 'package:sanad/view/recruiter/navigation/about/about_screen.dart';
 import 'package:sanad/view/recruiter/navigation/account/account_screen.dart';
 import 'package:sanad/view/recruiter/navigation/analytics/analytics_screen.dart';
@@ -17,8 +18,9 @@ import 'package:sanad/view/recruiter/navigation/viewJob/view_job_screen.dart';
 import 'package:sanad/view/recruiter/navigation/viewJobDetail/view_job_detail_screen.dart';
 import 'package:sanad/view/recruiter/navigation/wallet/wallet_screen.dart';
 import 'package:sanad/view/recruiter/selectRole/select_role_screen.dart';
-import 'package:sanad/view/recruiter/signup/individual/sign_up_individual_screen.dart';
-
+import 'package:sanad/view/recruiter/signup/agency/agency_sign_up_screen.dart';
+import 'package:sanad/view/recruiter/signup/individual/individual_sign_up_screen.dart';
+import '../../view/company/companySignup/individual/company_sign_up_screen.dart';
 import '../../view/recruiter/OnBoarding/onboarding_screen.dart';
 import '../../view/company/forgetPassword/forget_password_screen.dart';
 import '../../view/recruiter/login/login_screen.dart';
@@ -31,7 +33,7 @@ import '../../view/recruiter/navigation/profile/profile_screen.dart';
 import '../../view/recruiter/otp/otp_screen.dart';
 import '../../view/company/resetPassword/reset_done_screen.dart';
 import '../../view/company/resetPassword/reset_password_screen.dart';
-import '../../view/recruiter/signup/agency/sign_up_screen.dart';
+import '../../view/recruiter/signup/individual/sign_up_screen.dart';
 import '../../view/recruiter/splash/splash_screen.dart';
 import '../../view/recruiter/verifyEmail/verify_email_screen.dart';
 
@@ -52,13 +54,6 @@ class AppRoutes {
       curve: Curves.easeInOut,
     ),
     GetPage(
-      name: RoutesName.loginScreen,
-      page: () => LoginScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
       name: RoutesName.selectRoleScreen,
       page: () => SelectRoleScreen(),
       transitionDuration: Duration(milliseconds: 300),
@@ -66,15 +61,43 @@ class AppRoutes {
       curve: Curves.easeInOut,
     ),
     GetPage(
-      name: RoutesName.signUpIndividualScreen,
-      page: () => SignUpIndividualScreen(),
+      name: RoutesName.signUpScreen,
+      page: () => SignUpScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
     ),
     GetPage(
-      name: RoutesName.signUpScreen,
-      page: () => SignUpScreen(),
+      name: RoutesName.otpScreen,
+      page: () => OTPScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.individualSignUpScreen,
+      page: () => IndividualSignUpScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.agencySignUpScreen,
+      page: () => AgencySignUpScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.verifyEmailScreen,
+      page: () => VerifyEmailScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.loginScreen,
+      page: () => LoginScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
@@ -101,6 +124,13 @@ class AppRoutes {
       curve: Curves.easeInOut,
     ),
     GetPage(
+      name: RoutesName.walletScreen,
+      page: () => WalletScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
       name: RoutesName.accountScreen,
       page: () => AccountScreen(),
       transitionDuration: Duration(milliseconds: 300),
@@ -108,8 +138,36 @@ class AppRoutes {
       curve: Curves.easeInOut,
     ),
     GetPage(
-      name: RoutesName.walletScreen,
-      page: () => WalletScreen(),
+      name: RoutesName.profileScreen,
+      page: () => ProfileScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.editProfileScreen,
+      page: () => EditProfileScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.notificationScreen,
+      page: () => NotificationScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.analyticsScreen,
+      page: () => AnalyticsScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.transactionsScreen,
+      page: () => TransactionsScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
@@ -129,55 +187,6 @@ class AppRoutes {
       curve: Curves.easeInOut,
     ),
     GetPage(
-      name: RoutesName.notificationScreen,
-      page: () => NotificationScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.profileScreen,
-      page: () => ProfileScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.verifyEmailScreen,
-      page: () => VerifyEmailScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.forgetPasswordScreen,
-      page: () => ForgetPasswordScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.resetPasswordScreen,
-      page: () => ResetPasswordScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.resetDoneScreen,
-      page: () => ResetDoneScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.otpScreen,
-      page: () => OTPScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
       name: RoutesName.rateUsScreen,
       page: () => RateUsScreen(),
       transitionDuration: Duration(milliseconds: 300),
@@ -191,23 +200,10 @@ class AppRoutes {
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
     ),
-    GetPage(
-      name: RoutesName.transactionsScreen,
-      page: () => TransactionsScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
+
     GetPage(
       name: RoutesName.helpScreen,
       page: () => HelpScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.analyticsScreen,
-      page: () => AnalyticsScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
@@ -241,8 +237,8 @@ class AppRoutes {
       curve: Curves.easeInOut,
     ),
     GetPage(
-      name: RoutesName.editProfileScreen,
-      page: () => EditProfileScreen(),
+      name: RoutesName.viewJobDetailScreen,
+      page: () => ViewJobDetailScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
@@ -254,9 +250,40 @@ class AppRoutes {
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
     ),
+
+    // Company Design
+
     GetPage(
-      name: RoutesName.viewJobDetailScreen,
-      page: () => ViewJobDetailScreen(),
+      name: RoutesName.companySignUpScreen,
+      page: () => CompanySignUpScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.forgetPasswordScreen,
+      page: () => ForgetPasswordScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.resetPasswordScreen,
+      page: () => ResetPasswordScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.resetDoneScreen,
+      page: () => ResetDoneScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.companyLoginScreen,
+      page: () => CompanyLoginScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,

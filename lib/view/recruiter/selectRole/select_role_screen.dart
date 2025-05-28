@@ -60,7 +60,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        // Get.toNamed(RoutesName.signUpScreen);
+                        Get.toNamed(RoutesName.companySignUpScreen);
                       },
                       child: Container(
                         height: Get.height * Utils.getResponsiveHeight(108),
@@ -115,7 +115,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                     SizedBox(width: Get.width * Utils.getResponsiveWidth(16)),
                     InkWell(
                       onTap: () {
-                        Get.toNamed(RoutesName.signUpIndividualScreen);
+                        Get.toNamed(RoutesName.signUpScreen);
                       },
                       child: Container(
                         height: Get.height * Utils.getResponsiveHeight(108),

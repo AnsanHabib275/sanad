@@ -20,7 +20,7 @@ class NextButtonWidget extends StatelessWidget {
         loading: otpVM.loading.value,
         onPress: () {
           Utils.hideKeyboardGlobally();
-          Get.toNamed(RoutesName.signUpScreen);
+          Get.toNamed(RoutesName.individualSignUpScreen);
           // if (otpVM.isOtpFilled.value) {
           //   otpVM.otpApi(eID);
           // }

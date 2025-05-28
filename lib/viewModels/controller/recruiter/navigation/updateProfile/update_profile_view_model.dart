@@ -29,7 +29,7 @@ class UpdateProfileViewModel extends GetxController {
   final cityController = TextEditingController().obs;
   final postalCodeController = TextEditingController().obs;
   final countryController = TextEditingController().obs;
-  final descriptionController = TextEditingController().obs;
+  final taglineController = TextEditingController().obs;
 
   final firstNameFocusNode = FocusNode().obs;
   final lastNameFocusNode = FocusNode().obs;
@@ -40,7 +40,7 @@ class UpdateProfileViewModel extends GetxController {
   final cityFocusNode = FocusNode().obs;
   final postalCodeFocusNode = FocusNode().obs;
   final countryFocusNode = FocusNode().obs;
-  final descriptionFocusNode = FocusNode().obs;
+  final taglineFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
   RxBool isEnable = false.obs;
@@ -112,7 +112,7 @@ class UpdateProfileViewModel extends GetxController {
       "City": cityController.value.text,
       "PostalCode": postalCodeController.value.text,
       "Country": countryController.value.text,
-      "Description": descriptionController.value.text,
+      "Tagline": taglineController.value.text,
     };
     _api
         .updateProfileApi(data)

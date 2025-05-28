@@ -572,7 +572,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(24),
                           ),
                           Text(
-                            'description'.tr,
+                            'tagline'.tr,
                             style: TextStyle(
                               color:
                                   Theme.of(

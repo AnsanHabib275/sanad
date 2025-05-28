@@ -46,8 +46,11 @@ class Languages extends Translations {
       'please_fill_the_required_information':
           'Please fill the required information',
       'full_name': 'Full Name',
-      'full_name_hint': 'Add your agency name',
+      'full_name_hint': 'Enter your full name',
       'full_name_error': 'Full name cannot be blank',
+      'agency_name': 'Agency Name',
+      'agency_hint': 'Enter your agency name',
+      'agency_error': 'Agency name cannot be blank',
       'tagline': 'Tagline',
       'tagline_hint': 'ex: An information services from your business',
       'tagline_error': 'Tagline cannot be blank',
@@ -259,6 +262,9 @@ class Languages extends Translations {
       'bought': 'Bought',
       'sign_up': 'Sign up',
       'dark_mode': 'Dark Mode',
+      'sign_up_as_a_individual': 'Sign Up as a Individual',
+      'sign_up_as_a_recruiter': 'Sign Up as a Recruiter',
+      'sign_up_as_an_company': 'Sign Up as an Company',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

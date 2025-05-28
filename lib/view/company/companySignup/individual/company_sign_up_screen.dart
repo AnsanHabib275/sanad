@@ -2,7 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/view/company/companySignup/individual/widget/agree_and_join_button_widget.dart';
+import 'package:sanad/view/company/companySignup/individual/widget/sign_up_as_a_individual_button_widget.dart';
+import 'package:sanad/view/company/companySignup/individual/widget/sign_up_as_a_recruiter_button_widget.dart';
 import 'package:sanad/viewModels/controller/company/companySignup/company_sign_up_view_model.dart';
 
 import '../../../../res/assets/image_assets.dart';
@@ -10,16 +11,16 @@ import '../../../../res/routes/routes_name.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../companySignup/individual/widget/input_email_widget.dart';
 
-class CompanySignUpIndividualScreen extends StatefulWidget {
-  const CompanySignUpIndividualScreen({super.key});
+class CompanySignUpScreen extends StatefulWidget {
+  const CompanySignUpScreen({super.key});
 
   @override
-  State<CompanySignUpIndividualScreen> createState() =>
-      _CompanySignUpIndividualScreenState();
+  State<CompanySignUpScreen> createState() =>
+      _CompanySignUpScreenState();
 }
 
-class _CompanySignUpIndividualScreenState
-    extends State<CompanySignUpIndividualScreen> {
+class _CompanySignUpScreenState
+    extends State<CompanySignUpScreen> {
   final signUpVM = Get.put(CompanySignUpViewModel());
   final formKey = GlobalKey<FormState>();
 
@@ -49,15 +50,15 @@ class _CompanySignUpIndividualScreenState
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image(
-                        height: Get.height * Utils.getResponsiveHeight(54),
-                        width: Get.width * Utils.getResponsiveWidth(155),
-                        image: AssetImage(ImageAssets.appLogo),
+                        height: Get.height * Utils.getResponsiveHeight(27),
+                        width: Get.width * Utils.getResponsiveWidth(77),
+                        image: AssetImage(ImageAssets.appLogoSmall),
                       ),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(24),
+                        height: Get.height * Utils.getResponsiveHeight(32),
                       ),
                       Text(
-                        'join_as_an_individual'.tr,
+                        'sign_up_as_a_individual'.tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color:
@@ -70,7 +71,7 @@ class _CompanySignUpIndividualScreenState
                         ),
                       ),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(32),
+                        height: Get.height * Utils.getResponsiveHeight(16),
                       ),
                       Form(
                         key: formKey,
@@ -122,7 +123,7 @@ class _CompanySignUpIndividualScreenState
                         ),
                       ),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(20),
+                        height: Get.height * Utils.getResponsiveHeight(16),
                       ),
                       Align(
                         alignment: Alignment.center,
@@ -235,7 +236,11 @@ class _CompanySignUpIndividualScreenState
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(16),
                       ),
-                      AgreeAndJoinButtonWidget(formKey: formKey),
+                      SignUpAsAIndividualButtonWidget(formKey: formKey),
+                      SizedBox(
+                        height: Get.height * Utils.getResponsiveHeight(16),
+                      ),
+                      SignUpAsARecruiterButtonWidget(),
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(32),
                       ),
@@ -262,7 +267,7 @@ class _CompanySignUpIndividualScreenState
                           InkWell(
                             onTap: () {
                               Utils.hideKeyboardGlobally();
-                              Get.offAllNamed(RoutesName.loginScreen);
+                              Get.offAllNamed(RoutesName.companyLoginScreen);
                             },
                             child: Text(
                               'sign_in'.tr,
@@ -281,7 +286,7 @@ class _CompanySignUpIndividualScreenState
                         ],
                       ),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(16),
+                        height: Get.height * Utils.getResponsiveHeight(32),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -306,10 +311,10 @@ class _CompanySignUpIndividualScreenState
                           InkWell(
                             onTap: () {
                               Utils.hideKeyboardGlobally();
-                              Get.offAllNamed(RoutesName.signUpScreen);
+                              // Get.offAllNamed(RoutesName.signUpScreen);
                             },
                             child: Text(
-                              'signup_as_agency'.tr,
+                              'sign_up_as_an_company'.tr,
                               style: TextStyle(
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w500,

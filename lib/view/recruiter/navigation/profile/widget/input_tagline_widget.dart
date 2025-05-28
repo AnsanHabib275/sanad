@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../viewModels/controller/recruiter/navigation/updateProfile/update_profile_view_model.dart';
 
-class InputDescriptionWidget extends StatelessWidget {
-  InputDescriptionWidget({super.key});
+class InputTaglineWidget extends StatelessWidget {
+  InputTaglineWidget({super.key});
 
   final updateProfileVM = Get.put(UpdateProfileViewModel());
 
@@ -11,19 +11,19 @@ class InputDescriptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: updateProfileVM.descriptionController.value,
-        focusNode: updateProfileVM.descriptionFocusNode.value,
+        controller: updateProfileVM.taglineController.value,
+        focusNode: updateProfileVM.taglineFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'description_error'.tr;
+            return 'tagline_error'.tr;
           }
           return null;
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hint: Text('description_hint'.tr),
+          hint: Text('tagline_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               updateProfileVM.errorMessage.value.isEmpty

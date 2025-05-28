@@ -150,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             InkWell(
                               onTap: () {
                                 Utils.hideKeyboardGlobally();
-                                Get.offAllNamed(RoutesName.signUpIndividualScreen);
+                                Get.offAllNamed(RoutesName.signUpScreen);
                               },
                               child: Text(
                                 'sign_up'.tr,

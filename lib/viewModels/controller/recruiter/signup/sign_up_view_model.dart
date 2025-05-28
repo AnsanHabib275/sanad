@@ -20,14 +20,18 @@ import '../../userPreference/user_preference_view_model.dart';
 class SignUpViewModel extends GetxController {
   final _api = SignUpRepository();
 
-  final fullNameController = TextEditingController().obs;
+  final agencyNameController = TextEditingController().obs;
+  final firstNameController = TextEditingController().obs;
+  final lastNameController = TextEditingController().obs;
   final taglineController = TextEditingController().obs;
   final countryCodeController = TextEditingController().obs;
   final mobileNumberController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final organizationTypeController = TextEditingController().obs;
 
-  final fullNameFocusNode = FocusNode().obs;
+  final agencyNameFocusNode = FocusNode().obs;
+  final firstNameFocusNode = FocusNode().obs;
+  final lastNameFocusNode = FocusNode().obs;
   final taglineFocusNode = FocusNode().obs;
   final countryCodeFocusNode = FocusNode().obs;
   final mobileNumberFocusNode = FocusNode().obs;
@@ -104,7 +108,8 @@ class SignUpViewModel extends GetxController {
   void signUpApi() {
     loading.value = true;
     Map data = {
-      'FullName': fullNameController.value.text,
+      'FirstName': firstNameController.value.text,
+      'LastName': lastNameController.value.text,
       'Tagline': taglineController.value.text,
       'CountryCode': countryCodeController.value.text,
       'MobileNumber': mobileNumberController.value.text,
