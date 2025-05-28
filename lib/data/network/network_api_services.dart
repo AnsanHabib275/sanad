@@ -70,10 +70,6 @@ class NetworkApiServices extends BaseApiServicesNew {
   }) async {
     Map<String, String> headers = {
       'Content-Type': 'application/json',
-      // 'Content-Type': 'multipart/form-data',
-      // 'Access-Control-Allow-Origin': '*',
-      // 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-      // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       'E_ID': Get.find<UserPreference>().userEid.value,
     };
     dynamic responseJson;
@@ -106,10 +102,6 @@ class NetworkApiServices extends BaseApiServicesNew {
   }) async {
     Map<String, String> headers = {
       'Content-Type': 'application/json',
-      // 'Content-Type': 'multipart/form-data',
-      // 'Access-Control-Allow-Origin': '*',
-      // 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-      // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       'E_ID': Get.find<UserPreference>().userEid.value,
     };
     dynamic responseJson;

@@ -1,40 +1,39 @@
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/routes/routes_name.dart';
-import 'package:sanad/view/navigation/about/about_screen.dart';
-import 'package:sanad/view/navigation/account/account_screen.dart';
-import 'package:sanad/view/navigation/analytics/analytics_screen.dart';
-import 'package:sanad/view/navigation/applyJob/additionalRequirementJob/additional_requirements_job_screen.dart';
-import 'package:sanad/view/navigation/applyJob/generalJob/apply_job_screen.dart';
-import 'package:sanad/view/navigation/help/help_screen.dart';
-import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
-import 'package:sanad/view/navigation/payment/payment_screen.dart';
-import 'package:sanad/view/navigation/profile/edit_profile_screen.dart';
-import 'package:sanad/view/navigation/rateUs/rate_us_screen.dart';
-import 'package:sanad/view/navigation/submittedCV/submitted_cv_screen.dart';
-import 'package:sanad/view/navigation/transactions/transactions_screen.dart';
-import 'package:sanad/view/navigation/viewJob/view_job_screen.dart';
-import 'package:sanad/view/navigation/viewJobDetail/view_job_detail_screen.dart';
-import 'package:sanad/view/navigation/wallet/wallet_screen.dart';
-import 'package:sanad/view/selectRole/select_role_screen.dart';
-import 'package:sanad/view/signup/individual/sign_up_individual_screen.dart';
+import 'package:sanad/view/recruiter/navigation/about/about_screen.dart';
+import 'package:sanad/view/recruiter/navigation/account/account_screen.dart';
+import 'package:sanad/view/recruiter/navigation/analytics/analytics_screen.dart';
+import 'package:sanad/view/recruiter/navigation/applyJob/additionalRequirementJob/additional_requirements_job_screen.dart';
+import 'package:sanad/view/recruiter/navigation/applyJob/generalJob/apply_job_screen.dart';
+import 'package:sanad/view/recruiter/navigation/help/help_screen.dart';
+import 'package:sanad/view/recruiter/navigation/myJobs/my_jobs_screen.dart';
+import 'package:sanad/view/recruiter/navigation/payment/payment_screen.dart';
+import 'package:sanad/view/recruiter/navigation/profile/edit_profile_screen.dart';
+import 'package:sanad/view/recruiter/navigation/rateUs/rate_us_screen.dart';
+import 'package:sanad/view/recruiter/navigation/submittedCV/submitted_cv_screen.dart';
+import 'package:sanad/view/recruiter/navigation/transactions/transactions_screen.dart';
+import 'package:sanad/view/recruiter/navigation/viewJob/view_job_screen.dart';
+import 'package:sanad/view/recruiter/navigation/viewJobDetail/view_job_detail_screen.dart';
+import 'package:sanad/view/recruiter/navigation/wallet/wallet_screen.dart';
+import 'package:sanad/view/recruiter/selectRole/select_role_screen.dart';
+import 'package:sanad/view/recruiter/signup/individual/sign_up_individual_screen.dart';
 
-import '../../view/OnBoarding/onboarding_screen.dart';
-import '../../view/forgetPassword/forget_password_screen.dart';
-import '../../view/login/login_screen.dart';
-import '../../view/navigation/applyJob/reviewJob/review_job_screen.dart';
-import '../../view/navigation/changePassword/change_password_screen.dart';
-import '../../view/navigation/home/home_screen.dart';
-import '../../view/navigation/navigation_screen.dart';
-import '../../view/navigation/notification/notification_screen.dart';
-import '../../view/navigation/payment/payment_detail_screen.dart';
-import '../../view/navigation/profile/profile_screen.dart';
-import '../../view/otp/otp_screen.dart';
-import '../../view/resetPassword/reset_done_screen.dart';
-import '../../view/resetPassword/reset_password_screen.dart';
-import '../../view/signup/agency/sign_up_screen.dart';
-import '../../view/splash/splash_screen.dart';
-import '../../view/verifyEmail/verify_email_screen.dart';
+import '../../view/recruiter/OnBoarding/onboarding_screen.dart';
+import '../../view/company/forgetPassword/forget_password_screen.dart';
+import '../../view/recruiter/login/login_screen.dart';
+import '../../view/recruiter/navigation/applyJob/reviewJob/review_job_screen.dart';
+import '../../view/recruiter/navigation/home/home_screen.dart';
+import '../../view/recruiter/navigation/navigation_screen.dart';
+import '../../view/recruiter/navigation/notification/notification_screen.dart';
+import '../../view/recruiter/navigation/payment/payment_detail_screen.dart';
+import '../../view/recruiter/navigation/profile/profile_screen.dart';
+import '../../view/recruiter/otp/otp_screen.dart';
+import '../../view/company/resetPassword/reset_done_screen.dart';
+import '../../view/company/resetPassword/reset_password_screen.dart';
+import '../../view/recruiter/signup/agency/sign_up_screen.dart';
+import '../../view/recruiter/splash/splash_screen.dart';
+import '../../view/recruiter/verifyEmail/verify_email_screen.dart';
 
 class AppRoutes {
   static appRoutes() => [
@@ -171,14 +170,6 @@ class AppRoutes {
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
     ),
-    GetPage(
-      name: RoutesName.changePasswordScreen,
-      page: () => ChangePasswordScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-
     GetPage(
       name: RoutesName.otpScreen,
       page: () => OTPScreen(),

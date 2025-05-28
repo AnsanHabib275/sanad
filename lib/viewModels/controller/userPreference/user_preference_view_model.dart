@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
+import 'package:sanad/models/company/companyLogin/company_login_model.dart' hide User;
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../models/login/login_model.dart';
+
+import '../../../models/recruiter/login/login_model.dart';
 
 class UserPreference extends GetxController {
   RxString userEid = ''.obs;
@@ -43,6 +45,28 @@ class UserPreference extends GetxController {
   }
 
   Future<bool> saveUser(LoginModel responseModel) async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    sp.setBool('isSuccessfull', responseModel.isSuccessfull ?? false);
+    sp.setString('message', responseModel.message ?? '');
+    sp.setString('userFullName', responseModel.user?.fullName ?? '');
+    sp.setString('userEmail', responseModel.user?.email ?? '');
+    sp.setString('userFirstName', responseModel.user?.firstName ?? '');
+    sp.setString('userLastName', responseModel.user?.lastName ?? '');
+    sp.setString('userMobileNumber', responseModel.user?.mobileNumbre ?? '');
+    sp.setString('user_creationDate', responseModel.user?.creationDate ?? '');
+    sp.setString('userEid', responseModel.user?.eID ?? '');
+    sp.setString('userStreet', responseModel.user?.street ?? '');
+    sp.setString('userCity', responseModel.user?.city ?? '');
+    sp.setString('userPostalCode', responseModel.user?.postalCode ?? '');
+    sp.setString('userCountry', responseModel.user?.country ?? '');
+    sp.setString('userDescription', responseModel.user?.description ?? '');
+    sp.setString('userCountryCode', responseModel.user?.countryCode ?? '');
+    sp.setString('userImageURL', responseModel.user?.imageURL ?? '');
+    sp.setInt('errorcode', responseModel.errorcode ?? 0);
+    return true;
+  }
+
+  Future<bool> saveCompanyUser(CompanyLoginModel responseModel) async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     sp.setBool('isSuccessfull', responseModel.isSuccessfull ?? false);
     sp.setString('message', responseModel.message ?? '');

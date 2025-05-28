@@ -125,10 +125,6 @@ class AppThemes {
       tabBarTheme: TabBarThemeData(
         indicator: BoxDecoration(
           color: ThemeData.light().extension<AppColors>()?.tabsBg,
-          // border: Border.all(
-          //   color: ThemeData.light().extension<AppColors>().tabsBorderColor ?? AppColor.tabsBorderColor,
-          //   width: 1,
-          // ),
         ),
         labelColor: AppColor.tabSelectedTextColor,
         unselectedLabelColor: AppColor.textSecondaryColor,
@@ -259,10 +255,6 @@ class AppThemes {
       tabBarTheme: TabBarThemeData(
         indicator: BoxDecoration(
           color: ThemeData.dark().extension<AppColors>()?.tabsBg,
-          // border: Border.all(
-          //   color: ThemeData.dark().extension<AppColors>()?.tabsBorderColor,
-          //   width: 1,
-          // ),
         ),
         labelColor: AppColor.tabSelectedTextColor,
         unselectedLabelColor: AppColor.textSecondaryColor,
