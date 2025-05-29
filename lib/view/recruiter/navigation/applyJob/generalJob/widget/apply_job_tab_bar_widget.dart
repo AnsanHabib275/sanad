@@ -32,8 +32,8 @@ class _ApplyJobTabBarState extends State<ApplyJobTabBar>
       child: Padding(
         padding: EdgeInsets.all(Get.height * Utils.getResponsiveHeight(16)),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.asset(
               IconAssets.icCheckCircleUnselected,

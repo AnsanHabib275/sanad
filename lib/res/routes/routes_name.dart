@@ -32,6 +32,9 @@ class RoutesName {
 
   // Company Design
   static const String companySignUpScreen = '/company_sign_up_screen';
+  static const String companyIndividualSignUpFillDetailScreen = '/company_individual_sign_up_fill_detail_screen';
+  static const String companyAgencySignUpScreen = '/company_agency_sign_up_screen';
+  static const String companyAgencySignUpFillDetailScreen = '/company_agency_sign_up_fill_detail_screen';
   static const String forgetPasswordScreen = '/forget_password_screen';
   static const String resetPasswordScreen = '/reset_password_screen';
   static const String resetDoneScreen = '/reset_done_screen';

@@ -216,7 +216,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                               SizedBox(
                                 height:
-                                    Get.height * Utils.getResponsiveHeight(20),
+                                    Get.height * Utils.getResponsiveHeight(50),
                               ),
                             ],
                           ),

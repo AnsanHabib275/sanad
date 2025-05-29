@@ -2,27 +2,27 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/view/company/companySignup/individual/widget/input_password_widget.dart';
-import 'package:sanad/view/company/companySignup/individual/widget/sign_up_as_a_individual_button_widget.dart';
-import 'package:sanad/view/company/companySignup/individual/widget/sign_up_as_a_recruiter_button_widget.dart';
+import 'package:sanad/view/company/companySignup/agency/widget/sign_up_as_a_company_button_widget.dart';
+import 'package:sanad/view/company/companySignup/agency/widget/input_password_widget.dart';
+import 'package:sanad/view/company/companySignup/agency/widget/sign_up_as_a_recruiter_button_widget.dart';
 import 'package:sanad/viewModels/controller/company/companySignup/company_sign_up_view_model.dart';
 
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../res/routes/routes_name.dart';
 import '../../../../res/themes/app_themes.dart';
-import '../../companySignup/individual/widget/input_email_widget.dart';
+import '../../companySignup/agency/widget/input_email_widget.dart';
 
-class CompanySignUpScreen extends StatefulWidget {
-  const CompanySignUpScreen({super.key});
+class CompanyAgencySignUpScreen extends StatefulWidget {
+  const CompanyAgencySignUpScreen({super.key});
 
   @override
-  State<CompanySignUpScreen> createState() =>
-      _CompanySignUpScreenState();
+  State<CompanyAgencySignUpScreen> createState() =>
+      _CompanyAgencySignUpScreenState();
 }
 
-class _CompanySignUpScreenState
-    extends State<CompanySignUpScreen> {
+class _CompanyAgencySignUpScreenState
+    extends State<CompanyAgencySignUpScreen> {
   final signUpVM = Get.put(CompanySignUpViewModel());
   final formKey = GlobalKey<FormState>();
 
@@ -64,7 +64,7 @@ class _CompanySignUpScreenState
                         height: Get.height * Utils.getResponsiveHeight(32),
                       ),
                       Text(
-                        'sign_up_as_a_individual'.tr,
+                        'sign_up_as_a_company'.tr,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color:
@@ -275,7 +275,7 @@ class _CompanySignUpScreenState
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(16),
                       ),
-                      SignUpAsAIndividualButtonWidget(formKey: formKey),
+                      SignUpAsACompanyButtonWidget(formKey: formKey),
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(16),
                       ),
@@ -359,10 +359,10 @@ class _CompanySignUpScreenState
                       InkWell(
                         onTap: () {
                           Utils.hideKeyboardGlobally();
-                          Get.offAllNamed(RoutesName.companyAgencySignUpScreen);
+                          // Get.offAllNamed(RoutesName.signUpScreen);
                         },
                         child: Text(
-                          'sign_up_as_an_company'.tr,
+                          'sign_up_as_an_individual'.tr,
                           style: TextStyle(
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,

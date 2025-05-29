@@ -2,6 +2,8 @@ import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/view/company/companyLogin/company_login_screen.dart';
+import 'package:sanad/view/company/companySignup/agency/company_agency_sign_up_screen.dart';
+import 'package:sanad/view/company/companySignup/individual/fillDetail/company_individual_sign_up_fill_detail_screen.dart';
 import 'package:sanad/view/recruiter/navigation/about/about_screen.dart';
 import 'package:sanad/view/recruiter/navigation/account/account_screen.dart';
 import 'package:sanad/view/recruiter/navigation/analytics/analytics_screen.dart';
@@ -20,6 +22,7 @@ import 'package:sanad/view/recruiter/navigation/wallet/wallet_screen.dart';
 import 'package:sanad/view/recruiter/selectRole/select_role_screen.dart';
 import 'package:sanad/view/recruiter/signup/agency/agency_sign_up_screen.dart';
 import 'package:sanad/view/recruiter/signup/individual/individual_sign_up_screen.dart';
+import '../../view/company/companySignup/agency/fillDetail/company_agency_sign_up_fill_detail_screen.dart';
 import '../../view/company/companySignup/individual/company_sign_up_screen.dart';
 import '../../view/recruiter/OnBoarding/onboarding_screen.dart';
 import '../../view/company/forgetPassword/forget_password_screen.dart';
@@ -256,6 +259,27 @@ class AppRoutes {
     GetPage(
       name: RoutesName.companySignUpScreen,
       page: () => CompanySignUpScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.companyIndividualSignUpFillDetailScreen,
+      page: () => CompanyIndividualSignUpFillDetailScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.companyAgencySignUpScreen,
+      page: () => CompanyAgencySignUpScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.companyAgencySignUpFillDetailScreen,
+      page: () => CompanyAgencySignUpFillDetailScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,

@@ -205,9 +205,8 @@ class _RateUsScreenState extends State<RateUsScreen> {
                             minRating: 0.0,
                             direction: Axis.horizontal,
                             allowHalfRating: true,
+                            updateOnDrag: true,
                             unratedColor: Theme.of(context).iconTheme.color,
-                            glow: true,
-                            glowColor: AppColor.ratedStarColor,
                             itemCount: 5,
                             itemSize: Get.height * Utils.getResponsiveSize(24),
                             itemPadding: EdgeInsets.symmetric(
@@ -215,10 +214,12 @@ class _RateUsScreenState extends State<RateUsScreen> {
                                   Get.width * Utils.getResponsiveWidth(3),
                             ),
                             itemBuilder:
-                                (context, _) => Image.asset(
-                                  IconAssets.icRating,
-                                  // color: AppColor.ratedStarColor,
-                                ),
+                                (context, index) {
+                                 return Image.asset(
+                                    IconAssets.icRating,
+                                    color: AppColor.ratedStarColor,
+                                  );
+                                },
                             onRatingUpdate:
                                 (rating) => rateUsVM.rating.value = rating,
                           ),

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/utils/utils.dart';
 import 'package:sanad/viewModels/controller/company/companySignup/company_sign_up_view_model.dart';
-
-import '../../../../../res/assets/icon_assets.dart';
-import '../../../../../utils/utils.dart';
 
 class InputEmailWidget extends StatelessWidget {
   InputEmailWidget({super.key});
@@ -17,8 +15,6 @@ class InputEmailWidget extends StatelessWidget {
         controller: signUpVM.emailController.value,
         focusNode: signUpVM.emailFocusNode.value,
         enableSuggestions: true,
-        autocorrect: false,
-        autofocus: false,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null ||
@@ -34,7 +30,7 @@ class InputEmailWidget extends StatelessWidget {
           Utils.fieldFocusChange(
             context,
             signUpVM.emailFocusNode.value,
-            signUpVM.passwordFocusNode.value,
+            signUpVM.organizationTypeFocusNode.value,
           );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
@@ -42,9 +38,11 @@ class InputEmailWidget extends StatelessWidget {
           hint: Text('email_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
-              signUpVM.errorMessage.value.isEmpty
-                  ? null
-                  : signUpVM.errorMessage.value,
+              signUpVM.apiErrorMessage.value.isNotEmpty
+                  ? signUpVM.apiErrorMessage.value
+                  : signUpVM.errorMessage.value.isNotEmpty
+                  ? signUpVM.errorMessage.value
+                  : null,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
           border: Theme.of(context).inputDecorationTheme.border,
           enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
@@ -52,10 +50,6 @@ class InputEmailWidget extends StatelessWidget {
           errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
           focusedErrorBorder:
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
-          prefixIcon: Image.asset(
-            IconAssets.icEmail,
-            color: Theme.of(context).iconTheme.color,
-          ),
         ),
         keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.done,

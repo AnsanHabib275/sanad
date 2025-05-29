@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/view/company/companySignup/agency/widget/continue_button_widget.dart';
-import 'package:sanad/view/company/companySignup/agency/widget/input_email_widget.dart';
-import 'package:sanad/view/company/companySignup/agency/widget/input_full_name_widget.dart';
-import 'package:sanad/view/company/companySignup/agency/widget/input_organization_type_widget.dart';
-import 'package:sanad/view/company/companySignup/agency/widget/input_tagline_widget.dart';
+import 'package:sanad/view/company/companySignup/agency/fillDetail/widget/continue_button_widget.dart';
+import 'package:sanad/view/company/companySignup/agency/fillDetail/widget/input_agency_name_widget.dart';
+import 'package:sanad/view/company/companySignup/agency/fillDetail/widget/input_mobile_number_widget.dart';
+import 'package:sanad/view/company/companySignup/agency/fillDetail/widget/input_organization_type_widget.dart';
+import 'package:sanad/view/company/companySignup/agency/fillDetail/widget/input_tagline_widget.dart';
+import 'package:sanad/view/company/companySignup/agency/fillDetail/widget/input_website_widget.dart';
 import 'package:sanad/viewModels/controller/company/companySignup/company_sign_up_view_model.dart';
 
-import '../../../../res/assets/image_assets.dart';
-import '../../../../res/themes/app_themes.dart';
+import '../../../../../res/assets/image_assets.dart';
+import '../../../../../res/themes/app_themes.dart';
 
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class CompanyAgencySignUpFillDetailScreen extends StatefulWidget {
+  const CompanyAgencySignUpFillDetailScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<CompanyAgencySignUpFillDetailScreen> createState() => _CompanyAgencySignUpFillDetailScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _CompanyAgencySignUpFillDetailScreenState extends State<CompanyAgencySignUpFillDetailScreen> {
   final signUpVM = Get.put(CompanySignUpViewModel());
   final formKey = GlobalKey<FormState>();
 
@@ -64,126 +65,129 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(38)),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
                   Align(
                     alignment: Alignment.center,
                     child: SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(110),
-                      width: Get.width * Utils.getResponsiveWidth(102),
+                      height: Get.height * Utils.getResponsiveHeight(112),
+                      width: Get.width * Utils.getResponsiveWidth(90),
                       child: InkWell(
                         onTap: () {
                           _showImageSourceDialog(context);
                         },
-                        child: Stack(
+                        child: Column(
                           children: [
-                            Positioned(
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              child: InkWell(
-                                onTap: () {
-                                  _showImageSourceDialog(context);
-                                },
-                                child: SizedBox(
-                                  height:
+                            InkWell(
+                              onTap: () {
+                                _showImageSourceDialog(context);
+                              },
+                              child: SizedBox(
+                                height:
+                                Get.height *
+                                    Utils.getResponsiveHeight(85),
+                                width:
+                                Get.width * Utils.getResponsiveWidth(85),
+                                child: Obx(() {
+                                  return CircleAvatar(
+                                    radius:
+                                    Get.height *
+                                        Utils.getResponsiveSize(42),
+                                    child:
+                                    signUpVM.imagePath.isEmpty
+                                        ? Image.asset(
+                                      ImageAssets.imgDummyPicture,
+                                      height:
                                       Get.height *
-                                      Utils.getResponsiveHeight(95),
-                                  width:
-                                      Get.width * Utils.getResponsiveWidth(95),
-                                  child: Obx(() {
-                                    return CircleAvatar(
-                                      radius:
-                                          Get.height *
-                                          Utils.getResponsiveSize(47),
-                                      child:
-                                          signUpVM.imagePath.isEmpty
-                                              ? Image.asset(
-                                                ImageAssets.imgDummyPicture,
-                                                height:
-                                                    Get.height *
-                                                    Utils.getResponsiveHeight(
-                                                      95,
-                                                    ),
-                                                width:
-                                                    Get.width *
-                                                    Utils.getResponsiveWidth(
-                                                      95,
-                                                    ),
-                                                fit: BoxFit.cover,
-                                              )
-                                              : ClipOval(
-                                                child: Image.network(
-                                                  // File(updateProfileVM
-                                                  //     .filePath.value),
-                                                  signUpVM.imagePath.value,
-                                                  fit: BoxFit.cover,
-                                                  height:
-                                                      Get.height *
-                                                      Utils.getResponsiveHeight(
-                                                        95,
-                                                      ),
-                                                  width:
-                                                      Get.width *
-                                                      Utils.getResponsiveWidth(
-                                                        95,
-                                                      ),
-                                                  loadingBuilder: (
-                                                    context,
-                                                    child,
-                                                    loadingProgress,
-                                                  ) {
-                                                    if (loadingProgress ==
-                                                        null) {
-                                                      return child;
-                                                    }
-                                                    return Center(
-                                                      child: CircularProgressIndicator(
-                                                        value:
-                                                            loadingProgress
-                                                                        .expectedTotalBytes !=
-                                                                    null
-                                                                ? loadingProgress
-                                                                        .cumulativeBytesLoaded /
-                                                                    (loadingProgress
-                                                                            .expectedTotalBytes ??
-                                                                        1)
-                                                                : null,
-                                                      ),
-                                                    );
-                                                  },
-                                                  errorBuilder: (
-                                                    context,
-                                                    error,
-                                                    stackTrace,
-                                                  ) {
-                                                    return Image.asset(
-                                                      ImageAssets
-                                                          .imgDummyPicture,
-                                                      height:
-                                                          Get.height *
-                                                          Utils.getResponsiveHeight(
-                                                            95,
-                                                          ),
-                                                      width:
-                                                          Get.width *
-                                                          Utils.getResponsiveWidth(
-                                                            95,
-                                                          ),
-                                                      fit: BoxFit.cover,
-                                                    );
-                                                  },
+                                          Utils.getResponsiveHeight(
+                                            85,
+                                          ),
+                                      width:
+                                      Get.width *
+                                          Utils.getResponsiveWidth(
+                                            85,
+                                          ),
+                                      fit: BoxFit.cover,
+                                    )
+                                        : ClipOval(
+                                      child: Image.network(
+                                        // File(updateProfileVM
+                                        //     .filePath.value),
+                                        signUpVM.imagePath.value,
+                                        fit: BoxFit.cover,
+                                        height:
+                                        Get.height *
+                                            Utils.getResponsiveHeight(
+                                              85,
+                                            ),
+                                        width:
+                                        Get.width *
+                                            Utils.getResponsiveWidth(
+                                              85,
+                                            ),
+                                        loadingBuilder: (
+                                            context,
+                                            child,
+                                            loadingProgress,
+                                            ) {
+                                          if (loadingProgress ==
+                                              null) {
+                                            return child;
+                                          }
+                                          return Center(
+                                            child: CircularProgressIndicator(
+                                              value:
+                                              loadingProgress
+                                                  .expectedTotalBytes !=
+                                                  null
+                                                  ? loadingProgress
+                                                  .cumulativeBytesLoaded /
+                                                  (loadingProgress
+                                                      .expectedTotalBytes ??
+                                                      1)
+                                                  : null,
+                                            ),
+                                          );
+                                        },
+                                        errorBuilder: (
+                                            context,
+                                            error,
+                                            stackTrace,
+                                            ) {
+                                          return Image.asset(
+                                            ImageAssets
+                                                .imgDummyPicture,
+                                            height:
+                                            Get.height *
+                                                Utils.getResponsiveHeight(
+                                                 85,
                                                 ),
-                                              ),
-                                    );
-                                  }),
-                                ),
+                                            width:
+                                            Get.width *
+                                                Utils.getResponsiveWidth(
+                                                  85,
+                                                ),
+                                            fit: BoxFit.cover,
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  );
+                                }),
                               ),
                             ),
-                            Positioned(
-                              bottom: 0,
-                              left: 0,
-                              right: 0,
-                              child: Image.asset(ImageAssets.imgAddPhoto),
+                            SizedBox(height: Get.height * Utils.getResponsiveHeight(11)),
+                            Text(
+                              'upload_logo'.tr,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
+                                fontSize: Get.height * Utils.getResponsiveSize(14),
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ],
                         ),
@@ -198,7 +202,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'full_name'.tr,
+                          'agency_name'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color:
@@ -213,7 +217,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                           height: Get.height * Utils.getResponsiveHeight(8),
                         ),
-                        InputFullNameWidget(),
+                        InputAgencyNameWidget(),
                         SizedBox(
                           height: Get.height * Utils.getResponsiveHeight(16),
                         ),
@@ -238,7 +242,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           height: Get.height * Utils.getResponsiveHeight(16),
                         ),
                         Text(
-                          'email'.tr,
+                          'phone_number'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color:
@@ -253,7 +257,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                           height: Get.height * Utils.getResponsiveHeight(8),
                         ),
-                        InputEmailWidget(),
+                        InputMobileNumberWidget(),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(16),
+                        ),
+                        Text(
+                          'website'.tr,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color:
+                            Theme.of(
+                              context,
+                            ).extension<AppColors>()?.textPrimaryColor,
+                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(8),
+                        ),
+                        InputWebsiteWidget(),
                         SizedBox(
                           height: Get.height * Utils.getResponsiveHeight(16),
                         ),
@@ -446,12 +470,48 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ],
                         ),
+                        SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
+                        Container(
+                          decoration: BoxDecoration(
+                            color:
+                            Theme.of(
+                              context,
+                            ).extension<AppColors>()?.containerBg,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                Get.height * Utils.getResponsiveHeight(8),
+                              ),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal:
+                              Get.width * Utils.getResponsiveWidth(12),
+                              vertical:
+                              Get.height * Utils.getResponsiveHeight(8),
+                            ),
+                            child: Text(
+                              'two_hundred_one_to_five_hundred'.tr,
+                              style: TextStyle(
+                                fontSize:
+                                Get.height *
+                                    Utils.getResponsiveSize(12),
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w500,
+                                color:
+                                Theme.of(context)
+                                    .extension<AppColors>()
+                                    ?.textPrimaryColor,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(42)),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
                   ContinueButtonWidget(formKey: formKey),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(100)),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(60)),
                 ],
               ),
             ),

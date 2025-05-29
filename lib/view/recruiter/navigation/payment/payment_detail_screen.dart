@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/image_assets.dart';
+import 'package:sanad/view/recruiter/navigation/payment/widget/view_button_widget.dart';
 
 import '../../../../res/assets/icon_assets.dart';
 import '../../../../res/colors/app_color.dart';
@@ -19,6 +20,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
   final paymentDate = Get.arguments['paymentDate'] ?? '';
   final amount = Get.arguments['amount'] ?? '';
   final status = Get.arguments['status'] ?? '';
+  final jobTitle = Get.arguments['jobTitle'] ?? '';
+  final cvName = Get.arguments['cvName'] ?? '';
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -139,7 +143,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'payment_id'.tr,
+                                    'job_title'.tr,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)
@@ -158,7 +162,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                         Utils.getResponsiveHeight(8),
                                   ),
                                   Text(
-                                    paymentID,
+                                    jobTitle,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)
@@ -174,6 +178,44 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                   SizedBox(
                                     height:
                                         Get.height *
+                                        Utils.getResponsiveHeight(20),
+                                  ),
+                                  Text(
+                                    'payment_id'.tr,
+                                    style: TextStyle(
+                                      color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w500,
+                                      fontSize:
+                                      Get.height *
+                                          Utils.getResponsiveSize(14),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height:
+                                    Get.height *
+                                        Utils.getResponsiveHeight(8),
+                                  ),
+                                  Text(
+                                    paymentID,
+                                    style: TextStyle(
+                                      color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w500,
+                                      fontSize:
+                                      Get.height *
+                                          Utils.getResponsiveSize(18),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height:
+                                    Get.height *
                                         Utils.getResponsiveHeight(20),
                                   ),
                                   Text(
@@ -310,19 +352,26 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'payment_date'.tr,
-                                    style: TextStyle(
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textSecondaryColor,
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(14),
-                                    ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'cv_name'.tr,
+                                        style: TextStyle(
+                                          color:
+                                              Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.textSecondaryColor,
+                                          fontFamily: 'Manrope',
+                                          fontWeight: FontWeight.w500,
+                                          fontSize:
+                                              Get.height *
+                                              Utils.getResponsiveSize(14),
+                                        ),
+                                      ),
+                                      ViewButtonWidget(),
+                                    ],
                                   ),
                                   SizedBox(
                                     height:
@@ -330,7 +379,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                         Utils.getResponsiveHeight(8),
                                   ),
                                   Text(
-                                    paymentDate,
+                                    cvName,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)
@@ -346,6 +395,44 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                   SizedBox(
                                     height:
                                         Get.height *
+                                        Utils.getResponsiveHeight(20),
+                                  ),
+                                  Text(
+                                    'payment_date'.tr,
+                                    style: TextStyle(
+                                      color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w500,
+                                      fontSize:
+                                      Get.height *
+                                          Utils.getResponsiveSize(14),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height:
+                                    Get.height *
+                                        Utils.getResponsiveHeight(8),
+                                  ),
+                                  Text(
+                                    paymentDate,
+                                    style: TextStyle(
+                                      color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w500,
+                                      fontSize:
+                                      Get.height *
+                                          Utils.getResponsiveSize(18),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height:
+                                    Get.height *
                                         Utils.getResponsiveHeight(20),
                                   ),
                                   Text(

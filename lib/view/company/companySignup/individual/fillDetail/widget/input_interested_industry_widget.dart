@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/viewModels/controller/company/companySignup/company_sign_up_view_model.dart';
 
-import '../../../../../res/assets/icon_assets.dart';
-import '../../../../../utils/utils.dart';
+import '../../../../../../res/assets/icon_assets.dart';
+import '../../../../../../utils/utils.dart';
 
-class InputOrganizationTypeWidget extends StatelessWidget {
-  InputOrganizationTypeWidget({super.key});
+
+
+class InputInterestedIndustryWidget extends StatelessWidget {
+  InputInterestedIndustryWidget({super.key});
 
   final signUpVM = Get.put(CompanySignUpViewModel());
-  final List<String> organizationType = ['Formal', 'Informal'];
+  final List<String> industryType = ['Formal', 'Informal'];
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class InputOrganizationTypeWidget extends StatelessWidget {
       return DropdownButtonFormField<String>(
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hintText: 'organization_type_hint'.tr,
+          hintText: 'interested_industry_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               signUpVM.errorMessage.value.isEmpty
@@ -30,7 +32,7 @@ class InputOrganizationTypeWidget extends StatelessWidget {
                 ? null
                 : signUpVM.organizationTypeController.value.text,
         items:
-            organizationType.map((String organization) {
+            industryType.map((String organization) {
               return DropdownMenuItem<String>(
                 value: organization,
                 child: Text(organization),
@@ -48,7 +50,7 @@ class InputOrganizationTypeWidget extends StatelessWidget {
           width: Get.width * Utils.getResponsiveWidth(18),
           color: Theme.of(context).iconTheme.color,
         ),
-        validator: (value) => value == null ? 'organization_type_error' : null,
+        validator: (value) => value == null ? 'interested_industry_error' : null,
       );
     });
   }

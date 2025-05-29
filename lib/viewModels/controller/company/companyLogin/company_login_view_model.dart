@@ -23,6 +23,7 @@ class CompanyLoginViewModel extends GetxController {
   // NotificationServices notificationServices = NotificationServices();
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
+  RxBool isRemember = false.obs;
   RxBool isEnable = true.obs;
   RxString errorMessage = ''.obs;
   RxString apiErrorMessage = ''.obs;

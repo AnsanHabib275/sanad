@@ -425,7 +425,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     Get.height * Utils.getResponsiveHeight(16),
                               ),
                               Text(
-                                'description'.tr,
+                                'tagline'.tr,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   color:

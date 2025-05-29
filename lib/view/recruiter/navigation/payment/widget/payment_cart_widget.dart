@@ -36,6 +36,8 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
               'paymentDate': widget.payment.paymentDate,
               'amount': widget.payment.amount,
               'status': widget.payment.status,
+              'jobTitle': widget.payment.jobTitle,
+              'cvName': widget.payment.cvName,
             },
           );
         },
@@ -99,41 +101,54 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                     horizontal: Get.width * Utils.getResponsiveWidth(5),
                     vertical: Get.height * Utils.getResponsiveHeight(16),
                   ),
-                  child: Container(
-                    decoration: BoxDecoration(
+                  child: Text(
+                    widget.payment.jobTitle,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
                       color:
-                          widget.payment.status == 'Expired'
-                              ? AppColor.errorBgColor
-                              : widget.payment.status == 'Hired'
-                              ? AppColor.successBgColor
-                              : AppColor.runningBgColor,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          Get.height * Utils.getResponsiveHeight(6),
-                        ),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(10),
-                        vertical: Get.height * Utils.getResponsiveHeight(2),
-                      ),
-                      child: Text(
-                        widget.payment.status,
-                        style: TextStyle(
-                          fontSize: Get.height * Utils.getResponsiveSize(12),
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w500,
-                          color:
-                              widget.payment.status == 'Expired'
-                                  ? AppColor.errorTextColor
-                                  : widget.payment.status == 'Hired'
-                                  ? AppColor.successTextColor
-                                  : AppColor.runningTextColor,
-                        ),
-                      ),
+                      Theme.of(
+                        context,
+                      ).extension<AppColors>()?.textPrimaryColor,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                      fontSize: Get.height * Utils.getResponsiveSize(14),
                     ),
                   ),
+                  // child: Container(
+                  //   decoration: BoxDecoration(
+                  //     color:
+                  //         widget.payment.status == 'Expired'
+                  //             ? AppColor.errorBgColor
+                  //             : widget.payment.status == 'Hired'
+                  //             ? AppColor.successBgColor
+                  //             : AppColor.runningBgColor,
+                  //     borderRadius: BorderRadius.all(
+                  //       Radius.circular(
+                  //         Get.height * Utils.getResponsiveHeight(6),
+                  //       ),
+                  //     ),
+                  //   ),
+                  //   child: Padding(
+                  //     padding: EdgeInsets.symmetric(
+                  //       horizontal: Get.width * Utils.getResponsiveWidth(10),
+                  //       vertical: Get.height * Utils.getResponsiveHeight(2),
+                  //     ),
+                  //     child: Text(
+                  //       widget.payment.status,
+                  //       style: TextStyle(
+                  //         fontSize: Get.height * Utils.getResponsiveSize(12),
+                  //         fontFamily: 'Inter',
+                  //         fontWeight: FontWeight.w500,
+                  //         color:
+                  //             widget.payment.status == 'Expired'
+                  //                 ? AppColor.errorTextColor
+                  //                 : widget.payment.status == 'Hired'
+                  //                 ? AppColor.successTextColor
+                  //                 : AppColor.runningTextColor,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ),
               ),
             ),

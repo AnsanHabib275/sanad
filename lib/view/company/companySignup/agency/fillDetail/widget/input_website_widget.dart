@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/viewModels/controller/company/companySignup/company_sign_up_view_model.dart';
 
-class InputFullNameWidget extends StatelessWidget {
-  InputFullNameWidget({super.key});
+class InputWebsiteWidget extends StatelessWidget {
+  InputWebsiteWidget({super.key});
 
   final signUpVM = Get.put(CompanySignUpViewModel());
 
@@ -12,26 +12,26 @@ class InputFullNameWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: signUpVM.fullNameController.value,
-        focusNode: signUpVM.fullNameFocusNode.value,
+        controller: signUpVM.websiteController.value,
+        focusNode: signUpVM.websiteFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'full_name_error'.tr;
+            return 'website_error'.tr;
           }
           return null;
         },
         onFieldSubmitted: (value) {
           Utils.fieldFocusChange(
             context,
-            signUpVM.fullNameFocusNode.value,
-            signUpVM.taglineFocusNode.value,
+            signUpVM.websiteFocusNode.value,
+            signUpVM.organizationTypeFocusNode.value,
           );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hint: Text('full_name_hint'.tr),
+          hint: Text('website_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               signUpVM.errorMessage.value.isEmpty
@@ -45,7 +45,7 @@ class InputFullNameWidget extends StatelessWidget {
           focusedErrorBorder:
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
         ),
-        keyboardType: TextInputType.name,
+        keyboardType: TextInputType.webSearch,
         textInputAction: TextInputAction.done,
       );
     });

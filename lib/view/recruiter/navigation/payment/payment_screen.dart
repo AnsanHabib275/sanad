@@ -19,12 +19,12 @@ class PaymentScreen extends StatefulWidget {
 class _PaymentScreenState extends State<PaymentScreen> {
   final paymentsVM = Get.put(PaymentsViewModel());
   final List<PaymentModel> paymentItems = [
-    PaymentModel('P-ID-001', 'Dec 12, 2024', '\$2300', 'Expired'),
-    PaymentModel('P-ID-002', 'Dec 12, 2024', '-\$670', 'Hired'),
-    PaymentModel('P-ID-003', 'Dec 12, 2024', '\$234', 'Running'),
-    PaymentModel('P-ID-004', 'Dec 12, 2024', '\$5000', 'Expired'),
-    PaymentModel('P-ID-005', 'Dec 12, 2024', '\$2300', 'Running'),
-    PaymentModel('P-ID-006', 'Dec 12, 2024', '\$560', 'Hired'),
+    PaymentModel('P-ID-001', 'Dec 12, 2024', '\$2300', 'Expired','UI/UX Designer','Emma Caldwell'),
+    PaymentModel('P-ID-002', 'Dec 12, 2024', '-\$670', 'Hired','Backend Dev','Emma Caldwell'),
+    PaymentModel('P-ID-003', 'Dec 12, 2024', '\$234', 'Running','Frontend Dev','Emma Caldwell'),
+    PaymentModel('P-ID-004', 'Dec 12, 2024', '\$5000', 'Expired','UI/UX Designer','Emma Caldwell'),
+    PaymentModel('P-ID-005', 'Dec 12, 2024', '\$2300', 'Running','Graphic Designer','Emma Caldwell'),
+    PaymentModel('P-ID-006', 'Dec 12, 2024', '\$560', 'Hired','UI/UX Designer','Emma Caldwell'),
   ];
   @override
   Widget build(BuildContext context) {
@@ -208,7 +208,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                         Utils.getResponsiveHeight(16),
                                   ),
                                   child: Text(
-                                    'status'.tr,
+                                    'job_title'.tr,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)

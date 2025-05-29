@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/assets/image_assets.dart';
 import 'package:sanad/view/recruiter/navigation/analytics/widget/analytics_chart_widget.dart';
 
+import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 
@@ -81,7 +83,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'wallet'.tr,
+                              'revenue'.tr,
                               style: TextStyle(
                                 color:
                                     Theme.of(
@@ -199,7 +201,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'all_jobs'.tr,
+                                    'cvs_sublimed'.tr,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)
@@ -273,7 +275,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'active_jobs'.tr,
+                                    'cvs_bought'.tr,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)
@@ -568,6 +570,127 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                     ],
                   ),
                 ),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(35)),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        Get.height * Utils.getResponsiveHeight(8),
+                      ),
+                    ),
+                    border: Border.all(
+                      color: Theme.of(context).dividerColor,
+                      width: 1.0,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * Utils.getResponsiveWidth(16),
+                      vertical: Get.height * Utils.getResponsiveHeight(12),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(
+                              ImageAssets.imgDummyProfile,
+                              height:
+                              Get.height * Utils.getResponsiveHeight(64),
+                              width: Get.width * Utils.getResponsiveWidth(64),
+                            ),
+                            SizedBox(
+                              width: Get.width * Utils.getResponsiveWidth(14),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Mohsin Noor ',
+                                  style: TextStyle(
+                                    color:
+                                    Theme.of(context)
+                                        .extension<AppColors>()
+                                        ?.textPrimaryColor,
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w700,
+                                    fontSize:
+                                    Get.height *
+                                        Utils.getResponsiveSize(17),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: Get.width * Utils.getResponsiveWidth(3),
+                                ),
+                                Text(
+                                  'Top Rated Recruiter',
+                                  style: TextStyle(
+                                    color:
+                                    Theme.of(context)
+                                        .extension<AppColors>()
+                                        ?.textSecondaryColor,
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize:
+                                    Get.height *
+                                        Utils.getResponsiveSize(11),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: Get.width * Utils.getResponsiveWidth(3),
+                                ),
+                                RatingBar.builder(
+                                  initialRating: 5.0,
+                                  minRating: 0.0,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  unratedColor: Theme.of(context).iconTheme.color,
+                                  glow: true,
+                                  glowColor: AppColor.ratedStarColor,
+                                  itemCount: 5,
+                                  itemSize: Get.height * Utils.getResponsiveSize(13),
+                                  itemPadding: EdgeInsets.symmetric(
+                                    horizontal:
+                                    Get.width * Utils.getResponsiveWidth(3),
+                                  ),
+                                  itemBuilder:
+                                      (context, _) => Image.asset(
+                                    IconAssets.icRatingFilled,
+                                    // color: AppColor.ratedStarColor,
+                                  ),
+                                  onRatingUpdate: (rating)
+                                  {
+                                    // => rateUsVM.rating.value = rating,
+                                  }
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: Get.height * Utils.getResponsiveHeight(10)),
+                        Text(
+                          'recruiter_comment'.tr,
+                          style: TextStyle(
+                            color:
+                            Theme.of(context)
+                                .extension<AppColors>()
+                                ?.textSecondaryColor,
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize:
+                            Get.height *
+                                Utils.getResponsiveSize(11),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
               ],
             ),
           ),

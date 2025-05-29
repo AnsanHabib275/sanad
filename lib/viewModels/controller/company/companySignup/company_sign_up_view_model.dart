@@ -20,18 +20,24 @@ import '../../userPreference/user_preference_view_model.dart';
 class CompanySignUpViewModel extends GetxController {
   final _api = CompanySignUpRepository();
 
-  final fullNameController = TextEditingController().obs;
+  final firstNameController = TextEditingController().obs;
+  final lastNameController = TextEditingController().obs;
+  final agencyNameController = TextEditingController().obs;
   final taglineController = TextEditingController().obs;
   final countryCodeController = TextEditingController().obs;
   final mobileNumberController = TextEditingController().obs;
+  final websiteController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
   final organizationTypeController = TextEditingController().obs;
 
-  final fullNameFocusNode = FocusNode().obs;
+  final firstNameFocusNode = FocusNode().obs;
+  final lastNameFocusNode = FocusNode().obs;
+  final agencyNameFocusNode = FocusNode().obs;
   final taglineFocusNode = FocusNode().obs;
   final countryCodeFocusNode = FocusNode().obs;
   final mobileNumberFocusNode = FocusNode().obs;
+  final websiteFocusNode = FocusNode().obs;
   final emailFocusNode = FocusNode().obs;
   final passwordFocusNode = FocusNode().obs;
   final organizationTypeFocusNode = FocusNode().obs;
@@ -39,6 +45,7 @@ class CompanySignUpViewModel extends GetxController {
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
   RxBool isEnable = true.obs;
+  RxBool isAgree = false.obs;
   RxString imagePath = ''.obs;
   RxString filePath = ''.obs;
   RxString imagePathError = ''.obs;
@@ -106,7 +113,7 @@ class CompanySignUpViewModel extends GetxController {
   void signUpApi() {
     loading.value = true;
     Map data = {
-      'FullName': fullNameController.value.text,
+      'AgencyName': agencyNameController.value.text,
       'Tagline': taglineController.value.text,
       'CountryCode': countryCodeController.value.text,
       'MobileNumber': mobileNumberController.value.text,
