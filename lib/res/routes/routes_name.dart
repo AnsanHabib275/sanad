@@ -25,19 +25,25 @@ class RoutesName {
   static const String helpScreen = '/help_screen';
   static const String viewJobScreen = '/view_job_screen';
   static const String applyJobScreen = '/apply_job_screen';
-  static const String additionalRequirementsJobScreen = '/additional_requirements_job_screen';
+  static const String additionalRequirementsJobScreen =
+      '/additional_requirements_job_screen';
   static const String reviewJobScreen = '/review_job_screen';
   static const String viewJobDetailScreen = '/view_job_detail_screen';
   static const String submittedCvScreen = '/submitted_cv_screen';
 
   // Company Design
   static const String companySignUpScreen = '/company_sign_up_screen';
-  static const String companyIndividualSignUpFillDetailScreen = '/company_individual_sign_up_fill_detail_screen';
-  static const String companyAgencySignUpScreen = '/company_agency_sign_up_screen';
-  static const String companyAgencySignUpFillDetailScreen = '/company_agency_sign_up_fill_detail_screen';
+  static const String companyIndividualSignUpFillDetailScreen =
+      '/company_individual_sign_up_fill_detail_screen';
+  static const String companyAgencySignUpScreen =
+      '/company_agency_sign_up_screen';
+  static const String companyAgencySignUpFillDetailScreen =
+      '/company_agency_sign_up_fill_detail_screen';
+  static const String companyVerifyEmailScreen = '/company_verify_email_screen';
   static const String forgetPasswordScreen = '/forget_password_screen';
+  static const String companyOtpScreen = '/company_otp_screen';
   static const String resetPasswordScreen = '/reset_password_screen';
   static const String resetDoneScreen = '/reset_done_screen';
   static const String companyLoginScreen = '/company_login_screen';
-  static const String changePasswordScreen = '/change_password_screen';
+  static const String dashboardScreen = '/dashboard_screen';
 }

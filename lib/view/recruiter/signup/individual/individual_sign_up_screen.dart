@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
@@ -10,7 +12,6 @@ import 'package:sanad/viewModels/controller/recruiter/signup/sign_up_view_model.
 
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/themes/app_themes.dart';
-
 
 class IndividualSignUpScreen extends StatefulWidget {
   const IndividualSignUpScreen({super.key});
@@ -92,11 +93,11 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                       Get.width * Utils.getResponsiveWidth(95),
                                   child: Obx(() {
                                     return CircleAvatar(
-                                      radius:
-                                          Get.height *
-                                          Utils.getResponsiveSize(47),
+                                      // radius:
+                                      //     Get.height *
+                                      //     Utils.getResponsiveSize(47),
                                       child:
-                                          signUpVM.imagePath.isEmpty
+                                          signUpVM.filePath.isEmpty
                                               ? Image.asset(
                                                 ImageAssets.imgDummyPicture,
                                                 height:
@@ -112,10 +113,9 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                                 fit: BoxFit.cover,
                                               )
                                               : ClipOval(
-                                                child: Image.network(
-                                                  // File(updateProfileVM
-                                                  //     .filePath.value),
-                                                  signUpVM.imagePath.value,
+                                                child: Image.file(
+                                                  File(signUpVM.filePath.value),
+                                                  // signUpVM.imagePath.value,
                                                   fit: BoxFit.cover,
                                                   height:
                                                       Get.height *
@@ -127,30 +127,30 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                                       Utils.getResponsiveWidth(
                                                         95,
                                                       ),
-                                                  loadingBuilder: (
-                                                    context,
-                                                    child,
-                                                    loadingProgress,
-                                                  ) {
-                                                    if (loadingProgress ==
-                                                        null) {
-                                                      return child;
-                                                    }
-                                                    return Center(
-                                                      child: CircularProgressIndicator(
-                                                        value:
-                                                            loadingProgress
-                                                                        .expectedTotalBytes !=
-                                                                    null
-                                                                ? loadingProgress
-                                                                        .cumulativeBytesLoaded /
-                                                                    (loadingProgress
-                                                                            .expectedTotalBytes ??
-                                                                        1)
-                                                                : null,
-                                                      ),
-                                                    );
-                                                  },
+                                                  // loadingBuilder: (
+                                                  //   context,
+                                                  //   child,
+                                                  //   loadingProgress,
+                                                  // ) {
+                                                  //   if (loadingProgress ==
+                                                  //       null) {
+                                                  //     return child;
+                                                  //   }
+                                                  //   return Center(
+                                                  //     child: CircularProgressIndicator(
+                                                  //       value:
+                                                  //           loadingProgress
+                                                  //                       .expectedTotalBytes !=
+                                                  //                   null
+                                                  //               ? loadingProgress
+                                                  //                       .cumulativeBytesLoaded /
+                                                  //                   (loadingProgress
+                                                  //                           .expectedTotalBytes ??
+                                                  //                       1)
+                                                  //               : null,
+                                                  //     ),
+                                                  //   );
+                                                  // },
                                                   errorBuilder: (
                                                     context,
                                                     error,
@@ -222,9 +222,9 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color:
-                            Theme.of(
-                              context,
-                            ).extension<AppColors>()?.textPrimaryColor,
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                             fontSize: Get.height * Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,

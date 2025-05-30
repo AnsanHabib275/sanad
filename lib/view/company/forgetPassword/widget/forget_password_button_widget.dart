@@ -21,7 +21,7 @@ class ForgetPasswordButtonWidget extends StatelessWidget {
         onPress: () {
           Utils.hideKeyboardGlobally();
           Get.toNamed(
-            RoutesName.otpScreen,
+            RoutesName.companyOtpScreen,
             arguments: {'eID': 'kjbsdjskd273w', 'email': 'a@gimpmail.com'},
           );
           // if (formKey.currentState!.validate()) {

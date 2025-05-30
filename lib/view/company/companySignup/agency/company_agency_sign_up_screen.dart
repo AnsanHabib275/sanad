@@ -21,8 +21,7 @@ class CompanyAgencySignUpScreen extends StatefulWidget {
       _CompanyAgencySignUpScreenState();
 }
 
-class _CompanyAgencySignUpScreenState
-    extends State<CompanyAgencySignUpScreen> {
+class _CompanyAgencySignUpScreenState extends State<CompanyAgencySignUpScreen> {
   final signUpVM = Get.put(CompanySignUpViewModel());
   final formKey = GlobalKey<FormState>();
 
@@ -144,8 +143,7 @@ class _CompanyAgencySignUpScreenState
                                   signUpVM.isAgree.value = value!;
                                 },
                                 activeColor:
-                                AppColor
-                                    .primaryColor, // Color when checked
+                                    AppColor.primaryColor, // Color when checked
                                 checkColor: AppColor.secondaryIconDarkColor,
                                 shape: RoundedRectangleBorder(
                                   side: BorderSide(
@@ -168,101 +166,107 @@ class _CompanyAgencySignUpScreenState
                                     children: [
                                       TextSpan(
                                         text:
-                                        'by_clicking_agree_join_or_continue_you_agree_to_the_linkedIn'
-                                            .tr,
+                                            'by_clicking_agree_join_or_continue_you_agree_to_the_linkedIn'
+                                                .tr,
                                         style: TextStyle(
                                           fontSize:
-                                          Get.height * Utils.getResponsiveSize(12),
+                                              Get.height *
+                                              Utils.getResponsiveSize(12),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w400,
                                           color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
+                                              Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.textPrimaryColor,
                                         ),
                                       ),
                                       TextSpan(
                                         text: 'user_agreement'.tr,
                                         style: TextStyle(
                                           fontSize:
-                                          Get.height * Utils.getResponsiveSize(12),
+                                              Get.height *
+                                              Utils.getResponsiveSize(12),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w700,
                                           color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
+                                              Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.textPrimaryColor,
                                           decoration: TextDecoration.underline,
                                         ),
                                         recognizer:
-                                        TapGestureRecognizer()
-                                          ..onTap = () {
-                                            // Get.toNamed(RoutesName.userAgreement);
-                                          },
+                                            TapGestureRecognizer()
+                                              ..onTap = () {
+                                                // Get.toNamed(RoutesName.userAgreement);
+                                              },
                                       ),
                                       TextSpan(
                                         text: ', ',
                                         style: TextStyle(
                                           fontSize:
-                                          Get.height * Utils.getResponsiveSize(12),
+                                              Get.height *
+                                              Utils.getResponsiveSize(12),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w400,
                                           color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
+                                              Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.textPrimaryColor,
                                         ),
                                       ),
                                       TextSpan(
                                         text: 'privacy_policy'.tr,
                                         style: TextStyle(
                                           fontSize:
-                                          Get.height * Utils.getResponsiveSize(12),
+                                              Get.height *
+                                              Utils.getResponsiveSize(12),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w700,
                                           color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
+                                              Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.textPrimaryColor,
                                           decoration: TextDecoration.underline,
                                         ),
                                         recognizer:
-                                        TapGestureRecognizer()
-                                          ..onTap = () {
-                                            // Get.toNamed(RoutesName.userAgreement);
-                                          },
+                                            TapGestureRecognizer()
+                                              ..onTap = () {
+                                                // Get.toNamed(RoutesName.userAgreement);
+                                              },
                                       ),
                                       TextSpan(
                                         text: 'and'.tr,
                                         style: TextStyle(
                                           fontSize:
-                                          Get.height * Utils.getResponsiveSize(12),
+                                              Get.height *
+                                              Utils.getResponsiveSize(12),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w400,
                                           color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
+                                              Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.textPrimaryColor,
                                         ),
                                       ),
                                       TextSpan(
                                         text: 'cookie_policy_company'.tr,
                                         style: TextStyle(
                                           fontSize:
-                                          Get.height * Utils.getResponsiveSize(12),
+                                              Get.height *
+                                              Utils.getResponsiveSize(12),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w700,
                                           color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
+                                              Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.textPrimaryColor,
                                           decoration: TextDecoration.underline,
                                         ),
                                         recognizer:
-                                        TapGestureRecognizer()
-                                          ..onTap = () {
-                                            // Get.toNamed(RoutesName.userAgreement);
-                                          },
+                                            TapGestureRecognizer()
+                                              ..onTap = () {
+                                                // Get.toNamed(RoutesName.userAgreement);
+                                              },
                                       ),
                                     ],
                                   ),
@@ -327,7 +331,6 @@ class _CompanyAgencySignUpScreenState
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(32),
                       ),
-
                     ],
                   ),
                 ),
@@ -345,42 +348,36 @@ class _CompanyAgencySignUpScreenState
                         style: TextStyle(
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
-                          fontSize:
-                          Get.height * Utils.getResponsiveSize(12),
+                          fontSize: Get.height * Utils.getResponsiveSize(12),
                           color:
-                          Theme.of(
-                            context,
-                          ).extension<AppColors>()?.textSecondaryColor,
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textSecondaryColor,
                         ),
                       ),
-                      SizedBox(
-                        width: Get.width * Utils.getResponsiveWidth(4),
-                      ),
+                      SizedBox(width: Get.width * Utils.getResponsiveWidth(4)),
                       InkWell(
                         onTap: () {
                           Utils.hideKeyboardGlobally();
-                          // Get.offAllNamed(RoutesName.signUpScreen);
+                          Get.offAllNamed(RoutesName.companySignUpScreen);
                         },
                         child: Text(
                           'sign_up_as_an_individual'.tr,
                           style: TextStyle(
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
-                            fontSize:
-                            Get.height * Utils.getResponsiveSize(12),
+                            fontSize: Get.height * Utils.getResponsiveSize(12),
                             color:
-                            Theme.of(
-                              context,
-                            ).extension<AppColors>()?.textPrimaryColor,
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: Get.height * Utils.getResponsiveHeight(50),
-                ),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(50)),
               ],
             ),
           ),

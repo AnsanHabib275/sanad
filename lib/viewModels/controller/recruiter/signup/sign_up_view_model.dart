@@ -212,7 +212,7 @@ class SignUpViewModel extends GetxController {
           contentType: MediaType.parse(mimeType),
         );
 
-        await uploadProfileImageApi(multipartFile);
+        // await uploadProfileImageApi(multipartFile);
       } else {
         if (kDebugMode) {
           print('File does not exist at path: ${file.path}');

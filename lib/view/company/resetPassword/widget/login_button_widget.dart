@@ -4,7 +4,6 @@ import 'package:sanad/res/components/round_button.dart';
 
 import '../../../../res/routes/routes_name.dart';
 
-
 class LoginButtonWidget extends StatelessWidget {
   const LoginButtonWidget({super.key});
 
@@ -13,7 +12,7 @@ class LoginButtonWidget extends StatelessWidget {
     return RoundButton(
       title: 'back_to_login'.tr,
       onPress: () {
-        Get.toNamed(RoutesName.loginScreen);
+        Get.toNamed(RoutesName.companyLoginScreen);
       },
     );
   }

@@ -76,15 +76,24 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
           body: Stack(
             children: [
               Positioned(
-                top: -100,
-                left: -157,
-                right: -157,
+                top: 0,
+                left: 0,
+                right: 0,
                 child: Image.asset(
                   ImageAssets.onBoardingBg,
-                  height: Get.height * Utils.getResponsiveHeight(744),
+                  height: Get.height * Utils.getResponsiveHeight(494),
                   width: Get.width * Utils.getResponsiveWidth(744),
                   // color: AppColor.obBoardingLogoBgWith12Per,
                 ),
+                // top: -250,
+                // left: -157,
+                // right: -157,
+                // child: Image.asset(
+                //   ImageAssets.onBoardingBg,
+                //   height: Get.height * Utils.getResponsiveHeight(744),
+                //   width: Get.width * Utils.getResponsiveWidth(744),
+                //   // color: AppColor.obBoardingLogoBgWith12Per,
+                // ),
               ),
               Positioned(
                 top: 0,

@@ -1,7 +1,9 @@
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/routes/routes_name.dart';
+import 'package:sanad/view/company/companyEmailVerification/company_verify_email_screen.dart';
 import 'package:sanad/view/company/companyLogin/company_login_screen.dart';
+import 'package:sanad/view/company/companyOtp/company_otp_screen.dart';
 import 'package:sanad/view/company/companySignup/agency/company_agency_sign_up_screen.dart';
 import 'package:sanad/view/company/companySignup/individual/fillDetail/company_individual_sign_up_fill_detail_screen.dart';
 import 'package:sanad/view/recruiter/navigation/about/about_screen.dart';
@@ -255,7 +257,6 @@ class AppRoutes {
     ),
 
     // Company Design
-
     GetPage(
       name: RoutesName.companySignUpScreen,
       page: () => CompanySignUpScreen(),
@@ -285,8 +286,22 @@ class AppRoutes {
       curve: Curves.easeInOut,
     ),
     GetPage(
+      name: RoutesName.companyVerifyEmailScreen,
+      page: () => CompanyVerifyEmailScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
       name: RoutesName.forgetPasswordScreen,
       page: () => ForgetPasswordScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.companyOtpScreen,
+      page: () => CompanyOTPScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
@@ -307,6 +322,13 @@ class AppRoutes {
     ),
     GetPage(
       name: RoutesName.companyLoginScreen,
+      page: () => CompanyLoginScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.dashboardScreen,
       page: () => CompanyLoginScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
