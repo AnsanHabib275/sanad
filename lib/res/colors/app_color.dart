@@ -22,12 +22,20 @@ class AppColor {
   static const Color selectedBnTextColor = Color(0xFF339DAC);
   static const Color tabSelectedTextColor = Color(0xFF339DAC);
   static const Color blueColor = Color(0xFF068EFF);
+  static const Color walletBgColor = Color(0xFFFEF8C3);
+  static const Color addPhotoBgColor = Color(0xFFFFC872);
   static Color primaryWith30Per = Color(
     0xFF008597,
   ).withAlpha((0.3 * 255).toInt());
   static Color primaryChartColorWith0Per = Color(
     0xFF95A4FC,
   ).withAlpha((0.0 * 255).toInt());
+  static Color cvSubmittedCardBgColor20Per = Color(
+    0xFF047481,
+  ).withAlpha((0.2 * 255).toInt());
+  static Color cvAcceptedCardBgColor20Per = Color(
+    0xFF0188FF,
+  ).withAlpha((0.2 * 255).toInt());
 
   // Light Theme Colors
   static const Color primaryColor = Color(0xFF008597);

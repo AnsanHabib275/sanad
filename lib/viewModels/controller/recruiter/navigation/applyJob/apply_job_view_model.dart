@@ -17,6 +17,7 @@ class ApplyJobViewModel extends GetxController {
   RxBool isCheckRelocate = false.obs;
   RxBool isCheckPortfolio = false.obs;
   RxBool isCheckCertification = false.obs;
+  var selectedPrograms = <String>[].obs;
   RxString errorMessage = ''.obs;
 
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
@@ -24,6 +25,14 @@ class ApplyJobViewModel extends GetxController {
 
   void setSelectionTab(String tabText) {
     selectedTab.value = tabText;
+  }
+
+  void toggleSelection(String program) {
+    if (selectedPrograms.contains(program)) {
+      selectedPrograms.remove(program);
+    } else {
+      selectedPrograms.add(program);
+    }
   }
 
   void applyJobApi() {

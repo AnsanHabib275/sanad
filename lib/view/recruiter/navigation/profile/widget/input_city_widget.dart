@@ -4,7 +4,6 @@ import 'package:sanad/utils/utils.dart';
 
 import '../../../../../viewModels/controller/recruiter/navigation/updateProfile/update_profile_view_model.dart';
 
-
 class InputCityWidget extends StatelessWidget {
   InputCityWidget({super.key});
 
@@ -20,7 +19,7 @@ class InputCityWidget extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'city_error'.tr;
+            return 'city_or_state_error'.tr;
           }
           return null;
         },
@@ -33,7 +32,7 @@ class InputCityWidget extends StatelessWidget {
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hint: Text('city_hint'.tr),
+          hint: Text('city_or_state_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               updateProfileVM.errorMessage.value.isEmpty

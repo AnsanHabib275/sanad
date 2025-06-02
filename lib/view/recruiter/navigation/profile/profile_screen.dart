@@ -9,7 +9,6 @@ import '../../../../res/urls/app_url.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/userPreference/user_preference_view_model.dart';
 
-
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -86,14 +85,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               radius: Get.height * Utils.getResponsiveSize(24),
                               child:
                                   userVM.userImageURL.isEmpty
-                                      ?
-                              Image.asset(
-                                ImageAssets.imgDummyProfile,
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(48),
-                                width: Get.width * Utils.getResponsiveWidth(48),
-                                fit: BoxFit.cover,
-                              )
+                                      ? Image.asset(
+                                        ImageAssets.imgDummyProfile,
+                                        height:
+                                            Get.height *
+                                            Utils.getResponsiveHeight(48),
+                                        width:
+                                            Get.width *
+                                            Utils.getResponsiveWidth(48),
+                                        fit: BoxFit.cover,
+                                      )
                                       : ClipOval(
                                         child: Image.network(
                                           AppUrl.baseUrl +
@@ -105,6 +106,45 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               Get.width *
                                               Utils.getResponsiveWidth(48),
                                           fit: BoxFit.cover,
+                                          loadingBuilder: (
+                                            context,
+                                            child,
+                                            loadingProgress,
+                                          ) {
+                                            if (loadingProgress == null) {
+                                              return child;
+                                            }
+                                            return Center(
+                                              child: CircularProgressIndicator(
+                                                value:
+                                                    loadingProgress
+                                                                .expectedTotalBytes !=
+                                                            null
+                                                        ? loadingProgress
+                                                                .cumulativeBytesLoaded /
+                                                            (loadingProgress
+                                                                    .expectedTotalBytes ??
+                                                                1)
+                                                        : null,
+                                              ),
+                                            );
+                                          },
+                                          errorBuilder: (
+                                            context,
+                                            error,
+                                            stackTrace,
+                                          ) {
+                                            return Image.asset(
+                                              ImageAssets.imgDummyProfile,
+                                              height:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(48),
+                                              width:
+                                                  Get.width *
+                                                  Utils.getResponsiveWidth(48),
+                                              fit: BoxFit.cover,
+                                            );
+                                          },
                                         ),
                                       ),
                             ),
@@ -146,7 +186,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: Get.height * Utils.getResponsiveHeight(32),
                             width: Get.width * Utils.getResponsiveWidth(32),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).extension<AppColors>()?.buttonBg,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.buttonBg,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(
                                   Get.height * Utils.getResponsiveHeight(9999),
@@ -211,30 +254,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             alignment: Alignment.center,
                             child: SizedBox(
                               height:
-                                  Get.height *
-                                  Utils.getResponsiveHeight(95),
-                              width:
-                                  Get.width *
-                                  Utils.getResponsiveWidth(95),
+                                  Get.height * Utils.getResponsiveHeight(95),
+                              width: Get.width * Utils.getResponsiveWidth(95),
                               child: Obx(() {
                                 return CircleAvatar(
                                   radius:
-                                      Get.height *
-                                      Utils.getResponsiveSize(47),
+                                      Get.height * Utils.getResponsiveSize(47),
                                   child:
                                       userVM.userImageURL.isEmpty
                                           ? Image.asset(
                                             ImageAssets.imgDummyPicture,
                                             height:
                                                 Get.height *
-                                                Utils.getResponsiveHeight(
-                                                  95,
-                                                ),
+                                                Utils.getResponsiveHeight(95),
                                             width:
                                                 Get.width *
-                                                Utils.getResponsiveWidth(
-                                                  95,
-                                                ),
+                                                Utils.getResponsiveWidth(95),
                                             fit: BoxFit.cover,
                                           )
                                           : ClipOval(
@@ -246,21 +281,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               fit: BoxFit.cover,
                                               height:
                                                   Get.height *
-                                                  Utils.getResponsiveHeight(
-                                                    95,
-                                                  ),
+                                                  Utils.getResponsiveHeight(95),
                                               width:
                                                   Get.width *
-                                                  Utils.getResponsiveWidth(
-                                                    95,
-                                                  ),
+                                                  Utils.getResponsiveWidth(95),
                                               loadingBuilder: (
                                                 context,
                                                 child,
                                                 loadingProgress,
                                               ) {
-                                                if (loadingProgress ==
-                                                    null) {
+                                                if (loadingProgress == null) {
                                                   return child;
                                                 }
                                                 return Center(
@@ -271,7 +301,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                                 null
                                                             ? loadingProgress
                                                                     .cumulativeBytesLoaded /
-                                                                (loadingProgress.expectedTotalBytes ??
+                                                                (loadingProgress
+                                                                        .expectedTotalBytes ??
                                                                     1)
                                                             : null,
                                                   ),
@@ -283,8 +314,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                 stackTrace,
                                               ) {
                                                 return Image.asset(
-                                                  ImageAssets
-                                                      .imgDummyPicture,
+                                                  ImageAssets.imgDummyPicture,
                                                   height:
                                                       Get.height *
                                                       Utils.getResponsiveHeight(

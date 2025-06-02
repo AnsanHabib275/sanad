@@ -22,7 +22,8 @@ class AdditionalRequirementsJobScreen extends StatefulWidget {
 
 class _AdditionalRequirementsJobScreenState
     extends State<AdditionalRequirementsJobScreen> {
-  final applyJobVM = Get.put(ApplyJobViewModel);
+  // final applyJobVM = Get.put(ApplyJobViewModel());
+  final applyJobVM = Get.find<ApplyJobViewModel>();
 
   final isPrivate = Get.arguments['isPrivate'] ?? false;
   final jobName = Get.arguments['jobName'] ?? '';
@@ -68,451 +69,366 @@ class _AdditionalRequirementsJobScreenState
               ),
             ),
           ),
-          body: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: Get.width * Utils.getResponsiveWidth(16),
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
+          body: LayoutBuilder(
+            builder: (context, constraints) {
+              return Column(
                 children: [
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
-                  AdditionalRequirementsJobTabBar(),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).extension<AppColors>()?.cardBg,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          Get.height * Utils.getResponsiveHeight(8),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Get.width * Utils.getResponsiveWidth(16),
                         ),
-                      ),
-                      border: Border.all(
-                        color: Theme.of(context).dividerColor,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: Get.height * Utils.getResponsiveHeight(16),
-                        horizontal: Get.width * Utils.getResponsiveWidth(16),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                jobName,
-                                style: TextStyle(
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(20),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w700,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                ),
-                              ),
-                              SizedBox(
-                                width: Get.width * Utils.getResponsiveWidth(12),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color:
-                                      Theme.of(
-                                        context,
-                                      ).extension<AppColors>()?.containerBg,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(
-                                      Get.height * Utils.getResponsiveHeight(6),
-                                    ),
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width *
-                                        Utils.getResponsiveWidth(10),
-                                    vertical:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(2),
-                                  ),
-                                  child: Text(
-                                    isPrivate
-                                        ? 'private_job'.tr
-                                        : 'public_job'.tr,
-                                    style: TextStyle(
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
-                                      fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w500,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Spacer(),
-                              Image.asset(
-                                IconAssets.icDisable,
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(24),
-                                width: Get.width * Utils.getResponsiveWidth(24),
-                              ),
-                              SizedBox(
-                                width: Get.width * Utils.getResponsiveWidth(8),
-                              ),
-                              Image.asset(
-                                IconAssets.icBookmark,
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(24),
-                                width: Get.width * Utils.getResponsiveWidth(24),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(12),
-                          ),
-                          Text(
-                            companyName.toString(),
-                            style: TextStyle(
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textSecondaryColor,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SizedBox(
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(16),
                             ),
-                          ),
-                          Text(
-                            location.toString(),
-                            style: TextStyle(
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textSecondaryColor,
+                            AdditionalRequirementsJobTabBar(),
+                            SizedBox(
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(16),
                             ),
-                          ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  color:
-                                      Theme.of(
-                                        context,
-                                      ).extension<AppColors>()?.containerBg,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(
-                                      Get.height * Utils.getResponsiveHeight(6),
-                                    ),
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width *
-                                        Utils.getResponsiveWidth(10),
-                                    vertical:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(2),
-                                  ),
-                                  child: Text(
-                                    jobType.toString(),
-                                    style: TextStyle(
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
-                                      fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w500,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: Get.width * Utils.getResponsiveWidth(8),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color:
-                                      Theme.of(
-                                        context,
-                                      ).extension<AppColors>()?.containerBg,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(
-                                      Get.height * Utils.getResponsiveHeight(6),
-                                    ),
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width *
-                                        Utils.getResponsiveWidth(10),
-                                    vertical:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(2),
-                                  ),
-                                  child: Text(
-                                    salaryRange.toString(),
-                                    style: TextStyle(
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
-                                      fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w500,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).extension<AppColors>()?.cardBg,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          Get.height * Utils.getResponsiveHeight(8),
-                        ),
-                      ),
-                      border: Border.all(
-                        color: Theme.of(context).dividerColor,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(16),
-                        vertical: Get.height * Utils.getResponsiveHeight(16),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'additional_requirements'.tr,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(40),
-                          ),
-                          Text(
-                            'are_you_open_to_relocating'.tr,
-                            style: TextStyle(
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textSecondaryColor,
-                            ),
-                          ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.containerBg,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(
-                                  Get.height * Utils.getResponsiveHeight(8),
-                                ),
-                              ),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal:
-                                    Get.width * Utils.getResponsiveWidth(12),
-                                vertical:
+                            Container(
+                              decoration: BoxDecoration(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).extension<AppColors>()?.cardBg,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
                                     Get.height * Utils.getResponsiveHeight(8),
-                              ),
-                              child: Text(
-                                'open_to_relocating'.tr,
-                                style: TextStyle(
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(12),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
+                                  ),
+                                ),
+                                border: Border.all(
+                                  color: Theme.of(context).dividerColor,
+                                  width: 1.0,
                                 ),
                               ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(56),
-                          ),
-                          Text(
-                            'software_programs_do_you_know'.tr,
-                            style: TextStyle(
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textSecondaryColor,
-                            ),
-                          ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
-                          Flexible(
-                            child: ConstrainedBox(
-                              constraints: BoxConstraints(
-                                maxWidth: containerWidth,
-                              ),
-                              child: ListView.separated(
-                                shrinkWrap: true,
-                                physics: BouncingScrollPhysics(),
-                                itemCount: softwarePrograms.length,
-                                separatorBuilder:
-                                    (context, index) => SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(12),
-                                    ),
-                                itemBuilder: (context, index) {
-                                  return SoftwareProgramCartWidget(
-                                    softwareProgram: softwarePrograms[index],
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(32),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.cardBg,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(
-                                  Get.height * Utils.getResponsiveHeight(8),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                  vertical:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(16),
+                                  horizontal:
+                                      Get.width * Utils.getResponsiveWidth(16),
                                 ),
-                              ),
-                              border: Border.all(
-                                color: Theme.of(context).dividerColor,
-                                width: 1.0,
-                              ),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal:
-                                    Get.width * Utils.getResponsiveWidth(16),
-                                vertical:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(8),
-                                  ),
-                                  Text(
-                                    'how_many_years_of_experience'.tr,
-                                    style: TextStyle(
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(14),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w500,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textSecondaryColor,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(20),
-                                  ),
-                                  SizedBox(
-                                    height: 36,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
                                       children: [
-                                        Expanded(
-                                          child: InputExperienceYearWidget(),
+                                        Text(
+                                          jobName,
+                                          style: TextStyle(
+                                            fontSize:
+                                                Get.height *
+                                                Utils.getResponsiveSize(20),
+                                            fontFamily: 'Manrope',
+                                            fontWeight: FontWeight.w700,
+                                            color:
+                                                Theme.of(context)
+                                                    .extension<AppColors>()
+                                                    ?.textPrimaryColor,
+                                          ),
                                         ),
                                         SizedBox(
                                           width:
                                               Get.width *
-                                              Utils.getResponsiveWidth(100),
+                                              Utils.getResponsiveWidth(12),
                                         ),
                                         Container(
-                                          width:
-                                              Get.width *
-                                              Utils.getResponsiveWidth(68),
-                                          height:
-                                              Get.height *
-                                              Utils.getResponsiveHeight(38),
                                           decoration: BoxDecoration(
                                             color:
-                                                Theme.of(
-                                                  context,
-                                                ).extension<AppColors>()?.bg,
+                                                Theme.of(context)
+                                                    .extension<AppColors>()
+                                                    ?.containerBg,
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(
+                                                Get.height *
+                                                    Utils.getResponsiveHeight(
+                                                      6,
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal:
+                                                  Get.width *
+                                                  Utils.getResponsiveWidth(10),
+                                              vertical:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(2),
+                                            ),
+                                            child: Text(
+                                              isPrivate
+                                                  ? 'private_job'.tr
+                                                  : 'public_job'.tr,
+                                              style: TextStyle(
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(12),
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.w500,
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Spacer(),
+                                        Image.asset(
+                                          IconAssets.icDisable,
+                                          height:
+                                              Get.height *
+                                              Utils.getResponsiveHeight(24),
+                                          width:
+                                              Get.width *
+                                              Utils.getResponsiveWidth(24),
+                                        ),
+                                        SizedBox(
+                                          width:
+                                              Get.width *
+                                              Utils.getResponsiveWidth(8),
+                                        ),
+                                        Image.asset(
+                                          IconAssets.icBookmark,
+                                          height:
+                                              Get.height *
+                                              Utils.getResponsiveHeight(24),
+                                          width:
+                                              Get.width *
+                                              Utils.getResponsiveWidth(24),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height:
+                                          Get.height *
+                                          Utils.getResponsiveHeight(12),
+                                    ),
+                                    Text(
+                                      companyName.toString(),
+                                      style: TextStyle(
+                                        fontSize:
+                                            Get.height *
+                                            Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textSecondaryColor,
+                                      ),
+                                    ),
+                                    Text(
+                                      location.toString(),
+                                      style: TextStyle(
+                                        fontSize:
+                                            Get.height *
+                                            Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textSecondaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height:
+                                          Get.height *
+                                          Utils.getResponsiveHeight(24),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            color:
+                                                Theme.of(context)
+                                                    .extension<AppColors>()
+                                                    ?.containerBg,
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(
+                                                Get.height *
+                                                    Utils.getResponsiveHeight(
+                                                      6,
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal:
+                                                  Get.width *
+                                                  Utils.getResponsiveWidth(10),
+                                              vertical:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(2),
+                                            ),
+                                            child: Text(
+                                              jobType.toString(),
+                                              style: TextStyle(
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(12),
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.w500,
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width:
+                                              Get.width *
+                                              Utils.getResponsiveWidth(8),
+                                        ),
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            color:
+                                                Theme.of(context)
+                                                    .extension<AppColors>()
+                                                    ?.containerBg,
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(
+                                                Get.height *
+                                                    Utils.getResponsiveHeight(
+                                                      6,
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal:
+                                                  Get.width *
+                                                  Utils.getResponsiveWidth(10),
+                                              vertical:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(2),
+                                            ),
+                                            child: Text(
+                                              salaryRange.toString(),
+                                              style: TextStyle(
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(12),
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.w500,
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(16),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).extension<AppColors>()?.cardBg,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    Get.height * Utils.getResponsiveHeight(8),
+                                  ),
+                                ),
+                                border: Border.all(
+                                  color: Theme.of(context).dividerColor,
+                                  width: 1.0,
+                                ),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      Get.width * Utils.getResponsiveWidth(16),
+                                  vertical:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(16),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      'additional_requirements'.tr,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                        fontSize:
+                                            Get.height *
+                                            Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height:
+                                          Get.height *
+                                          Utils.getResponsiveHeight(40),
+                                    ),
+                                    Text(
+                                      'are_you_open_to_relocating'.tr,
+                                      style: TextStyle(
+                                        fontSize:
+                                            Get.height *
+                                            Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textSecondaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height:
+                                          Get.height *
+                                          Utils.getResponsiveHeight(24),
+                                    ),
+                                    Obx(() {
+                                      return GestureDetector(
+                                        onTap: () {
+                                          applyJobVM.isCheckRelocate.value =
+                                              !applyJobVM.isCheckRelocate.value;
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color:
+                                                applyJobVM.isCheckRelocate.value
+                                                    ? AppColor.primaryColor
+                                                    : Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.containerBg,
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(
                                                 Get.height *
@@ -521,25 +437,133 @@ class _AdditionalRequirementsJobScreenState
                                                     ),
                                               ),
                                             ),
-                                            border: Border.all(
-                                              color:
-                                                  Theme.of(
-                                                    context,
-                                                  ).dividerColor,
-                                              width: 1.0,
-                                            ),
                                           ),
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
                                               horizontal:
                                                   Get.width *
-                                                  Utils.getResponsiveWidth(16),
+                                                  Utils.getResponsiveWidth(12),
                                               vertical:
                                                   Get.height *
                                                   Utils.getResponsiveHeight(8),
                                             ),
                                             child: Text(
-                                              'year'.tr,
+                                              'open_to_relocating'.tr,
+                                              style: TextStyle(
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(12),
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                color:
+                                                    applyJobVM
+                                                            .isCheckRelocate
+                                                            .value
+                                                        ? AppColor
+                                                            .primaryButtonTextColor
+                                                        : Theme.of(context)
+                                                            .extension<
+                                                              AppColors
+                                                            >()
+                                                            ?.textPrimaryColor,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                                    SizedBox(
+                                      height:
+                                          Get.height *
+                                          Utils.getResponsiveHeight(56),
+                                    ),
+                                    Text(
+                                      'software_programs_do_you_know'.tr,
+                                      style: TextStyle(
+                                        fontSize:
+                                            Get.height *
+                                            Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textSecondaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height:
+                                          Get.height *
+                                          Utils.getResponsiveHeight(24),
+                                    ),
+                                    ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                        maxWidth: containerWidth,
+                                      ),
+                                      child: ListView.separated(
+                                        shrinkWrap: true,
+                                        physics: NeverScrollableScrollPhysics(),
+                                        itemCount: softwarePrograms.length,
+                                        separatorBuilder:
+                                            (context, index) => SizedBox(
+                                              height:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(12),
+                                            ),
+                                        itemBuilder: (context, index) {
+                                          return SoftwareProgramCartWidget(
+                                            softwareProgram:
+                                                softwarePrograms[index],
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height:
+                                          Get.height *
+                                          Utils.getResponsiveHeight(32),
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color:
+                                            Theme.of(
+                                              context,
+                                            ).extension<AppColors>()?.cardBg,
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(
+                                            Get.height *
+                                                Utils.getResponsiveHeight(8),
+                                          ),
+                                        ),
+                                        border: Border.all(
+                                          color: Theme.of(context).dividerColor,
+                                          width: 1.0,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal:
+                                              Get.width *
+                                              Utils.getResponsiveWidth(16),
+                                          vertical:
+                                              Get.height *
+                                              Utils.getResponsiveHeight(16),
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            SizedBox(
+                                              height:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(8),
+                                            ),
+                                            Text(
+                                              'how_many_years_of_experience'.tr,
                                               style: TextStyle(
                                                 fontSize:
                                                     Get.height *
@@ -547,34 +571,140 @@ class _AdditionalRequirementsJobScreenState
                                                 fontFamily: 'Manrope',
                                                 fontWeight: FontWeight.w500,
                                                 color:
-                                                    AppColor.textSecondaryColor,
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textSecondaryColor,
                                               ),
                                             ),
-                                          ),
+                                            SizedBox(
+                                              height:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(20),
+                                            ),
+                                            SizedBox(
+                                              height: 36,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.end,
+                                                children: [
+                                                  Expanded(
+                                                    child:
+                                                        InputExperienceYearWidget(),
+                                                  ),
+                                                  SizedBox(
+                                                    width:
+                                                        Get.width *
+                                                        Utils.getResponsiveWidth(
+                                                          100,
+                                                        ),
+                                                  ),
+                                                  Container(
+                                                    width:
+                                                        Get.width *
+                                                        Utils.getResponsiveWidth(
+                                                          68,
+                                                        ),
+                                                    height:
+                                                        Get.height *
+                                                        Utils.getResponsiveHeight(
+                                                          38,
+                                                        ),
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          Theme.of(context)
+                                                              .extension<
+                                                                AppColors
+                                                              >()
+                                                              ?.bg,
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                            Radius.circular(
+                                                              Get.height *
+                                                                  Utils.getResponsiveHeight(
+                                                                    8,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                      border: Border.all(
+                                                        color:
+                                                            Theme.of(
+                                                              context,
+                                                            ).dividerColor,
+                                                        width: 1.0,
+                                                      ),
+                                                    ),
+                                                    child: Padding(
+                                                      padding: EdgeInsets.symmetric(
+                                                        horizontal:
+                                                            Get.width *
+                                                            Utils.getResponsiveWidth(
+                                                              16,
+                                                            ),
+                                                        vertical:
+                                                            Get.height *
+                                                            Utils.getResponsiveHeight(
+                                                              8,
+                                                            ),
+                                                      ),
+                                                      child: Text(
+                                                        'year'.tr,
+                                                        style: TextStyle(
+                                                          fontSize:
+                                                              Get.height *
+                                                              Utils.getResponsiveSize(
+                                                                14,
+                                                              ),
+                                                          fontFamily: 'Manrope',
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color:
+                                                              AppColor
+                                                                  .textSecondaryColor,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
                                         ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height:
+                                          Get.height *
+                                          Utils.getResponsiveHeight(16),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        BackButtonWidget(),
+                                        NextButtonWidget(),
                                       ],
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(16),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [BackButtonWidget(), NextButtonWidget()],
-                          ),
-                        ],
+                            SizedBox(
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(20),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(20)),
                 ],
-              ),
-            ),
+              );
+            },
           ),
         ),
       ),

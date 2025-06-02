@@ -41,6 +41,7 @@ class SignUpViewModel extends GetxController {
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
   RxBool isEnable = true.obs;
+  final selectedIndex = (-1).obs;
   RxString imagePath = ''.obs;
   RxString filePath = ''.obs;
   RxString imagePathError = ''.obs;

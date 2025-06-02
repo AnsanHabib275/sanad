@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/view/recruiter/navigation/profile/widget/input_city_widget.dart';
@@ -10,6 +12,7 @@ import 'package:sanad/view/recruiter/navigation/profile/widget/input_street_widg
 import 'package:sanad/view/recruiter/navigation/profile/widget/update_button_widget.dart';
 
 import '../../../../res/assets/image_assets.dart';
+import '../../../../res/colors/app_color.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/userPreference/user_preference_view_model.dart';
 import '../../../../res/assets/icon_assets.dart';
@@ -34,131 +37,112 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
-      child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-          leading: IconButton(
-            icon: Image.asset(
-              IconAssets.icArrowLeft,
-              height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),
-              color: Theme.of(context).iconTheme.color,
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+            leading: IconButton(
+              icon: Image.asset(
+                IconAssets.icArrowLeft,
+                height: Get.height * Utils.getResponsiveHeight(24),
+                width: Get.width * Utils.getResponsiveWidth(24),
+                color: Theme.of(context).iconTheme.color,
+              ),
+              onPressed: () => Get.back(),
             ),
-            onPressed: () => Get.back(),
-          ),
-          centerTitle: true,
-          title: Text('edit_profile'.tr),
-          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
-          shape: Border(
-            bottom: BorderSide(
-              color: Theme.of(context).dividerColor,
-              width: 1.0,
+            centerTitle: true,
+            title: Text('edit_profile'.tr),
+            titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
+            shape: Border(
+              bottom: BorderSide(
+                color: Theme.of(context).dividerColor,
+                width: 1.0,
+              ),
             ),
           ),
-        ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: Get.width * Utils.getResponsiveWidth(16),
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
-                Text(
-                  'my_information'.tr,
-                  style: TextStyle(
-                    color:
-                        Theme.of(
-                          context,
-                        ).extension<AppColors>()?.textPrimaryColor,
-                    fontSize: Get.height * Utils.getResponsiveSize(18),
-                    fontFamily: 'Manrope',
-                    fontWeight: FontWeight.w600,
+          body: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: Get.width * Utils.getResponsiveWidth(16),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  Text(
+                    'my_information'.tr,
+                    style: TextStyle(
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textPrimaryColor,
+                      fontSize: Get.height * Utils.getResponsiveSize(18),
+                      fontFamily: 'Manrope',
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).extension<AppColors>()?.cardBg,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        Get.height * Utils.getResponsiveHeight(8),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(
+                          Get.height * Utils.getResponsiveHeight(8),
+                        ),
+                      ),
+                      border: Border.all(
+                        color: Theme.of(context).dividerColor,
+                        width: 1.0,
                       ),
                     ),
-                    border: Border.all(
-                      color: Theme.of(context).dividerColor,
-                      width: 1.0,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: Get.width * Utils.getResponsiveWidth(16),
-                      vertical: Get.height * Utils.getResponsiveHeight(16),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Align(
-                          alignment: Alignment.center,
-                          child: SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(110),
-                            width: Get.width * Utils.getResponsiveWidth(102),
-                            child: InkWell(
-                              onTap: () {
-                                _showImageSourceDialog(context);
-                              },
-                              child: Stack(
-                                children: [
-                                  Positioned(
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    child: InkWell(
-                                      onTap: () {
-                                        _showImageSourceDialog(context);
-                                      },
-                                      child: SizedBox(
-                                        height:
-                                            Get.height *
-                                            Utils.getResponsiveHeight(95),
-                                        width:
-                                            Get.width *
-                                            Utils.getResponsiveWidth(95),
-                                        child: Obx(() {
-                                          return CircleAvatar(
-                                            radius:
-                                                Get.height *
-                                                Utils.getResponsiveSize(47),
-                                            child:
-                                                userVM.userImageURL.isEmpty
-                                                    ? Image.asset(
-                                                      ImageAssets
-                                                          .imgDummyPicture,
-                                                      height:
-                                                          Get.height *
-                                                          Utils.getResponsiveHeight(
-                                                            95,
-                                                          ),
-                                                      width:
-                                                          Get.width *
-                                                          Utils.getResponsiveWidth(
-                                                            95,
-                                                          ),
-                                                      fit: BoxFit.cover,
-                                                    )
-                                                    : ClipOval(
-                                                      child: Image.network(
-                                                        // File(updateProfileVM
-                                                        //     .filePath.value),
-                                                        userVM
-                                                            .userImageURL
-                                                            .value,
-                                                        // The selected or updated image path
-                                                        fit: BoxFit.cover,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: Get.width * Utils.getResponsiveWidth(16),
+                        vertical: Get.height * Utils.getResponsiveHeight(16),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: Alignment.center,
+                            child: SizedBox(
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(112),
+                              width: Get.width * Utils.getResponsiveWidth(102),
+                              child: InkWell(
+                                onTap: () {
+                                  _showImageSourceDialog(context);
+                                },
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      top: 0,
+                                      left: 0,
+                                      right: 0,
+                                      child: InkWell(
+                                        onTap: () {
+                                          _showImageSourceDialog(context);
+                                        },
+                                        child: SizedBox(
+                                          height:
+                                              Get.height *
+                                              Utils.getResponsiveHeight(95),
+                                          width:
+                                              Get.width *
+                                              Utils.getResponsiveWidth(95),
+                                          child: Obx(() {
+                                            return CircleAvatar(
+                                              child:
+                                                  userVM.userImageURL.isNotEmpty
+                                                      ? Image.asset(
+                                                        ImageAssets
+                                                            .imgDummyPicture,
                                                         height:
                                                             Get.height *
                                                             Utils.getResponsiveHeight(
@@ -169,291 +153,362 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                                             Utils.getResponsiveWidth(
                                                               95,
                                                             ),
-                                                        loadingBuilder: (
-                                                          context,
-                                                          child,
-                                                          loadingProgress,
-                                                        ) {
-                                                          if (loadingProgress ==
-                                                              null) {
-                                                            return child;
-                                                          }
-                                                          return Center(
-                                                            child: CircularProgressIndicator(
-                                                              value:
-                                                                  loadingProgress
-                                                                              .expectedTotalBytes !=
-                                                                          null
-                                                                      ? loadingProgress
-                                                                              .cumulativeBytesLoaded /
-                                                                          (loadingProgress.expectedTotalBytes ??
-                                                                              1)
-                                                                      : null,
-                                                            ),
-                                                          );
-                                                        },
-                                                        errorBuilder: (
-                                                          context,
-                                                          error,
-                                                          stackTrace,
-                                                        ) {
-                                                          return Image.asset(
-                                                            ImageAssets
-                                                                .imgDummyPicture,
-                                                            height:
-                                                                Get.height *
-                                                                Utils.getResponsiveHeight(
-                                                                  95,
-                                                                ),
-                                                            width:
-                                                                Get.width *
-                                                                Utils.getResponsiveWidth(
-                                                                  95,
-                                                                ),
-                                                            fit: BoxFit.cover,
-                                                          );
-                                                        },
+                                                        fit: BoxFit.cover,
+                                                      )
+                                                      : ClipOval(
+                                                        child: Image.file(
+                                                          File(
+                                                            updateProfileVM
+                                                                .filePath
+                                                                .value,
+                                                          ),
+                                                          // userVM
+                                                          //     .userImageURL
+                                                          //     .value,
+                                                          // The selected or updated image path
+                                                          fit: BoxFit.cover,
+                                                          height:
+                                                              Get.height *
+                                                              Utils.getResponsiveHeight(
+                                                                95,
+                                                              ),
+                                                          width:
+                                                              Get.width *
+                                                              Utils.getResponsiveWidth(
+                                                                95,
+                                                              ),
+                                                          // loadingBuilder: (
+                                                          //   context,
+                                                          //   child,
+                                                          //   loadingProgress,
+                                                          // ) {
+                                                          //   if (loadingProgress ==
+                                                          //       null) {
+                                                          //     return child;
+                                                          //   }
+                                                          //   return Center(
+                                                          //     child: CircularProgressIndicator(
+                                                          //       value:
+                                                          //           loadingProgress
+                                                          //                       .expectedTotalBytes !=
+                                                          //                   null
+                                                          //               ? loadingProgress
+                                                          //                       .cumulativeBytesLoaded /
+                                                          //                   (loadingProgress.expectedTotalBytes ??
+                                                          //                       1)
+                                                          //               : null,
+                                                          //     ),
+                                                          //   );
+                                                          // },
+                                                          errorBuilder: (
+                                                            context,
+                                                            error,
+                                                            stackTrace,
+                                                          ) {
+                                                            return Image.asset(
+                                                              ImageAssets
+                                                                  .imgDummyPicture,
+                                                              height:
+                                                                  Get.height *
+                                                                  Utils.getResponsiveHeight(
+                                                                    95,
+                                                                  ),
+                                                              width:
+                                                                  Get.width *
+                                                                  Utils.getResponsiveWidth(
+                                                                    95,
+                                                                  ),
+                                                              fit: BoxFit.cover,
+                                                            );
+                                                          },
+                                                        ),
                                                       ),
-                                                    ),
-                                          );
-                                        }),
+                                            );
+                                          }),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    child: Image.asset(ImageAssets.imgAddPhoto),
-                                  ),
-                                ],
+                                    Positioned(
+                                      bottom: 0,
+                                      left: 0,
+                                      right: 0,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: AppColor.addPhotoBgColor,
+                                          borderRadius: BorderRadius.circular(
+                                            Get.height *
+                                                Utils.getResponsiveHeight(16),
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                Get.width *
+                                                Utils.getResponsiveWidth(18),
+                                            vertical:
+                                                Get.height *
+                                                Utils.getResponsiveHeight(9),
+                                          ),
+                                          child: Text(
+                                            'add_photo'.tr,
+                                            style: TextStyle(
+                                              fontSize:
+                                                  Get.height *
+                                                  Utils.getResponsiveSize(12),
+                                              fontFamily: 'Manrope',
+                                              fontWeight: FontWeight.w600,
+                                              color: AppColor.blackColor,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                        ),
-                        Form(
-                          key: formKey,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'first_name'.tr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(8),
-                              ),
-                              InputFirstNameWidget(),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
-                              Text(
-                                'last_name'.tr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(8),
-                              ),
-                              InputLastNameWidget(),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
-                              Text(
-                                'phone_number'.tr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(8),
-                              ),
-                              InputMobileNumberWidget(),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
-                              Text(
-                                'email'.tr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(8),
-                              ),
-                              InputEmailWidget(),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
-                              Text(
-                                'street'.tr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(8),
-                              ),
-                              InputStreetWidget(),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
-                              Text(
-                                'city_or_state'.tr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(8),
-                              ),
-                              InputCityWidget(),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
-                              Text(
-                                'postal_code'.tr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(8),
-                              ),
-                              InputPostalCodeWidget(),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
-                              Text(
-                                'country'.tr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(8),
-                              ),
-                              InputCountryWidget(),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
-                              Text(
-                                'tagline'.tr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(8),
-                              ),
-                              InputTaglineWidget(),
-                            ],
+                          SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(24),
                           ),
-                        ),
-                      ],
+                          Form(
+                            key: formKey,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'first_name'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                ),
+                                InputFirstNameWidget(),
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(16),
+                                ),
+                                Text(
+                                  'last_name'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                ),
+                                InputLastNameWidget(),
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(16),
+                                ),
+                                Text(
+                                  'phone_number'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                ),
+                                InputMobileNumberWidget(),
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(16),
+                                ),
+                                Text(
+                                  'email'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                ),
+                                InputEmailWidget(),
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(16),
+                                ),
+                                Text(
+                                  'street'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                ),
+                                InputStreetWidget(),
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(16),
+                                ),
+                                Text(
+                                  'city_or_state'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                ),
+                                InputCityWidget(),
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(16),
+                                ),
+                                Text(
+                                  'postal_code'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                ),
+                                InputPostalCodeWidget(),
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(16),
+                                ),
+                                Text(
+                                  'country'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                ),
+                                InputCountryWidget(),
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(16),
+                                ),
+                                Text(
+                                  'tagline'.tr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height:
+                                      Get.height * Utils.getResponsiveHeight(8),
+                                ),
+                                InputTaglineWidget(),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(54)),
-                UpdateButtonWidget(formKey: formKey),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(47)),
-              ],
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(54)),
+                  UpdateButtonWidget(formKey: formKey),
+                  SizedBox(height: Get.height * Utils.getResponsiveHeight(47)),
+                ],
+              ),
             ),
           ),
         ),

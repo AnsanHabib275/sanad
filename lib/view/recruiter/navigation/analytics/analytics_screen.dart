@@ -7,7 +7,9 @@ import 'package:sanad/view/recruiter/navigation/analytics/widget/analytics_chart
 
 import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
+import '../../../../res/urls/app_url.dart';
 import '../../../../utils/utils.dart';
+import '../../../../viewModels/controller/userPreference/user_preference_view_model.dart';
 
 class AnalyticsScreen extends StatefulWidget {
   const AnalyticsScreen({super.key});
@@ -17,6 +19,8 @@ class AnalyticsScreen extends StatefulWidget {
 }
 
 class _AnalyticsScreenState extends State<AnalyticsScreen> {
+  final userVM = Get.put(UserPreference());
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -150,10 +154,29 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                             ),
                           ],
                         ),
-                        Image.asset(
-                          ImageAssets.imgRiyalWallet,
-                          height: Get.height * Utils.getResponsiveHeight(48),
-                          width: Get.width * Utils.getResponsiveWidth(48),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: AppColor.walletBgColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                Get.height * Utils.getResponsiveHeight(4),
+                              ),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(8),
+                              vertical:
+                                  Get.height * Utils.getResponsiveHeight(8),
+                            ),
+                            child: Image.asset(
+                              ImageAssets.imgRiyalWallet,
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(32),
+                              width: Get.width * Utils.getResponsiveWidth(32),
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -187,11 +210,34 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                           ),
                           child: Row(
                             children: [
-                              Image.asset(
-                                ImageAssets.imgAllJobs,
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(48),
-                                width: Get.width * Utils.getResponsiveWidth(48),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.cvSubmittedCardBgColor20Per,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      Get.height * Utils.getResponsiveHeight(4),
+                                    ),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        Get.width *
+                                        Utils.getResponsiveWidth(12),
+                                    vertical:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(12),
+                                  ),
+                                  child: Image.asset(
+                                    ImageAssets.imgAllJobs,
+                                    height:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(24),
+                                    width:
+                                        Get.width *
+                                        Utils.getResponsiveWidth(24),
+                                  ),
+                                ),
                               ),
                               SizedBox(
                                 width: Get.width * Utils.getResponsiveWidth(16),
@@ -261,11 +307,34 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                           ),
                           child: Row(
                             children: [
-                              Image.asset(
-                                ImageAssets.imgActiveJobs,
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(48),
-                                width: Get.width * Utils.getResponsiveWidth(48),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.cvAcceptedCardBgColor20Per,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      Get.height * Utils.getResponsiveHeight(4),
+                                    ),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        Get.width *
+                                        Utils.getResponsiveWidth(12),
+                                    vertical:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(12),
+                                  ),
+                                  child: Image.asset(
+                                    ImageAssets.imgActiveJobs,
+                                    height:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(24),
+                                    width:
+                                        Get.width *
+                                        Utils.getResponsiveWidth(24),
+                                  ),
+                                ),
                               ),
                               SizedBox(
                                 width: Get.width * Utils.getResponsiveWidth(16),
@@ -391,9 +460,10 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                  color: Theme.of(context)
-                                      .extension<AppColors>()!
-                                      .cvSubmittedCardBgColor,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()!
+                                          .cvSubmittedCardBgColor,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(
                                       Get.height * Utils.getResponsiveHeight(8),
@@ -415,13 +485,17 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Container(
-                                        height: Get.height * Utils.getResponsiveHeight(32),
-                                        width: Get.width * Utils.getResponsiveWidth(32),
+                                        height:
+                                            Get.height *
+                                            Utils.getResponsiveHeight(32),
+                                        width:
+                                            Get.width *
+                                            Utils.getResponsiveWidth(32),
                                         decoration: BoxDecoration(
                                           color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()!
-                                              .cvSubmittedCountBgColor,
+                                              Theme.of(context)
+                                                  .extension<AppColors>()!
+                                                  .cvSubmittedCountBgColor,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(
                                               Get.height *
@@ -480,9 +554,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   color:
-                                  Theme.of(context)
-                                      .extension<AppColors>()!
-                                      .cvAcceptedCardBgColor,
+                                      Theme.of(context)
+                                          .extension<AppColors>()!
+                                          .cvAcceptedCardBgColor,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(
                                       Get.height * Utils.getResponsiveHeight(8),
@@ -504,8 +578,12 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Container(
-                                        height: Get.height * Utils.getResponsiveHeight(32),
-                                        width: Get.width * Utils.getResponsiveWidth(32),
+                                        height:
+                                            Get.height *
+                                            Utils.getResponsiveHeight(32),
+                                        width:
+                                            Get.width *
+                                            Utils.getResponsiveWidth(32),
                                         decoration: BoxDecoration(
                                           color:
                                               Theme.of(context)
@@ -596,11 +674,72 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                       children: [
                         Row(
                           children: [
-                            Image.asset(
-                              ImageAssets.imgDummyProfile,
-                              height:
-                              Get.height * Utils.getResponsiveHeight(64),
-                              width: Get.width * Utils.getResponsiveWidth(64),
+                            CircleAvatar(
+                              radius: Get.height * Utils.getResponsiveSize(32),
+                              child:
+                                  userVM.userImageURL.isEmpty
+                                      ? Image.asset(
+                                        ImageAssets.imgDummyProfile,
+                                        height:
+                                            Get.height *
+                                            Utils.getResponsiveHeight(64),
+                                        width:
+                                            Get.width *
+                                            Utils.getResponsiveWidth(64),
+                                        fit: BoxFit.cover,
+                                      )
+                                      : ClipOval(
+                                        child: Image.network(
+                                          AppUrl.baseUrl +
+                                              userVM.userImageURL.value,
+                                          height:
+                                              Get.height *
+                                              Utils.getResponsiveHeight(64),
+                                          width:
+                                              Get.width *
+                                              Utils.getResponsiveWidth(64),
+                                          fit: BoxFit.cover,
+                                          loadingBuilder: (
+                                            context,
+                                            child,
+                                            loadingProgress,
+                                          ) {
+                                            if (loadingProgress == null) {
+                                              return child;
+                                            }
+                                            return Center(
+                                              child: CircularProgressIndicator(
+                                                value:
+                                                    loadingProgress
+                                                                .expectedTotalBytes !=
+                                                            null
+                                                        ? loadingProgress
+                                                                .cumulativeBytesLoaded /
+                                                            (loadingProgress
+                                                                    .expectedTotalBytes ??
+                                                                1)
+                                                        : null,
+                                              ),
+                                            );
+                                          },
+                                          errorBuilder: (
+                                            context,
+                                            error,
+                                            stackTrace,
+                                          ) {
+                                            return Image.asset(
+                                              ImageAssets.imgDummyProfile,
+                                              height:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(64),
+                                              width:
+                                                  Get.width *
+                                                  Utils.getResponsiveWidth(64),
+                                              fit: BoxFit.cover,
+                                            );
+                                          },
+                                        ),
+                                      ),
                             ),
                             SizedBox(
                               width: Get.width * Utils.getResponsiveWidth(14),
@@ -613,77 +752,80 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                   'Mohsin Noor ',
                                   style: TextStyle(
                                     color:
-                                    Theme.of(context)
-                                        .extension<AppColors>()
-                                        ?.textPrimaryColor,
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w700,
                                     fontSize:
-                                    Get.height *
+                                        Get.height *
                                         Utils.getResponsiveSize(17),
                                   ),
                                 ),
                                 SizedBox(
-                                  width: Get.width * Utils.getResponsiveWidth(3),
+                                  width:
+                                      Get.width * Utils.getResponsiveWidth(3),
                                 ),
                                 Text(
                                   'Top Rated Recruiter',
                                   style: TextStyle(
                                     color:
-                                    Theme.of(context)
-                                        .extension<AppColors>()
-                                        ?.textSecondaryColor,
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textSecondaryColor,
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                     fontSize:
-                                    Get.height *
+                                        Get.height *
                                         Utils.getResponsiveSize(11),
                                   ),
                                 ),
                                 SizedBox(
-                                  width: Get.width * Utils.getResponsiveWidth(3),
+                                  width:
+                                      Get.width * Utils.getResponsiveWidth(3),
                                 ),
                                 RatingBar.builder(
                                   initialRating: 5.0,
                                   minRating: 0.0,
                                   direction: Axis.horizontal,
                                   allowHalfRating: true,
-                                  unratedColor: Theme.of(context).iconTheme.color,
+                                  unratedColor:
+                                      Theme.of(context).iconTheme.color,
                                   glow: true,
                                   glowColor: AppColor.ratedStarColor,
                                   itemCount: 5,
-                                  itemSize: Get.height * Utils.getResponsiveSize(13),
+                                  itemSize:
+                                      Get.height * Utils.getResponsiveSize(13),
                                   itemPadding: EdgeInsets.symmetric(
                                     horizontal:
-                                    Get.width * Utils.getResponsiveWidth(3),
+                                        Get.width * Utils.getResponsiveWidth(3),
                                   ),
                                   itemBuilder:
                                       (context, _) => Image.asset(
-                                    IconAssets.icRatingFilled,
-                                    // color: AppColor.ratedStarColor,
-                                  ),
-                                  onRatingUpdate: (rating)
-                                  {
+                                        IconAssets.icRatingFilled,
+                                        // color: AppColor.ratedStarColor,
+                                      ),
+                                  onRatingUpdate: (rating) {
                                     // => rateUsVM.rating.value = rating,
-                                  }
+                                  },
                                 ),
                               ],
                             ),
                           ],
                         ),
-                        SizedBox(height: Get.height * Utils.getResponsiveHeight(10)),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(10),
+                        ),
                         Text(
                           'recruiter_comment'.tr,
                           style: TextStyle(
                             color:
-                            Theme.of(context)
-                                .extension<AppColors>()
-                                ?.textSecondaryColor,
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
-                            fontSize:
-                            Get.height *
-                                Utils.getResponsiveSize(11),
+                            fontSize: Get.height * Utils.getResponsiveSize(11),
                           ),
                         ),
                       ],

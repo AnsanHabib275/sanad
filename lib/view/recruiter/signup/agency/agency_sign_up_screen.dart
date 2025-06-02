@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/view/recruiter/signup/agency/widget/continue_button_widget.dart';
 import 'package:sanad/view/recruiter/signup/agency/widget/input_agency_name_widget.dart';
@@ -23,6 +24,12 @@ class AgencySignUpScreen extends StatefulWidget {
 class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
   final signUpVM = Get.put(SignUpViewModel());
   final formKey = GlobalKey<FormState>();
+  final items = [
+    'self_employed',
+    'two_to_ten',
+    'eleven_to_fifty',
+    'fifty_one_to_two_hundred',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +190,35 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                               bottom: 0,
                               left: 0,
                               right: 0,
-                              child: Image.asset(ImageAssets.imgAddPhoto),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.addPhotoBgColor,
+                                  borderRadius: BorderRadius.circular(
+                                    Get.height * Utils.getResponsiveHeight(16),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        Get.width *
+                                        Utils.getResponsiveWidth(18),
+                                    vertical:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(9),
+                                  ),
+                                  child: Text(
+                                    'add_photo'.tr,
+                                    style: TextStyle(
+                                      fontSize:
+                                          Get.height *
+                                          Utils.getResponsiveSize(12),
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColor.blackColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -293,158 +328,65 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                         SizedBox(
                           height: Get.height * Utils.getResponsiveHeight(8),
                         ),
-                        Row(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color:
-                                    Theme.of(
-                                      context,
-                                    ).extension<AppColors>()?.containerBg,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    Get.height * Utils.getResponsiveHeight(8),
-                                  ),
+                        Obx(
+                          () => Row(
+                            children: List.generate(items.length, (index) {
+                              final isSelected =
+                                  signUpVM.selectedIndex.value == index;
+                              return Padding(
+                                padding: EdgeInsets.only(
+                                  right:
+                                      Get.width * Utils.getResponsiveWidth(6),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      Get.width * Utils.getResponsiveWidth(12),
-                                  vertical:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
-                                child: Text(
-                                  'self_employed'.tr,
-                                  style: TextStyle(
-                                    fontSize:
+                                child: GestureDetector(
+                                  onTap: () {
+                                    signUpVM.selectedIndex.value = index;
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color:
+                                          isSelected
+                                              ? AppColor.primaryColor
+                                              : Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.containerBg,
+                                      borderRadius: BorderRadius.circular(
                                         Get.height *
-                                        Utils.getResponsiveSize(12),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w500,
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
+                                            Utils.getResponsiveHeight(8),
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            Get.width *
+                                            Utils.getResponsiveWidth(12),
+                                        vertical:
+                                            Get.height *
+                                            Utils.getResponsiveHeight(8),
+                                      ),
+                                      child: Text(
+                                        items[index].tr,
+                                        style: TextStyle(
+                                          fontSize:
+                                              Get.height *
+                                              Utils.getResponsiveSize(12),
+                                          fontFamily: 'Manrope',
+                                          fontWeight: FontWeight.w500,
+                                          color:
+                                              isSelected
+                                                  ? AppColor
+                                                      .primaryButtonTextColor
+                                                  : Theme.of(context)
+                                                      .extension<AppColors>()
+                                                      ?.textPrimaryColor,
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(8),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                color:
-                                    Theme.of(
-                                      context,
-                                    ).extension<AppColors>()?.containerBg,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    Get.height * Utils.getResponsiveHeight(8),
-                                  ),
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      Get.width * Utils.getResponsiveWidth(12),
-                                  vertical:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
-                                child: Text(
-                                  'two_to_ten'.tr,
-                                  style: TextStyle(
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(12),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w500,
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(8),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                color:
-                                    Theme.of(
-                                      context,
-                                    ).extension<AppColors>()?.containerBg,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    Get.height * Utils.getResponsiveHeight(8),
-                                  ),
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      Get.width * Utils.getResponsiveWidth(12),
-                                  vertical:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
-                                child: Text(
-                                  'eleven_to_fifty'.tr,
-                                  style: TextStyle(
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(12),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w500,
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(8),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                color:
-                                    Theme.of(
-                                      context,
-                                    ).extension<AppColors>()?.containerBg,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    Get.height * Utils.getResponsiveHeight(8),
-                                  ),
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      Get.width * Utils.getResponsiveWidth(12),
-                                  vertical:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
-                                child: Text(
-                                  'fifty_one_to_two_hundred'.tr,
-                                  style: TextStyle(
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(12),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w500,
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                              );
+                            }),
+                          ),
                         ),
                       ],
                     ),

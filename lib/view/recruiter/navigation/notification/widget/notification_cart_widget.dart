@@ -10,7 +10,6 @@ import '../../../../../res/themes/app_themes.dart';
 import '../../../../../utils/utils.dart';
 import '../../../../../viewModels/controller/recruiter/navigation/notification/notification_view_model.dart';
 
-
 class NotificationCartWidget extends StatefulWidget {
   // final Notifications notifications;
   final NotificationsModel notifications;
@@ -57,6 +56,32 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                           height: Get.height * Utils.getResponsiveHeight(48),
                           width: Get.width * Utils.getResponsiveWidth(48),
                           fit: BoxFit.cover,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child;
+                            }
+                            return Center(
+                              child: CircularProgressIndicator(
+                                value:
+                                    loadingProgress.expectedTotalBytes != null
+                                        ? loadingProgress
+                                                .cumulativeBytesLoaded /
+                                            (loadingProgress
+                                                    .expectedTotalBytes ??
+                                                1)
+                                        : null,
+                              ),
+                            );
+                          },
+                          errorBuilder: (context, error, stackTrace) {
+                            return Image.asset(
+                              ImageAssets.imgDummyPicture,
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(48),
+                              width: Get.width * Utils.getResponsiveWidth(48),
+                              fit: BoxFit.cover,
+                            );
+                          },
                         ),
                       ),
             ),

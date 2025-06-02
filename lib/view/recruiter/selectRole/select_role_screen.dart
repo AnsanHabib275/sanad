@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
+import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/utils/utils.dart';
 
@@ -58,112 +59,108 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    InkWell(
-                      onTap: () {
-                        Get.toNamed(RoutesName.companySignUpScreen);
-                      },
-                      child: Container(
-                        height: Get.height * Utils.getResponsiveHeight(108),
-                        width: Get.width * Utils.getResponsiveWidth(174),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(
-                              Get.height * Utils.getResponsiveHeight(8),
-                            ),
-                          ),
-                          border: Border.all(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).inputDecorationTheme.border!.borderSide.color,
-                            width: 1.0,
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(34),
-                              width: Get.width * Utils.getResponsiveWidth(34),
-                              image: AssetImage(IconAssets.icCompany),
-                              color: Theme.of(context).iconTheme.color,
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(11),
-                            ),
-                            Text(
-                              'company'.tr,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color:
-                                    Theme.of(context)
-                                        .extension<AppColors>()
-                                        ?.textSecondaryColor,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(20),
-                                fontFamily: 'Manrope',
-                                fontWeight: FontWeight.w500,
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          Get.toNamed(RoutesName.companySignUpScreen);
+                        },
+                        child: Container(
+                          height: Get.height * Utils.getResponsiveHeight(108),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                Get.height * Utils.getResponsiveHeight(8),
                               ),
                             ),
-                          ],
+                            border: Border.all(
+                              color: AppColor.borderSecondaryColor,
+                              width: 1.0,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image(
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(34),
+                                width: Get.width * Utils.getResponsiveWidth(34),
+                                image: AssetImage(IconAssets.icCompany),
+                                color: Theme.of(context).iconTheme.color,
+                              ),
+                              SizedBox(
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(11),
+                              ),
+                              Text(
+                                'company'.tr,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(20),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(width: Get.width * Utils.getResponsiveWidth(16)),
-                    InkWell(
-                      onTap: () {
-                        Get.toNamed(RoutesName.signUpScreen);
-                      },
-                      child: Container(
-                        height: Get.height * Utils.getResponsiveHeight(108),
-                        width: Get.width * Utils.getResponsiveWidth(174),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(
-                              Get.height * Utils.getResponsiveHeight(8),
-                            ),
-                          ),
-                          border: Border.all(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).inputDecorationTheme.border!.borderSide.color,
-                            width: 1.0,
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(34),
-                              width: Get.width * Utils.getResponsiveWidth(34),
-                              image: AssetImage(IconAssets.icRecruiter),
-                              color: Theme.of(context).iconTheme.color,
-                            ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(11),
-                            ),
-                            Text(
-                              'recruiter'.tr,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color:
-                                    Theme.of(context)
-                                        .extension<AppColors>()
-                                        ?.textSecondaryColor,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(20),
-                                fontFamily: 'Manrope',
-                                fontWeight: FontWeight.w500,
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          Get.toNamed(RoutesName.signUpScreen);
+                        },
+                        child: Container(
+                          height: Get.height * Utils.getResponsiveHeight(108),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                Get.height * Utils.getResponsiveHeight(8),
                               ),
                             ),
-                          ],
+                            border: Border.all(
+                              color: AppColor.borderSecondaryColor,
+                              width: 1.0,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image(
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(34),
+                                width: Get.width * Utils.getResponsiveWidth(34),
+                                image: AssetImage(IconAssets.icRecruiter),
+                                color: Theme.of(context).iconTheme.color,
+                              ),
+                              SizedBox(
+                                height:
+                                    Get.height * Utils.getResponsiveHeight(11),
+                              ),
+                              Text(
+                                'recruiter'.tr,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(20),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

@@ -11,6 +11,7 @@ import 'package:sanad/view/recruiter/signup/individual/widget/input_tagline_widg
 import 'package:sanad/viewModels/controller/recruiter/signup/sign_up_view_model.dart';
 
 import '../../../../res/assets/image_assets.dart';
+import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 
 class IndividualSignUpScreen extends StatefulWidget {
@@ -183,7 +184,35 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                               bottom: 0,
                               left: 0,
                               right: 0,
-                              child: Image.asset(ImageAssets.imgAddPhoto),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.addPhotoBgColor,
+                                  borderRadius: BorderRadius.circular(
+                                    Get.height * Utils.getResponsiveHeight(16),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        Get.width *
+                                        Utils.getResponsiveWidth(18),
+                                    vertical:
+                                        Get.height *
+                                        Utils.getResponsiveHeight(9),
+                                  ),
+                                  child: Text(
+                                    'add_photo'.tr,
+                                    style: TextStyle(
+                                      fontSize:
+                                          Get.height *
+                                          Utils.getResponsiveSize(12),
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColor.blackColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),

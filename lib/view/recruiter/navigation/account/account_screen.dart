@@ -91,6 +91,41 @@ class _AccountScreenState extends State<AccountScreen> {
                                   width:
                                       Get.width * Utils.getResponsiveWidth(48),
                                   fit: BoxFit.cover,
+                                  loadingBuilder: (
+                                    context,
+                                    child,
+                                    loadingProgress,
+                                  ) {
+                                    if (loadingProgress == null) {
+                                      return child;
+                                    }
+                                    return Center(
+                                      child: CircularProgressIndicator(
+                                        value:
+                                            loadingProgress
+                                                        .expectedTotalBytes !=
+                                                    null
+                                                ? loadingProgress
+                                                        .cumulativeBytesLoaded /
+                                                    (loadingProgress
+                                                            .expectedTotalBytes ??
+                                                        1)
+                                                : null,
+                                      ),
+                                    );
+                                  },
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return Image.asset(
+                                      ImageAssets.imgDummyPicture,
+                                      height:
+                                          Get.height *
+                                          Utils.getResponsiveHeight(48),
+                                      width:
+                                          Get.width *
+                                          Utils.getResponsiveWidth(48),
+                                      fit: BoxFit.cover,
+                                    );
+                                  },
                                 ),
                               ),
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/view/recruiter/navigation/applyJob/reviewJob/widget/back_button_widget.dart';
 import 'package:sanad/view/recruiter/navigation/applyJob/reviewJob/widget/submit_button_widget.dart';
 import 'package:sanad/viewModels/controller/recruiter/navigation/applyJob/apply_job_view_model.dart';
@@ -102,14 +103,20 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 ),
                               ),
                               Spacer(),
-                              Text(
-                                'edit'.tr,
-                                style: TextStyle(
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColor.blueColor,
+                              InkWell(
+                                onTap: () {
+                                  Get.toNamed(RoutesName.applyJobScreen);
+                                },
+                                child: Text(
+                                  'edit'.tr,
+                                  style: TextStyle(
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColor.blueColor,
+                                  ),
                                 ),
                               ),
                             ],
@@ -119,16 +126,16 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                           ),
                           Container(
                             decoration: BoxDecoration(
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).scaffoldBackgroundColor,
+                              color: Theme.of(context).scaffoldBackgroundColor,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(
                                   Get.height * Utils.getResponsiveHeight(8),
                                 ),
                               ),
-                              border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
+                              border: Border.all(
+                                color: Theme.of(context).dividerColor,
+                                width: 1.0,
+                              ),
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
@@ -217,14 +224,22 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 ),
                               ),
                               Spacer(),
-                              Text(
-                                'edit'.tr,
-                                style: TextStyle(
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColor.blueColor,
+                              InkWell(
+                                onTap: () {
+                                  Get.toNamed(
+                                    RoutesName.additionalRequirementsJobScreen,
+                                  );
+                                },
+                                child: Text(
+                                  'edit'.tr,
+                                  style: TextStyle(
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColor.blueColor,
+                                  ),
                                 ),
                               ),
                             ],
