@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../models/recruiter/login/login_model.dart';
+import '../../../models/login/login_model.dart';
 
 class UserPreference extends GetxController {
   RxString userEid = ''.obs;
