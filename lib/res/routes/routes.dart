@@ -1,11 +1,6 @@
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/routes/routes_name.dart';
-import 'package:sanad/view/company/companyEmailVerification/company_verify_email_screen.dart';
-import 'package:sanad/view/company/companyLogin/company_login_screen.dart';
-import 'package:sanad/view/company/companyOtp/company_otp_screen.dart';
-import 'package:sanad/view/company/companySignup/agency/company_agency_sign_up_screen.dart';
-import 'package:sanad/view/company/companySignup/individual/fillDetail/company_individual_sign_up_fill_detail_screen.dart';
 import 'package:sanad/view/recruiter/navigation/about/about_screen.dart';
 import 'package:sanad/view/recruiter/navigation/account/account_screen.dart';
 import 'package:sanad/view/recruiter/navigation/analytics/analytics_screen.dart';
@@ -24,10 +19,7 @@ import 'package:sanad/view/recruiter/navigation/wallet/wallet_screen.dart';
 import 'package:sanad/view/recruiter/selectRole/select_role_screen.dart';
 import 'package:sanad/view/recruiter/signup/agency/agency_sign_up_screen.dart';
 import 'package:sanad/view/recruiter/signup/individual/individual_sign_up_screen.dart';
-import '../../view/company/companySignup/agency/fillDetail/company_agency_sign_up_fill_detail_screen.dart';
-import '../../view/company/companySignup/individual/company_sign_up_screen.dart';
 import '../../view/recruiter/OnBoarding/onboarding_screen.dart';
-import '../../view/company/forgetPassword/forget_password_screen.dart';
 import '../../view/recruiter/login/login_screen.dart';
 import '../../view/recruiter/navigation/applyJob/reviewJob/review_job_screen.dart';
 import '../../view/recruiter/navigation/home/home_screen.dart';
@@ -36,8 +28,6 @@ import '../../view/recruiter/navigation/notification/notification_screen.dart';
 import '../../view/recruiter/navigation/payment/payment_detail_screen.dart';
 import '../../view/recruiter/navigation/profile/profile_screen.dart';
 import '../../view/recruiter/otp/otp_screen.dart';
-import '../../view/company/resetPassword/reset_done_screen.dart';
-import '../../view/company/resetPassword/reset_password_screen.dart';
 import '../../view/recruiter/signup/individual/sign_up_screen.dart';
 import '../../view/recruiter/splash/splash_screen.dart';
 import '../../view/recruiter/verifyEmail/verify_email_screen.dart';
@@ -251,85 +241,6 @@ class AppRoutes {
     GetPage(
       name: RoutesName.submittedCvScreen,
       page: () => SubmittedCVScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-
-    // Company Design
-    GetPage(
-      name: RoutesName.companySignUpScreen,
-      page: () => CompanySignUpScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.companyIndividualSignUpFillDetailScreen,
-      page: () => CompanyIndividualSignUpFillDetailScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.companyAgencySignUpScreen,
-      page: () => CompanyAgencySignUpScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.companyAgencySignUpFillDetailScreen,
-      page: () => CompanyAgencySignUpFillDetailScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.companyVerifyEmailScreen,
-      page: () => CompanyVerifyEmailScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.forgetPasswordScreen,
-      page: () => ForgetPasswordScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.companyOtpScreen,
-      page: () => CompanyOTPScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.resetPasswordScreen,
-      page: () => ResetPasswordScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.resetDoneScreen,
-      page: () => ResetDoneScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.companyLoginScreen,
-      page: () => CompanyLoginScreen(),
-      transitionDuration: Duration(milliseconds: 300),
-      transition: Transition.leftToRightWithFade,
-      curve: Curves.easeInOut,
-    ),
-    GetPage(
-      name: RoutesName.dashboardScreen,
-      page: () => CompanyLoginScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,

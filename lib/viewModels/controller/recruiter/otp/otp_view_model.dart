@@ -67,10 +67,6 @@ class OTPViewModel extends GetxController {
             Utils.toastMessage(value['Message']);
           } else {
             Utils.toastMessage("OTP VERIFIED SUCCESSFULLY");
-            Get.toNamed(
-              RoutesName.resetPasswordScreen,
-              arguments: {'eID': eId},
-            );
           }
         })
         .onError((error, stackTrace) {
@@ -79,22 +75,23 @@ class OTPViewModel extends GetxController {
           Utils.toastMessage(error.toString());
         });
   }
+
   void resendCodeApi(String email) {
     resendCodeLoading.value = true;
     Map data = {'email': email};
     _api
         .otpApi(data)
         .then((value) {
-      resendCodeLoading.value = false;
-      if (value['isSuccessfull'] == false) {
-        Utils.toastMessage(value['message']);
-      } else {
-        Utils.toastMessage("OTP Sent To Your Email Account");
-      }
-    })
+          resendCodeLoading.value = false;
+          if (value['isSuccessfull'] == false) {
+            Utils.toastMessage(value['message']);
+          } else {
+            Utils.toastMessage("OTP Sent To Your Email Account");
+          }
+        })
         .onError((error, stackTrace) {
-      resendCodeLoading.value = false;
-      errorMessage.value = error.toString();
-    });
+          resendCodeLoading.value = false;
+          errorMessage.value = error.toString();
+        });
   }
 }
