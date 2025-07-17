@@ -1,6 +1,7 @@
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/routes/routes_name.dart';
+import 'package:sanad/view/cookiesPolicy/cookies_policy_screen.dart';
 import 'package:sanad/view/navigation/about/about_screen.dart';
 import 'package:sanad/view/navigation/account/account_screen.dart';
 import 'package:sanad/view/navigation/analytics/analytics_screen.dart';
@@ -12,13 +13,17 @@ import 'package:sanad/view/navigation/payment/payment_screen.dart';
 import 'package:sanad/view/navigation/profile/edit_profile_screen.dart';
 import 'package:sanad/view/navigation/rateUs/rate_us_screen.dart';
 import 'package:sanad/view/navigation/submittedCV/submitted_cv_screen.dart';
+import 'package:sanad/view/navigation/transactions/transaction_detail_screen.dart';
 import 'package:sanad/view/navigation/transactions/transactions_screen.dart';
 import 'package:sanad/view/navigation/viewJob/view_job_screen.dart';
 import 'package:sanad/view/navigation/viewJobDetail/view_job_detail_screen.dart';
 import 'package:sanad/view/navigation/wallet/wallet_screen.dart';
+import 'package:sanad/view/privacyPolicy/privacy_policy_screen.dart';
 import 'package:sanad/view/selectRole/select_role_screen.dart';
+import 'package:sanad/view/signup/agency/agency_sign_up_fill_details_screen.dart';
 import 'package:sanad/view/signup/agency/agency_sign_up_screen.dart';
 import 'package:sanad/view/signup/individual/individual_sign_up_screen.dart';
+import 'package:sanad/view/termsAndConditions/terms_and_conditions_screen.dart';
 
 import '../../view/OnBoarding/onboarding_screen.dart';
 import '../../view/login/login_screen.dart';
@@ -71,6 +76,27 @@ class AppRoutes {
       curve: Curves.easeInOut,
     ),
     GetPage(
+      name: RoutesName.privacyPolicyScreen,
+      page: () => PrivacyPolicyScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.termsAndConditionsScreen,
+      page: () => TermsAndConditionsScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.cookiesPolicyScreen,
+      page: () => CookiesPolicyScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
       name: RoutesName.individualSignUpScreen,
       page: () => IndividualSignUpScreen(),
       transitionDuration: Duration(milliseconds: 300),
@@ -80,6 +106,13 @@ class AppRoutes {
     GetPage(
       name: RoutesName.agencySignUpScreen,
       page: () => AgencySignUpScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.agencySignUpFillDetailsScreen,
+      page: () => AgencySignUpFillDetailsScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,
@@ -164,6 +197,13 @@ class AppRoutes {
     GetPage(
       name: RoutesName.transactionsScreen,
       page: () => TransactionsScreen(),
+      transitionDuration: Duration(milliseconds: 300),
+      transition: Transition.leftToRightWithFade,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.transactionDetailScreen,
+      page: () => TransactionDetailScreen(),
       transitionDuration: Duration(milliseconds: 300),
       transition: Transition.leftToRightWithFade,
       curve: Curves.easeInOut,

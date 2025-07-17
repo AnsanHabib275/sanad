@@ -189,7 +189,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                                 controller:
                                     verifyEmailVM.otpSixController.value,
                                 focusNode: verifyEmailVM.otpSixFocusNode.value,
-                                // nextFocusNode: verifyEmailVM.otpFourFocusNode.value,
                               ),
                             ),
                           ],

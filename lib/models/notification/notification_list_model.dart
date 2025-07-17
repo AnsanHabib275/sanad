@@ -45,7 +45,7 @@ class Notifications {
       notificationId: json['NotificationId'],
       isViewed: json['IsViewed'],
       detail: json['Detail'],
-      // photos: json['Photos'].cast<String>(),
+
       photos:
           (json['Photos'] as List?)?.map((e) => e.toString()).toList() ?? [],
       userAddress: json['UserAddress'],

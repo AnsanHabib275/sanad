@@ -12,6 +12,7 @@ import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../viewModels/controller/navigation/notification/notification_view_model.dart';
 import '../../../viewModels/controller/userPreference/user_preference_view_model.dart';
+import '../../utils/utils.dart';
 
 class NavigationScreen extends StatefulWidget {
   final int initialIndex;
@@ -47,10 +48,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      // value:
-      //     Get.isDarkMode
-      //         ? SystemUiOverlayStyle.light
-      //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
         statusBarColor: AppColor.transparent,
         statusBarIconBrightness:
@@ -77,7 +74,16 @@ class _NavigationScreenState extends State<NavigationScreen> {
             // if (userVM.userEid.value.isEmpty) {
             //   return Center(child: CircularProgressIndicator());
             // }
-            return navigationVM.currentScreen.value ?? SizedBox();
+            // return navigationVM.currentScreen.value ?? SizedBox();
+            return Padding(
+              padding: EdgeInsets.only(
+                bottom:
+                    MediaQuery.of(context).viewInsets.bottom == 0
+                        ? Get.height * Utils.getResponsiveHeight(85)
+                        : 0,
+              ),
+              child: navigationVM.currentScreen.value ?? SizedBox(),
+            );
           }),
 
           bottomNavigationBar: Obx(() {

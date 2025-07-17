@@ -52,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: PopScope(
           canPop: false,
           child: Scaffold(
-            backgroundColor: Theme.of(context).splashColor, //  .primaryColor,
+            backgroundColor: Theme.of(context).splashColor,
             body: Stack(
               children: [
                 Image(

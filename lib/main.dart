@@ -13,14 +13,6 @@ void main() async {
   await themeService.init();
   SystemChrome.setSystemUIOverlayStyle(
     Get.isDarkMode ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
-    // const SystemUiOverlayStyle(
-    //   statusBarColor: Colors.transparent,
-    //   statusBarIconBrightness: Brightness.dark,
-    //   systemNavigationBarColor: Colors.white,
-    //   systemNavigationBarIconBrightness: Brightness.dark,
-    //   systemNavigationBarContrastEnforced: false,
-    //   systemNavigationBarDividerColor: Colors.transparent,
-    // ),
   );
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(
@@ -45,8 +37,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppThemes.darkTheme(MediaQuery.of(context).size.height),
       themeMode: themeService.themeMode,
       initialRoute: RoutesName.splashScreen,
-      // initialRoute: RoutesName.loginScreen,
-      // initialRoute: RoutesName.navigationScreen,
+
       getPages: AppRoutes.appRoutes(),
     );
   }

@@ -23,7 +23,7 @@ class SendCodeButtonWidget extends StatelessWidget {
           Get.toNamed(
             RoutesName.otpScreen,
             arguments: {
-              'from': 'individual',
+              'from': 'agency',
               'Accountid': '1',
               'MobileNumber': '0347*******',
             },

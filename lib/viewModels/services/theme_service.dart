@@ -6,7 +6,6 @@ class ThemeService extends GetxController {
   final Rx<ThemeMode> _themeMode = ThemeMode.system.obs;
   ThemeMode get themeMode => _themeMode.value;
 
-  // Initialize from shared preferences
   Future<void> init() async {
     final prefs = await SharedPreferences.getInstance();
     final savedTheme = prefs.getString('theme');
@@ -20,7 +19,6 @@ class ThemeService extends GetxController {
     }
   }
 
-  // Change and save theme
   Future<void> changeThemeMode(ThemeMode mode) async {
     _themeMode.value = mode;
     Get.changeThemeMode(mode);
@@ -36,7 +34,6 @@ class ThemeService extends GetxController {
     );
   }
 
-  // Toggle between light/dark
   Future<void> toggleTheme() async {
     if (_themeMode.value == ThemeMode.light) {
       await changeThemeMode(ThemeMode.dark);

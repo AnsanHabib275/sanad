@@ -19,6 +19,7 @@ class OTPScreen extends StatefulWidget {
 class _OTPScreenState extends State<OTPScreen> {
   final otpVM = Get.put(OTPViewModel());
   final _formKey = GlobalKey<FormState>();
+  final from = Get.arguments['from'] ?? '';
   final accountId = Get.arguments['Accountid'] ?? '';
   final mobileNumber = Get.arguments['MobileNumber'] ?? '';
 
@@ -204,7 +205,7 @@ class _OTPScreenState extends State<OTPScreen> {
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(39),
                       ),
-                      NextButtonWidget(formKey: _formKey),
+                      NextButtonWidget(formKey: _formKey, from: from),
                       SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(20),
                       ),

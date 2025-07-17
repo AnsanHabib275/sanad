@@ -39,6 +39,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
       'ob_3_title'.tr,
       'ob_3_description'.tr,
     ),
+    OnBoardingListModel(ImageAssets.appLogo, '', ''),
   ];
 
   @override
@@ -76,21 +77,14 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                 top: 0,
                 left: 0,
                 right: 0,
-                child: Image.asset(
-                  ImageAssets.onBoardingBg,
-                  height: Get.height * Utils.getResponsiveHeight(494),
-                  width: Get.width * Utils.getResponsiveWidth(744),
-                  // color: AppColor.obBoardingLogoBgWith12Per,
+                child: ClipRect(
+                  child: Image.asset(
+                    ImageAssets.onBoardingBg,
+                    height: Get.height * Utils.getResponsiveHeight(494),
+                    width: Get.width * Utils.getResponsiveWidth(744),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                // top: -250,
-                // left: -157,
-                // right: -157,
-                // child: Image.asset(
-                //   ImageAssets.onBoardingBg,
-                //   height: Get.height * Utils.getResponsiveHeight(744),
-                //   width: Get.width * Utils.getResponsiveWidth(744),
-                //   // color: AppColor.obBoardingLogoBgWith12Per,
-                // ),
               ),
               Positioned(
                 top: 0,
@@ -134,21 +128,22 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                       ],
                     ),
                     Expanded(
-                      child: PageView.builder(
-                        controller: _pageController,
-                        itemCount: tutorialPages.length,
-                        onPageChanged: (int page) {
-                          onBoardingVM.currentPage.value = page;
-                        },
-                        itemBuilder: (context, index) {
-                          return OnBoardingPage(
-                            onBoardingList: tutorialPages[index],
-                          );
-                        },
+                      child: ClipRRect(
+                        child: PageView.builder(
+                          physics: const ClampingScrollPhysics(),
+                          controller: _pageController,
+                          itemCount: tutorialPages.length,
+                          onPageChanged: (int page) {
+                            onBoardingVM.currentPage.value = page;
+                          },
+                          itemBuilder: (context, index) {
+                            return OnBoardingPage(
+                              onBoardingList: tutorialPages[index],
+                              index: index,
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(47),
                     ),
                     Obx(() {
                       return Row(
@@ -161,8 +156,8 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                               horizontal:
                                   Get.width * Utils.getResponsiveWidth(5),
                             ),
-                            width: Get.width * Utils.getResponsiveWidth(10),
-                            height: Get.height * Utils.getResponsiveHeight(10),
+                            width: Get.width * Utils.getResponsiveWidth(14),
+                            height: Get.height * Utils.getResponsiveHeight(14),
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image:
@@ -182,22 +177,34 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                     SizedBox(
                       height: Get.height * Utils.getResponsiveHeight(70),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(32),
-                      ),
-                      child: NextButtonWidget(pageController: _pageController),
-                    ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(70),
-                    ),
+                    Obx(() {
+                      if (!(onBoardingVM.currentPage.value <
+                          tutorialPages.length - 1)) {
+                        return SizedBox.shrink();
+                      }
+                      return Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(32),
+                            ),
+                            child: NextButtonWidget(
+                              pageController: _pageController,
+                            ),
+                          ),
+                          SizedBox(
+                            height: Get.height * Utils.getResponsiveHeight(70),
+                          ),
+                        ],
+                      );
+                    }),
                   ],
                 ),
               ),
             ],
           ),
         ),
-        // ),
       ),
     );
   }

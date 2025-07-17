@@ -30,10 +30,13 @@ class Languages extends Translations {
       'request_one': 'Request One?',
       'email_not_valid': 'Email not valid',
       'password_format_invalid': 'Password format invalid',
+      'are_you_client_or_recruiter': 'Are you Client or Recruiter? ',
       'are_you_company_or_recruiter': 'Are you company or recruiter? ',
       'company': 'Company',
+      'client': 'Client',
       'recruiter': 'Recruiter',
       'join_as_an_individual': 'Join as an individual',
+      'join_as_an_agency': 'Join as an agency',
       'password_at_least': 'Password (6+ characters)',
       'by_clicking_agree_join_or_continue_you_agree_to_the_linkedIn':
           'By clicking Agree & Join or Continue, you agree to the\nLinkedIn ',
@@ -47,6 +50,9 @@ class Languages extends Translations {
       'looking_to_create_an_account_for_an_agency':
           'Looking to create an account for an agency?',
       'signup_as_agency': 'Signup as Agency',
+      'looking_to_create_an_account_for_an_individual':
+          'Looking to create an account for an individual?',
+      'signup_as_individual': 'Signup as Individual',
       'please_fill_the_required_information':
           'Please fill the required information',
       'full_name': 'Full Name',
@@ -293,6 +299,22 @@ class Languages extends Translations {
       'interested_industry': 'Interested industry',
       'interested_industry_hint': 'Select industry',
       'interested_industry_error': 'Please select industry',
+      'view_all': 'View All',
+      'transaction_details': 'Transaction Details',
+      'account_number': 'Account Number',
+      'transaction_date': 'Transaction Date',
+      'transaction_time': 'Transaction Time',
+      'transaction_type': 'Transaction Type',
+      'id': 'ID',
+      'method': 'Method',
+      'privacy_policy_description':
+          'Welcome to [Your App Name] (“we,” “our,” or “us”). Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our app.\n\n1. Information We Collect\nPersonal Information: When you register or use our app, we may collect personal details such as your name, email address, phone number, and other contact information. Usage Data: We automatically collect information about how you interact with our app, including your device information, IP address, browser type, pages visited, and time spent on our app. Cookies and Tracking Technologies: We may use cookies and similar technologies to enhance your experience and analyze app usage\n\n2. How We Use Your Information\nWe use the information we collect to:Provide, operate, and maintain the appImprove, personalize, and expand our app featuresCommunicate with you, including sending updates, security alerts, and support messagesMonitor usage and analyze trends to improve the appComply with legal obligation\n\n3. Sharing Your Information\nWe do not sell, trade, or rent your personal information to third parties. We may share your information with:Service providers who help us operate the app (e.g., hosting, analytics) Law enforcement or government authorities if required by last\n\n4. Data Security\nWe take reasonable measures to protect your information from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is completely secure.\n\n5. Your Choices\nYou can update or correct your personal information in your account settings.\nYou may opt out of receiving promotional emails by following the unsubscribe instructions\nYou can disable cookies in your browser settings, though this may affect app functionality.',
+      'terms_and_conditions': 'Terms & Conditions',
+      'terms_and_conditions_description':
+          'Last updated: 6/10/2025\nWelcome to Recruitment (“we,” “our,” or “us”). By downloading, accessing, or using our mobile application (“App”), you agree to be bound by the following terms and conditions (“Terms”). Please read them carefully.\n\n1. Acceptance of Terms\n By using our App, you agree to comply with and be legally bound by these Terms. If you do not agree, please do not use the App.\n\n2. Eligibility\nYou must be at least [age, usually 13 or 16 depending on jurisdiction] years old to use the App. By using the App, you represent and warrant that you meet this requirement.\n\n3. Use of the App\nYou agree to use the App only for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit anyone else’s use and enjoyment of the App. Prohibited behavior includes harassing or causing distress or inconvenience to any other user, transmitting obscene or offensive content, or disrupting the normal flow of dialogue within the App.\n\n4. User Accounts\nSome features of the App may require you to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use.\n\n5. Intellectual Property\nAll content, trademarks, logos, and intellectual property within the App are owned by or licensed to us. You may not copy, modify, distribute, sell, or lease any part of our App or included software.',
+      'cookies_policy': 'Cookies Policy',
+      'cookies_policy_description':
+          'Last updated: 6/10/2025\nThis Cookies Policy explains how Recruitment (“we,” “our,” or “us”) uses cookies and similar technologies when you use our mobile application (“App”). By continuing to use our App, you consent to our use of cookies as described in this policy.\n\n1. What Are Cookies?\nCookies are small text files stored on your device (phone, tablet, or computer) when you visit or use an app or website. They help us recognize your device, enhance your user experience, and collect information about your usage.\n\n2. How We Use Cookies\nWe use cookies to:\nOperate and secure the App\nRemember your preferences and login details\nAnalyze App usage to improve performance and functionality\nProvide personalized content and experiences\n\n3. Types of Cookies We Use\nEssential Cookies: Necessary for basic App operations such as navigation and access to secure areas.\nPerformance Cookies: Help us understand how users interact with the App to improve its performance.\nFunctionality Cookies: Allow us to remember choices you make, like language preferences.\nThird-Party Cookies: Some features may use third-party services (like analytics or ads) that place their own cookies on your device.\n\n4. Managing Cookies\nMost mobile devices and browsers automatically accept cookies, but you can usually modify your settings to decline or delete them. Please note that disabling cookies may affect the functionality and performance of the App.\n\n5. Changes to This Policy\nWe may update this Cookies Policy from time to time. ',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

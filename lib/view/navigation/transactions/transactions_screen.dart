@@ -19,12 +19,12 @@ class TransactionsScreen extends StatefulWidget {
 class _TransactionsScreenState extends State<TransactionsScreen> {
   final transactionsVM = Get.put(TransactionsViewModel());
   final List<TransactionsModel> transactionsItems = [
-    TransactionsModel(1, 'P-ID-001', '\$2300', 'Card'),
-    TransactionsModel(2, 'P-ID-002', '-\$670', 'Wallet'),
-    TransactionsModel(3, 'P-ID-003', '\$234', 'Wallet'),
-    TransactionsModel(4, 'P-ID-004', '\$5000', 'Card'),
-    TransactionsModel(5, 'P-ID-005', '\$2300', 'Wallet'),
-    TransactionsModel(6, 'P-ID-006', '\$560', 'Card'),
+    TransactionsModel(1, 'P-ID-001', '\$2300', 'Card', '', '', '', '', ''),
+    TransactionsModel(2, 'P-ID-002', '-\$670', 'Wallet', '', '', '', '', ''),
+    TransactionsModel(3, 'P-ID-003', '\$234', 'Wallet', '', '', '', '', ''),
+    TransactionsModel(4, 'P-ID-004', '\$5000', 'Card', '', '', '', '', ''),
+    TransactionsModel(5, 'P-ID-005', '\$2300', 'Wallet', '', '', '', '', ''),
+    TransactionsModel(6, 'P-ID-006', '\$560', 'Card', '', '', '', '', ''),
   ];
 
   @override
@@ -155,7 +155,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                         Utils.getResponsiveHeight(16),
                                   ),
                                   child: Text(
-                                    'payment_id'.tr,
+                                    'id'.tr,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)
@@ -211,7 +211,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                         Utils.getResponsiveHeight(16),
                                   ),
                                   child: Text(
-                                    'payment_method'.tr,
+                                    'method'.tr,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)

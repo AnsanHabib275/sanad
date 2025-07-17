@@ -4,8 +4,13 @@ class RoutesName {
   static const String selectRoleScreen = '/select_role_screen';
   static const String signUpScreen = '/sign_up_screen';
   static const String otpScreen = '/otp_screen';
+  static const String privacyPolicyScreen = '/privacy_policy_screen';
+  static const String termsAndConditionsScreen = '/terms_and_conditions_screen';
+  static const String cookiesPolicyScreen = '/cookies_policy_screen';
   static const String individualSignUpScreen = '/individual_sign_up_screen';
   static const String agencySignUpScreen = '/agency_sign_up_screen';
+  static const String agencySignUpFillDetailsScreen =
+      '/agency_sign_up_fill_details_screen';
   static const String verifyEmailScreen = '/verify_email_screen';
   static const String loginScreen = '/login_screen';
   static const String navigationScreen = '/navigation_screen';
@@ -18,6 +23,7 @@ class RoutesName {
   static const String notificationScreen = '/notification_screen';
   static const String analyticsScreen = '/analytics_screen';
   static const String transactionsScreen = '/transactions_screen';
+  static const String transactionDetailScreen = '/transaction_detail_screen';
   static const String paymentsScreen = '/payments_screen';
   static const String paymentDetailScreen = '/payment_detail_screen';
   static const String rateUsScreen = '/rate_us_screen';

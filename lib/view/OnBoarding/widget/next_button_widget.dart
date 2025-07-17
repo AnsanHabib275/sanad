@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/components/round_button.dart';
-import 'package:sanad/res/routes/routes_name.dart';
-
 import '../../../../viewModels/controller/onBoarding/onboarding_view_model.dart';
 import '../../../../viewModels/controller/userPreference/user_preference_view_model.dart';
 
@@ -19,18 +17,12 @@ class NextButtonWidget extends StatelessWidget {
       return RoundButton(
         title: onBoardingVM.currentPage.value <= 1 ? 'next'.tr : 'continue'.tr,
         onPress: () {
-          if (onBoardingVM.currentPage.value < 2) {
+          if (onBoardingVM.currentPage.value < 3) {
             pageController.nextPage(
               duration: const Duration(milliseconds: 100),
               curve: Curves.linear,
             );
-          } else {
-            Get.toNamed(RoutesName.selectRoleScreen);
           }
-          // userVM.saveFirstUse(false).then((value) {
-          //   Get.delete<OnBoardingViewModel>();
-          //   Get.offAllNamed(RoutesName.signUpScreen);
-          // });
         },
       );
     });

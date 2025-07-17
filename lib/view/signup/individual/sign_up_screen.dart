@@ -265,8 +265,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 recognizer:
                                     TapGestureRecognizer()
                                       ..onTap = () {
-                                        // Handle navigation to user agreement
-                                        // Get.toNamed(RoutesName.userAgreement);
+                                        Get.toNamed(
+                                          RoutesName.termsAndConditionsScreen,
+                                        );
                                       },
                               ),
                               TextSpan(
@@ -298,8 +299,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 recognizer:
                                     TapGestureRecognizer()
                                       ..onTap = () {
-                                        // Handle navigation to user agreement
-                                        // Get.toNamed(RoutesName.userAgreement);
+                                        Get.toNamed(
+                                          RoutesName.privacyPolicyScreen,
+                                        );
                                       },
                               ),
                               TextSpan(
@@ -331,8 +333,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 recognizer:
                                     TapGestureRecognizer()
                                       ..onTap = () {
-                                        // Handle navigation to user agreement
-                                        // Get.toNamed(RoutesName.userAgreement);
+                                        Get.toNamed(
+                                          RoutesName.cookiesPolicyScreen,
+                                        );
                                       },
                               ),
                             ],
