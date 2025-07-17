@@ -4,6 +4,7 @@ import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/view/navigation/applyJob/reviewJob/widget/back_button_widget.dart';
 import 'package:sanad/view/navigation/applyJob/reviewJob/widget/submit_button_widget.dart';
 import 'package:sanad/viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
+
 import '../../../../../../res/themes/app_themes.dart';
 import '../../../../../../utils/utils.dart';
 import '../../../../../res/assets/icon_assets.dart';
@@ -290,9 +291,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                     onChanged: (bool? value) {
                                       applyJobVM.isCheckRelocate.value = value!;
                                     },
-                                    activeColor:
-                                        AppColor
-                                            .primaryColor, // Color when checked
+                                    activeColor: AppColor.primaryColor,
+                                    // Color when checked
                                     checkColor: AppColor.secondaryIconDarkColor,
                                     shape: RoundedRectangleBorder(
                                       side: BorderSide(
@@ -369,9 +369,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                       applyJobVM.isCheckPortfolio.value =
                                           value!;
                                     },
-                                    activeColor:
-                                        AppColor
-                                            .primaryColor, // Color when checked
+                                    activeColor: AppColor.primaryColor,
+                                    // Color when checked
                                     checkColor: AppColor.secondaryIconDarkColor,
                                     shape: RoundedRectangleBorder(
                                       side: BorderSide(
@@ -448,9 +447,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                       applyJobVM.isCheckCertification.value =
                                           value!;
                                     },
-                                    activeColor:
-                                        AppColor
-                                            .primaryColor, // Color when checked
+                                    activeColor: AppColor.primaryColor,
+                                    // Color when checked
                                     checkColor: AppColor.secondaryIconDarkColor,
                                     shape: RoundedRectangleBorder(
                                       side: BorderSide(

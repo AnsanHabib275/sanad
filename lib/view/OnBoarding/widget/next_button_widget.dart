@@ -8,6 +8,7 @@ import '../../../../viewModels/controller/userPreference/user_preference_view_mo
 
 class NextButtonWidget extends StatelessWidget {
   NextButtonWidget({super.key, required this.pageController});
+
   final PageController pageController; //= PageController();
   final userVM = Get.put(UserPreference());
   final onBoardingVM = Get.find<OnBoardingViewModel>();

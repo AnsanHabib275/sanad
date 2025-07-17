@@ -22,14 +22,19 @@ class RequestTimeOut extends AppExceptions {
 
 class ServerException extends AppExceptions {
   ServerException([String? message])
-      : super(message, 'internal_server_error'.tr);
+    : super(message, 'internal_server_error'.tr);
 }
 
 class InvalidUrlException extends AppExceptions {
   InvalidUrlException([String? message]) : super(message, 'invalid_url'.tr);
 }
 
+class UnauthenticatedException extends AppExceptions {
+  UnauthenticatedException([String? message])
+    : super(message, 'session_expired'.tr);
+}
+
 class FetchDataException extends AppExceptions {
   FetchDataException([String? message])
-      : super(message, 'error_while_communication'.tr);
+    : super(message, 'error_while_communication'.tr);
 }

@@ -6,8 +6,8 @@ import 'package:sanad/view/otp/widget/input_otp_widget.dart';
 import 'package:sanad/view/otp/widget/next_button_widget.dart';
 import 'package:sanad/viewModels/controller/otp/otp_view_model.dart';
 
-import '../../../res/assets/icon_assets.dart';
 import '../../../../res/themes/app_themes.dart';
+import '../../../res/assets/icon_assets.dart';
 
 class OTPScreen extends StatefulWidget {
   const OTPScreen({super.key});

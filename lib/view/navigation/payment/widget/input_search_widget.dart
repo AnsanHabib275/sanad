@@ -9,7 +9,9 @@ class InputSearchWidget extends StatelessWidget {
   final Function(String) onSearch;
 
   InputSearchWidget({super.key, required this.onSearch});
+
   final paymentsVM = Get.put(PaymentsViewModel());
+
   @override
   Widget build(BuildContext context) {
     // return Obx(() {

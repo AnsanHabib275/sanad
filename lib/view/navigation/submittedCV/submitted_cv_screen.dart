@@ -55,6 +55,7 @@ class _SubmittedCVScreenState extends State<SubmittedCVScreen> {
       true,
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(

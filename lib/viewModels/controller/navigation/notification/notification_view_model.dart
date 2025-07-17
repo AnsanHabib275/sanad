@@ -23,6 +23,7 @@ class NotificationViewModel extends GetxController {
       _notificationStreamController.stream;
 
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
+
   void setError(String value) => errorMessage.value = value;
 
   Future<void> notificationListApi() async {

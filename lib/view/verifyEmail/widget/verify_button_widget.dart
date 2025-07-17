@@ -8,6 +8,7 @@ import '../../../../viewModels/controller/verifyEmail/verify_email_view_model.da
 
 class VerifyButtonWidget extends StatelessWidget {
   final GlobalKey<FormState> formKey;
+
   const VerifyButtonWidget({super.key, required this.formKey});
 
   @override

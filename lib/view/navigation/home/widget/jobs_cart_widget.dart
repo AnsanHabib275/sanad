@@ -4,7 +4,6 @@ import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 
 import '../../../../../models/home/jobs_model.dart';
-
 import '../../../../../res/themes/app_themes.dart';
 import '../../../../../utils/utils.dart';
 

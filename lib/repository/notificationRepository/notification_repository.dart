@@ -10,8 +10,9 @@ class NotificationRepository {
   }
 
   Future<dynamic> markNotificationViewedApi(String notificationId) async {
-    dynamic response = await _apiServices
-        .postWithOutBodyApi(AppUrl.markNotificationViewedUrl + notificationId);
+    dynamic response = await _apiServices.postWithOutBodyApi(
+      AppUrl.markNotificationViewedUrl + notificationId,
+    );
     return response;
   }
 }

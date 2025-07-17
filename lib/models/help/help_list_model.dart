@@ -21,15 +21,9 @@ class Help {
   int? helpID;
   String? helpText;
 
-  Help({
-    this.helpID,
-    this.helpText,
-  });
+  Help({this.helpID, this.helpText});
 
   factory Help.fromJson(Map<String, dynamic> json) {
-    return Help(
-      helpID: json['helpID'],
-      helpText: json['helpText'],
-    );
+    return Help(helpID: json['helpID'], helpText: json['helpText']);
   }
 }

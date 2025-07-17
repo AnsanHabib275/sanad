@@ -50,6 +50,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
       'Lorem ipsum dolor sit amet, consectetur adipisci elit ',
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(

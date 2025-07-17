@@ -1,9 +1,8 @@
-import 'package:sanad/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:sanad/utils/utils.dart';
 
 import '../../../../repository/otpRepository/otp_repository.dart';
-import '../../../../res/routes/routes_name.dart';
 
 class OTPViewModel extends GetxController {
   final _api = OTPRepository();

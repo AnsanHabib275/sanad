@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:sanad/models/onBoarding/on_boarding_list_model.dart';
 import 'package:sanad/res/assets/image_assets.dart';
+import 'package:sanad/res/colors/app_color.dart';
+import 'package:sanad/res/themes/app_themes.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/view/OnBoarding/widget/next_button_widget.dart';
 import 'package:sanad/view/OnBoarding/widget/onboarding_page.dart';
 import 'package:sanad/viewModels/controller/onBoarding/onboarding_view_model.dart';
 import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
-
-import '../../../models/onBoarding/on_boarding_list_model.dart';
-import '../../../res/colors/app_color.dart';
-import '../../../res/themes/app_themes.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -45,10 +44,6 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      // value:
-      //     Get.isDarkMode
-      //         ? SystemUiOverlayStyle.light
-      //         : SystemUiOverlayStyle.dark,
       value: SystemUiOverlayStyle(
         statusBarColor: AppColor.transparent,
         statusBarIconBrightness:
@@ -68,7 +63,9 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
         systemNavigationBarDividerColor: Colors.transparent,
       ),
       child: MediaQuery(
-        data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1)),
+        data: MediaQuery.of(
+          context,
+        ).copyWith(textScaler: const TextScaler.linear(1)),
         // child: PopScope(
         //   canPop: false,
         child: Scaffold(
@@ -110,7 +107,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Spacer(),
+                        const Spacer(),
                         TextButton(
                           onPressed: () {
                             _pageController.jumpToPage(
@@ -170,8 +167,10 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                               image: DecorationImage(
                                 image:
                                     onBoardingVM.currentPage.value == index
-                                        ? AssetImage(ImageAssets.obPageSelected)
-                                        : AssetImage(
+                                        ? const AssetImage(
+                                          ImageAssets.obPageSelected,
+                                        )
+                                        : const AssetImage(
                                           ImageAssets.obPageUnselected,
                                         ),
                               ),

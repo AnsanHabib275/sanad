@@ -1,5 +1,7 @@
 import 'package:sanad/data/network/network_api_services_with_out_eid.dart';
+
 import '../../../res/urls/app_url.dart';
+
 class VerifyEmailRepository {
   final _apiServices = NetworkApiServicesWithOutEID();
 

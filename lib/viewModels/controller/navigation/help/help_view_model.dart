@@ -19,6 +19,7 @@ class HelpViewModel extends GetxController {
   final searchFocusNode = FocusNode().obs;
 
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
+
   void setError(String value) => error.value = value;
 
   Future<void> helpListApi() async {

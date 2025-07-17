@@ -6,7 +6,6 @@ import 'package:sanad/res/colors/app_color.dart';
 import '../../../../../res/themes/app_themes.dart';
 import '../../../../../utils/utils.dart';
 
-
 class AnalyticsChartWidget extends StatelessWidget {
   const AnalyticsChartWidget({super.key});
 
@@ -75,7 +74,8 @@ class AnalyticsChartWidget extends StatelessWidget {
                 FlSpot(8, 32),
               ],
               isCurved: true,
-              curveSmoothness: 0.4, // More natural waves
+              curveSmoothness: 0.4,
+              // More natural waves
               color: AppColor.primaryColor,
               barWidth: 2,
               belowBarData: BarAreaData(

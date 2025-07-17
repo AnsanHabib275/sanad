@@ -10,6 +10,7 @@ class YesButtonWidget extends StatelessWidget {
   YesButtonWidget({super.key});
 
   final userVM = Get.put(UserPreference());
+
   @override
   Widget build(BuildContext context) {
     return RoundButton(

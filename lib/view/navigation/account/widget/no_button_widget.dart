@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../../../../../res/components/round_button.dart';
 
-
 class NoButtonWidget extends StatelessWidget {
   const NoButtonWidget({super.key});
 

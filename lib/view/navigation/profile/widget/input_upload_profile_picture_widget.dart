@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
+
 import '../../../../../res/themes/app_themes.dart';
 import '../../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 

@@ -58,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
       '10,000 to 20,000',
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(

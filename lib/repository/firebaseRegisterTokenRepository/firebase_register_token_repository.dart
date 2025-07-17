@@ -5,8 +5,10 @@ class FirebaseRegisterTokenRepository {
   final _apiServices = NetworkApiServices();
 
   Future<dynamic> firebaseTokenApi(var data) async {
-    dynamic response =
-        await _apiServices.postApi(data, AppUrl.registerFirebaseCloudTokenUrl);
+    dynamic response = await _apiServices.postApi(
+      data,
+      AppUrl.registerFirebaseCloudTokenUrl,
+    );
     return response;
   }
 }

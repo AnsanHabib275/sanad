@@ -8,7 +8,9 @@ import '../../../../../utils/utils.dart';
 
 class InputLocationWidget extends StatelessWidget {
   InputLocationWidget({super.key});
+
   final jobsVM = Get.put(HomeViewModel());
+
   @override
   Widget build(BuildContext context) {
     // return Obx(() {

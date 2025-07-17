@@ -18,6 +18,7 @@ class SoftwareProgramCartWidget extends StatefulWidget {
 
 class _SoftwareProgramCartWidgetState extends State<SoftwareProgramCartWidget> {
   final applyJobVM = Get.find<ApplyJobViewModel>();
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {

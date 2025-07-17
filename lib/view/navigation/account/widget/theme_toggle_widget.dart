@@ -30,21 +30,19 @@ class ThemeToggleWidget extends StatelessWidget {
         // contentPadding: EdgeInsets.only(left: 0),
         secondary: Image.asset(
           IconAssets.icRateUs,
-                    height: Get.height * Utils.getResponsiveHeight(24),
-                    width: Get.width * Utils.getResponsiveWidth(24),
-                    color: Theme.of(context).iconTheme.color,
+          height: Get.height * Utils.getResponsiveHeight(24),
+          width: Get.width * Utils.getResponsiveWidth(24),
+          color: Theme.of(context).iconTheme.color,
         ),
         title: Transform.translate(
           offset: Offset(-10, 0),
-          child: Text('dark_mode'.tr,
+          child: Text(
+            'dark_mode'.tr,
             style: TextStyle(
-                color:
-                        Theme.of(
-                          context,
-                        ).extension<AppColors>()?.textBodyColor,
-                        fontSize: Get.height * Utils.getResponsiveSize(16),
-                        fontFamily: 'Manrope',
-                        fontWeight: FontWeight.w500,
+              color: Theme.of(context).extension<AppColors>()?.textBodyColor,
+              fontSize: Get.height * Utils.getResponsiveSize(16),
+              fontFamily: 'Manrope',
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),

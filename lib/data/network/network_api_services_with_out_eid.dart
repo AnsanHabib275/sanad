@@ -1,129 +1,106 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:sanad/res/routes/routes_name.dart';
+import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
 
 import '../exceptions/app_exceptions.dart';
 import 'base_api_services.dart';
 
+dynamic parseJson(String responseBody) => jsonDecode(responseBody);
+
 class NetworkApiServicesWithOutEID extends BaseApiServices {
-  @override
-  Future<dynamic> getApi(String url, {String? eID}) async {
-    Map<String, String> headers = {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    };
-    if (eID != null) {
-      headers['E_ID'] = eID;
-    }
-    dynamic responseJson;
-    try {
-      final response = await http
-          .get(Uri.parse(url), headers: headers)
-          .timeout(const Duration(seconds: 12));
-      responseJson = returnResponse(response);
-    } on SocketException {
-      throw InternetException('');
-    } on RequestTimeOut {
-      throw RequestTimeOut('');
-    }
-    if (kDebugMode) {
-      print(responseJson);
-    }
-    return responseJson;
-  }
+  static const Duration _timeout = Duration(seconds: 15);
+  static const Duration _uploadTimeout = Duration(seconds: 30);
 
   @override
   Future<dynamic> postApi(var data, String url, {String? eID}) async {
-    Map<String, String> headers = {
+    final uri = Uri.parse(url);
+    final headers = {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Connection': 'keep-alive',
+      if (eID != null) 'E_ID': eID,
     };
-    if (eID != null) {
-      headers['E_ID'] = eID;
-    }
-    dynamic responseJson;
+
     try {
       final response = await http
-          .post(Uri.parse(url), headers: headers, body: jsonEncode(data))
-          .timeout(const Duration(seconds: 12));
-      responseJson = returnResponse(response);
+          .post(uri, headers: headers, body: jsonEncode(data))
+          .timeout(_timeout);
+      final json = await compute(parseJson, response.body);
+      return _handleStatus(response,json);
     } on SocketException {
-      throw InternetException('');
+      throw InternetException('No internet connection');
     } on RequestTimeOut {
-      throw RequestTimeOut('');
+      throw RequestTimeOut('Request timed out');
+    } on UnauthenticatedException {
+      await _handleInvalidSession();
+      rethrow;
+    } catch (e) {
+      throw FetchDataException('Unexpected error: $e');
     }
-    if (kDebugMode) {
-      print(responseJson);
-      print(responseJson);
-    }
-    return responseJson;
   }
 
   @override
   Future<dynamic> postFormDataApi(
-    Map<String, String> data,
-    String url, {
-    List<http.MultipartFile>? files,
-    String? eID,
-  }) async {
-    Map<String, String> headers = {
-      'Content-Type': 'multipart/form-data',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      Map<String, String> data,
+      String url, {
+        List<http.MultipartFile>? files,
+      }) async {
+    final uri = Uri.parse(url);
+    final headers = {
+      'Content-Type': 'application/json',
+      'Connection': 'keep-alive',
     };
-    if (eID != null) {
-      headers['E_ID'] = eID;
-    }
-    dynamic responseJson;
     try {
-      var uri = Uri.parse(url);
-      var request = http.MultipartRequest('POST', uri);
+      final request = http.MultipartRequest('POST', uri);
       request.headers.addAll(headers);
       request.fields.addAll(data);
       if (files != null && files.isNotEmpty) {
         request.files.addAll(files);
       }
 
-      var response = await request.send().timeout(const Duration(seconds: 12));
-      var responseString = await http.Response.fromStream(response);
-      responseJson = returnResponse(responseString);
+      final streamedResponse = await request.send().timeout(
+        files?.isNotEmpty ?? false ? _uploadTimeout : _timeout,
+      );
+      final response = await http.Response.fromStream(streamedResponse);
+      final json = await compute(parseJson, response.body);
+      return _handleStatus(response, json);
     } on SocketException {
       throw InternetException('');
     } on RequestTimeOut {
       throw RequestTimeOut('');
+    } on UnauthenticatedException {
+      await _handleInvalidSession();
+      rethrow;
     }
-    if (kDebugMode) {
-      print(responseJson);
-    }
-    return responseJson;
   }
 
-  dynamic returnResponse(http.Response response) {
+  dynamic _handleStatus(http.Response response, dynamic json) {
     switch (response.statusCode) {
       case 200:
-        if (kDebugMode) {
-          print(response.statusCode);
-        }
-        dynamic responseJson = jsonDecode(response.body);
-        return responseJson;
+        return json;
       case 400:
-        if (kDebugMode) {
-          print(response.statusCode);
-        }
-        dynamic responseJson = jsonDecode(response.body);
-        return responseJson;
+        return json;
+      case 401:
+        throw UnauthenticatedException('session_expired'.tr);
+      case 403:
+        throw InvalidUrlException('Unauthorized: ${response.body}');
+      case 500:
+      case 502:
+      case 503:
+        throw ServerException('Server error: ${response.statusCode}');
       default:
         throw FetchDataException(
-          'error_while_communicating_with_server'.tr +
-              response.statusCode.toString(),
+          '${'error_while_communicating_with_server'.tr} (${response.statusCode})',
         );
     }
+  }
+
+  Future<void> _handleInvalidSession() async {
+    await Get.find<UserPreference>().removeUser();
+    Get.offAllNamed(RoutesName.loginScreen);
   }
 }

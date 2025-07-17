@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/view/navigation/viewJob/widget/apply_now_button_widget.dart';
-import 'package:sanad/view/navigation/viewJob/widget/custom_tab_bar_widget.dart';
-import 'package:sanad/view/navigation/viewJob/widget/job_specifications_cart_widget.dart';
-import 'package:sanad/view/navigation/viewJob/widget/software_program_cart_widget.dart';
-
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/themes/app_themes.dart';
 import 'package:sanad/utils/utils.dart';
+import 'package:sanad/view/navigation/viewJob/widget/apply_now_button_widget.dart';
+import 'package:sanad/view/navigation/viewJob/widget/custom_tab_bar_widget.dart';
+import 'package:sanad/view/navigation/viewJob/widget/job_specifications_cart_widget.dart';
+import 'package:sanad/view/navigation/viewJob/widget/software_program_cart_widget.dart';
 
 import '../../../../viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
 
@@ -28,8 +27,10 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
   final companyName = Get.arguments['companyName'] ?? '';
   final location = Get.arguments['location'] ?? '';
   final jobType = Get.arguments['jobType'] ?? '';
+
   // final professionalStatus = Get.arguments['professionalStatus'] ?? '';
   final salaryRange = Get.arguments['salaryRange'] ?? '';
+
   // final cvCount = Get.arguments['cvCount'] ?? '';
   final List<String> jobSpecifications =
       Get.arguments['jobSpecifications'] ?? [];

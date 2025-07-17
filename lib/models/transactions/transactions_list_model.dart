@@ -11,7 +11,9 @@ class TransactionsListModel {
       message: json["message"],
       transactions:
           json["transactions"] != null
-              ? List<Transactions>.from(json["transactions"].map((x) => Transactions.fromJson(x)))
+              ? List<Transactions>.from(
+                json["transactions"].map((x) => Transactions.fromJson(x)),
+              )
               : [],
     );
   }

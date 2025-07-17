@@ -4,18 +4,17 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:http_parser/http_parser.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:mime/mime.dart';
-import 'package:path/path.dart' as path;
-import 'package:phone_number/phone_number.dart';
 import 'package:http/http.dart' as http;
-
-import '../../../../repository/signupRepository/sign_up_repository.dart';
-import '../../../../res/routes/routes_name.dart';
-import '../../../../res/urls/app_url.dart';
-import '../../../../utils/utils.dart';
-import '../userPreference/user_preference_view_model.dart';
+// import 'package:http_parser/http_parser.dart';
+import 'package:image_picker/image_picker.dart';
+// import 'package:mime/mime.dart';
+// import 'package:path/path.dart' as path;
+import 'package:phone_number/phone_number.dart';
+import 'package:sanad/repository/signupRepository/sign_up_repository.dart';
+import 'package:sanad/res/routes/routes_name.dart';
+import 'package:sanad/res/urls/app_url.dart';
+import 'package:sanad/utils/utils.dart';
+import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
 
 class SignUpViewModel extends GetxController {
   final _api = SignUpRepository();
@@ -108,7 +107,7 @@ class SignUpViewModel extends GetxController {
 
   void signUpApi() {
     loading.value = true;
-    Map data = {
+    final Map data = {
       'FirstName': firstNameController.value.text,
       'LastName': lastNameController.value.text,
       'Tagline': taglineController.value.text,
@@ -126,7 +125,7 @@ class SignUpViewModel extends GetxController {
             apiErrorMessage.value = value['message'];
           } else {
             apiErrorMessage.value = '';
-            Utils.toastMessage("OTP Sent To Your Email Account");
+            Utils.toastMessage('OTP Sent To Your Email Account');
             Get.toNamed(
               RoutesName.verifyEmailScreen,
               arguments: {
@@ -203,15 +202,15 @@ class SignUpViewModel extends GetxController {
       final File file = File(xFile.path);
 
       if (await file.exists()) {
-        final String fileName = path.basename(file.path);
-        final String mimeType = lookupMimeType(file.path) ?? 'image/jpeg';
+        // final String fileName = path.basename(file.path);
+        // final String mimeType = lookupMimeType(file.path) ?? 'image/jpeg';
         filePath.value = file.path;
-        final multipartFile = await http.MultipartFile.fromPath(
-          'file',
-          file.path,
-          filename: fileName,
-          contentType: MediaType.parse(mimeType),
-        );
+        // final multipartFile = await http.MultipartFile.fromPath(
+        //   'file',
+        //   file.path,
+        //   filename: fileName,
+        //   contentType: MediaType.parse(mimeType),
+        // );
 
         // await uploadProfileImageApi(multipartFile);
       } else {

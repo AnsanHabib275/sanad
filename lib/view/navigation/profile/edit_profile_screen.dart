@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/view/navigation/profile/widget/input_city_widget.dart';
 import 'package:sanad/view/navigation/profile/widget/input_country_widget.dart';
-import 'package:sanad/view/navigation/profile/widget/input_tagline_widget.dart';
 import 'package:sanad/view/navigation/profile/widget/input_first_name_widget.dart';
 import 'package:sanad/view/navigation/profile/widget/input_last_name_widget.dart';
 import 'package:sanad/view/navigation/profile/widget/input_postal_code_widget.dart';
 import 'package:sanad/view/navigation/profile/widget/input_street_widget.dart';
+import 'package:sanad/view/navigation/profile/widget/input_tagline_widget.dart';
 import 'package:sanad/view/navigation/profile/widget/update_button_widget.dart';
+import 'package:sanad/viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 
+import '../../../../res/assets/icon_assets.dart';
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
+import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/userPreference/user_preference_view_model.dart';
-import '../../../../res/assets/icon_assets.dart';
-import '../../../../res/themes/app_themes.dart';
-import 'package:sanad/viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 import 'widget/input_email_widget.dart';
 import 'widget/input_mobile_number_widget.dart';
 

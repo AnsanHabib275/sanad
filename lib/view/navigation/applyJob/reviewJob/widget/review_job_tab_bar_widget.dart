@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../../../../res/assets/icon_assets.dart';
 import '../../../../../../res/colors/app_color.dart';
-import '../../../../../../viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
-
 import '../../../../../../res/themes/app_themes.dart';
 import '../../../../../../utils/utils.dart';
+import '../../../../../../viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
 
 class ReviewJobTabBar extends StatefulWidget {
   const ReviewJobTabBar({super.key});
+
   @override
   State<ReviewJobTabBar> createState() => _ReviewJobTabBarState();
 }

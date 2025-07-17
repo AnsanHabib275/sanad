@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
+import 'package:sanad/models/login/login_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../models/login/login_model.dart';
 
 class UserPreference extends GetxController {
   RxString userEid = ''.obs;
@@ -86,7 +85,10 @@ class UserPreference extends GetxController {
     SharedPreferences sp = await SharedPreferences.getInstance();
     isNotificationEnabled.value = sp.getBool('isEnableNotification') ?? true;
   }
-
+  Future<String> getEid() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    return sp.getString('userEid') ?? '';
+  }
   Future<LoginModel> getUser() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
     bool isSuccessfull = sp.getBool('isSuccessfull') ?? false;
@@ -119,8 +121,8 @@ class UserPreference extends GetxController {
   }
 
   Future<bool> removeUser() async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    bool isFirstUse = sp.getBool('isFirstUse') ?? true;
+    final SharedPreferences sp = await SharedPreferences.getInstance();
+    final bool isFirstUse = sp.getBool('isFirstUse') ?? true;
     sp.clear();
     await sp.setBool('isFirstUse', isFirstUse);
     return true;

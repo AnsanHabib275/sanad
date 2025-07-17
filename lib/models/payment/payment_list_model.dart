@@ -11,7 +11,9 @@ class PaymentListModel {
       message: json["message"],
       payment:
           json["payment"] != null
-              ? List<Payment>.from(json["payment"].map((x) => Payment.fromJson(x)))
+              ? List<Payment>.from(
+                json["payment"].map((x) => Payment.fromJson(x)),
+              )
               : [],
     );
   }
@@ -23,12 +25,7 @@ class Payment {
   String? amount;
   String? status;
 
-  Payment({
-    this.paymentID,
-    this.paymentDate,
-    this.amount,
-    this.status,
-  });
+  Payment({this.paymentID, this.paymentDate, this.amount, this.status});
 
   factory Payment.fromJson(Map<String, dynamic> json) {
     return Payment(

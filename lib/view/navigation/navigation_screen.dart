@@ -7,14 +7,15 @@ import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
 import 'package:sanad/view/navigation/wallet/wallet_screen.dart';
 import 'package:sanad/viewModels/controller/navigation/navigation_view_model.dart';
 
-import '../../../res/assets/icon_assets.dart';
 import '../../../../res/themes/app_themes.dart';
+import '../../../res/assets/icon_assets.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../viewModels/controller/navigation/notification/notification_view_model.dart';
 import '../../../viewModels/controller/userPreference/user_preference_view_model.dart';
 
 class NavigationScreen extends StatefulWidget {
   final int initialIndex;
+
   const NavigationScreen({super.key, this.initialIndex = 0});
 
   @override
@@ -25,6 +26,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   final navigationVM = Get.put(NavigationViewModel());
   final userVM = Get.put(UserPreference());
   final notificationVM = Get.put(NotificationViewModel());
+
   // NotificationServices notificationServices = NotificationServices();
 
   @override

@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+
 import '../../../data/network/network_api_services_with_out_eid.dart';
 import '../../../res/urls/app_url.dart';
-import 'package:http/http.dart' as http;
 
 class SignUpRepository {
   final _apiServices = NetworkApiServicesWithOutEID();

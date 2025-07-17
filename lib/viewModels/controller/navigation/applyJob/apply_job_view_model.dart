@@ -21,6 +21,7 @@ class ApplyJobViewModel extends GetxController {
   RxString errorMessage = ''.obs;
 
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
+
   void setError(String value) => error.value = value;
 
   void setSelectionTab(String tabText) {

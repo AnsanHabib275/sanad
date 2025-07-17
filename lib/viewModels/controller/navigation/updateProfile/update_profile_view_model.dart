@@ -1,15 +1,16 @@
 import 'dart:io';
+
 import 'package:country_picker/country_picker.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:http_parser/http_parser.dart';
-import 'package:mime/mime.dart';
-import 'package:path/path.dart' as path;
+import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+// import 'package:http_parser/http_parser.dart';
+import 'package:image_picker/image_picker.dart';
+// import 'package:mime/mime.dart';
+// import 'package:path/path.dart' as path;
 import 'package:phone_number/phone_number.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:http/http.dart' as http;
 
 import '../../../../../models/login/login_model.dart';
 import '../../../../../repository/updateProfileRepository/update_profile_repository.dart';
@@ -169,15 +170,15 @@ class UpdateProfileViewModel extends GetxController {
       final File file = File(xFile.path);
 
       if (await file.exists()) {
-        final String fileName = path.basename(file.path);
-        final String mimeType = lookupMimeType(file.path) ?? 'image/jpeg';
+        // final String fileName = path.basename(file.path);
+        // final String mimeType = lookupMimeType(file.path) ?? 'image/jpeg';
         filePath.value = file.path;
-        final multipartFile = await http.MultipartFile.fromPath(
-          'file',
-          file.path,
-          filename: fileName,
-          contentType: MediaType.parse(mimeType),
-        );
+        // final multipartFile = await http.MultipartFile.fromPath(
+        //   'file',
+        //   file.path,
+        //   filename: fileName,
+        //   contentType: MediaType.parse(mimeType),
+        // );
 
         // await uploadProfileImageApi(multipartFile);
       } else {

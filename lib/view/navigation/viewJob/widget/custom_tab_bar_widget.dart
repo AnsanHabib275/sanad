@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
-
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/themes/app_themes.dart';
 import 'package:sanad/utils/utils.dart';
+import 'package:sanad/viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
 
 class CustomTabBar extends StatefulWidget {
   const CustomTabBar({super.key});
+
   @override
   State<CustomTabBar> createState() => _CustomTabBarState();
 }

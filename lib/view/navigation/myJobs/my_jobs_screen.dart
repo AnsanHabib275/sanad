@@ -56,6 +56,7 @@ class _MyJobsScreenState extends State<MyJobsScreen> {
       'Applied',
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(

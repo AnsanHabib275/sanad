@@ -19,6 +19,7 @@ import 'package:sanad/view/navigation/wallet/wallet_screen.dart';
 import 'package:sanad/view/selectRole/select_role_screen.dart';
 import 'package:sanad/view/signup/agency/agency_sign_up_screen.dart';
 import 'package:sanad/view/signup/individual/individual_sign_up_screen.dart';
+
 import '../../view/OnBoarding/onboarding_screen.dart';
 import '../../view/login/login_screen.dart';
 import '../../view/navigation/applyJob/reviewJob/review_job_screen.dart';

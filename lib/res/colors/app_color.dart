@@ -67,6 +67,7 @@ class AppColor {
   static const Color cvAcceptedCardBgColor = Color(0xFFEBF5FF);
   static const Color cvAcceptedCountBgColor = Color(0xFFE1EFFE);
   static const Color cvAcceptedCountTextColor = Color(0xFF1C64F2);
+
   // Dark Theme Colors
   static const Color primaryDarkColor = Color(0xFF101828);
   static const Color secondaryDarkColor = Color(0xFF101828);

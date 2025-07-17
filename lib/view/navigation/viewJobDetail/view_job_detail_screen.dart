@@ -27,8 +27,10 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
   final companyName = Get.arguments['companyName'] ?? '';
   final location = Get.arguments['location'] ?? '';
   final jobType = Get.arguments['jobType'] ?? '';
+
   // final professionalStatus = Get.arguments['professionalStatus'] ?? '';
   final salaryRange = Get.arguments['salaryRange'] ?? '';
+
   // final cvCount = Get.arguments['cvCount'] ?? '';
   final List<String> jobSpecifications =
       Get.arguments['myJobSpecifications'] ?? [];

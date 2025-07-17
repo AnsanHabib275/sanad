@@ -9,10 +9,12 @@ class NotificationListModel {
     return NotificationListModel(
       isSuccessfull: json["IsSuccessfull"],
       message: json["message"],
-      notifications: json["notifications"] != null
-          ? List<Notifications>.from(
-              json["notifications"].map((x) => Notifications.fromJson(x)))
-          : [],
+      notifications:
+          json["notifications"] != null
+              ? List<Notifications>.from(
+                json["notifications"].map((x) => Notifications.fromJson(x)),
+              )
+              : [],
     );
   }
 }
@@ -27,15 +29,16 @@ class Notifications {
   String? createdOn;
   int? qRCodeNo;
 
-  Notifications(
-      {this.notificationId,
-      this.isViewed,
-      this.detail,
-      this.photos,
-      this.userAddress,
-      this.complaintDate,
-      this.createdOn,
-      this.qRCodeNo});
+  Notifications({
+    this.notificationId,
+    this.isViewed,
+    this.detail,
+    this.photos,
+    this.userAddress,
+    this.complaintDate,
+    this.createdOn,
+    this.qRCodeNo,
+  });
 
   factory Notifications.fromJson(Map<String, dynamic> json) {
     return Notifications(

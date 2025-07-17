@@ -20,6 +20,7 @@ class MyJobsViewModel extends GetxController {
   final searchFocusNode = FocusNode().obs;
 
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
+
   void setError(String value) => error.value = value;
 
   void setSelectionTab(String tabText) {

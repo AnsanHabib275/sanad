@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
+
+import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:crypto/crypto.dart';
 
 import '../../viewModels/controller/userPreference/user_preference_view_model.dart';
 import '../exceptions/app_exceptions.dart';
@@ -182,33 +183,6 @@ class NetworkApiServicesNew extends BaseApiServicesNew {
       throw RequestTimeOut('');
     }
     if (kDebugMode) {
-      print(responseJson);
-    }
-    return responseJson;
-  }
-
-  @override
-  Future<dynamic> deleteApi(String url) async {
-    Map<String, String> headers = {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      'E_ID': Get.find<UserPreference>().userEid.value,
-    };
-    dynamic responseJson;
-    try {
-      final response = await http
-          .delete(Uri.parse(url), headers: headers)
-          .timeout(const Duration(seconds: 12));
-      responseJson = returnResponse(response);
-    } on SocketException {
-      throw InternetException('');
-    } on RequestTimeOut {
-      throw RequestTimeOut('');
-    }
-    if (kDebugMode) {
-      print(responseJson);
       print(responseJson);
     }
     return responseJson;

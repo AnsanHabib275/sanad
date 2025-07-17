@@ -6,5 +6,12 @@ class PaymentModel {
   final String jobTitle;
   final String cvName;
 
-  PaymentModel(this.paymentID,this.paymentDate, this.amount, this.status,this.jobTitle,this.cvName);
+  PaymentModel(
+    this.paymentID,
+    this.paymentDate,
+    this.amount,
+    this.status,
+    this.jobTitle,
+    this.cvName,
+  );
 }

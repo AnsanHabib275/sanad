@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 
 class InputTaglineWidget extends StatelessWidget {

@@ -6,7 +6,6 @@ import 'package:sanad/res/routes/routes_name.dart';
 
 import '../../../../../../utils/utils.dart';
 
-
 class NextButtonWidget extends StatelessWidget {
   const NextButtonWidget({super.key});
 

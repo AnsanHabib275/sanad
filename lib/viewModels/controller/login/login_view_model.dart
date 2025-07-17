@@ -17,6 +17,7 @@ class LoginViewModel extends GetxController {
   final mobileNumberController = TextEditingController().obs;
   final countryCodeFocusNode = FocusNode().obs;
   final mobileNumberFocusNode = FocusNode().obs;
+
   // NotificationServices notificationServices = NotificationServices();
   RxBool loading = false.obs;
   RxBool isEnable = true.obs;

@@ -4,7 +4,6 @@ import 'package:sanad/res/components/round_button.dart';
 
 import '../../../../../utils/utils.dart';
 
-
 class SubmitButtonWidget extends StatelessWidget {
   const SubmitButtonWidget({super.key, required this.formKey});
 

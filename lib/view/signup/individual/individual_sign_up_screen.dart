@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/view/signup/individual/widget/input_first_name_widget.dart';
-import 'package:sanad/view/signup/individual/widget/input_last_name_widget.dart';
 import 'package:sanad/view/signup/individual/widget/continue_button_widget.dart';
 import 'package:sanad/view/signup/individual/widget/input_email_widget.dart';
+import 'package:sanad/view/signup/individual/widget/input_first_name_widget.dart';
+import 'package:sanad/view/signup/individual/widget/input_last_name_widget.dart';
 import 'package:sanad/view/signup/individual/widget/input_tagline_widget.dart';
 import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 

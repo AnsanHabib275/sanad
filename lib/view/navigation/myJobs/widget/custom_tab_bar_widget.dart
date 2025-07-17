@@ -8,6 +8,7 @@ import '../../../../../utils/utils.dart';
 
 class CustomTabBar extends StatefulWidget {
   const CustomTabBar({super.key});
+
   @override
   State<CustomTabBar> createState() => _CustomTabBarState();
 }

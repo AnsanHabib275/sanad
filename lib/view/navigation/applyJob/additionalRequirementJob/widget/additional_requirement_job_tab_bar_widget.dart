@@ -9,6 +9,7 @@ import '../../../../../../viewModels/controller/navigation/applyJob/apply_job_vi
 
 class AdditionalRequirementsJobTabBar extends StatefulWidget {
   const AdditionalRequirementsJobTabBar({super.key});
+
   @override
   State<AdditionalRequirementsJobTabBar> createState() =>
       _AdditionalRequirementsJobTabBarState();

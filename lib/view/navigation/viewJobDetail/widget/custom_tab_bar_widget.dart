@@ -8,6 +8,7 @@ import '../../../../../viewModels/controller/navigation/applyJob/apply_job_view_
 
 class CustomTabBar extends StatefulWidget {
   const CustomTabBar({super.key});
+
   @override
   State<CustomTabBar> createState() => _CustomTabBarState();
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
 import '../../../../../data/response/status.dart';
 import '../../../../../models/home/jobs_list_model.dart';
 import '../../../../../repository/homeRepository/home_repository.dart';
@@ -18,6 +19,7 @@ class HomeViewModel extends GetxController {
   final searchFocusNode = FocusNode().obs;
 
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
+
   void setError(String value) => error.value = value;
 
   Future<void> jobsListApi() async {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/components/round_button.dart';
 import 'package:sanad/res/routes/routes_name.dart';
+
 import '../../../../../utils/utils.dart';
 
 class SubmitButtonWidget extends StatelessWidget {
@@ -35,9 +36,7 @@ class SubmitButtonWidget extends StatelessWidget {
       // loading: resetPasswordVM.loading.value,
       onPress: () {
         Utils.hideKeyboardGlobally();
-        Get.toNamed(
-          RoutesName.submittedCvScreen,
-        );
+        Get.toNamed(RoutesName.submittedCvScreen);
         // if (formKey.currentState!.validate()) {
         //   resetPasswordVM.resetPasswordApi(eID);
         // }
