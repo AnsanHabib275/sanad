@@ -29,19 +29,24 @@ class SubmitButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final resetPasswordVM = Get.put(ResetPasswordViewModel());
-    // return Obx(() {
     return RoundButton(
       title: 'submit'.tr,
-      // loading: resetPasswordVM.loading.value,
       onPress: () {
         Utils.hideKeyboardGlobally();
-        Get.toNamed(RoutesName.submittedCvScreen);
-        // if (formKey.currentState!.validate()) {
-        //   resetPasswordVM.resetPasswordApi(eID);
-        // }
+        Get.toNamed(
+          RoutesName.applyJobScreen,
+          arguments: {
+            'isPrivate': isPrivate,
+            'jobName': jobName,
+            'companyName': companyName,
+            'location': location,
+            'jobType': jobType,
+            'salaryRange': salaryRange,
+            'isOpenToRelocating': isOpenToRelocating,
+            'softwarePrograms': softwarePrograms,
+          },
+        );
       },
     );
-    // });
   }
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/res/assets/icon_assets.dart';
 
 import '../../../../../models/submittedCV/submitted_cv_model.dart';
 import '../../../../../res/assets/image_assets.dart';
 import '../../../../../res/themes/app_themes.dart';
 import '../../../../../utils/utils.dart';
 import '../../../../../viewModels/controller/navigation/notification/notification_view_model.dart';
+import '../../../../res/colors/app_color.dart';
 import 'bought_button_widget.dart';
 
 class SubmittedCVCartWidget extends StatefulWidget {
@@ -113,7 +115,7 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
             SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Container(
                   decoration: BoxDecoration(
@@ -162,8 +164,164 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                   ),
                 ),
                 widget.submittedCVModel.isBought
-                    ? BoughtButtonWidget()
-                    : SizedBox(),
+                    ? Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.cardSelectedBg,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                Get.height * Utils.getResponsiveHeight(6),
+                              ),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(4),
+                              vertical:
+                                  Get.height * Utils.getResponsiveHeight(4),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Image.asset(IconAssets.icCheckbox),
+                                SizedBox(
+                                  width:
+                                      Get.width * Utils.getResponsiveWidth(4),
+                                ),
+                                Text(
+                                  'bought'.tr,
+                                  style: TextStyle(
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(10),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColor.primaryColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(2),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'you_have_paid'.tr,
+                                style: TextStyle(
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                ),
+                              ),
+                              TextSpan(
+                                text: ' - ',
+                                style: TextStyle(
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                ),
+                              ),
+                              TextSpan(
+                                text: widget.submittedCVModel.price,
+                                style: TextStyle(
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w700,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).extension<AppColors>()?.textBodyColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                    : Container(
+                      decoration: BoxDecoration(
+                        color:
+                            Theme.of(context).extension<AppColors>()?.buttonBg,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            Get.height * Utils.getResponsiveHeight(6),
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Get.width * Utils.getResponsiveWidth(8),
+                          vertical: Get.height * Utils.getResponsiveHeight(2),
+                        ),
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'view_cv'.tr,
+                                style: TextStyle(
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).extension<AppColors>()?.textBodyColor,
+                                ),
+                              ),
+                              TextSpan(
+                                text: ' - ',
+                                style: TextStyle(
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).extension<AppColors>()?.textBodyColor,
+                                ),
+                              ),
+                              TextSpan(
+                                text: widget.submittedCVModel.price,
+                                style: TextStyle(
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w700,
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).extension<AppColors>()?.textBodyColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
               ],
             ),
           ],

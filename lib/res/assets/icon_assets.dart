@@ -59,4 +59,5 @@ class IconAssets {
   static const String icHelpArrow = 'assets/icons/ic_help_arrow.png';
   static const String icArrowDown = 'assets/icons/ic_arrow_down.png';
   static const String icAction = 'assets/icons/ic_action.png';
+  static const String icCheckbox = 'assets/icons/ic_checkbox.png';
 }

@@ -31,12 +31,12 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
               'isPrivate': widget.myJobs.isPrivate,
               'jobName': widget.myJobs.jobName,
               'jobCategory': 'Marketing & Advertisement',
-              'companyName': widget.myJobs.companyName,
+              'agencyName': widget.myJobs.agencyName,
               'location': widget.myJobs.jobLocation,
               'jobType': widget.myJobs.jobType,
-              // 'professionalStatus': 'Intermediate',
+              'professionalStatus': 'Intermediate',
               'salaryRange': widget.myJobs.salaryRange,
-              // 'cvCount': '10 SAR/CV',
+              'cvPrice': '10 Riyal',
               'myJobSpecifications': [
                 widget.myJobs.jobType,
                 'Intermediate',
@@ -54,6 +54,13 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                 'Adobe XD',
                 'Adobe Photoshop',
               ],
+              'companyName': 'Coinbitsolutions',
+              'companyWebsite': 'www.coinbitsolutions.com',
+              'companyType': 'Design Servics',
+              'companySize': '10-50 Employees ',
+              'companyLocation': 'XYZ Location',
+              'companyDescription':
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
             },
           );
         },
@@ -139,7 +146,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                 ),
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
                 Text(
-                  widget.myJobs.companyName.toString(),
+                  widget.myJobs.agencyName.toString(),
                   style: TextStyle(
                     fontSize: Get.height * Utils.getResponsiveSize(14),
                     fontFamily: 'Manrope',
@@ -229,30 +236,37 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                       ),
                     ),
                     Spacer(),
-                    Container(
-                      decoration: BoxDecoration(
-                        color:
-                            Theme.of(
-                              context,
-                            ).extension<AppColors>()?.cardSelectedBg,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            Get.height * Utils.getResponsiveHeight(6),
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed(RoutesName.submittedCvScreen);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.cardSelectedBg,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(
+                              Get.height * Utils.getResponsiveHeight(6),
+                            ),
                           ),
                         ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: Get.width * Utils.getResponsiveWidth(12),
-                          vertical: Get.height * Utils.getResponsiveHeight(2),
-                        ),
-                        child: Text(
-                          widget.myJobs.applied.toString(),
-                          style: TextStyle(
-                            fontSize: Get.height * Utils.getResponsiveSize(14),
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
-                            color: AppColor.primaryColor,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal:
+                                Get.width * Utils.getResponsiveWidth(12),
+                            vertical: Get.height * Utils.getResponsiveHeight(2),
+                          ),
+                          child: Text(
+                            widget.myJobs.applied.toString(),
+                            style: TextStyle(
+                              fontSize:
+                                  Get.height * Utils.getResponsiveSize(14),
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+                              color: AppColor.primaryColor,
+                            ),
                           ),
                         ),
                       ),

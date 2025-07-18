@@ -30,12 +30,12 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
               'isPrivate': widget.jobs.isPrivate,
               'jobName': widget.jobs.jobName,
               'jobCategory': 'Marketing & Advertisement',
-              'companyName': widget.jobs.companyName,
+              'agencyName': widget.jobs.agencyName,
               'location': widget.jobs.jobLocation,
               'jobType': widget.jobs.jobType,
-              // 'professionalStatus': 'Intermediate',
+              'professionalStatus': 'Intermediate',
               'salaryRange': widget.jobs.salaryRange,
-              // 'cvCount': '10 SAR/CV',
+              'cvPrice': '10 Riyal',
               'jobSpecifications': [
                 widget.jobs.jobType,
                 'Intermediate',
@@ -57,6 +57,13 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                 'Adobe XD',
                 'Adobe Photoshop',
               ],
+              'companyName': 'Coinbitsolutions',
+              'companyWebsite': 'www.coinbitsolutions.com',
+              'companyType': 'Design Servics',
+              'companySize': '10-50 Employees ',
+              'companyLocation': 'XYZ Location',
+              'companyDescription':
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
             },
           );
         },
@@ -142,7 +149,7 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                 ),
                 SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
                 Text(
-                  widget.jobs.companyName.toString(),
+                  widget.jobs.agencyName.toString(),
                   style: TextStyle(
                     fontSize: Get.height * Utils.getResponsiveSize(14),
                     fontFamily: 'Manrope',

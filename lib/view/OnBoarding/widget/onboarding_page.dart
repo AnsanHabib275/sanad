@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../models/onBoarding/on_boarding_list_model.dart';
 import '../../../../res/themes/app_themes.dart';
@@ -102,6 +103,8 @@ class OnBoardingPage extends StatelessWidget {
                       child: InkWell(
                         onTap: () {
                           // move to web
+                          // https://sanad-eta.vercel.app/
+                          openWebsite("https://sanad-eta.vercel.app");
                         },
                         child: Container(
                           height: Get.height * Utils.getResponsiveHeight(108),
@@ -212,5 +215,18 @@ class OnBoardingPage extends StatelessWidget {
         },
       ),
     );
+  }
+
+  Future<void> openWebsite(String url) async {
+    final Uri uri = Uri.parse(url);
+
+    // if (await canLaunchUrl(uri)) {
+    await launchUrl(
+      uri,
+      mode: LaunchMode.inAppWebView, // opens in browser
+    );
+    // } else {
+    //   throw 'Could not launch $url';
+    // }
   }
 }

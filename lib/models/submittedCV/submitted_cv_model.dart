@@ -6,6 +6,7 @@ class SubmittedCVModel {
   final String designation;
   final String cvName;
   final bool isBought;
+  final String price;
 
   SubmittedCVModel(
     this.cvId,
@@ -15,5 +16,6 @@ class SubmittedCVModel {
     this.designation,
     this.cvName,
     this.isBought,
+    this.price,
   );
 }

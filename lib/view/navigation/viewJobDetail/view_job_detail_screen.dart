@@ -24,14 +24,14 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
   final isPrivate = Get.arguments['isPrivate'] ?? false;
   final jobName = Get.arguments['jobName'] ?? '';
   final jobCategory = Get.arguments['jobCategory'] ?? '';
-  final companyName = Get.arguments['companyName'] ?? '';
+  final agencyName = Get.arguments['agencyName'] ?? '';
   final location = Get.arguments['location'] ?? '';
   final jobType = Get.arguments['jobType'] ?? '';
 
-  // final professionalStatus = Get.arguments['professionalStatus'] ?? '';
+  final professionalStatus = Get.arguments['professionalStatus'] ?? '';
   final salaryRange = Get.arguments['salaryRange'] ?? '';
 
-  // final cvCount = Get.arguments['cvCount'] ?? '';
+  final cvPrice = Get.arguments['cvPrice'] ?? '';
   final List<String> jobSpecifications =
       Get.arguments['myJobSpecifications'] ?? [];
   final experienceRequired = Get.arguments['experienceRequired'] ?? '';
@@ -39,6 +39,12 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
   final jobDescription = Get.arguments['jobDescription'] ?? '';
   final isOpenToRelocating = Get.arguments['isOpenToRelocating'] ?? '';
   final List<String> softwarePrograms = Get.arguments['softwarePrograms'] ?? [];
+  final companyName = Get.arguments['companyName'] ?? '';
+  final companyWebsite = Get.arguments['companyWebsite'] ?? '';
+  final companyType = Get.arguments['companyType'] ?? '';
+  final companySize = Get.arguments['companySize'] ?? '';
+  final companyLocation = Get.arguments['companyLocation'] ?? '';
+  final companyDescription = Get.arguments['companyDescription'] ?? '';
 
   @override
   Widget build(BuildContext context) {

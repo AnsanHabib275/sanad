@@ -1,15 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/view/signup/agency/widget/continue_button_widget.dart';
-import 'package:sanad/view/signup/agency/widget/input_agency_name_widget.dart';
-import 'package:sanad/view/signup/agency/widget/input_email_widget.dart';
-import 'package:sanad/view/signup/agency/widget/input_organization_type_widget.dart';
-import 'package:sanad/view/signup/agency/widget/input_tagline_widget.dart';
 import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
 import '../../../../res/assets/image_assets.dart';
@@ -47,7 +39,7 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                 constraints: BoxConstraints(minHeight: constraints.maxHeight),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Get.width * Utils.getResponsiveWidth(32),
+                    horizontal: Get.width * Utils.getResponsiveWidth(25),
                   ),
                   child: Column(
                     children: [
@@ -91,41 +83,54 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                                 height:
                                     Get.height * Utils.getResponsiveHeight(32),
                               ),
-                              Form(
-                                key: formKey,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'mobile_number'.tr,
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                        color:
-                                            Theme.of(context)
-                                                .extension<AppColors>()
-                                                ?.textPrimaryColor,
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(14),
-                                        fontFamily: 'Manrope',
-                                        fontWeight: FontWeight.w500,
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      Get.width * Utils.getResponsiveWidth(7),
+                                ),
+                                child: Form(
+                                  key: formKey,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'mobile_number'.tr,
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color:
+                                              Theme.of(context)
+                                                  .extension<AppColors>()
+                                                  ?.textPrimaryColor,
+                                          fontSize:
+                                              Get.height *
+                                              Utils.getResponsiveSize(14),
+                                          fontFamily: 'Manrope',
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(8),
-                                    ),
-                                    InputMobileNumberWidget(),
-                                  ],
+                                      SizedBox(
+                                        height:
+                                            Get.height *
+                                            Utils.getResponsiveHeight(8),
+                                      ),
+                                      InputMobileNumberWidget(),
+                                    ],
+                                  ),
                                 ),
                               ),
                               SizedBox(
                                 height:
                                     Get.height * Utils.getResponsiveHeight(16),
                               ),
-                              SendCodeButtonWidget(formKey: formKey),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      Get.width * Utils.getResponsiveWidth(7),
+                                ),
+                                child: SendCodeButtonWidget(formKey: formKey),
+                              ),
                               SizedBox(
                                 height:
                                     Get.height * Utils.getResponsiveHeight(32),

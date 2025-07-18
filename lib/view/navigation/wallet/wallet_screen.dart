@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
-import 'package:sanad/res/assets/image_assets.dart';
 import 'package:sanad/view/navigation/wallet/widget/deposit_now_button_widget.dart';
 import 'package:sanad/view/navigation/wallet/widget/view_all_button_widget.dart';
 import 'package:sanad/view/navigation/wallet/widget/wallet_cart_widget.dart';
@@ -9,7 +8,6 @@ import 'package:sanad/view/navigation/wallet/widget/wallet_cart_widget.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
-import '../../../models/transactions/transactions_model.dart';
 import '../../../models/wallet/wallet_model.dart';
 
 class WalletScreen extends StatefulWidget {

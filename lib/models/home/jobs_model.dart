@@ -2,7 +2,7 @@ class JobsModel {
   final int jobId;
   final String jobName;
   final bool isPrivate;
-  final String companyName;
+  final String agencyName;
   final String jobLocation;
   final String jobType;
   final String salaryRange;
@@ -11,7 +11,7 @@ class JobsModel {
     this.jobId,
     this.jobName,
     this.isPrivate,
-    this.companyName,
+    this.agencyName,
     this.jobLocation,
     this.jobType,
     this.salaryRange,

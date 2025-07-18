@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/view/cookiesPolicy/widget/accept_button_widget.dart';
+import 'package:sanad/view/cookiesPolicy/widget/decline_button_widget.dart';
 
 import '../../../../res/assets/icon_assets.dart';
 import '../../../../res/themes/app_themes.dart';
@@ -40,25 +42,53 @@ class _CookiesPolicyScreenState extends State<CookiesPolicyScreen> {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: Get.width * Utils.getResponsiveWidth(16),
-              vertical: Get.height * Utils.getResponsiveHeight(16),
-            ),
-            child: Text(
-              'cookies_policy_description'.tr,
-              style: TextStyle(
-                color:
-                    Theme.of(
-                      context,
-                    ).extension<AppColors>()?.textSecondaryColor,
-                fontFamily: 'Manrope',
-                fontWeight: FontWeight.w500,
-                fontSize: Get.height * Utils.getResponsiveSize(14),
+        body: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Get.width * Utils.getResponsiveWidth(16),
+                    vertical: Get.height * Utils.getResponsiveHeight(16),
+                  ),
+                  child: Text(
+                    'cookies_policy_description'.tr,
+                    style: TextStyle(
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textSecondaryColor,
+                      fontFamily: 'Manrope',
+                      fontWeight: FontWeight.w500,
+                      fontSize: Get.height * Utils.getResponsiveSize(14),
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Theme.of(context).extension<AppColors>()?.cardBg,
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Get.width * Utils.getResponsiveWidth(16),
+                  vertical: Get.height * Utils.getResponsiveHeight(12),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(child: DeclineButtonWidget()),
+                    SizedBox(width: Get.width * Utils.getResponsiveWidth(12)),
+                    Expanded(child: AcceptButtonWidget()),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: Get.height * Utils.getResponsiveHeight(15)),
+          ],
         ),
       ),
     );

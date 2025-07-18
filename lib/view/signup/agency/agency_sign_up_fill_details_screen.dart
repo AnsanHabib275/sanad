@@ -315,7 +315,7 @@ class _AgencySignUpFillDetailsScreenState
                           height: Get.height * Utils.getResponsiveHeight(16),
                         ),
                         Text(
-                          'company_size'.tr,
+                          'company_size_employees'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             color:

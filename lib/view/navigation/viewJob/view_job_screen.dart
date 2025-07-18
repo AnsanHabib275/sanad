@@ -24,14 +24,14 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
   final isPrivate = Get.arguments['isPrivate'] ?? false;
   final jobName = Get.arguments['jobName'] ?? '';
   final jobCategory = Get.arguments['jobCategory'] ?? '';
-  final companyName = Get.arguments['companyName'] ?? '';
+  final agencyName = Get.arguments['agencyName'] ?? '';
   final location = Get.arguments['location'] ?? '';
   final jobType = Get.arguments['jobType'] ?? '';
 
-  // final professionalStatus = Get.arguments['professionalStatus'] ?? '';
+  final professionalStatus = Get.arguments['professionalStatus'] ?? '';
   final salaryRange = Get.arguments['salaryRange'] ?? '';
 
-  // final cvCount = Get.arguments['cvCount'] ?? '';
+  final cvPrice = Get.arguments['cvPrice'] ?? '';
   final List<String> jobSpecifications =
       Get.arguments['jobSpecifications'] ?? [];
   final experienceRequired = Get.arguments['experienceRequired'] ?? '';
@@ -39,6 +39,13 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
   final jobDescription = Get.arguments['jobDescription'] ?? '';
   final isOpenToRelocating = Get.arguments['isOpenToRelocating'] ?? '';
   final List<String> softwarePrograms = Get.arguments['softwarePrograms'] ?? [];
+
+  final companyName = Get.arguments['companyName'] ?? '';
+  final companyWebsite = Get.arguments['companyWebsite'] ?? '';
+  final companyType = Get.arguments['companyType'] ?? '';
+  final companySize = Get.arguments['companySize'] ?? '';
+  final companyLocation = Get.arguments['companyLocation'] ?? '';
+  final companyDescription = Get.arguments['companyDescription'] ?? '';
 
   @override
   Widget build(BuildContext context) {
@@ -91,10 +98,16 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            IconAssets.icPostLogo,
-                            height: Get.height * Utils.getResponsiveHeight(32),
-                            width: Get.width * Utils.getResponsiveWidth(32),
+                          GestureDetector(
+                            onTap: () {
+                              showPostBottomSheet();
+                            },
+                            child: Image.asset(
+                              IconAssets.icPostLogo,
+                              height:
+                                  Get.height * Utils.getResponsiveHeight(32),
+                              width: Get.width * Utils.getResponsiveWidth(32),
+                            ),
                           ),
                           SizedBox(
                             width: Get.width * Utils.getResponsiveWidth(16),
@@ -167,7 +180,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                   text: TextSpan(
                                     children: [
                                       TextSpan(
-                                        text: companyName,
+                                        text: agencyName,
                                         style: TextStyle(
                                           fontSize:
                                               Get.height *
@@ -242,25 +255,24 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                       ),
                       child: SizedBox(
                         height: Get.height * Utils.getResponsiveHeight(22),
-                        child: Flexible(
-                          child: ListView.separated(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            physics: AlwaysScrollableScrollPhysics(),
-                            itemCount: jobSpecifications.length,
-                            separatorBuilder:
-                                (context, index) => SizedBox(
-                                  width:
-                                      Get.width * Utils.getResponsiveWidth(8),
-                                ),
-                            itemBuilder: (context, index) {
-                              return JobSpecificationsCartWidget(
-                                jobSpecification: jobSpecifications[index],
-                              );
-                            },
-                          ),
+                        // child: Flexible(
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          physics: AlwaysScrollableScrollPhysics(),
+                          itemCount: jobSpecifications.length,
+                          separatorBuilder:
+                              (context, index) => SizedBox(
+                                width: Get.width * Utils.getResponsiveWidth(8),
+                              ),
+                          itemBuilder: (context, index) {
+                            return JobSpecificationsCartWidget(
+                              jobSpecification: jobSpecifications[index],
+                            );
+                          },
                         ),
                       ),
+                      // ),
                     ),
                     SizedBox(
                       height: Get.height * Utils.getResponsiveHeight(16),
@@ -330,7 +342,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'experience_required'.tr,
+                                              'employment_type'.tr,
                                               style: TextStyle(
                                                 color:
                                                     Theme.of(context)
@@ -344,7 +356,73 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                               ),
                                             ),
                                             Text(
-                                              experienceRequired,
+                                              jobType,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(14),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(16),
+                                            ),
+                                            Text(
+                                              'candidates_required'.tr,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textSecondaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(12),
+                                              ),
+                                            ),
+                                            Text(
+                                              candidatesRequired,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(14),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(16),
+                                            ),
+                                            Text(
+                                              'salary_range'.tr,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textSecondaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(12),
+                                              ),
+                                            ),
+                                            Text(
+                                              salaryRange,
                                               style: TextStyle(
                                                 color:
                                                     Theme.of(context)
@@ -407,7 +485,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'candidates_required'.tr,
+                                              'experience_required'.tr,
                                               style: TextStyle(
                                                 color:
                                                     Theme.of(context)
@@ -421,7 +499,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                               ),
                                             ),
                                             Text(
-                                              candidatesRequired,
+                                              experienceRequired,
                                               style: TextStyle(
                                                 color:
                                                     Theme.of(context)
@@ -433,6 +511,159 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                                     Get.height *
                                                     Utils.getResponsiveSize(14),
                                               ),
+                                            ),
+                                            SizedBox(
+                                              height:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(16),
+                                            ),
+                                            Text(
+                                              'seniority_level'.tr,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textSecondaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(12),
+                                              ),
+                                            ),
+                                            Text(
+                                              professionalStatus,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(14),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(16),
+                                            ),
+                                            Text(
+                                              'job_post_type'.tr,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textSecondaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(12),
+                                              ),
+                                            ),
+                                            Text(
+                                              isPrivate ? 'Private' : 'Public',
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Get.height *
+                                                    Utils.getResponsiveSize(14),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height:
+                                                  Get.height *
+                                                  Utils.getResponsiveHeight(16),
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(
+                                                  'price_per_cv'.tr,
+                                                  style: TextStyle(
+                                                    color:
+                                                        Theme.of(context)
+                                                            .extension<
+                                                              AppColors
+                                                            >()
+                                                            ?.textPrimaryColor,
+                                                    fontFamily: 'Manrope',
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize:
+                                                        Get.height *
+                                                        Utils.getResponsiveSize(
+                                                          14,
+                                                        ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width:
+                                                      Get.width *
+                                                      Utils.getResponsiveWidth(
+                                                        12,
+                                                      ),
+                                                ),
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                    color:
+                                                        Theme.of(context)
+                                                            .extension<
+                                                              AppColors
+                                                            >()
+                                                            ?.cardSelectedBg,
+                                                    borderRadius: BorderRadius.all(
+                                                      Radius.circular(
+                                                        Get.height *
+                                                            Utils.getResponsiveHeight(
+                                                              6,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding: EdgeInsets.symmetric(
+                                                      horizontal:
+                                                          Get.width *
+                                                          Utils.getResponsiveWidth(
+                                                            8,
+                                                          ),
+                                                      vertical:
+                                                          Get.height *
+                                                          Utils.getResponsiveHeight(
+                                                            4,
+                                                          ),
+                                                    ),
+                                                    child: Text(
+                                                      cvPrice,
+                                                      style: TextStyle(
+                                                        fontSize:
+                                                            Get.height *
+                                                            Utils.getResponsiveSize(
+                                                              11,
+                                                            ),
+                                                        fontFamily: 'Manrope',
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color:
+                                                            AppColor
+                                                                .primaryColor,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
@@ -495,7 +726,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                       color:
                                           Theme.of(context)
                                               .extension<AppColors>()
-                                              ?.textBodyColor,
+                                              ?.textSecondaryColor,
                                       fontSize:
                                           Get.height *
                                           Utils.getResponsiveSize(14),
@@ -926,7 +1157,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                 child: ApplyNowButtonWidget(
                   isPrivate: isPrivate,
                   jobName: jobName,
-                  companyName: companyName,
+                  companyName: agencyName,
                   location: location,
                   jobType: jobType,
                   salaryRange: salaryRange,
@@ -964,5 +1195,350 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
       }
     }
     return maxWidth;
+  }
+
+  void showPostBottomSheet() {
+    Get.bottomSheet(
+      Container(
+        padding: EdgeInsets.only(
+          top: Get.height * Utils.getResponsiveHeight(24),
+          bottom: Get.height * Utils.getResponsiveHeight(60),
+        ),
+        decoration: BoxDecoration(
+          color: Theme.of(context).extension<AppColors>()?.cardBg,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(
+              Get.height * Utils.getResponsiveHeight(30),
+            ),
+            topRight: Radius.circular(
+              Get.height * Utils.getResponsiveHeight(30),
+            ),
+          ),
+          border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(16),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    IconAssets.icPostLogo,
+                    height: Get.height * Utils.getResponsiveHeight(32),
+                    width: Get.width * Utils.getResponsiveWidth(32),
+                    color: AppColor.cvAcceptedCardBgDarkColor,
+                  ),
+                  SizedBox(width: Get.width * Utils.getResponsiveWidth(16)),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          companyName,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
+                            fontSize: Get.height * Utils.getResponsiveSize(20),
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(2),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.cardSelectedBg,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                Get.height * Utils.getResponsiveHeight(6),
+                              ),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(12),
+                              vertical:
+                                  Get.height * Utils.getResponsiveHeight(2),
+                            ),
+                            child: Text(
+                              jobCategory,
+                              style: TextStyle(
+                                fontSize:
+                                    Get.height * Utils.getResponsiveSize(11),
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w500,
+                                color: AppColor.primaryColor,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(8),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: agencyName,
+                                style: TextStyle(
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(14),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                ),
+                              ),
+                              TextSpan(
+                                text: ' | '.tr,
+                                style: TextStyle(
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(14),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                ),
+                              ),
+                              TextSpan(
+                                text: location,
+                                style: TextStyle(
+                                  fontSize:
+                                      Get.height * Utils.getResponsiveSize(14),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+            Divider(
+              color: Theme.of(context).dividerColor,
+              height: Get.height * Utils.getResponsiveHeight(1),
+            ),
+            SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(16),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'website'.tr,
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Get.height * Utils.getResponsiveSize(12),
+                          ),
+                        ),
+                        Text(
+                          companyWebsite,
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(16),
+                        ),
+                        Text(
+                          'company_type'.tr,
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Get.height * Utils.getResponsiveSize(12),
+                          ),
+                        ),
+                        Text(
+                          companyType,
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: Get.width * Utils.getResponsiveWidth(16)),
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'company_size'.tr,
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Get.height * Utils.getResponsiveSize(12),
+                          ),
+                        ),
+                        Text(
+                          companySize,
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(16),
+                        ),
+                        Text(
+                          'location'.tr,
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textSecondaryColor,
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Get.height * Utils.getResponsiveSize(12),
+                          ),
+                        ),
+                        Text(
+                          companyLocation,
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(16),
+              ),
+              child: RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'about'.tr,
+                      style: TextStyle(
+                        fontSize: Get.height * Utils.getResponsiveSize(18),
+                        fontFamily: 'Manrope',
+                        fontWeight: FontWeight.w600,
+                        color:
+                            Theme.of(
+                              context,
+                            ).extension<AppColors>()?.textPrimaryColor,
+                      ),
+                    ),
+                    TextSpan(
+                      text: companyName,
+                      style: TextStyle(
+                        fontSize: Get.height * Utils.getResponsiveSize(18),
+                        fontFamily: 'Manrope',
+                        fontWeight: FontWeight.w600,
+                        color:
+                            Theme.of(
+                              context,
+                            ).extension<AppColors>()?.textPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: Get.width * Utils.getResponsiveWidth(16),
+              ),
+              child: Text(
+                companyDescription,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color:
+                      Theme.of(
+                        context,
+                      ).extension<AppColors>()?.textSecondaryColor,
+                  fontSize: Get.height * Utils.getResponsiveSize(14),
+                  fontFamily: 'Manrope',
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      isScrollControlled: true,
+    );
   }
 }

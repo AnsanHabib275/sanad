@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/models/transactions/transactions_model.dart';
 import 'package:sanad/models/wallet/wallet_model.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
-import 'package:sanad/res/assets/image_assets.dart';
 
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../res/themes/app_themes.dart';
