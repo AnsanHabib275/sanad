@@ -24,4 +24,5 @@ class AppUrl {
   static String paymentsUrl = "$baseUrl/api/Payments/";
   static String helpUrl = "$baseUrl/api/Help/";
   static String applyJobUrl = "$baseUrl/api/ApplyJob/";
+  static String withdrawFundsVerificationUrl = "$baseUrl/api/WithdrawFundsVerification/";
 }

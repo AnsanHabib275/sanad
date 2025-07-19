@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../res/components/round_button.dart';
+import '../../../../res/routes/routes_name.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/login/login_view_model.dart';
 
@@ -22,7 +23,7 @@ class WithdrawButtonWidget extends StatelessWidget {
           // if (formKey.currentState!.validate()) {
           //   loginVM.loginApi();
           // }
-          // Get.toNamed(RoutesName.navigationScreen);
+          Get.toNamed(RoutesName.withdrawFundsVerificationScreen);
         },
       );
     });

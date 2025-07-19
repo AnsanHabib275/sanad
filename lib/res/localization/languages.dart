@@ -330,6 +330,10 @@ class Languages extends Translations {
       'mada': 'Mada',
       'withdraw': 'Withdraw',
       'set_amount': 'Set Amount',
+      'verification': 'Verification',
+      'enter_the_4_digit_code_to_process_your_withdraw': 'Enter the 4-digit code to process your withdraw',
+      'i_didn_t_receive_the_code': 'I didn’t receive the code',
+      'verify_withdraw': 'Verify Withdraw',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

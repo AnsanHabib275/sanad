@@ -37,4 +37,5 @@ class ImageAssets {
   static const String imgDummyPicture = 'assets/images/img_dummy_picture.png';
   static const String saudiRiyalSymbol = 'assets/images/saudi_riyal_symbol.png';
   static const String imgSaudiRiyalSymbol = 'assets/images/img_saudi_riyal_symbol.png';
+  static const String imgWithdrawFundsVerification = 'assets/images/img_withdraw_funds_verification.png';
 }
