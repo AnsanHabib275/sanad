@@ -8,7 +8,6 @@ import '../../../../../res/themes/app_themes.dart';
 import '../../../../../utils/utils.dart';
 import '../../../../../viewModels/controller/navigation/notification/notification_view_model.dart';
 import '../../../../res/colors/app_color.dart';
-import 'bought_button_widget.dart';
 
 class SubmittedCVCartWidget extends StatefulWidget {
   final SubmittedCVModel submittedCVModel;

@@ -36,4 +36,5 @@ class RoutesName {
   static const String reviewJobScreen = '/review_job_screen';
   static const String viewJobDetailScreen = '/view_job_detail_screen';
   static const String submittedCvScreen = '/submitted_cv_screen';
+  static const String withdrawFundsScreen = '/withdraw_funds_screen';
 }

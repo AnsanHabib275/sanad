@@ -18,6 +18,7 @@ import 'package:sanad/view/navigation/transactions/transactions_screen.dart';
 import 'package:sanad/view/navigation/viewJob/view_job_screen.dart';
 import 'package:sanad/view/navigation/viewJobDetail/view_job_detail_screen.dart';
 import 'package:sanad/view/navigation/wallet/wallet_screen.dart';
+import 'package:sanad/view/navigation/withdrawFunds/withdraw_funds_screen.dart';
 import 'package:sanad/view/privacyPolicy/privacy_policy_screen.dart';
 import 'package:sanad/view/selectRole/select_role_screen.dart';
 import 'package:sanad/view/signup/agency/agency_sign_up_fill_details_screen.dart';
@@ -282,6 +283,13 @@ class AppRoutes {
     GetPage(
       name: RoutesName.submittedCvScreen,
       page: () => SubmittedCVScreen(),
+      transitionDuration: Duration(milliseconds: 200),
+      transition: Transition.rightToLeft,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.withdrawFundsScreen,
+      page: () => WithdrawFundsScreen(),
       transitionDuration: Duration(milliseconds: 200),
       transition: Transition.rightToLeft,
       curve: Curves.easeInOut,

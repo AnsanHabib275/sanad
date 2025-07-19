@@ -324,6 +324,12 @@ class Languages extends Translations {
       'company_type': 'Company Type',
       'you_have_paid': 'You’ve Paid',
       'view_cv': 'View Cv',
+      'withdraw_funds': 'Withdraw Funds',
+      'withdraw_now': 'Withdraw Now',
+      'card': 'Card',
+      'mada': 'Mada',
+      'withdraw': 'Withdraw',
+      'set_amount': 'Set Amount',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

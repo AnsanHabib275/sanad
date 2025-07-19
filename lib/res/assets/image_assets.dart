@@ -35,4 +35,6 @@ class ImageAssets {
   static const String imgPdf = 'assets/images/img_pdf.png';
   static const String imgAddPhoto = 'assets/images/img_add_photo.png';
   static const String imgDummyPicture = 'assets/images/img_dummy_picture.png';
+  static const String saudiRiyalSymbol = 'assets/images/saudi_riyal_symbol.png';
+  static const String imgSaudiRiyalSymbol = 'assets/images/img_saudi_riyal_symbol.png';
 }

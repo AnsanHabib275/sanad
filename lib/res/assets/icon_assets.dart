@@ -60,4 +60,6 @@ class IconAssets {
   static const String icArrowDown = 'assets/icons/ic_arrow_down.png';
   static const String icAction = 'assets/icons/ic_action.png';
   static const String icCheckbox = 'assets/icons/ic_checkbox.png';
+  static const String icCard = 'assets/icons/ic_card.png';
+  static const String icMada = 'assets/icons/ic_mada.png';
 }
