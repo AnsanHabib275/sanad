@@ -387,7 +387,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           width: Get.width * Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
-                        title: Text('payments_method'.tr),
+                        title: Text('payments'.tr),
                         titleTextStyle: TextStyle(
                           color:
                               Theme.of(
@@ -399,6 +399,31 @@ class _AccountScreenState extends State<AccountScreen> {
                         ),
                         onTap: () {
                           Get.toNamed(RoutesName.paymentsScreen);
+                        },
+                      ),
+                      ListTile(
+                        minTileHeight:
+                            Get.height * Utils.getResponsiveHeight(48),
+                        horizontalTitleGap:
+                            Get.width * Utils.getResponsiveWidth(6),
+                        leading: Image.asset(
+                          IconAssets.icPayment,
+                          height: Get.height * Utils.getResponsiveHeight(24),
+                          width: Get.width * Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
+                        ),
+                        title: Text('payment_method'.tr),
+                        titleTextStyle: TextStyle(
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
+                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontFamily: 'Manrope',
+                          fontWeight: FontWeight.w500,
+                        ),
+                        onTap: () {
+                          Get.toNamed(RoutesName.paymentMethodScreen);
                         },
                       ),
                     ],
@@ -436,62 +461,6 @@ class _AccountScreenState extends State<AccountScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ThemeToggleWidget(),
-                      // SizedBox(
-                      //  height: Get.height * Utils.getResponsiveHeight(48),
-                      //   child: Row(
-                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //     crossAxisAlignment: CrossAxisAlignment.center,
-                      //     children: [
-                      //       // ListTile(
-                      //       //   minTileHeight:
-                      //       //   Get.height * Utils.getResponsiveHeight(48),
-                      //       //   horizontalTitleGap:
-                      //       //   Get.width * Utils.getResponsiveWidth(6),
-                      //       //   leading: Image.asset(
-                      //       //     IconAssets.icRateUs,
-                      //       //     height: Get.height * Utils.getResponsiveHeight(24),
-                      //       //     width: Get.width * Utils.getResponsiveWidth(24),
-                      //       //     color: Theme.of(context).iconTheme.color,
-                      //       //   ),
-                      //       //   title: Text('dark_mode'.tr),
-                      //       //   titleTextStyle: TextStyle(
-                      //       //     color:
-                      //       //     Theme.of(
-                      //       //       context,
-                      //       //     ).extension<AppColors>()?.textBodyColor,
-                      //       //     fontSize: Get.height * Utils.getResponsiveSize(16),
-                      //       //     fontFamily: 'Manrope',
-                      //       //     fontWeight: FontWeight.w500,
-                      //       //   ),
-                      //       //   onTap: () {
-                      //       //     themeService.toggleTheme();
-                      //       //   },
-                      //       // ),
-                      //         Image.asset(
-                      //           IconAssets.icRateUs,
-                      //           height: Get.height * Utils.getResponsiveHeight(24),
-                      //           width: Get.width * Utils.getResponsiveWidth(24),
-                      //           color: Theme.of(context).iconTheme.color,
-                      //         ),
-                      //       Text('dark_mode'.tr,style: TextStyle(
-                      //           color:
-                      //           Theme.of(
-                      //             context,
-                      //           ).extension<AppColors>()?.textBodyColor,
-                      //           fontSize: Get.height * Utils.getResponsiveSize(16),
-                      //           fontFamily: 'Manrope',
-                      //           fontWeight: FontWeight.w500,
-                      //         ),
-                      //         ),
-                      //       Switch(
-                      //         value: themeService.themeMode == ThemeMode.dark,
-                      //         onChanged: (value) {
-                      //           themeService.toggleTheme();
-                      //         },
-                      //       )
-                      //     ],
-                      //   ),
-                      // ),
                       ListTile(
                         minTileHeight:
                             Get.height * Utils.getResponsiveHeight(48),
@@ -612,6 +581,7 @@ class _AccountScreenState extends State<AccountScreen> {
           context,
         ).copyWith(textScaler: TextScaler.linear(1.0)),
         child: Dialog(
+          insetPadding: EdgeInsets.zero,
           elevation: 4,
           backgroundColor: Theme.of(context).extension<AppColors>()?.cardBg,
           shape: RoundedRectangleBorder(
@@ -620,7 +590,6 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
           ),
           child: SizedBox(
-            height: Get.height * Utils.getResponsiveHeight(250),
             width: Get.width * Utils.getResponsiveWidth(400),
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -630,6 +599,7 @@ class _AccountScreenState extends State<AccountScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
                     height: Get.height * Utils.getResponsiveHeight(61),
@@ -651,19 +621,17 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                   ),
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
-                  FittedBox(
-                    child: Text(
-                      'confirm_sign_out'.tr,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: Get.height * Utils.getResponsiveSize(14),
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                        color:
-                            Theme.of(
-                              context,
-                            ).extension<AppColors>()?.textBodyColor,
-                      ),
+                  Text(
+                    'confirm_sign_out'.tr,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: Get.height * Utils.getResponsiveSize(14),
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textBodyColor,
                     ),
                   ),
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(32)),

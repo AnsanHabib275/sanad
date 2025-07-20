@@ -15,21 +15,8 @@ class ThemeToggleWidget extends StatelessWidget {
 
     return Obx(() {
       return SwitchListTile(
-        // secondary: Row(
-        //   mainAxisSize: MainAxisSize.min,
-        //   children: [
-        //     Image.asset(
-        //       IconAssets.icRateUs,
-        //       height: Get.height * Utils.getResponsiveHeight(24),
-        //       width: Get.width * Utils.getResponsiveWidth(24),
-        //       color: Theme.of(context).iconTheme.color,
-        //     ),
-        //     // SizedBox(width: 6), // Add 6px space here
-        //   ],
-        // ),
-        // contentPadding: EdgeInsets.only(left: 0),
         secondary: Image.asset(
-          IconAssets.icRateUs,
+          IconAssets.icDarkTheme,
           height: Get.height * Utils.getResponsiveHeight(24),
           width: Get.width * Utils.getResponsiveWidth(24),
           color: Theme.of(context).iconTheme.color,

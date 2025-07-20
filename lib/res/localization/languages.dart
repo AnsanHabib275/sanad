@@ -331,9 +331,20 @@ class Languages extends Translations {
       'withdraw': 'Withdraw',
       'set_amount': 'Set Amount',
       'verification': 'Verification',
-      'enter_the_4_digit_code_to_process_your_withdraw': 'Enter the 4-digit code to process your withdraw',
+      'enter_the_4_digit_code_to_process_your_withdraw':
+          'Enter the 4-digit code to process your withdraw',
       'i_didn_t_receive_the_code': 'I didn’t receive the code',
       'verify_withdraw': 'Verify Withdraw',
+      'great_with_exclamation': 'Great!',
+      'withdraw_success': 'Withdraw Success',
+      'below_is_your_withdraw_summary': 'Below is your withdraw summary',
+      'withdraw_destination': 'Withdraw Destination',
+      'total_withdraw': 'Total withdraw',
+      'add_new_payment_method': 'Add New Payment Method',
+      'payment_methods': 'Payment Methods',
+      'payment_methods_detail':
+          'Any updates made to your payment method information will be applied to your upcoming scheduled payments',
+      'save_details': 'Save Details',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

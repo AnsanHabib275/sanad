@@ -38,4 +38,7 @@ class ImageAssets {
   static const String saudiRiyalSymbol = 'assets/images/saudi_riyal_symbol.png';
   static const String imgSaudiRiyalSymbol = 'assets/images/img_saudi_riyal_symbol.png';
   static const String imgWithdrawFundsVerification = 'assets/images/img_withdraw_funds_verification.png';
+  static const String imgDottedLine = 'assets/images/img_dotted_line.png';
+  static const String imgMasterCard = 'assets/images/img_master_card.png';
+  static const String imgAddCard = 'assets/images/img_add_card.png';
 }

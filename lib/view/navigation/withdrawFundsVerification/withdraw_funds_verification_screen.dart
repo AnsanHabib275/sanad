@@ -234,4 +234,5 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
       ),
     );
   }
+
 }

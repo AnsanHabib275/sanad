@@ -10,6 +10,7 @@ import 'package:sanad/view/navigation/applyJob/generalJob/apply_job_screen.dart'
 import 'package:sanad/view/navigation/help/help_screen.dart';
 import 'package:sanad/view/navigation/myJobs/my_jobs_screen.dart';
 import 'package:sanad/view/navigation/payment/payment_screen.dart';
+import 'package:sanad/view/navigation/paymentMethod/payment_method_screen.dart';
 import 'package:sanad/view/navigation/profile/edit_profile_screen.dart';
 import 'package:sanad/view/navigation/rateUs/rate_us_screen.dart';
 import 'package:sanad/view/navigation/submittedCV/submitted_cv_screen.dart';
@@ -298,6 +299,13 @@ class AppRoutes {
     GetPage(
       name: RoutesName.withdrawFundsVerificationScreen,
       page: () => WithdrawFundsVerificationScreen(),
+      transitionDuration: Duration(milliseconds: 200),
+      transition: Transition.rightToLeft,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.paymentMethodScreen,
+      page: () => PaymentMethodScreen(),
       transitionDuration: Duration(milliseconds: 200),
       transition: Transition.rightToLeft,
       curve: Curves.easeInOut,

@@ -62,4 +62,7 @@ class IconAssets {
   static const String icCheckbox = 'assets/icons/ic_checkbox.png';
   static const String icCard = 'assets/icons/ic_card.png';
   static const String icMada = 'assets/icons/ic_mada.png';
+  static const String icEdit = 'assets/icons/ic_edit.png';
+  static const String icDelete = 'assets/icons/ic_delete.png';
+  static const String icDarkTheme = 'assets/icons/ic_dark_theme.png';
 }

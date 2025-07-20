@@ -30,6 +30,7 @@ class SubmitButtonWidget extends StatelessWidget {
           context,
         ).copyWith(textScaler: TextScaler.linear(1.0)),
         child: Dialog(
+          insetPadding: EdgeInsets.zero,
           elevation: 4,
           backgroundColor: Theme.of(context).extension<AppColors>()?.cardBg,
           shape: RoundedRectangleBorder(
@@ -38,7 +39,6 @@ class SubmitButtonWidget extends StatelessWidget {
             ),
           ),
           child: SizedBox(
-            height: Get.height * Utils.getResponsiveHeight(264),
             width: Get.width * Utils.getResponsiveWidth(400),
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -48,6 +48,7 @@ class SubmitButtonWidget extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
                     height: Get.height * Utils.getResponsiveHeight(48),
@@ -69,8 +70,7 @@ class SubmitButtonWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
-                  FittedBox(
-                    child: Text(
+                   Text(
                       'application_submitted_successfully'.tr,
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -83,7 +83,6 @@ class SubmitButtonWidget extends StatelessWidget {
                             ).extension<AppColors>()?.textBodyColor,
                       ),
                     ),
-                  ),
                   SizedBox(height: Get.height * Utils.getResponsiveHeight(32)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
