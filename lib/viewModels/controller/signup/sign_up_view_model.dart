@@ -157,8 +157,9 @@ class SignUpViewModel extends GetxController {
             apiErrorMessage.value = '';
             Utils.toastMessage("OTP Sent To Your Email Account");
             Get.toNamed(
-              RoutesName.verifyEmailScreen,
+              RoutesName.otpScreen,
               arguments: {
+                'from': 'individual',
                 'Accountid': value['Accountid'],
                 'MobileNumber':
                     '${countryCodeController.value.text}${mobileNumberController.value.text}',

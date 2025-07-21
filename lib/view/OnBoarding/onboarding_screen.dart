@@ -77,13 +77,10 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                 top: 0,
                 left: 0,
                 right: 0,
-                child: ClipRect(
-                  child: Image.asset(
-                    ImageAssets.onBoardingBg,
-                    height: Get.height * Utils.getResponsiveHeight(494),
-                    width: Get.width * Utils.getResponsiveWidth(744),
-                    fit: BoxFit.cover,
-                  ),
+                child: Image.asset(
+                  ImageAssets.onBoardingBg,
+                  height: Get.height * Utils.getResponsiveHeight(494),
+                  width: Get.width * Utils.getResponsiveWidth(744),
                 ),
               ),
               Positioned(
@@ -128,21 +125,19 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                       ],
                     ),
                     Expanded(
-                      child: ClipRRect(
-                        child: PageView.builder(
-                          physics: const ClampingScrollPhysics(),
-                          controller: _pageController,
-                          itemCount: tutorialPages.length,
-                          onPageChanged: (int page) {
-                            onBoardingVM.currentPage.value = page;
-                          },
-                          itemBuilder: (context, index) {
-                            return OnBoardingPage(
-                              onBoardingList: tutorialPages[index],
-                              index: index,
-                            );
-                          },
-                        ),
+                      child: PageView.builder(
+                        physics: const ClampingScrollPhysics(),
+                        controller: _pageController,
+                        itemCount: tutorialPages.length,
+                        onPageChanged: (int page) {
+                          onBoardingVM.currentPage.value = page;
+                        },
+                        itemBuilder: (context, index) {
+                          return OnBoardingPage(
+                            onBoardingList: tutorialPages[index],
+                            index: index,
+                          );
+                        },
                       ),
                     ),
                     Obx(() {
@@ -175,12 +170,14 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                       );
                     }),
                     SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(70),
+                      height: Get.height * Utils.getResponsiveHeight(38),
                     ),
                     Obx(() {
                       if (!(onBoardingVM.currentPage.value <
                           tutorialPages.length - 1)) {
-                        return SizedBox.shrink();
+                        return SizedBox(
+                          height: Get.height * Utils.getResponsiveHeight(110),
+                        );
                       }
                       return Column(
                         children: [

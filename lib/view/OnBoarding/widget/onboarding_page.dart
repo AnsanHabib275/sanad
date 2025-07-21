@@ -34,7 +34,7 @@ class OnBoardingPage extends StatelessWidget {
                   fit: BoxFit.contain,
                   // color: Theme.of(context).iconTheme.color,
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(155)),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(145)),
                 Text(
                   onBoardingList.title,
                   textAlign: TextAlign.center,
@@ -62,7 +62,7 @@ class OnBoardingPage extends StatelessWidget {
                         ).extension<AppColors>()?.textPrimaryColor,
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(45)),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(86)),
               ],
             );
           }
@@ -81,7 +81,7 @@ class OnBoardingPage extends StatelessWidget {
                   // fit: BoxFit.contain,
                   // color: Theme.of(context).iconTheme.color,
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(299)),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(269)),
                 Text(
                   'are_you_client_or_recruiter'.tr,
                   textAlign: TextAlign.center,
@@ -107,7 +107,7 @@ class OnBoardingPage extends StatelessWidget {
                           openWebsite("https://sanad-eta.vercel.app");
                         },
                         child: Container(
-                          height: Get.height * Utils.getResponsiveHeight(108),
+                          // height: Get.height * Utils.getResponsiveHeight(108),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
                               Radius.circular(
@@ -119,36 +119,49 @@ class OnBoardingPage extends StatelessWidget {
                               width: 1.0,
                             ),
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(34),
-                                width: Get.width * Utils.getResponsiveWidth(34),
-                                image: AssetImage(IconAssets.icCompany),
-                                color: Theme.of(context).iconTheme.color,
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(11),
-                              ),
-                              Text(
-                                'client'.tr,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textSecondaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(20),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(17),
+                              vertical:
+                                  Get.height * Utils.getResponsiveHeight(17),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Image(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(34),
+                                  width:
+                                      Get.width * Utils.getResponsiveWidth(34),
+                                  image: AssetImage(IconAssets.icCompany),
+                                  color: Theme.of(context).iconTheme.color,
                                 ),
-                              ),
-                            ],
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(11),
+                                ),
+                                Text(
+                                  'client'.tr,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textSecondaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(20),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -160,7 +173,7 @@ class OnBoardingPage extends StatelessWidget {
                           Get.toNamed(RoutesName.signUpScreen);
                         },
                         child: Container(
-                          height: Get.height * Utils.getResponsiveHeight(108),
+                          // height: Get.height * Utils.getResponsiveHeight(108),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
                               Radius.circular(
@@ -172,43 +185,56 @@ class OnBoardingPage extends StatelessWidget {
                               width: 1.0,
                             ),
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(34),
-                                width: Get.width * Utils.getResponsiveWidth(34),
-                                image: AssetImage(IconAssets.icRecruiter),
-                                color: Theme.of(context).iconTheme.color,
-                              ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(11),
-                              ),
-                              Text(
-                                'recruiter'.tr,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textSecondaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(20),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  Get.width * Utils.getResponsiveWidth(17),
+                              vertical:
+                                  Get.height * Utils.getResponsiveHeight(17),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Image(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(34),
+                                  width:
+                                      Get.width * Utils.getResponsiveWidth(34),
+                                  image: AssetImage(IconAssets.icRecruiter),
+                                  color: Theme.of(context).iconTheme.color,
                                 ),
-                              ),
-                            ],
+                                SizedBox(
+                                  height:
+                                      Get.height *
+                                      Utils.getResponsiveHeight(11),
+                                ),
+                                Text(
+                                  'recruiter'.tr,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textSecondaryColor,
+                                    fontSize:
+                                        Get.height *
+                                        Utils.getResponsiveSize(20),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(95)),
+                SizedBox(height: Get.height * Utils.getResponsiveHeight(50)),
               ],
             ),
           );
