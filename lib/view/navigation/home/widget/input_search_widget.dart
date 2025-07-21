@@ -34,14 +34,14 @@ class InputSearchWidget extends StatelessWidget {
       ),
       leading: Image.asset(
         IconAssets.icSearch,
-        height: Get.height * Utils.getResponsiveHeight(24),
-        width: Get.width * Utils.getResponsiveWidth(24),
+        height: Utils.getResponsiveHeight(24),
+        width: Utils.getResponsiveWidth(24),
         color: Theme.of(context).iconTheme.color,
       ),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
-            Get.height * Utils.getResponsiveSize(8),
+            Utils.getResponsiveSize(8),
           ),
         ),
       ),

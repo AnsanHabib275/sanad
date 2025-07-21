@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../../res/themes/app_themes.dart';
 import '../../../../../utils/utils.dart';
@@ -21,13 +20,13 @@ class _SoftwareProgramCartWidgetState extends State<SoftwareProgramCartWidget> {
       decoration: BoxDecoration(
         color: Theme.of(context).extension<AppColors>()?.containerBg,
         borderRadius: BorderRadius.all(
-          Radius.circular(Get.height * Utils.getResponsiveHeight(8)),
+          Radius.circular(Utils.getResponsiveHeight(8)),
         ),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: Get.width * Utils.getResponsiveWidth(12),
-          vertical: Get.height * Utils.getResponsiveHeight(8),
+          horizontal: Utils.getResponsiveWidth(12),
+          vertical: Utils.getResponsiveHeight(8),
         ),
         child: Text(
           widget.softwareProgram,
@@ -35,7 +34,7 @@ class _SoftwareProgramCartWidgetState extends State<SoftwareProgramCartWidget> {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: Get.height * Utils.getResponsiveSize(14),
+            fontSize: Utils.getResponsiveSize(14),
             fontFamily: 'Manrope',
             fontWeight: FontWeight.w400,
             color: Theme.of(context).extension<AppColors>()?.textPrimaryColor,

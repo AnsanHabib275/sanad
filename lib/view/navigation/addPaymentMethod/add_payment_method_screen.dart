@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
-import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/themes/app_themes.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/view/navigation/addPaymentMethod/widget/save_details_button_widget.dart';
-import 'package:sanad/view/navigation/viewJob/widget/apply_now_button_widget.dart';
 import 'package:sanad/view/navigation/viewJob/widget/custom_tab_bar_widget.dart';
-import 'package:sanad/view/navigation/viewJob/widget/job_specifications_cart_widget.dart';
-import 'package:sanad/view/navigation/viewJob/widget/software_program_cart_widget.dart';
-
 import '../../../../viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
 
 class AddPaymentMethodScreen extends StatefulWidget {
@@ -33,8 +28,8 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(24),
+              width: Utils.getResponsiveWidth(24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -52,14 +47,14 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Get.width * Utils.getResponsiveWidth(16),
+              horizontal: Utils.getResponsiveWidth(16),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
+                SizedBox(height: Utils.getResponsiveHeight(24)),
                 Text(
                   'job_details'.tr,
                   textAlign: TextAlign.left,
@@ -68,19 +63,19 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
                         Theme.of(
                           context,
                         ).extension<AppColors>()?.textPrimaryColor,
-                    fontSize: Get.height * Utils.getResponsiveSize(18),
+                    fontSize: Utils.getResponsiveSize(18),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 CustomTabBar(),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 Divider(
                   color: Theme.of(context).dividerColor,
-                  height: Get.height * Utils.getResponsiveHeight(1),
+                  height: Utils.getResponsiveHeight(1),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 SizedBox(
                   child: Obx(() {
                     return applyJobVM.selectedTab.value == 'general'
@@ -91,8 +86,7 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
                           children: [
                             Padding(
                               padding: EdgeInsets.symmetric(
-                                horizontal:
-                                    Get.width * Utils.getResponsiveWidth(16),
+                                horizontal: Utils.getResponsiveWidth(16),
                               ),
                               child: SizedBox(),
                             ),
@@ -103,14 +97,12 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            SizedBox(
-                              height: Get.height * Utils.getResponsiveHeight(8),
-                            ),
+                            SizedBox(height: Utils.getResponsiveHeight(8)),
                           ],
                         );
                   }),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 SaveDetailsButtonWidget(),
               ],
             ),

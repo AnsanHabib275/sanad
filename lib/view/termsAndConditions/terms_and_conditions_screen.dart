@@ -27,8 +27,8 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(24),
+              width: Utils.getResponsiveWidth(24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -49,8 +49,8 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Get.width * Utils.getResponsiveWidth(16),
-                    vertical: Get.height * Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(16),
+                    vertical: Utils.getResponsiveHeight(16),
                   ),
                   child: Text(
                     'terms_and_conditions_description'.tr,
@@ -61,7 +61,7 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
                           ).extension<AppColors>()?.textSecondaryColor,
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
-                      fontSize: Get.height * Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(14),
                     ),
                   ),
                 ),
@@ -74,21 +74,21 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
               ),
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: Get.width * Utils.getResponsiveWidth(16),
-                  vertical: Get.height * Utils.getResponsiveHeight(12),
+                  horizontal: Utils.getResponsiveWidth(16),
+                  vertical: Utils.getResponsiveHeight(12),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(child: DeclineButtonWidget()),
-                    SizedBox(width: Get.width * Utils.getResponsiveWidth(12)),
+                    SizedBox(width: Utils.getResponsiveWidth(12)),
                     Expanded(child: AcceptButtonWidget()),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: Get.height * Utils.getResponsiveHeight(15)),
+            SizedBox(height: Utils.getResponsiveHeight(15)),
           ],
         ),
       ),

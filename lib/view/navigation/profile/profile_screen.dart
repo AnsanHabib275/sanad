@@ -30,8 +30,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(24),
+              width: Utils.getResponsiveWidth(24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -50,23 +50,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: Get.width * Utils.getResponsiveWidth(16),
+                horizontal: Utils.getResponsiveWidth(16),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
                   Container(
-                    height: Get.height * Utils.getResponsiveHeight(82),
+                    height: Utils.getResponsiveHeight(82),
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          Get.height * Utils.getResponsiveHeight(4),
-                        ),
+                        Radius.circular(Utils.getResponsiveHeight(4)),
                       ),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
@@ -79,32 +77,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Expanded(
                           child: ListTile(
-                            horizontalTitleGap:
-                                Get.width * Utils.getResponsiveWidth(16),
+                            horizontalTitleGap: Utils.getResponsiveWidth(16),
                             leading: CircleAvatar(
-                              radius: Get.height * Utils.getResponsiveSize(24),
+                              radius: Utils.getResponsiveSize(24),
                               child:
                                   userVM.userImageURL.isEmpty
                                       ? Image.asset(
                                         ImageAssets.imgDummyProfile,
-                                        height:
-                                            Get.height *
-                                            Utils.getResponsiveHeight(48),
-                                        width:
-                                            Get.width *
-                                            Utils.getResponsiveWidth(48),
+                                        height: Utils.getResponsiveHeight(48),
+                                        width: Utils.getResponsiveWidth(48),
                                         fit: BoxFit.cover,
                                       )
                                       : ClipOval(
                                         child: Image.network(
                                           AppUrl.baseUrl +
                                               userVM.userImageURL.value,
-                                          height:
-                                              Get.height *
-                                              Utils.getResponsiveHeight(48),
-                                          width:
-                                              Get.width *
-                                              Utils.getResponsiveWidth(48),
+                                          height: Utils.getResponsiveHeight(48),
+                                          width: Utils.getResponsiveWidth(48),
                                           fit: BoxFit.cover,
                                           loadingBuilder: (
                                             context,
@@ -136,12 +125,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           ) {
                                             return Image.asset(
                                               ImageAssets.imgDummyProfile,
-                                              height:
-                                                  Get.height *
-                                                  Utils.getResponsiveHeight(48),
-                                              width:
-                                                  Get.width *
-                                                  Utils.getResponsiveWidth(48),
+                                              height: Utils.getResponsiveHeight(
+                                                48,
+                                              ),
+                                              width: Utils.getResponsiveWidth(
+                                                48,
+                                              ),
                                               fit: BoxFit.cover,
                                             );
                                           },
@@ -153,8 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               'Mohsin Noor',
                             ),
                             titleTextStyle: TextStyle(
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(20),
+                              fontSize: Utils.getResponsiveSize(20),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w600,
                               color:
@@ -167,8 +155,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               'mohsinnoor@gmail.com',
                             ),
                             subtitleTextStyle: TextStyle(
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -180,11 +167,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         Padding(
                           padding: EdgeInsets.all(
-                            Get.height * Utils.getResponsiveHeight(16),
+                            Utils.getResponsiveHeight(16),
                           ),
                           child: Container(
-                            height: Get.height * Utils.getResponsiveHeight(32),
-                            width: Get.width * Utils.getResponsiveWidth(32),
+                            height: Utils.getResponsiveHeight(32),
+                            width: Utils.getResponsiveWidth(32),
                             decoration: BoxDecoration(
                               color:
                                   Theme.of(
@@ -192,7 +179,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ).extension<AppColors>()?.buttonBg,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(
-                                  Get.height * Utils.getResponsiveHeight(9999),
+                                  Utils.getResponsiveHeight(9999),
                                 ),
                               ),
                             ),
@@ -202,9 +189,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               },
                               child: Image.asset(
                                 IconAssets.icEditProfile,
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(24),
-                                width: Get.width * Utils.getResponsiveWidth(24),
+                                height: Utils.getResponsiveHeight(24),
+                                width: Utils.getResponsiveWidth(24),
                                 color: Theme.of(context).iconTheme.color,
                               ),
                             ),
@@ -213,7 +199,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
                   Text(
                     'my_information'.tr,
                     style: TextStyle(
@@ -221,19 +207,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Theme.of(
                             context,
                           ).extension<AppColors>()?.textPrimaryColor,
-                      fontSize: Get.height * Utils.getResponsiveSize(18),
+                      fontSize: Utils.getResponsiveSize(18),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
                   Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          Get.height * Utils.getResponsiveHeight(8),
-                        ),
+                        Radius.circular(Utils.getResponsiveHeight(8)),
                       ),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
@@ -242,8 +226,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(16),
-                        vertical: Get.height * Utils.getResponsiveHeight(16),
+                        horizontal: Utils.getResponsiveWidth(16),
+                        vertical: Utils.getResponsiveHeight(16),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -253,23 +237,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Align(
                             alignment: Alignment.center,
                             child: SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(95),
-                              width: Get.width * Utils.getResponsiveWidth(95),
+                              height: Utils.getResponsiveHeight(95),
+                              width: Utils.getResponsiveWidth(95),
                               child: Obx(() {
                                 return CircleAvatar(
-                                  radius:
-                                      Get.height * Utils.getResponsiveSize(47),
+                                  radius: Utils.getResponsiveSize(47),
                                   child:
                                       userVM.userImageURL.isEmpty
                                           ? Image.asset(
                                             ImageAssets.imgDummyPicture,
-                                            height:
-                                                Get.height *
-                                                Utils.getResponsiveHeight(95),
-                                            width:
-                                                Get.width *
-                                                Utils.getResponsiveWidth(95),
+                                            height: Utils.getResponsiveHeight(
+                                              95,
+                                            ),
+                                            width: Utils.getResponsiveWidth(95),
                                             fit: BoxFit.cover,
                                           )
                                           : ClipOval(
@@ -279,12 +259,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               userVM.userImageURL.value,
                                               // The selected or updated image path
                                               fit: BoxFit.cover,
-                                              height:
-                                                  Get.height *
-                                                  Utils.getResponsiveHeight(95),
-                                              width:
-                                                  Get.width *
-                                                  Utils.getResponsiveWidth(95),
+                                              height: Utils.getResponsiveHeight(
+                                                95,
+                                              ),
+                                              width: Utils.getResponsiveWidth(
+                                                95,
+                                              ),
                                               loadingBuilder: (
                                                 context,
                                                 child,
@@ -316,12 +296,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                 return Image.asset(
                                                   ImageAssets.imgDummyPicture,
                                                   height:
-                                                      Get.height *
                                                       Utils.getResponsiveHeight(
                                                         95,
                                                       ),
                                                   width:
-                                                      Get.width *
                                                       Utils.getResponsiveWidth(
                                                         95,
                                                       ),
@@ -334,9 +312,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               }),
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
                             'first_name'.tr,
                             style: TextStyle(
@@ -344,15 +320,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
                             'Mohsin',
                             // userVM.userFirstName.value,
@@ -361,15 +334,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
                             'last_name'.tr,
                             style: TextStyle(
@@ -377,15 +347,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
                             'Noor',
                             // userVM.userLastName.value,
@@ -394,15 +361,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
                             'phone_number'.tr,
                             style: TextStyle(
@@ -410,15 +374,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
                             '+1(234) 567 8900',
                             // '${userVM.userCountryCode.value}${userVM.userMobileNumber.value}',
@@ -427,15 +388,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
                             'email'.tr,
                             style: TextStyle(
@@ -443,15 +401,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
                             'mohsinzapta@gmail.com',
                             // userVM.userEmail.value,
@@ -460,15 +415,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
                             'street'.tr,
                             style: TextStyle(
@@ -476,15 +428,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
                             'Jon St Park',
                             // userVM.userStreet.value,
@@ -493,15 +442,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
                             'city_or_state'.tr,
                             style: TextStyle(
@@ -509,15 +455,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
                             'Riyadh',
                             // userVM.userCity.value,
@@ -526,15 +469,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
                             'postal_code'.tr,
                             style: TextStyle(
@@ -542,15 +482,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
                             '123ABC',
                             // userVM.userPostalCode.value,
@@ -559,15 +496,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
                             'country'.tr,
                             style: TextStyle(
@@ -575,15 +509,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
                             'Pakistan',
                             // userVM.userCountry.value,
@@ -592,15 +523,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
                             'tagline'.tr,
                             style: TextStyle(
@@ -608,15 +536,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
                             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident',
                             // userVM.userDescription.value,
@@ -625,8 +550,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
@@ -635,7 +559,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(120)),
+                  SizedBox(height: Utils.getResponsiveHeight(120)),
                 ],
               ),
             ),

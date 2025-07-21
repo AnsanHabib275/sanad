@@ -37,8 +37,8 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
             leading: IconButton(
               icon: Image.asset(
                 IconAssets.icArrowLeft,
-                height: Get.height * Utils.getResponsiveHeight(24),
-                width: Get.width * Utils.getResponsiveWidth(24),
+                height: Utils.getResponsiveHeight(24),
+                width: Utils.getResponsiveWidth(24),
                 color: Theme.of(context).iconTheme.color,
               ),
               onPressed: () => Get.back(),
@@ -60,7 +60,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
               return SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Get.width * Utils.getResponsiveWidth(32),
+                    horizontal: Utils.getResponsiveWidth(32),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -68,7 +68,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                       SizedBox(
                         height:
                             kToolbarHeight +
-                            Get.height * Utils.getResponsiveHeight(74),
+                            Utils.getResponsiveHeight(74),
                       ),
                       Text(
                         'enter_your_security_code_we_sent_to'.tr,
@@ -77,7 +77,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textPrimaryColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(14),
+                          fontSize: Utils.getResponsiveSize(14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
                         ),
@@ -89,13 +89,13 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textPrimaryColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(14),
+                          fontSize: Utils.getResponsiveSize(14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(23),
+                        height: Utils.getResponsiveHeight(23),
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -107,23 +107,23 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(10),
+                        height: Utils.getResponsiveHeight(10),
                       ),
                       Obx(() {
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(55),
+                              width: Utils.getResponsiveWidth(55),
                               height:
-                                  Get.height * Utils.getResponsiveHeight(55),
+                                  Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpOneController.value,
@@ -133,9 +133,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(55),
+                              width: Utils.getResponsiveWidth(55),
                               height:
-                                  Get.height * Utils.getResponsiveHeight(55),
+                                  Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpTwoController.value,
@@ -145,9 +145,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(55),
+                              width: Utils.getResponsiveWidth(55),
                               height:
-                                  Get.height * Utils.getResponsiveHeight(55),
+                                  Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpThreeController.value,
@@ -158,9 +158,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(55),
+                              width: Utils.getResponsiveWidth(55),
                               height:
-                                  Get.height * Utils.getResponsiveHeight(55),
+                                  Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpFourController.value,
@@ -170,9 +170,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(55),
+                              width: Utils.getResponsiveWidth(55),
                               height:
-                                  Get.height * Utils.getResponsiveHeight(55),
+                                  Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpFiveController.value,
@@ -182,9 +182,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(55),
+                              width: Utils.getResponsiveWidth(55),
                               height:
-                                  Get.height * Utils.getResponsiveHeight(55),
+                                  Utils.getResponsiveHeight(55),
                               child: InputOTPWidget(
                                 controller:
                                     verifyEmailVM.otpSixController.value,
@@ -195,7 +195,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         );
                       }),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(26),
+                        height: Utils.getResponsiveHeight(26),
                       ),
                       InkWell(
                         onTap: () {
@@ -207,18 +207,18 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                           style: TextStyle(
                             color: AppColor.primaryButtonColor,
                             decoration: TextDecoration.underline,
-                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(39),
+                        height: Utils.getResponsiveHeight(39),
                       ),
                       VerifyButtonWidget(formKey: _formKey),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(20),
+                        height: Utils.getResponsiveHeight(20),
                       ),
                     ],
                   ),

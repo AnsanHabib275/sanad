@@ -15,10 +15,7 @@ void main() async {
     Get.isDarkMode ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
   );
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(
-    const MyApp(),
-    // DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,8 +30,8 @@ class MyApp extends StatelessWidget {
       translations: Languages(),
       locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
-      theme: AppThemes.lightTheme(MediaQuery.of(context).size.height),
-      darkTheme: AppThemes.darkTheme(MediaQuery.of(context).size.height),
+      theme: AppThemes.lightTheme(context),
+      darkTheme: AppThemes.darkTheme(context),
       themeMode: themeService.themeMode,
       initialRoute: RoutesName.splashScreen,
 

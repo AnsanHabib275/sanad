@@ -39,8 +39,8 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
             leading: IconButton(
               icon: Image.asset(
                 IconAssets.icArrowLeft,
-                height: Get.height * Utils.getResponsiveHeight(24),
-                width: Get.width * Utils.getResponsiveWidth(24),
+                height: Utils.getResponsiveHeight(24),
+                width: Utils.getResponsiveWidth(24),
                 color: Theme.of(context).iconTheme.color,
               ),
               onPressed: () => Get.back(),
@@ -62,13 +62,13 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
               return SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Get.width * Utils.getResponsiveWidth(16),
+                    horizontal: Utils.getResponsiveWidth(16),
                   ),
                   child: Column(
                     children: [
                       SizedBox(
                         height:
-                            Get.height * Utils.getResponsiveHeight(130),
+                            Utils.getResponsiveHeight(130),
                       ),
                       Container(
                         width: double.infinity,
@@ -76,7 +76,7 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                           color: Theme.of(context).extension<AppColors>()?.cardBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
-                              Get.height * Utils.getResponsiveHeight(8),
+                              Utils.getResponsiveHeight(8),
                             ),
                           ),
                           border: Border.all(
@@ -86,8 +86,8 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: Get.width * Utils.getResponsiveWidth(16),
-                            vertical: Get.height * Utils.getResponsiveHeight(48),
+                            horizontal: Utils.getResponsiveWidth(16),
+                            vertical: Utils.getResponsiveHeight(48),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -95,12 +95,12 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                               Image.asset(
                                 ImageAssets.imgWithdrawFundsVerification,
                                 height:
-                                Get.height * Utils.getResponsiveHeight(92),
-                                width: Get.width * Utils.getResponsiveWidth(92),
+                                Utils.getResponsiveHeight(92),
+                                width: Utils.getResponsiveWidth(92),
                               ),
                               SizedBox(
                                 height:
-                                    Get.height * Utils.getResponsiveHeight(32),
+                                    Utils.getResponsiveHeight(32),
                               ),
                               Text(
                                 'verification'.tr,
@@ -109,14 +109,14 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                                       Theme.of(
                                         context,
                                       ).extension<AppColors>()?.textPrimaryColor,
-                                  fontSize: Get.height * Utils.getResponsiveSize(24),
+                                  fontSize: Utils.getResponsiveSize(24),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
                               SizedBox(
                                 height:
-                                    Get.height * Utils.getResponsiveHeight(12),
+                                    Utils.getResponsiveHeight(12),
                               ),
                               Text(
                                 'enter_the_4_digit_code_to_process_your_withdraw'.tr,
@@ -125,22 +125,22 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                                       Theme.of(
                                         context,
                                       ).extension<AppColors>()?.textSecondaryColor,
-                                  fontSize: Get.height * Utils.getResponsiveSize(14),
+                                  fontSize: Utils.getResponsiveSize(14),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                               SizedBox(
-                                height: Get.height * Utils.getResponsiveHeight(32),
+                                height: Utils.getResponsiveHeight(32),
                               ),
                               Obx(() {
                                 return Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
-                                      width: Get.width * Utils.getResponsiveWidth(56),
+                                      width: Utils.getResponsiveWidth(56),
                                       height:
-                                          Get.height * Utils.getResponsiveHeight(56),
+                                          Utils.getResponsiveHeight(56),
                                       child: InputOTPWidget(
                                         controller: wfvVM.otpOneController.value,
                                         focusNode: wfvVM.otpOneFocusNode.value,
@@ -148,9 +148,9 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                                       ),
                                     ),
                                     SizedBox(
-                                      width: Get.width * Utils.getResponsiveWidth(56),
+                                      width: Utils.getResponsiveWidth(56),
                                       height:
-                                          Get.height * Utils.getResponsiveHeight(56),
+                                          Utils.getResponsiveHeight(56),
                                       child: InputOTPWidget(
                                         controller: wfvVM.otpTwoController.value,
                                         focusNode: wfvVM.otpTwoFocusNode.value,
@@ -158,9 +158,9 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                                       ),
                                     ),
                                     SizedBox(
-                                      width: Get.width * Utils.getResponsiveWidth(56),
+                                      width: Utils.getResponsiveWidth(56),
                                       height:
-                                          Get.height * Utils.getResponsiveHeight(56),
+                                          Utils.getResponsiveHeight(56),
                                       child: InputOTPWidget(
                                         controller: wfvVM.otpThreeController.value,
                                         focusNode: wfvVM.otpThreeFocusNode.value,
@@ -168,9 +168,9 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                                       ),
                                     ),
                                     SizedBox(
-                                      width: Get.width * Utils.getResponsiveWidth(56),
+                                      width: Utils.getResponsiveWidth(56),
                                       height:
-                                          Get.height * Utils.getResponsiveHeight(56),
+                                          Utils.getResponsiveHeight(56),
                                       child: InputOTPWidget(
                                         controller: wfvVM.otpFourController.value,
                                         focusNode: wfvVM.otpFourFocusNode.value,
@@ -180,7 +180,7 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                                 );
                               }),
                               SizedBox(
-                                height: Get.height * Utils.getResponsiveHeight(32),
+                                height: Utils.getResponsiveHeight(32),
                               ),
                               Text(
                                 'i_didn_t_receive_the_code'.tr,
@@ -189,13 +189,13 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                                  fontSize: Get.height * Utils.getResponsiveSize(16),
+                                  fontSize: Utils.getResponsiveSize(16),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                               SizedBox(
-                                height: Get.height * Utils.getResponsiveHeight(12),
+                                height: Utils.getResponsiveHeight(12),
                               ),
                               InkWell(
                                 onTap: () {
@@ -206,7 +206,7 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                                   'resend_code'.tr,
                                   style: TextStyle(
                                     color: AppColor.primaryColor,
-                                    fontSize: Get.height * Utils.getResponsiveSize(16),
+                                    fontSize: Utils.getResponsiveSize(16),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -217,11 +217,11 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                         ),
                       ),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(46),
+                        height: Utils.getResponsiveHeight(46),
                       ),
                       VerifyWithdrawButtonWidget(formKey: _formKey),
                       SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(20),
+                        height: Utils.getResponsiveHeight(20),
                       ),
                     ],
                   ),

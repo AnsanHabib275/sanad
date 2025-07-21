@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/view/navigation/viewJobDetail/widget/custom_tab_bar_widget.dart';
 import 'package:sanad/view/navigation/viewJobDetail/widget/job_specifications_cart_widget.dart';
 import 'package:sanad/view/navigation/viewJobDetail/widget/software_program_cart_widget.dart';
-import 'package:sanad/view/navigation/viewJobDetail/widget/submit_button_widget.dart';
+import 'package:sanad/view/navigation/viewJobDetail/widget/apply_now_button_widget.dart';
 
 import '../../../../../res/themes/app_themes.dart';
 import '../../../../../utils/utils.dart';
@@ -61,8 +61,8 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(24),
+              width: Utils.getResponsiveWidth(24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -86,12 +86,10 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(24),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(24)),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(16),
+                        horizontal: Utils.getResponsiveWidth(16),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,18 +97,15 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                         children: [
                           Image.asset(
                             IconAssets.icPostLogo,
-                            height: Get.height * Utils.getResponsiveHeight(32),
-                            width: Get.width * Utils.getResponsiveWidth(32),
+                            height: Utils.getResponsiveHeight(32),
+                            width: Utils.getResponsiveWidth(32),
                           ),
-                          SizedBox(
-                            width: Get.width * Utils.getResponsiveWidth(12),
-                          ),
+                          SizedBox(width: Utils.getResponsiveWidth(12)),
                           Expanded(
                             child: Text(
-                              companyName,
+                              agencyName,
                               style: TextStyle(
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(14),
+                                fontSize: Utils.getResponsiveSize(14),
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w500,
                                 color:
@@ -120,31 +115,25 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: Get.width * Utils.getResponsiveWidth(16),
-                          ),
+                          SizedBox(width: Utils.getResponsiveWidth(16)),
                           Image.asset(
                             IconAssets.icDisable,
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                            width: Get.width * Utils.getResponsiveWidth(24),
+                            height: Utils.getResponsiveHeight(24),
+                            width: Utils.getResponsiveWidth(24),
                           ),
-                          SizedBox(
-                            width: Get.width * Utils.getResponsiveWidth(8),
-                          ),
+                          SizedBox(width: Utils.getResponsiveWidth(8)),
                           Image.asset(
                             IconAssets.icBookmark,
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                            width: Get.width * Utils.getResponsiveWidth(24),
+                            height: Utils.getResponsiveHeight(24),
+                            width: Utils.getResponsiveWidth(24),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(12),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(12)),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(16),
+                        horizontal: Utils.getResponsiveWidth(16),
                       ),
                       child: Text(
                         jobName,
@@ -154,16 +143,16 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textPrimaryColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(20),
+                          fontSize: Utils.getResponsiveSize(20),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
-                    SizedBox(height: Get.height * Utils.getResponsiveHeight(2)),
+                    SizedBox(height: Utils.getResponsiveHeight(2)),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(16),
+                        horizontal: Utils.getResponsiveWidth(16),
                       ),
                       child: Container(
                         decoration: BoxDecoration(
@@ -172,22 +161,18 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                 context,
                               ).extension<AppColors>()?.cardSelectedBg,
                           borderRadius: BorderRadius.all(
-                            Radius.circular(
-                              Get.height * Utils.getResponsiveHeight(6),
-                            ),
+                            Radius.circular(Utils.getResponsiveHeight(6)),
                           ),
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal:
-                                Get.width * Utils.getResponsiveWidth(10),
-                            vertical: Get.height * Utils.getResponsiveHeight(2),
+                            horizontal: Utils.getResponsiveWidth(10),
+                            vertical: Utils.getResponsiveHeight(2),
                           ),
                           child: Text(
                             jobCategory,
                             style: TextStyle(
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(11),
+                              fontSize: Utils.getResponsiveSize(11),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color: AppColor.primaryColor,
@@ -196,15 +181,13 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(12),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(12)),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(16),
+                        horizontal: Utils.getResponsiveWidth(16),
                       ),
                       child: SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(22),
+                        height: Utils.getResponsiveHeight(22),
                         child: Flexible(
                           child: ListView.separated(
                             scrollDirection: Axis.horizontal,
@@ -213,8 +196,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                             itemCount: jobSpecifications.length,
                             separatorBuilder:
                                 (context, index) => SizedBox(
-                                  width:
-                                      Get.width * Utils.getResponsiveWidth(8),
+                                  width: Utils.getResponsiveWidth(8),
                                 ),
                             itemBuilder: (context, index) {
                               return JobSpecificationsCartWidget(
@@ -225,19 +207,15 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(16),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(16)),
                     Divider(
                       color: Theme.of(context).dividerColor,
-                      height: Get.height * Utils.getResponsiveHeight(1),
+                      height: Utils.getResponsiveHeight(1),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(24),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(24)),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(16),
+                        horizontal: Utils.getResponsiveWidth(16),
                       ),
                       child: Text(
                         'job_details'.tr,
@@ -247,24 +225,20 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textPrimaryColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(18),
+                          fontSize: Utils.getResponsiveSize(18),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(16),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(16)),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(16),
+                        horizontal: Utils.getResponsiveWidth(16),
                       ),
                       child: CustomTabBar(),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(16),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(16)),
                     SizedBox(
                       child: Obx(() {
                         return applyJobVM.selectedTab.value == 'general'
@@ -275,15 +249,146 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                               children: [
                                 Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width *
-                                        Utils.getResponsiveWidth(16),
+                                    horizontal: Utils.getResponsiveWidth(16),
                                   ),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'employment_type'.tr,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textSecondaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Utils.getResponsiveSize(12),
+                                              ),
+                                            ),
+                                            Text(
+                                              jobType,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Utils.getResponsiveSize(14),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: Utils.getResponsiveHeight(
+                                                16,
+                                              ),
+                                            ),
+                                            Text(
+                                              'candidates_required'.tr,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textSecondaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Utils.getResponsiveSize(12),
+                                              ),
+                                            ),
+                                            Text(
+                                              candidatesRequired,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Utils.getResponsiveSize(14),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: Utils.getResponsiveHeight(
+                                                16,
+                                              ),
+                                            ),
+                                            Text(
+                                              'salary_range'.tr,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textSecondaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Utils.getResponsiveSize(12),
+                                              ),
+                                            ),
+                                            Text(
+                                              salaryRange,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Utils.getResponsiveSize(14),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: Utils.getResponsiveHeight(
+                                                16,
+                                              ),
+                                            ),
+                                            Text(
+                                              'location'.tr,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textSecondaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Utils.getResponsiveSize(12),
+                                              ),
+                                            ),
+                                            Text(
+                                              location,
+                                              style: TextStyle(
+                                                color:
+                                                    Theme.of(context)
+                                                        .extension<AppColors>()
+                                                        ?.textPrimaryColor,
+                                                fontFamily: 'Manrope',
+                                                fontWeight: FontWeight.w500,
+                                                fontSize:
+                                                    Utils.getResponsiveSize(14),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: Utils.getResponsiveWidth(16),
+                                      ),
                                       Expanded(
                                         flex: 1,
                                         child: Column(
@@ -302,7 +407,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                 fontFamily: 'Manrope',
                                                 fontWeight: FontWeight.w500,
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(12),
                                               ),
                                             ),
@@ -316,17 +420,16 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                 fontFamily: 'Manrope',
                                                 fontWeight: FontWeight.w500,
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(14),
                                               ),
                                             ),
                                             SizedBox(
-                                              height:
-                                                  Get.height *
-                                                  Utils.getResponsiveHeight(16),
+                                              height: Utils.getResponsiveHeight(
+                                                16,
+                                              ),
                                             ),
                                             Text(
-                                              'location'.tr,
+                                              'seniority_level'.tr,
                                               style: TextStyle(
                                                 color:
                                                     Theme.of(context)
@@ -335,12 +438,11 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                 fontFamily: 'Manrope',
                                                 fontWeight: FontWeight.w500,
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(12),
                                               ),
                                             ),
                                             Text(
-                                              location,
+                                              professionalStatus,
                                               style: TextStyle(
                                                 color:
                                                     Theme.of(context)
@@ -349,28 +451,16 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                 fontFamily: 'Manrope',
                                                 fontWeight: FontWeight.w500,
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(14),
                                               ),
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width:
-                                            Get.width *
-                                            Utils.getResponsiveWidth(16),
-                                      ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
+                                            SizedBox(
+                                              height: Utils.getResponsiveHeight(
+                                                16,
+                                              ),
+                                            ),
                                             Text(
-                                              'candidates_required'.tr,
+                                              'job_post_type'.tr,
                                               style: TextStyle(
                                                 color:
                                                     Theme.of(context)
@@ -379,12 +469,11 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                 fontFamily: 'Manrope',
                                                 fontWeight: FontWeight.w500,
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(12),
                                               ),
                                             ),
                                             Text(
-                                              candidatesRequired,
+                                              isPrivate ? 'Private' : 'Public',
                                               style: TextStyle(
                                                 color:
                                                     Theme.of(context)
@@ -393,9 +482,89 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                 fontFamily: 'Manrope',
                                                 fontWeight: FontWeight.w500,
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(14),
                                               ),
+                                            ),
+                                            SizedBox(
+                                              height: Utils.getResponsiveHeight(
+                                                16,
+                                              ),
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(
+                                                  'price_per_cv'.tr,
+                                                  style: TextStyle(
+                                                    color:
+                                                        Theme.of(context)
+                                                            .extension<
+                                                              AppColors
+                                                            >()
+                                                            ?.textPrimaryColor,
+                                                    fontFamily: 'Manrope',
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize:
+                                                        Utils.getResponsiveSize(
+                                                          14,
+                                                        ),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width:
+                                                      Utils.getResponsiveWidth(
+                                                        12,
+                                                      ),
+                                                ),
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                    color:
+                                                        Theme.of(context)
+                                                            .extension<
+                                                              AppColors
+                                                            >()
+                                                            ?.cardSelectedBg,
+                                                    borderRadius: BorderRadius.all(
+                                                      Radius.circular(
+                                                        Utils.getResponsiveHeight(
+                                                          6,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding: EdgeInsets.symmetric(
+                                                      horizontal:
+                                                          Utils.getResponsiveWidth(
+                                                            8,
+                                                          ),
+                                                      vertical:
+                                                          Utils.getResponsiveHeight(
+                                                            4,
+                                                          ),
+                                                    ),
+                                                    child: Text(
+                                                      cvPrice,
+                                                      style: TextStyle(
+                                                        fontSize:
+                                                            Utils.getResponsiveSize(
+                                                              11,
+                                                            ),
+                                                        fontFamily: 'Manrope',
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color:
+                                                            AppColor
+                                                                .primaryColor,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
@@ -403,26 +572,15 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(24),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(24)),
                                 Divider(
                                   color: Theme.of(context).dividerColor,
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(1),
+                                  height: Utils.getResponsiveHeight(1),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(16)),
                                 Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width *
-                                        Utils.getResponsiveWidth(16),
+                                    horizontal: Utils.getResponsiveWidth(16),
                                   ),
                                   child: Text(
                                     'description'.tr,
@@ -432,24 +590,16 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                           Theme.of(context)
                                               .extension<AppColors>()
                                               ?.textPrimaryColor,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(18),
+                                      fontSize: Utils.getResponsiveSize(18),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(16)),
                                 Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width *
-                                        Utils.getResponsiveWidth(16),
+                                    horizontal: Utils.getResponsiveWidth(16),
                                   ),
                                   child: Text(
                                     jobDescription,
@@ -459,9 +609,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                           Theme.of(context)
                                               .extension<AppColors>()
                                               ?.textBodyColor,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(14),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -474,28 +622,16 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(8)),
                                 Divider(
                                   color: Theme.of(context).dividerColor,
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(1),
+                                  height: Utils.getResponsiveHeight(1),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(12),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(12)),
                                 Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width *
-                                        Utils.getResponsiveWidth(16),
-                                    vertical:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(16),
+                                    horizontal: Utils.getResponsiveWidth(16),
+                                    vertical: Utils.getResponsiveHeight(16),
                                   ),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -511,17 +647,13 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                               Theme.of(context)
                                                   .extension<AppColors>()
                                                   ?.textPrimaryColor,
-                                          fontSize:
-                                              Get.height *
-                                              Utils.getResponsiveSize(18),
+                                          fontSize: Utils.getResponsiveSize(18),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),
                                       SizedBox(
-                                        height:
-                                            Get.height *
-                                            Utils.getResponsiveHeight(8),
+                                        height: Utils.getResponsiveHeight(8),
                                       ),
                                       Container(
                                         width: double.infinity,
@@ -532,8 +664,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                               ).extension<AppColors>()?.cardBg,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(
-                                              Get.height *
-                                                  Utils.getResponsiveHeight(8),
+                                              Utils.getResponsiveHeight(8),
                                             ),
                                           ),
                                           border: Border.all(
@@ -545,11 +676,10 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                Get.width *
                                                 Utils.getResponsiveWidth(16),
-                                            vertical:
-                                                Get.height *
-                                                Utils.getResponsiveHeight(16),
+                                            vertical: Utils.getResponsiveHeight(
+                                              16,
+                                            ),
                                           ),
                                           child: Column(
                                             mainAxisAlignment:
@@ -560,7 +690,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                             children: [
                                               SizedBox(
                                                 height:
-                                                    Get.height *
                                                     Utils.getResponsiveHeight(
                                                       8,
                                                     ),
@@ -569,7 +698,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                 'are_you_open_to_relocating'.tr,
                                                 style: TextStyle(
                                                   fontSize:
-                                                      Get.height *
                                                       Utils.getResponsiveSize(
                                                         14,
                                                       ),
@@ -585,7 +713,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                               ),
                                               SizedBox(
                                                 height:
-                                                    Get.height *
                                                     Utils.getResponsiveHeight(
                                                       24,
                                                     ),
@@ -600,22 +727,19 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                           ?.containerBg,
                                                   borderRadius: BorderRadius.all(
                                                     Radius.circular(
-                                                      Get.height *
-                                                          Utils.getResponsiveHeight(
-                                                            8,
-                                                          ),
+                                                      Utils.getResponsiveHeight(
+                                                        8,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
                                                 child: Padding(
                                                   padding: EdgeInsets.symmetric(
                                                     horizontal:
-                                                        Get.width *
                                                         Utils.getResponsiveWidth(
                                                           12,
                                                         ),
                                                     vertical:
-                                                        Get.height *
                                                         Utils.getResponsiveHeight(
                                                           8,
                                                         ),
@@ -624,7 +748,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                     'open_to_relocating'.tr,
                                                     style: TextStyle(
                                                       fontSize:
-                                                          Get.height *
                                                           Utils.getResponsiveSize(
                                                             12,
                                                           ),
@@ -646,9 +769,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                         ),
                                       ),
                                       SizedBox(
-                                        height:
-                                            Get.height *
-                                            Utils.getResponsiveHeight(8),
+                                        height: Utils.getResponsiveHeight(8),
                                       ),
                                       Flexible(
                                         child: Container(
@@ -660,10 +781,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                     .cardBg,
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(
-                                                Get.height *
-                                                    Utils.getResponsiveHeight(
-                                                      8,
-                                                    ),
+                                                Utils.getResponsiveHeight(8),
                                               ),
                                             ),
                                             border: Border.all(
@@ -677,10 +795,8 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
                                               horizontal:
-                                                  Get.width *
                                                   Utils.getResponsiveWidth(16),
                                               vertical:
-                                                  Get.height *
                                                   Utils.getResponsiveHeight(16),
                                             ),
                                             child: Column(
@@ -695,7 +811,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                       .tr,
                                                   style: TextStyle(
                                                     fontSize:
-                                                        Get.height *
                                                         Utils.getResponsiveSize(
                                                           14,
                                                         ),
@@ -711,7 +826,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                 ),
                                                 SizedBox(
                                                   height:
-                                                      Get.height *
                                                       Utils.getResponsiveHeight(
                                                         24,
                                                       ),
@@ -734,7 +848,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                             index,
                                                           ) => SizedBox(
                                                             height:
-                                                                Get.height *
                                                                 Utils.getResponsiveHeight(
                                                                   12,
                                                                 ),
@@ -757,9 +870,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                         ),
                                       ),
                                       SizedBox(
-                                        height:
-                                            Get.height *
-                                            Utils.getResponsiveHeight(8),
+                                        height: Utils.getResponsiveHeight(8),
                                       ),
                                       Container(
                                         width: double.infinity,
@@ -770,8 +881,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                               ).extension<AppColors>()?.cardBg,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(
-                                              Get.height *
-                                                  Utils.getResponsiveHeight(8),
+                                              Utils.getResponsiveHeight(8),
                                             ),
                                           ),
                                           border: Border.all(
@@ -783,11 +893,10 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                Get.width *
                                                 Utils.getResponsiveWidth(16),
-                                            vertical:
-                                                Get.height *
-                                                Utils.getResponsiveHeight(16),
+                                            vertical: Utils.getResponsiveHeight(
+                                              16,
+                                            ),
                                           ),
                                           child: Column(
                                             mainAxisAlignment:
@@ -798,7 +907,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                             children: [
                                               SizedBox(
                                                 height:
-                                                    Get.height *
                                                     Utils.getResponsiveHeight(
                                                       8,
                                                     ),
@@ -808,7 +916,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                     .tr,
                                                 style: TextStyle(
                                                   fontSize:
-                                                      Get.height *
                                                       Utils.getResponsiveSize(
                                                         14,
                                                       ),
@@ -824,7 +931,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                               ),
                                               SizedBox(
                                                 height:
-                                                    Get.height *
                                                     Utils.getResponsiveHeight(
                                                       20,
                                                     ),
@@ -833,7 +939,6 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                 'should_have_an_experience'.tr,
                                                 style: TextStyle(
                                                   fontSize:
-                                                      Get.height *
                                                       Utils.getResponsiveSize(
                                                         12,
                                                       ),
@@ -858,16 +963,12 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                             );
                       }),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(16),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(16)),
                     Divider(
                       color: Theme.of(context).dividerColor,
-                      height: Get.height * Utils.getResponsiveHeight(1),
+                      height: Utils.getResponsiveHeight(1),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(20),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(20)),
                   ],
                 ),
               ),
@@ -883,10 +984,10 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
               ),
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: Get.width * Utils.getResponsiveWidth(16),
-                  vertical: Get.height * Utils.getResponsiveHeight(16),
+                  horizontal: Utils.getResponsiveWidth(16),
+                  vertical: Utils.getResponsiveHeight(16),
                 ),
-                child: SubmitButtonWidget(
+                child: ApplyNowButtonWidget(
                   isPrivate: isPrivate,
                   jobName: jobName,
                   companyName: companyName,
@@ -907,7 +1008,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
   double _calculateMaxTextWidth(List<String> texts, BuildContext context) {
     double maxWidth = 0;
     final textStyle = TextStyle(
-      fontSize: Get.height * Utils.getResponsiveSize(14),
+      fontSize: Utils.getResponsiveSize(14),
       fontFamily: 'Manrope',
       fontWeight: FontWeight.w400,
     );
@@ -919,8 +1020,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
       )..layout();
 
       final double textWidth =
-          textPainter.width +
-          (Get.width * Utils.getResponsiveWidth(14) * 2); // Add padding
+          textPainter.width + (Utils.getResponsiveWidth(14) * 2); // Add padding
 
       if (textWidth > maxWidth) {
         maxWidth = textWidth;

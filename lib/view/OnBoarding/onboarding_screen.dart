@@ -79,8 +79,8 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                 right: 0,
                 child: Image.asset(
                   ImageAssets.onBoardingBg,
-                  height: Get.height * Utils.getResponsiveHeight(494),
-                  width: Get.width * Utils.getResponsiveWidth(744),
+                  height: Utils.getResponsiveHeight(494),
+                  width: Utils.getResponsiveWidth(744),
                 ),
               ),
               Positioned(
@@ -91,7 +91,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(32),
+                      height: Utils.getResponsiveHeight(32),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -109,7 +109,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                             'skip'.tr,
                             style: TextStyle(
                               fontSize:
-                                  Get.height * Utils.getResponsiveSize(16),
+                                  Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w400,
                               color:
@@ -120,7 +120,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                           ),
                         ),
                         SizedBox(
-                          width: Get.width * Utils.getResponsiveWidth(16),
+                          width: Utils.getResponsiveWidth(16),
                         ),
                       ],
                     ),
@@ -149,10 +149,10 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                           (index) => Container(
                             margin: EdgeInsets.symmetric(
                               horizontal:
-                                  Get.width * Utils.getResponsiveWidth(5),
+                                  Utils.getResponsiveWidth(5),
                             ),
-                            width: Get.width * Utils.getResponsiveWidth(14),
-                            height: Get.height * Utils.getResponsiveHeight(14),
+                            width: Utils.getResponsiveWidth(14),
+                            height: Utils.getResponsiveHeight(14),
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image:
@@ -170,13 +170,13 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                       );
                     }),
                     SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(38),
+                      height: Utils.getResponsiveHeight(38),
                     ),
                     Obx(() {
                       if (!(onBoardingVM.currentPage.value <
                           tutorialPages.length - 1)) {
                         return SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(110),
+                          height: Utils.getResponsiveHeight(110),
                         );
                       }
                       return Column(
@@ -184,14 +184,14 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                           Padding(
                             padding: EdgeInsets.symmetric(
                               horizontal:
-                                  Get.width * Utils.getResponsiveWidth(32),
+                                  Utils.getResponsiveWidth(32),
                             ),
                             child: NextButtonWidget(
                               pageController: _pageController,
                             ),
                           ),
                           SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(70),
+                            height: Utils.getResponsiveHeight(70),
                           ),
                         ],
                       );

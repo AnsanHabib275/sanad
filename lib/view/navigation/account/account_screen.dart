@@ -46,23 +46,21 @@ class _AccountScreenState extends State<AccountScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Get.width * Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(16),
           ),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 Container(
-                  height: Get.height * Utils.getResponsiveHeight(82),
+                  height: Utils.getResponsiveHeight(82),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        Get.height * Utils.getResponsiveHeight(4),
-                      ),
+                      Radius.circular(Utils.getResponsiveSize(4)),
                     ),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
@@ -70,27 +68,22 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                   ),
                   child: ListTile(
-                    horizontalTitleGap:
-                        Get.width * Utils.getResponsiveWidth(16),
+                    horizontalTitleGap: Utils.getResponsiveWidth(16),
                     leading: CircleAvatar(
-                      radius: Get.height * Utils.getResponsiveSize(24),
+                      radius: Utils.getResponsiveSize(24),
                       child:
                           userVM.userImageURL.isEmpty
                               ? Image.asset(
                                 ImageAssets.imgDummyProfile,
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(48),
-                                width: Get.width * Utils.getResponsiveWidth(48),
+                                height: Utils.getResponsiveHeight(48),
+                                width: Utils.getResponsiveWidth(48),
                                 fit: BoxFit.cover,
                               )
                               : ClipOval(
                                 child: Image.network(
                                   AppUrl.baseUrl + userVM.userImageURL.value,
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(48),
-                                  width:
-                                      Get.width * Utils.getResponsiveWidth(48),
+                                  height: Utils.getResponsiveHeight(48),
+                                  width: Utils.getResponsiveWidth(48),
                                   fit: BoxFit.cover,
                                   loadingBuilder: (
                                     context,
@@ -118,12 +111,8 @@ class _AccountScreenState extends State<AccountScreen> {
                                   errorBuilder: (context, error, stackTrace) {
                                     return Image.asset(
                                       ImageAssets.imgDummyPicture,
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(48),
-                                      width:
-                                          Get.width *
-                                          Utils.getResponsiveWidth(48),
+                                      height: Utils.getResponsiveHeight(48),
+                                      width: Utils.getResponsiveWidth(48),
                                       fit: BoxFit.cover,
                                     );
                                   },
@@ -135,7 +124,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       'Mohsin Noor',
                     ),
                     titleTextStyle: TextStyle(
-                      fontSize: Get.height * Utils.getResponsiveSize(20),
+                      fontSize: Utils.getResponsiveSize(20),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w600,
                       color:
@@ -148,7 +137,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       'mohsinnoor@gmail.com',
                     ),
                     subtitleTextStyle: TextStyle(
-                      fontSize: Get.height * Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(14),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
                       color:
@@ -158,7 +147,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 Text(
                   'account'.tr,
                   style: TextStyle(
@@ -166,19 +155,17 @@ class _AccountScreenState extends State<AccountScreen> {
                         Theme.of(
                           context,
                         ).extension<AppColors>()?.textPrimaryColor,
-                    fontSize: Get.height * Utils.getResponsiveSize(18),
+                    fontSize: Utils.getResponsiveSize(18),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        Get.height * Utils.getResponsiveHeight(8),
-                      ),
+                      Radius.circular(Utils.getResponsiveSize(8)),
                     ),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
@@ -190,14 +177,12 @@ class _AccountScreenState extends State<AccountScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icProfile,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('profile'.tr),
@@ -206,7 +191,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -215,14 +200,12 @@ class _AccountScreenState extends State<AccountScreen> {
                         },
                       ),
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icMyJob,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('my_jobs'.tr),
@@ -231,7 +214,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -242,14 +225,12 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
 
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icNotifications,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('notifications'.tr),
@@ -258,7 +239,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -268,14 +249,12 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
 
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icAnalytics,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('analytics'.tr),
@@ -284,7 +263,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -295,7 +274,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 Text(
                   'payments'.tr,
                   style: TextStyle(
@@ -303,19 +282,17 @@ class _AccountScreenState extends State<AccountScreen> {
                         Theme.of(
                           context,
                         ).extension<AppColors>()?.textPrimaryColor,
-                    fontSize: Get.height * Utils.getResponsiveSize(18),
+                    fontSize: Utils.getResponsiveSize(18),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        Get.height * Utils.getResponsiveHeight(8),
-                      ),
+                      Radius.circular(Utils.getResponsiveSize(8)),
                     ),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
@@ -327,14 +304,12 @@ class _AccountScreenState extends State<AccountScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icWallet,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('wallet'.tr),
@@ -343,7 +318,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -352,14 +327,12 @@ class _AccountScreenState extends State<AccountScreen> {
                         },
                       ),
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icTransactions,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('transactions'.tr),
@@ -368,7 +341,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -377,14 +350,12 @@ class _AccountScreenState extends State<AccountScreen> {
                         },
                       ),
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icPayment,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('payments'.tr),
@@ -393,7 +364,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -402,14 +373,12 @@ class _AccountScreenState extends State<AccountScreen> {
                         },
                       ),
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icPayment,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('payment_method'.tr),
@@ -418,7 +387,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -429,7 +398,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 Text(
                   'settings'.tr,
                   style: TextStyle(
@@ -437,19 +406,17 @@ class _AccountScreenState extends State<AccountScreen> {
                         Theme.of(
                           context,
                         ).extension<AppColors>()?.textPrimaryColor,
-                    fontSize: Get.height * Utils.getResponsiveSize(18),
+                    fontSize: Utils.getResponsiveSize(18),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 Container(
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        Get.height * Utils.getResponsiveHeight(8),
-                      ),
+                      Radius.circular(Utils.getResponsiveHeight(8)),
                     ),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
@@ -462,14 +429,12 @@ class _AccountScreenState extends State<AccountScreen> {
                     children: [
                       ThemeToggleWidget(),
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icRateUs,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('rate_us'.tr),
@@ -478,7 +443,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -488,14 +453,12 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
 
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icAbout,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('about'.tr),
@@ -504,7 +467,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -513,14 +476,12 @@ class _AccountScreenState extends State<AccountScreen> {
                         },
                       ),
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icHelp,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('help'.tr),
@@ -529,7 +490,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -538,14 +499,12 @@ class _AccountScreenState extends State<AccountScreen> {
                         },
                       ),
                       ListTile(
-                        minTileHeight:
-                            Get.height * Utils.getResponsiveHeight(48),
-                        horizontalTitleGap:
-                            Get.width * Utils.getResponsiveWidth(6),
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
                           IconAssets.icSignOut,
-                          height: Get.height * Utils.getResponsiveHeight(24),
-                          width: Get.width * Utils.getResponsiveWidth(24),
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
                           color: Theme.of(context).iconTheme.color,
                         ),
                         title: Text('sign_out'.tr),
@@ -554,7 +513,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(16),
+                          fontSize: Utils.getResponsiveSize(16),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -565,7 +524,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(120)),
+                SizedBox(height: Utils.getResponsiveHeight(120)),
               ],
             ),
           ),
@@ -585,16 +544,14 @@ class _AccountScreenState extends State<AccountScreen> {
           elevation: 4,
           backgroundColor: Theme.of(context).extension<AppColors>()?.cardBg,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-              Get.height * Utils.getResponsiveSize(12),
-            ),
+            borderRadius: BorderRadius.circular(Utils.getResponsiveSize(12)),
           ),
           child: SizedBox(
-            width: Get.width * Utils.getResponsiveWidth(400),
+            width: Utils.getResponsiveWidth(400),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: Get.width * Utils.getResponsiveWidth(20),
-                vertical: Get.height * Utils.getResponsiveHeight(20),
+                horizontal: Utils.getResponsiveWidth(20),
+                vertical: Utils.getResponsiveHeight(20),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -602,16 +559,16 @@ class _AccountScreenState extends State<AccountScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
-                    height: Get.height * Utils.getResponsiveHeight(61),
-                    width: Get.width * Utils.getResponsiveWidth(61),
+                    height: Utils.getResponsiveHeight(61),
+                    width: Utils.getResponsiveWidth(61),
                     ImageAssets.imgSignOut,
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(13)),
+                  SizedBox(height: Utils.getResponsiveHeight(13)),
                   Text(
                     'sign_out_dash'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: Get.height * Utils.getResponsiveSize(18),
+                      fontSize: Utils.getResponsiveSize(18),
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
                       color:
@@ -620,12 +577,12 @@ class _AccountScreenState extends State<AccountScreen> {
                           ).extension<AppColors>()?.textPrimaryColor,
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
+                  SizedBox(height: Utils.getResponsiveHeight(8)),
                   Text(
                     'confirm_sign_out'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: Get.height * Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(14),
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
                       color:
@@ -634,13 +591,13 @@ class _AccountScreenState extends State<AccountScreen> {
                           ).extension<AppColors>()?.textBodyColor,
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(32)),
+                  SizedBox(height: Utils.getResponsiveHeight(32)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(child: YesButtonWidget()),
-                      SizedBox(width: Get.width * Utils.getResponsiveWidth(12)),
+                      SizedBox(width: Utils.getResponsiveWidth(12)),
                       Expanded(child: NoButtonWidget()),
                     ],
                   ),

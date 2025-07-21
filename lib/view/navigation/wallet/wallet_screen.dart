@@ -47,20 +47,20 @@ class _WalletScreenState extends State<WalletScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Get.width * Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(16),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+              SizedBox(height: Utils.getResponsiveHeight(16)),
               Container(
-                height: Get.height * Utils.getResponsiveHeight(90),
+                height: Utils.getResponsiveHeight(90),
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Theme.of(context).extension<AppColors>()?.cardBg,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(Get.height * Utils.getResponsiveHeight(8)),
+                    Radius.circular(Utils.getResponsiveSize(8)),
                   ),
                   border: Border.all(
                     color: Theme.of(context).dividerColor,
@@ -69,8 +69,8 @@ class _WalletScreenState extends State<WalletScreen> {
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Get.width * Utils.getResponsiveWidth(16),
-                    vertical: Get.height * Utils.getResponsiveHeight(10),
+                    horizontal: Utils.getResponsiveWidth(16),
+                    vertical: Utils.getResponsiveHeight(10),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,22 +89,17 @@ class _WalletScreenState extends State<WalletScreen> {
                                   ).extension<AppColors>()?.textPrimaryColor,
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w700,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           RichText(
                             text: TextSpan(
                               children: [
                                 TextSpan(
                                   text: '2,456',
                                   style: TextStyle(
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(20),
+                                    fontSize: Utils.getResponsiveSize(20),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w700,
                                     color:
@@ -116,9 +111,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                 TextSpan(
                                   text: 'riyal'.tr,
                                   style: TextStyle(
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(20),
+                                    fontSize: Utils.getResponsiveSize(20),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w700,
                                     color:
@@ -137,19 +130,17 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+              SizedBox(height: Utils.getResponsiveHeight(16)),
               Row(
                 children: [
                   Expanded(
                     child: Container(
-                      height: Get.height * Utils.getResponsiveHeight(80),
+                      height: Utils.getResponsiveHeight(80),
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Theme.of(context).extension<AppColors>()?.cardBg,
                         borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          Radius.circular(Utils.getResponsiveSize(8)),
                         ),
                         border: Border.all(
                           color: Theme.of(context).dividerColor,
@@ -166,8 +157,7 @@ class _WalletScreenState extends State<WalletScreen> {
                               color: AppColor.primaryButtonColor,
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w700,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                             ),
                           ),
                           RichText(
@@ -176,9 +166,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                 TextSpan(
                                   text: '0',
                                   style: TextStyle(
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(18),
+                                    fontSize: Utils.getResponsiveSize(18),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w600,
                                     color:
@@ -190,9 +178,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                 TextSpan(
                                   text: 'riyal'.tr,
                                   style: TextStyle(
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(18),
+                                    fontSize: Utils.getResponsiveSize(18),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w600,
                                     color:
@@ -208,17 +194,15 @@ class _WalletScreenState extends State<WalletScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(width: Get.width * Utils.getResponsiveWidth(14)),
+                  SizedBox(width: Utils.getResponsiveWidth(14)),
                   Expanded(
                     child: Container(
-                      height: Get.height * Utils.getResponsiveHeight(80),
+                      height: Utils.getResponsiveHeight(80),
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Theme.of(context).extension<AppColors>()?.cardBg,
                         borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          Radius.circular(Utils.getResponsiveSize(8)),
                         ),
                         border: Border.all(
                           color: Theme.of(context).dividerColor,
@@ -235,8 +219,7 @@ class _WalletScreenState extends State<WalletScreen> {
                               color: AppColor.primaryButtonColor,
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w700,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                             ),
                           ),
                           RichText(
@@ -245,9 +228,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                 TextSpan(
                                   text: '0',
                                   style: TextStyle(
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(18),
+                                    fontSize: Utils.getResponsiveSize(18),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w600,
                                     color:
@@ -259,9 +240,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                 TextSpan(
                                   text: 'riyal'.tr,
                                   style: TextStyle(
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(18),
+                                    fontSize: Utils.getResponsiveSize(18),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w600,
                                     color:
@@ -279,17 +258,14 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+              SizedBox(height: Utils.getResponsiveHeight(16)),
               Flexible(
                 child: Container(
-                  // height: Get.height * Utils.getResponsiveHeight(461),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        Get.height * Utils.getResponsiveHeight(8),
-                      ),
+                      Radius.circular(Utils.getResponsiveHeight(8)),
                     ),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
@@ -303,8 +279,8 @@ class _WalletScreenState extends State<WalletScreen> {
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Get.width * Utils.getResponsiveWidth(16),
-                          vertical: Get.height * Utils.getResponsiveHeight(16),
+                          horizontal: Utils.getResponsiveWidth(16),
+                          vertical: Utils.getResponsiveHeight(16),
                         ),
                         child: Row(
                           children: [
@@ -317,8 +293,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                     ).extension<AppColors>()?.textPrimaryColor,
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w700,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(16),
+                                fontSize: Utils.getResponsiveSize(16),
                               ),
                             ),
                             Spacer(),
@@ -334,7 +309,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       //       crossAxisAlignment: CrossAxisAlignment.start,
                       //       children: [
                       Container(
-                        height: Get.height * Utils.getResponsiveHeight(50),
+                        height: Utils.getResponsiveHeight(50),
                         width: double.infinity,
                         color:
                             Theme.of(
@@ -345,15 +320,12 @@ class _WalletScreenState extends State<WalletScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(97),
+                              width: Utils.getResponsiveWidth(97),
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width * Utils.getResponsiveWidth(5),
-                                    vertical:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(16),
+                                    horizontal: Utils.getResponsiveWidth(5),
+                                    vertical: Utils.getResponsiveHeight(16),
                                   ),
                                   child: Text(
                                     'payment_id'.tr,
@@ -364,24 +336,19 @@ class _WalletScreenState extends State<WalletScreen> {
                                               ?.textBodyColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(12),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(97),
+                              width: Utils.getResponsiveWidth(97),
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width * Utils.getResponsiveWidth(5),
-                                    vertical:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(16),
+                                    horizontal: Utils.getResponsiveWidth(5),
+                                    vertical: Utils.getResponsiveHeight(16),
                                   ),
                                   child: Text(
                                     'amount'.tr,
@@ -392,24 +359,19 @@ class _WalletScreenState extends State<WalletScreen> {
                                               ?.textBodyColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(12),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(127),
+                              width: Utils.getResponsiveWidth(127),
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width * Utils.getResponsiveWidth(5),
-                                    vertical:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(16),
+                                    horizontal: Utils.getResponsiveWidth(5),
+                                    vertical: Utils.getResponsiveHeight(16),
                                   ),
                                   child: Text(
                                     'payment_method'.tr,
@@ -420,24 +382,19 @@ class _WalletScreenState extends State<WalletScreen> {
                                               ?.textBodyColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(12),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(74),
+                              width: Utils.getResponsiveWidth(74),
                               child: Center(
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width * Utils.getResponsiveWidth(5),
-                                    vertical:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(16),
+                                    horizontal: Utils.getResponsiveWidth(5),
+                                    vertical: Utils.getResponsiveHeight(16),
                                   ),
                                   child: Text(
                                     'action'.tr,
@@ -448,9 +405,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                               ?.textBodyColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(12),
                                     ),
                                   ),
                                 ),
@@ -484,15 +439,15 @@ class _WalletScreenState extends State<WalletScreen> {
                       //       Image.asset(
                       //         ImageAssets.imgEmptyTransactions,
                       //         height:
-                      //             Get.height *
+                      //
                       //             Utils.getResponsiveHeight(60),
                       //         width:
-                      //             Get.width *
+                      //
                       //             Utils.getResponsiveWidth(47),
                       //       ),
                       //       SizedBox(
                       //         height:
-                      //             Get.height *
+                      //
                       //             Utils.getResponsiveHeight(18),
                       //       ),
                       //       Text(
@@ -505,7 +460,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       //           fontFamily: 'Manrope',
                       //           fontWeight: FontWeight.w400,
                       //           fontSize:
-                      //               Get.height *
+                      //
                       //               Utils.getResponsiveSize(14),
                       //         ),
                       //       ),
@@ -520,7 +475,7 @@ class _WalletScreenState extends State<WalletScreen> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
-                  vertical: Get.height * Utils.getResponsiveHeight(16),
+                  vertical: Utils.getResponsiveHeight(16),
                 ),
                 child: ViewAllButtonWidget(),
               ),

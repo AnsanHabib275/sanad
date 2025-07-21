@@ -43,7 +43,7 @@ class InputOTPWidget extends StatelessWidget {
       },
       style: TextStyle(
         color: Theme.of(context).extension<AppColors>()?.otpText,
-        fontSize: Get.height * Utils.getResponsiveSize(18),
+        fontSize: Utils.getResponsiveSize(18),
         fontFamily: 'Manrope',
         fontWeight: FontWeight.w600,
       ),
@@ -52,7 +52,7 @@ class InputOTPWidget extends StatelessWidget {
         fillColor: focusNode.hasFocus ? AppColor.cardSelectedBgColor : Theme.of(context).extension<AppColors>()?.cardBg,
         counterText: "",
         contentPadding: EdgeInsets.symmetric(
-          vertical: Get.height * Utils.getResponsiveHeight(12),
+          vertical: Utils.getResponsiveHeight(12),
         ),
         border: OutlineInputBorder(
           borderSide: BorderSide(
@@ -61,7 +61,7 @@ class InputOTPWidget extends StatelessWidget {
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(Get.height * Utils.getResponsiveSize(8)),
+            Radius.circular(Utils.getResponsiveSize(8)),
           ),
         ),
         enabledBorder: OutlineInputBorder(
@@ -72,7 +72,7 @@ class InputOTPWidget extends StatelessWidget {
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(Get.height * Utils.getResponsiveSize(8)),
+            Radius.circular(Utils.getResponsiveSize(8)),
           ),
         ),
         focusedBorder: OutlineInputBorder(
@@ -81,7 +81,7 @@ class InputOTPWidget extends StatelessWidget {
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(Get.height * Utils.getResponsiveSize(8)),
+            Radius.circular(Utils.getResponsiveSize(8)),
           ),
         ),
       ),

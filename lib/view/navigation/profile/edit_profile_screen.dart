@@ -48,8 +48,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             leading: IconButton(
               icon: Image.asset(
                 IconAssets.icArrowLeft,
-                height: Get.height * Utils.getResponsiveHeight(24),
-                width: Get.width * Utils.getResponsiveWidth(24),
+                height: Utils.getResponsiveHeight(24),
+                width: Utils.getResponsiveWidth(24),
                 color: Theme.of(context).iconTheme.color,
               ),
               onPressed: () => Get.back(),
@@ -66,14 +66,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ),
           body: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Get.width * Utils.getResponsiveWidth(16),
+              horizontal: Utils.getResponsiveWidth(16),
             ),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
                   Text(
                     'my_information'.tr,
                     style: TextStyle(
@@ -81,19 +81,17 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           Theme.of(
                             context,
                           ).extension<AppColors>()?.textPrimaryColor,
-                      fontSize: Get.height * Utils.getResponsiveSize(18),
+                      fontSize: Utils.getResponsiveSize(18),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
                   Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          Get.height * Utils.getResponsiveHeight(8),
-                        ),
+                        Radius.circular(Utils.getResponsiveHeight(8)),
                       ),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
@@ -102,8 +100,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * Utils.getResponsiveWidth(16),
-                        vertical: Get.height * Utils.getResponsiveHeight(16),
+                        horizontal: Utils.getResponsiveWidth(16),
+                        vertical: Utils.getResponsiveHeight(16),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -112,9 +110,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           Align(
                             alignment: Alignment.center,
                             child: SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(112),
-                              width: Get.width * Utils.getResponsiveWidth(102),
+                              height: Utils.getResponsiveHeight(112),
+                              width: Utils.getResponsiveWidth(102),
                               child: InkWell(
                                 onTap: () {
                                   _showImageSourceDialog(context);
@@ -130,12 +127,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                           _showImageSourceDialog(context);
                                         },
                                         child: SizedBox(
-                                          height:
-                                              Get.height *
-                                              Utils.getResponsiveHeight(95),
-                                          width:
-                                              Get.width *
-                                              Utils.getResponsiveWidth(95),
+                                          height: Utils.getResponsiveHeight(95),
+                                          width: Utils.getResponsiveWidth(95),
                                           child: Obx(() {
                                             return CircleAvatar(
                                               child:
@@ -144,12 +137,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                                         ImageAssets
                                                             .imgDummyPicture,
                                                         height:
-                                                            Get.height *
                                                             Utils.getResponsiveHeight(
                                                               95,
                                                             ),
                                                         width:
-                                                            Get.width *
                                                             Utils.getResponsiveWidth(
                                                               95,
                                                             ),
@@ -168,12 +159,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                                           // The selected or updated image path
                                                           fit: BoxFit.cover,
                                                           height:
-                                                              Get.height *
                                                               Utils.getResponsiveHeight(
                                                                 95,
                                                               ),
                                                           width:
-                                                              Get.width *
                                                               Utils.getResponsiveWidth(
                                                                 95,
                                                               ),
@@ -209,12 +198,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                                               ImageAssets
                                                                   .imgDummyPicture,
                                                               height:
-                                                                  Get.height *
                                                                   Utils.getResponsiveHeight(
                                                                     95,
                                                                   ),
                                                               width:
-                                                                  Get.width *
                                                                   Utils.getResponsiveWidth(
                                                                     95,
                                                                   ),
@@ -236,25 +223,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         decoration: BoxDecoration(
                                           color: AppColor.addPhotoBgColor,
                                           borderRadius: BorderRadius.circular(
-                                            Get.height *
-                                                Utils.getResponsiveHeight(16),
+                                            Utils.getResponsiveHeight(16),
                                           ),
                                         ),
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                Get.width *
                                                 Utils.getResponsiveWidth(18),
-                                            vertical:
-                                                Get.height *
-                                                Utils.getResponsiveHeight(9),
+                                            vertical: Utils.getResponsiveHeight(
+                                              9,
+                                            ),
                                           ),
                                           child: Text(
                                             'add_photo'.tr,
                                             style: TextStyle(
-                                              fontSize:
-                                                  Get.height *
-                                                  Utils.getResponsiveSize(12),
+                                              fontSize: Utils.getResponsiveSize(
+                                                12,
+                                              ),
                                               fontFamily: 'Manrope',
                                               fontWeight: FontWeight.w600,
                                               color: AppColor.blackColor,
@@ -268,9 +253,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(24),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
                           Form(
                             key: formKey,
                             child: Column(
@@ -285,23 +268,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textPrimaryColor,
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(14),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(8)),
                                 InputFirstNameWidget(),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(16)),
                                 Text(
                                   'last_name'.tr,
                                   textAlign: TextAlign.left,
@@ -310,23 +284,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textPrimaryColor,
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(14),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(8)),
                                 InputLastNameWidget(),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(16)),
                                 Text(
                                   'phone_number'.tr,
                                   textAlign: TextAlign.left,
@@ -335,23 +300,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textPrimaryColor,
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(14),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(8)),
                                 InputMobileNumberWidget(),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(16)),
                                 Text(
                                   'email'.tr,
                                   textAlign: TextAlign.left,
@@ -360,23 +316,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textPrimaryColor,
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(14),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(8)),
                                 InputEmailWidget(),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(16)),
                                 Text(
                                   'street'.tr,
                                   textAlign: TextAlign.left,
@@ -385,23 +332,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textPrimaryColor,
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(14),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(8)),
                                 InputStreetWidget(),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(16)),
                                 Text(
                                   'city_or_state'.tr,
                                   textAlign: TextAlign.left,
@@ -410,23 +348,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textPrimaryColor,
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(14),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(8)),
                                 InputCityWidget(),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(16)),
                                 Text(
                                   'postal_code'.tr,
                                   textAlign: TextAlign.left,
@@ -435,23 +364,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textPrimaryColor,
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(14),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(8)),
                                 InputPostalCodeWidget(),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(16)),
                                 Text(
                                   'country'.tr,
                                   textAlign: TextAlign.left,
@@ -460,23 +380,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textPrimaryColor,
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(14),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(8)),
                                 InputCountryWidget(),
-                                SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(16)),
                                 Text(
                                   'tagline'.tr,
                                   textAlign: TextAlign.left,
@@ -485,17 +396,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textPrimaryColor,
-                                    fontSize:
-                                        Get.height *
-                                        Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(14),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      Get.height * Utils.getResponsiveHeight(8),
-                                ),
+                                SizedBox(height: Utils.getResponsiveHeight(8)),
                                 InputTaglineWidget(),
                               ],
                             ),
@@ -504,9 +410,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(54)),
+                  SizedBox(height: Utils.getResponsiveHeight(54)),
                   UpdateButtonWidget(formKey: formKey),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(47)),
+                  SizedBox(height: Utils.getResponsiveHeight(47)),
                 ],
               ),
             ),

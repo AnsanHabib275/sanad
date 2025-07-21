@@ -30,18 +30,18 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Get.width * Utils.getResponsiveWidth(32),
+              horizontal: Utils.getResponsiveWidth(32),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image(
-                  height: Get.height * Utils.getResponsiveHeight(54),
-                  width: Get.width * Utils.getResponsiveWidth(155),
+                  height: Utils.getResponsiveHeight(54),
+                  width: Utils.getResponsiveWidth(155),
                   image: AssetImage(ImageAssets.appLogo),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(50)),
+                SizedBox(height: Utils.getResponsiveHeight(50)),
                 Text(
                   'are_you_company_or_recruiter'.tr,
                   textAlign: TextAlign.center,
@@ -50,12 +50,12 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                         Theme.of(
                           context,
                         ).extension<AppColors>()?.textPrimaryColor,
-                    fontSize: Get.height * Utils.getResponsiveSize(24),
+                    fontSize: Utils.getResponsiveSize(24),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
+                SizedBox(height: Utils.getResponsiveHeight(24)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -66,11 +66,11 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                           // https://sanad-eta.vercel.app/
                         },
                         child: Container(
-                          height: Get.height * Utils.getResponsiveHeight(108),
+                          height: Utils.getResponsiveHeight(108),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
                               Radius.circular(
-                                Get.height * Utils.getResponsiveHeight(8),
+                                Utils.getResponsiveHeight(8),
                               ),
                             ),
                             border: Border.all(
@@ -84,14 +84,14 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                             children: [
                               Image(
                                 height:
-                                    Get.height * Utils.getResponsiveHeight(34),
-                                width: Get.width * Utils.getResponsiveWidth(34),
+                                    Utils.getResponsiveHeight(34),
+                                width: Utils.getResponsiveWidth(34),
                                 image: AssetImage(IconAssets.icCompany),
                                 color: Theme.of(context).iconTheme.color,
                               ),
                               SizedBox(
                                 height:
-                                    Get.height * Utils.getResponsiveHeight(11),
+                                    Utils.getResponsiveHeight(11),
                               ),
                               Text(
                                 'company'.tr,
@@ -102,7 +102,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                                           .extension<AppColors>()
                                           ?.textSecondaryColor,
                                   fontSize:
-                                      Get.height * Utils.getResponsiveSize(20),
+                                      Utils.getResponsiveSize(20),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -112,18 +112,18 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(width: Get.width * Utils.getResponsiveWidth(16)),
+                    SizedBox(width: Utils.getResponsiveWidth(16)),
                     Expanded(
                       child: InkWell(
                         onTap: () {
                           Get.toNamed(RoutesName.signUpScreen);
                         },
                         child: Container(
-                          height: Get.height * Utils.getResponsiveHeight(108),
+                          height: Utils.getResponsiveHeight(108),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
                               Radius.circular(
-                                Get.height * Utils.getResponsiveHeight(8),
+                                Utils.getResponsiveHeight(8),
                               ),
                             ),
                             border: Border.all(
@@ -137,14 +137,14 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                             children: [
                               Image(
                                 height:
-                                    Get.height * Utils.getResponsiveHeight(34),
-                                width: Get.width * Utils.getResponsiveWidth(34),
+                                    Utils.getResponsiveHeight(34),
+                                width: Utils.getResponsiveWidth(34),
                                 image: AssetImage(IconAssets.icRecruiter),
                                 color: Theme.of(context).iconTheme.color,
                               ),
                               SizedBox(
                                 height:
-                                    Get.height * Utils.getResponsiveHeight(11),
+                                    Utils.getResponsiveHeight(11),
                               ),
                               Text(
                                 'recruiter'.tr,
@@ -155,7 +155,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                                           .extension<AppColors>()
                                           ?.textSecondaryColor,
                                   fontSize:
-                                      Get.height * Utils.getResponsiveSize(20),
+                                      Utils.getResponsiveSize(20),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
                                 ),

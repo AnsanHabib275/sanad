@@ -14,6 +14,7 @@ class ApplyJobViewModel extends GetxController {
   RxString error = ''.obs;
   RxString selectedTab = 'general'.obs;
   RxBool loading = false.obs;
+  RxBool isUploaded = false.obs;
   RxBool isCheckRelocate = false.obs;
   RxBool isCheckPortfolio = false.obs;
   RxBool isCheckCertification = false.obs;

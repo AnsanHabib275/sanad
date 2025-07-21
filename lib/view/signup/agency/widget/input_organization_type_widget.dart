@@ -44,8 +44,8 @@ class InputOrganizationTypeWidget extends StatelessWidget {
         },
         icon: Image.asset(
           IconAssets.icArrowDown,
-          height: Get.height * Utils.getResponsiveHeight(18),
-          width: Get.width * Utils.getResponsiveWidth(18),
+          height: Utils.getResponsiveHeight(18),
+          width: Utils.getResponsiveWidth(18),
           color: Theme.of(context).iconTheme.color,
         ),
         validator: (value) => value == null ? 'organization_type_error' : null,

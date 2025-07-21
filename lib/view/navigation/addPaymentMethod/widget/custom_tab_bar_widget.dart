@@ -20,21 +20,21 @@ class _CustomTabBarState extends State<CustomTabBar>
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: Get.height * Utils.getResponsiveHeight(44),
+      height: Utils.getResponsiveHeight(44),
       decoration: BoxDecoration(
         color: Theme.of(context).extension<AppColors>()?.tabsBg,
         border: Border.all(
           // color: Theme.of(context).extension<AppColors>()?.tabsBorderColor,
           color: Theme.of(context).dividerColor,
-          width: 1,
+          width: 1.0,
         ),
         borderRadius: BorderRadius.all(
-          Radius.circular(Get.height * Utils.getResponsiveHeight(10)),
+          Radius.circular(Utils.getResponsiveHeight(10)),
         ),
       ),
       child: Obx(() {
         return Padding(
-          padding: EdgeInsets.all(Get.height * Utils.getResponsiveHeight(4)),
+          padding: EdgeInsets.all(Utils.getResponsiveHeight(4)),
           child: Row(
             children: [
               Expanded(
@@ -53,15 +53,13 @@ class _CustomTabBarState extends State<CustomTabBar>
                               ).extension<AppColors>()?.selectedTabsBg
                               : AppColor.transparent,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          Get.height * Utils.getResponsiveHeight(6),
-                        ),
+                        Radius.circular(Utils.getResponsiveHeight(6)),
                       ),
                     ),
                     child: Text(
                       'general'.tr,
                       style: TextStyle(
-                        fontSize: Get.height * Utils.getResponsiveSize(14),
+                        fontSize: Utils.getResponsiveSize(14),
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                         color:
@@ -93,15 +91,13 @@ class _CustomTabBarState extends State<CustomTabBar>
                               ).extension<AppColors>()?.selectedTabsBg
                               : AppColor.transparent,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          Get.height * Utils.getResponsiveHeight(6),
-                        ),
+                        Radius.circular(Utils.getResponsiveHeight(6)),
                       ),
                     ),
                     child: Text(
                       'requirements'.tr,
                       style: TextStyle(
-                        fontSize: Get.height * Utils.getResponsiveSize(14),
+                        fontSize: Utils.getResponsiveSize(14),
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                         color:

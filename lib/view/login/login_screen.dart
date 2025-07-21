@@ -57,24 +57,20 @@ class _LoginScreenState extends State<LoginScreen> {
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             body: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: Get.width * Utils.getResponsiveWidth(32),
+                horizontal: Utils.getResponsiveWidth(32),
               ),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(270),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(270)),
                     Image(
-                      height: Get.height * Utils.getResponsiveHeight(54),
-                      width: Get.width * Utils.getResponsiveWidth(155),
+                      height: Utils.getResponsiveHeight(54),
+                      width: Utils.getResponsiveWidth(155),
                       image: AssetImage(ImageAssets.appLogo),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(24),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(24)),
                     Text(
                       'sign_in_to_sanad'.tr,
                       textAlign: TextAlign.center,
@@ -83,14 +79,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             Theme.of(
                               context,
                             ).extension<AppColors>()?.textPrimaryColor,
-                        fontSize: Get.height * Utils.getResponsiveSize(24),
+                        fontSize: Utils.getResponsiveSize(24),
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(70),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(70)),
                     Form(
                       key: formKey,
                       child: Column(
@@ -105,26 +99,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(
-                            height: Get.height * Utils.getResponsiveHeight(8),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
                           InputMobileNumberWidget(),
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(16),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(16)),
                     LoginButtonWidget(formKey: formKey),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(70),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(70)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -134,16 +121,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w400,
-                            fontSize: Get.height * Utils.getResponsiveSize(12),
+                            fontSize: Utils.getResponsiveSize(12),
                             color:
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textSecondaryColor,
                           ),
                         ),
-                        SizedBox(
-                          width: Get.width * Utils.getResponsiveWidth(4),
-                        ),
+                        SizedBox(width: Utils.getResponsiveWidth(4)),
                         InkWell(
                           onTap: () {
                             Utils.hideKeyboardGlobally();
@@ -154,8 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: TextStyle(
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
-                              fontSize:
-                                  Get.height * Utils.getResponsiveSize(12),
+                              fontSize: Utils.getResponsiveSize(12),
                               color:
                                   Theme.of(
                                     context,
@@ -165,9 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(50),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(50)),
                   ],
                 ),
               ),

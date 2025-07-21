@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sanad/res/colors/app_color.dart';
 
 import '../../../../../res/themes/app_themes.dart';
@@ -12,10 +11,8 @@ class AnalyticsChartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height * Utils.getResponsiveHeight(228),
-      padding: EdgeInsets.symmetric(
-        horizontal: Get.width * Utils.getResponsiveWidth(16),
-      ),
+      height: Utils.getResponsiveHeight(228),
+      padding: EdgeInsets.symmetric(horizontal: Utils.getResponsiveWidth(16)),
       child: LineChart(
         LineChartData(
           minY: 0,
@@ -29,7 +26,7 @@ class AnalyticsChartWidget extends StatelessWidget {
             getDrawingHorizontalLine:
                 (value) => FlLine(
                   color: Theme.of(context).dividerColor,
-                  strokeWidth: 1,
+                  strokeWidth: 1.0,
                 ),
           ),
           titlesData: FlTitlesData(
@@ -46,7 +43,7 @@ class AnalyticsChartWidget extends StatelessWidget {
                           ).extension<AppColors>()?.textBodyColor,
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w400,
-                      fontSize: Get.height * Utils.getResponsiveSize(12),
+                      fontSize: Utils.getResponsiveSize(12),
                     ),
                   );
                 },

@@ -29,7 +29,7 @@ class InputExperienceYearWidget extends StatelessWidget {
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
               color: Theme.of(context).extension<AppColors>()!.containerBg,
-              width: 1,
+              width: 1.0,
             ),
           ),
         ),

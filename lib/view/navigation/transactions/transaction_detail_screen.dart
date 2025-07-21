@@ -34,8 +34,8 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(24),
+              width: Utils.getResponsiveWidth(24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -52,22 +52,20 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Get.width * Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(16),
           ),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(16)),
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        Get.height * Utils.getResponsiveHeight(12),
-                      ),
+                      Radius.circular(Utils.getResponsiveHeight(12)),
                     ),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
@@ -79,12 +77,10 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(16),
-                      ),
+                      SizedBox(height: Utils.getResponsiveHeight(16)),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Get.width * Utils.getResponsiveWidth(16),
+                          horizontal: Utils.getResponsiveWidth(16),
                         ),
                         child: Text(
                           'transaction_details'.tr,
@@ -94,18 +90,16 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Get.height * Utils.getResponsiveSize(16),
+                            fontSize: Utils.getResponsiveSize(16),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(4),
-                      ),
+                      SizedBox(height: Utils.getResponsiveHeight(4)),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Get.width * Utils.getResponsiveWidth(16),
+                          horizontal: Utils.getResponsiveWidth(16),
                         ),
                         child: Row(
                           children: [
@@ -117,8 +111,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                     Theme.of(context)
                                         .extension<AppColors>()
                                         ?.textSecondaryColor,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(12),
+                                fontSize: Utils.getResponsiveSize(12),
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w500,
                               ),
@@ -132,8 +125,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                     Theme.of(context)
                                         .extension<AppColors>()
                                         ?.textSecondaryColor,
-                                fontSize:
-                                    Get.height * Utils.getResponsiveSize(12),
+                                fontSize: Utils.getResponsiveSize(12),
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w500,
                               ),
@@ -141,17 +133,13 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(16),
-                      ),
+                      SizedBox(height: Utils.getResponsiveHeight(16)),
                       Divider(
                         color: Theme.of(context).dividerColor,
-                        height: Get.height * Utils.getResponsiveHeight(1),
+                        height: Utils.getResponsiveHeight(1),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(
-                          Get.height * Utils.getResponsiveHeight(16),
-                        ),
+                        padding: EdgeInsets.all(Utils.getResponsiveHeight(16)),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,15 +159,11 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(8),
                                   ),
                                   Text(
                                     name,
@@ -190,15 +174,11 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(18),
+                                      fontSize: Utils.getResponsiveSize(18),
                                     ),
                                   ),
                                   SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(20),
+                                    height: Utils.getResponsiveHeight(20),
                                   ),
                                   Text(
                                     'transaction_type'.tr,
@@ -209,15 +189,11 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(8),
                                   ),
                                   Text(
                                     transactionType,
@@ -228,15 +204,11 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(18),
+                                      fontSize: Utils.getResponsiveSize(18),
                                     ),
                                   ),
                                   SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(20),
+                                    height: Utils.getResponsiveHeight(20),
                                   ),
                                   Text(
                                     'transaction_date'.tr,
@@ -247,15 +219,11 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(8),
                                   ),
                                   Text(
                                     transactionDate,
@@ -266,15 +234,11 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(18),
+                                      fontSize: Utils.getResponsiveSize(18),
                                     ),
                                   ),
                                   SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(20),
+                                    height: Utils.getResponsiveHeight(20),
                                   ),
                                   Text(
                                     'invoice'.tr,
@@ -285,15 +249,11 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(8),
                                   ),
                                   Container(
                                     decoration: BoxDecoration(
@@ -303,19 +263,16 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                           ).extension<AppColors>()?.buttonBg,
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(
-                                          Get.height *
-                                              Utils.getResponsiveHeight(8),
+                                          Utils.getResponsiveHeight(8),
                                         ),
                                       ),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsets.symmetric(
-                                        horizontal:
-                                            Get.width *
-                                            Utils.getResponsiveWidth(12),
-                                        vertical:
-                                            Get.height *
-                                            Utils.getResponsiveHeight(8),
+                                        horizontal: Utils.getResponsiveWidth(
+                                          12,
+                                        ),
+                                        vertical: Utils.getResponsiveHeight(8),
                                       ),
                                       child: Row(
                                         mainAxisAlignment:
@@ -326,28 +283,24 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                         children: [
                                           Image.asset(
                                             ImageAssets.imgDownload,
-                                            height:
-                                                Get.height *
-                                                Utils.getResponsiveHeight(18),
-                                            width:
-                                                Get.width *
-                                                Utils.getResponsiveWidth(18),
+                                            height: Utils.getResponsiveHeight(
+                                              18,
+                                            ),
+                                            width: Utils.getResponsiveWidth(18),
                                             color:
                                                 Theme.of(
                                                   context,
                                                 ).iconTheme.color,
                                           ),
                                           SizedBox(
-                                            width:
-                                                Get.width *
-                                                Utils.getResponsiveWidth(8),
+                                            width: Utils.getResponsiveWidth(8),
                                           ),
                                           Text(
                                             'download_invoice'.tr,
                                             style: TextStyle(
-                                              fontSize:
-                                                  Get.height *
-                                                  Utils.getResponsiveSize(12),
+                                              fontSize: Utils.getResponsiveSize(
+                                                12,
+                                              ),
                                               fontFamily: 'Manrope',
                                               fontWeight: FontWeight.w500,
                                               color:
@@ -363,9 +316,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(16),
-                            ),
+                            SizedBox(width: Utils.getResponsiveWidth(16)),
                             Expanded(
                               flex: 1,
                               child: Column(
@@ -381,15 +332,11 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(8),
                                   ),
                                   Text(
                                     amount,
@@ -400,15 +347,11 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(18),
+                                      fontSize: Utils.getResponsiveSize(18),
                                     ),
                                   ),
                                   SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(20),
+                                    height: Utils.getResponsiveHeight(20),
                                   ),
                                   Text(
                                     'account_number'.tr,
@@ -419,15 +362,11 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(14),
                                     ),
                                   ),
                                   SizedBox(
-                                    height:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(8),
                                   ),
                                   Text(
                                     accountNumber,
@@ -438,9 +377,7 @@ class _TransactionDetailScreenState extends State<TransactionDetailScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(18),
+                                      fontSize: Utils.getResponsiveSize(18),
                                     ),
                                   ),
                                 ],

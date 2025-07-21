@@ -79,7 +79,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
               padding: EdgeInsets.only(
                 bottom:
                     MediaQuery.of(context).viewInsets.bottom == 0
-                        ? Get.height * Utils.getResponsiveHeight(85)
+                        ? Utils.getResponsiveHeight(85)
                         : 0,
               ),
               child: navigationVM.currentScreen.value ?? SizedBox(),

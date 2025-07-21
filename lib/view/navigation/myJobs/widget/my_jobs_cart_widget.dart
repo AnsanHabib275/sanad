@@ -70,13 +70,13 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
           shape: RoundedRectangleBorder(
             side: BorderSide(color: Theme.of(context).dividerColor, width: 1.0),
             borderRadius: BorderRadius.circular(
-              Get.height * Utils.getResponsiveSize(8),
+              Utils.getResponsiveSize(8),
             ),
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              vertical: Get.height * Utils.getResponsiveHeight(16),
-              horizontal: Get.width * Utils.getResponsiveWidth(16),
+              vertical: Utils.getResponsiveHeight(16),
+              horizontal: Utils.getResponsiveWidth(16),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,7 +87,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                     Text(
                       widget.myJobs.jobName.toString(),
                       style: TextStyle(
-                        fontSize: Get.height * Utils.getResponsiveSize(20),
+                        fontSize: Utils.getResponsiveSize(20),
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w700,
                         color:
@@ -96,7 +96,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                             ).extension<AppColors>()?.textPrimaryColor,
                       ),
                     ),
-                    SizedBox(width: Get.width * Utils.getResponsiveWidth(12)),
+                    SizedBox(width: Utils.getResponsiveWidth(12)),
                     Container(
                       decoration: BoxDecoration(
                         color:
@@ -105,21 +105,21 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                             ).extension<AppColors>()?.containerBg,
                         borderRadius: BorderRadius.all(
                           Radius.circular(
-                            Get.height * Utils.getResponsiveHeight(6),
+                            Utils.getResponsiveHeight(6),
                           ),
                         ),
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Get.width * Utils.getResponsiveWidth(10),
-                          vertical: Get.height * Utils.getResponsiveHeight(2),
+                          horizontal: Utils.getResponsiveWidth(10),
+                          vertical: Utils.getResponsiveHeight(2),
                         ),
                         child: Text(
                           widget.myJobs.isPrivate
                               ? 'private_job'.tr
                               : 'public_job'.tr,
                           style: TextStyle(
-                            fontSize: Get.height * Utils.getResponsiveSize(12),
+                            fontSize: Utils.getResponsiveSize(12),
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w500,
                             color:
@@ -133,22 +133,22 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                     Spacer(),
                     Image.asset(
                       IconAssets.icDisable,
-                      height: Get.height * Utils.getResponsiveHeight(24),
-                      width: Get.width * Utils.getResponsiveWidth(24),
+                      height: Utils.getResponsiveHeight(24),
+                      width: Utils.getResponsiveWidth(24),
                     ),
-                    SizedBox(width: Get.width * Utils.getResponsiveWidth(8)),
+                    SizedBox(width: Utils.getResponsiveWidth(8)),
                     Image.asset(
                       IconAssets.icBookmark,
-                      height: Get.height * Utils.getResponsiveHeight(24),
-                      width: Get.width * Utils.getResponsiveWidth(24),
+                      height: Utils.getResponsiveHeight(24),
+                      width: Utils.getResponsiveWidth(24),
                     ),
                   ],
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(12)),
+                SizedBox(height: Utils.getResponsiveHeight(12)),
                 Text(
                   widget.myJobs.agencyName.toString(),
                   style: TextStyle(
-                    fontSize: Get.height * Utils.getResponsiveSize(14),
+                    fontSize: Utils.getResponsiveSize(14),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w500,
                     color:
@@ -160,7 +160,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                 Text(
                   widget.myJobs.jobLocation.toString(),
                   style: TextStyle(
-                    fontSize: Get.height * Utils.getResponsiveSize(14),
+                    fontSize: Utils.getResponsiveSize(14),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w500,
                     color:
@@ -169,7 +169,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                         ).extension<AppColors>()?.textSecondaryColor,
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
+                SizedBox(height: Utils.getResponsiveHeight(24)),
                 Row(
                   children: [
                     Container(
@@ -180,19 +180,19 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                             ).extension<AppColors>()?.containerBg,
                         borderRadius: BorderRadius.all(
                           Radius.circular(
-                            Get.height * Utils.getResponsiveHeight(6),
+                            Utils.getResponsiveHeight(6),
                           ),
                         ),
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Get.width * Utils.getResponsiveWidth(10),
-                          vertical: Get.height * Utils.getResponsiveHeight(2),
+                          horizontal: Utils.getResponsiveWidth(10),
+                          vertical: Utils.getResponsiveHeight(2),
                         ),
                         child: Text(
                           widget.myJobs.jobType.toString(),
                           style: TextStyle(
-                            fontSize: Get.height * Utils.getResponsiveSize(12),
+                            fontSize: Utils.getResponsiveSize(12),
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w500,
                             color:
@@ -203,7 +203,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                         ),
                       ),
                     ),
-                    SizedBox(width: Get.width * Utils.getResponsiveWidth(8)),
+                    SizedBox(width: Utils.getResponsiveWidth(8)),
                     Container(
                       decoration: BoxDecoration(
                         color:
@@ -212,19 +212,19 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                             ).extension<AppColors>()?.containerBg,
                         borderRadius: BorderRadius.all(
                           Radius.circular(
-                            Get.height * Utils.getResponsiveHeight(6),
+                            Utils.getResponsiveHeight(6),
                           ),
                         ),
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Get.width * Utils.getResponsiveWidth(10),
-                          vertical: Get.height * Utils.getResponsiveHeight(2),
+                          horizontal: Utils.getResponsiveWidth(10),
+                          vertical: Utils.getResponsiveHeight(2),
                         ),
                         child: Text(
                           widget.myJobs.salaryRange.toString(),
                           style: TextStyle(
-                            fontSize: Get.height * Utils.getResponsiveSize(12),
+                            fontSize: Utils.getResponsiveSize(12),
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w500,
                             color:
@@ -248,21 +248,21 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                               ).extension<AppColors>()?.cardSelectedBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
-                              Get.height * Utils.getResponsiveHeight(6),
+                              Utils.getResponsiveHeight(6),
                             ),
                           ),
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal:
-                                Get.width * Utils.getResponsiveWidth(12),
-                            vertical: Get.height * Utils.getResponsiveHeight(2),
+                                Utils.getResponsiveWidth(12),
+                            vertical: Utils.getResponsiveHeight(2),
                           ),
                           child: Text(
                             widget.myJobs.applied.toString(),
                             style: TextStyle(
                               fontSize:
-                                  Get.height * Utils.getResponsiveSize(14),
+                                  Utils.getResponsiveSize(14),
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w500,
                               color: AppColor.primaryColor,

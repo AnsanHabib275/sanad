@@ -39,7 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 constraints: BoxConstraints(minHeight: constraints.maxHeight),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Get.width * Utils.getResponsiveWidth(32),
+                    horizontal: Utils.getResponsiveWidth(32),
                   ),
                   child: Column(
                     children: [
@@ -50,21 +50,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(300),
-                              ),
+                              SizedBox(height: Utils.getResponsiveHeight(300)),
                               Image(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(54),
-                                width:
-                                    Get.width * Utils.getResponsiveWidth(155),
+                                height: Utils.getResponsiveHeight(54),
+                                width: Utils.getResponsiveWidth(155),
                                 image: AssetImage(ImageAssets.appLogo),
                               ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(24),
-                              ),
+                              SizedBox(height: Utils.getResponsiveHeight(24)),
                               Text(
                                 'join_as_an_individual'.tr,
                                 textAlign: TextAlign.center,
@@ -73,16 +65,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       Theme.of(context)
                                           .extension<AppColors>()
                                           ?.textPrimaryColor,
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(24),
+                                  fontSize: Utils.getResponsiveSize(24),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(32),
-                              ),
+                              SizedBox(height: Utils.getResponsiveHeight(32)),
                               Form(
                                 key: formKey,
                                 child: Column(
@@ -97,31 +85,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                             Theme.of(context)
                                                 .extension<AppColors>()
                                                 ?.textPrimaryColor,
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(14),
+                                        fontSize: Utils.getResponsiveSize(14),
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                     SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(8),
+                                      height: Utils.getResponsiveHeight(8),
                                     ),
                                     InputMobileNumberWidget(),
                                   ],
                                 ),
                               ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
+                              SizedBox(height: Utils.getResponsiveHeight(16)),
                               SendCodeButtonWidget(formKey: formKey),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(32),
-                              ),
+                              SizedBox(height: Utils.getResponsiveHeight(32)),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -131,19 +109,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     style: TextStyle(
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w400,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(12),
                                       color:
                                           Theme.of(context)
                                               .extension<AppColors>()
                                               ?.textSecondaryColor,
                                     ),
                                   ),
-                                  SizedBox(
-                                    width:
-                                        Get.width * Utils.getResponsiveWidth(4),
-                                  ),
+                                  SizedBox(width: Utils.getResponsiveWidth(4)),
                                   InkWell(
                                     onTap: () {
                                       Utils.hideKeyboardGlobally();
@@ -154,9 +127,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       style: TextStyle(
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(12),
+                                        fontSize: Utils.getResponsiveSize(12),
                                         color:
                                             Theme.of(context)
                                                 .extension<AppColors>()
@@ -166,10 +137,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ),
                                 ],
                               ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(16),
-                              ),
+                              SizedBox(height: Utils.getResponsiveHeight(16)),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -180,19 +148,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     style: TextStyle(
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w400,
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(12),
                                       color:
                                           Theme.of(context)
                                               .extension<AppColors>()
                                               ?.textSecondaryColor,
                                     ),
                                   ),
-                                  SizedBox(
-                                    width:
-                                        Get.width * Utils.getResponsiveWidth(4),
-                                  ),
+                                  SizedBox(width: Utils.getResponsiveWidth(4)),
                                   InkWell(
                                     onTap: () {
                                       Utils.hideKeyboardGlobally();
@@ -205,9 +168,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       style: TextStyle(
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(12),
+                                        fontSize: Utils.getResponsiveSize(12),
                                         color:
                                             Theme.of(context)
                                                 .extension<AppColors>()
@@ -217,17 +178,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ),
                                 ],
                               ),
-                              SizedBox(
-                                height:
-                                    Get.height * Utils.getResponsiveHeight(50),
-                              ),
+                              SizedBox(height: Utils.getResponsiveHeight(50)),
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(20),
-                      ),
+                      SizedBox(height: Utils.getResponsiveHeight(20)),
                       Align(
                         alignment: Alignment.center,
                         child: RichText(
@@ -239,8 +195,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     'by_clicking_agree_join_or_continue_you_agree_to_the_linkedIn'
                                         .tr,
                                 style: TextStyle(
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
                                   color:
@@ -252,8 +207,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               TextSpan(
                                 text: 'user_agreement'.tr,
                                 style: TextStyle(
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
@@ -273,8 +227,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               TextSpan(
                                 text: ', ',
                                 style: TextStyle(
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
                                   color:
@@ -286,8 +239,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               TextSpan(
                                 text: 'privacy_policy'.tr,
                                 style: TextStyle(
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
@@ -307,8 +259,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               TextSpan(
                                 text: 'and'.tr,
                                 style: TextStyle(
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w400,
                                   color:
@@ -320,8 +271,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               TextSpan(
                                 text: 'cookie_policy'.tr,
                                 style: TextStyle(
-                                  fontSize:
-                                      Get.height * Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(12),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
@@ -342,9 +292,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: Get.height * Utils.getResponsiveHeight(44),
-                      ),
+                      SizedBox(height: Utils.getResponsiveHeight(44)),
                     ],
                   ),
                 ),

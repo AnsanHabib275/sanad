@@ -5,7 +5,6 @@ import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/utils/utils.dart';
 
 import '../../../res/assets/image_assets.dart';
-import '../../../viewModels/controller/navigation/notification/notification_view_model.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,8 +14,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final notificationVM = Get.put(NotificationViewModel());
-
   @override
   void initState() {
     super.initState();
@@ -62,14 +59,14 @@ class _SplashScreenState extends State<SplashScreen> {
                   fit: BoxFit.cover,
                 ),
                 Positioned(
-                  left: Get.width * Utils.getResponsiveWidth(110),
-                  right: Get.width * Utils.getResponsiveWidth(110),
-                  top: Get.height * Utils.getResponsiveHeight(430),
-                  bottom: Get.height * Utils.getResponsiveHeight(430),
+                  left: Utils.getResponsiveWidth(110),
+                  right: Utils.getResponsiveWidth(110),
+                  top: Utils.getResponsiveHeight(430),
+                  bottom: Utils.getResponsiveHeight(430),
                   child: Image.asset(
                     ImageAssets.appLogoLarge,
-                    width: Get.width * Utils.getResponsiveWidth(203),
-                    height: Get.height * Utils.getResponsiveHeight(70),
+                    width: Utils.getResponsiveWidth(203),
+                    height: Utils.getResponsiveHeight(70),
                   ),
                 ),
               ],

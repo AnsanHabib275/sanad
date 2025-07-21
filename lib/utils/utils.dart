@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -29,29 +31,23 @@ class Utils {
     );
   }
 
-  static toastMessageCenter(String message) {
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_LONG,
-      backgroundColor: AppColor.blackColor,
-      gravity: ToastGravity.CENTER,
-    );
-  }
-
   static snackBar(String title, String message) {
     Get.snackbar(title, message);
   }
 
   static double getResponsiveHeight(double figmaHeight) {
-    return (figmaHeight / baseHeight);
+    double scale = deviceHeight / baseHeight;
+    return figmaHeight * scale;
   }
 
   static double getResponsiveWidth(double figmaWidth) {
-    return (figmaWidth / baseWidth);
+    double scale = deviceWidth / baseWidth;
+    return figmaWidth * scale;
   }
 
   static double getResponsiveSize(double figmaSize) {
-    return (figmaSize / baseHeight);
+    double scale = min(deviceWidth / baseWidth, deviceHeight / baseHeight);
+    return figmaSize * scale;
   }
 
   static String apiFormatDate(String appDate) {

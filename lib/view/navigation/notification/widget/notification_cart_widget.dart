@@ -30,31 +30,31 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
       decoration: BoxDecoration(
         color: Theme.of(context).extension<AppColors>()?.cardBg,
         borderRadius: BorderRadius.all(
-          Radius.circular(Get.height * Utils.getResponsiveHeight(4)),
+          Radius.circular(Utils.getResponsiveHeight(4)),
         ),
         border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
       ),
       child: Padding(
-        padding: EdgeInsets.all(Get.height * Utils.getResponsiveHeight(16)),
+        padding: EdgeInsets.all(Utils.getResponsiveHeight(16)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CircleAvatar(
-              radius: Get.height * Utils.getResponsiveSize(24),
+              radius: Utils.getResponsiveSize(24),
               child:
                   widget.notifications.notificationImage.isEmpty
                       ? Image.asset(
                         ImageAssets.imgDummyProfile,
-                        height: Get.height * Utils.getResponsiveHeight(48),
-                        width: Get.width * Utils.getResponsiveWidth(48),
+                        height: Utils.getResponsiveHeight(48),
+                        width: Utils.getResponsiveWidth(48),
                         fit: BoxFit.cover,
                       )
                       : ClipOval(
                         child: Image.network(
                           widget.notifications.notificationImage,
-                          height: Get.height * Utils.getResponsiveHeight(48),
-                          width: Get.width * Utils.getResponsiveWidth(48),
+                          height: Utils.getResponsiveHeight(48),
+                          width: Utils.getResponsiveWidth(48),
                           fit: BoxFit.cover,
                           loadingBuilder: (context, child, loadingProgress) {
                             if (loadingProgress == null) {
@@ -76,16 +76,15 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                           errorBuilder: (context, error, stackTrace) {
                             return Image.asset(
                               ImageAssets.imgDummyPicture,
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(48),
-                              width: Get.width * Utils.getResponsiveWidth(48),
+                              height: Utils.getResponsiveHeight(48),
+                              width: Utils.getResponsiveWidth(48),
                               fit: BoxFit.cover,
                             );
                           },
                         ),
                       ),
             ),
-            SizedBox(width: Get.width * Utils.getResponsiveWidth(12)),
+            SizedBox(width: Utils.getResponsiveWidth(12)),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -94,7 +93,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                   Text(
                     widget.notifications.notificationTitle,
                     style: TextStyle(
-                      fontSize: Get.height * Utils.getResponsiveSize(18),
+                      fontSize: Utils.getResponsiveSize(18),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w600,
                       color:
@@ -106,7 +105,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                   Text(
                     widget.notifications.notificationDescription,
                     style: TextStyle(
-                      fontSize: Get.height * Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(14),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
                       color:
@@ -118,16 +117,14 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                   widget.notifications.notificationType == 'invitation'
                       ? Padding(
                         padding: EdgeInsets.only(
-                          top: Get.height * Utils.getResponsiveHeight(12),
+                          top: Utils.getResponsiveHeight(12),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Expanded(child: DismissButtonWidget()),
-                            SizedBox(
-                              width: Get.width * Utils.getResponsiveWidth(12),
-                            ),
+                            SizedBox(width: Utils.getResponsiveWidth(12)),
                             Expanded(child: SubmitButtonWidget()),
                           ],
                         ),
@@ -135,7 +132,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                       : widget.notifications.notificationType == 'closed'
                       ? Padding(
                         padding: EdgeInsets.only(
-                          top: Get.height * Utils.getResponsiveHeight(12),
+                          top: Utils.getResponsiveHeight(12),
                         ),
                         child: DismissLargeButtonWidget(),
                       )

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/models/payment/payment_model.dart';
 import 'package:sanad/res/assets/image_assets.dart';
-import 'package:sanad/view/navigation/payment/widget/payment_cart_widget.dart';
 import 'package:sanad/view/navigation/paymentMethod/widget/add_payment_method_button_widget.dart';
 import 'package:sanad/view/navigation/paymentMethod/widget/payment_method_cart_widget.dart';
 
@@ -57,8 +55,8 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(24),
+              width: Utils.getResponsiveWidth(24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -75,13 +73,13 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Get.width * Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(16),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: Get.height * Utils.getResponsiveHeight(25)),
+              SizedBox(height: Utils.getResponsiveHeight(25)),
               Text(
                 'payment_methods'.tr,
                 textAlign: TextAlign.left,
@@ -90,26 +88,26 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                       Theme.of(
                         context,
                       ).extension<AppColors>()?.textPrimaryColor,
-                  fontSize: Get.height * Utils.getResponsiveSize(16),
+                  fontSize: Utils.getResponsiveSize(16),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
+              SizedBox(height: Utils.getResponsiveHeight(8)),
               Text(
                 'payment_methods_detail'.tr,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   color:
                       Theme.of(context).extension<AppColors>()?.textBodyColor,
-                  fontSize: Get.height * Utils.getResponsiveSize(12),
+                  fontSize: Utils.getResponsiveSize(12),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
+              SizedBox(height: Utils.getResponsiveHeight(24)),
               AddPaymentMethodButtonWidget(),
-              SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
+              SizedBox(height: Utils.getResponsiveHeight(24)),
               ListView.builder(
                 shrinkWrap: true,
                 physics: const AlwaysScrollableScrollPhysics(),

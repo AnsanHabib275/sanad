@@ -18,8 +18,8 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: Get.height * Utils.getResponsiveHeight(46),
-            width: Get.width * 1,
+            height: Utils.getResponsiveHeight(46),
+            width: double.infinity,
             decoration: BoxDecoration(
               border: Border.all(
                 color:
@@ -27,9 +27,7 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                       context,
                     ).inputDecorationTheme.border!.borderSide.color,
               ),
-              borderRadius: BorderRadius.circular(
-                Get.height * Utils.getResponsiveSize(8),
-              ),
+              borderRadius: BorderRadius.circular(Utils.getResponsiveSize(8)),
             ),
             child: Row(
               children: [
@@ -38,17 +36,13 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                     Utils.hideKeyboardGlobally();
                   },
                   child: Container(
-                    height: Get.height * Utils.getResponsiveHeight(46),
-                    width: Get.width * Utils.getResponsiveWidth(115),
+                    height: Utils.getResponsiveHeight(46),
+                    width: Utils.getResponsiveWidth(115),
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.buttonBg,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(
-                          Get.height * Utils.getResponsiveSize(8),
-                        ),
-                        bottomLeft: Radius.circular(
-                          Get.height * Utils.getResponsiveSize(8),
-                        ),
+                        topLeft: Radius.circular(Utils.getResponsiveSize(8)),
+                        bottomLeft: Radius.circular(Utils.getResponsiveSize(8)),
                       ),
                     ),
                     child: Center(
@@ -60,7 +54,7 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textPrimaryColor,
-                          fontSize: Get.height * Utils.getResponsiveSize(14),
+                          fontSize: Utils.getResponsiveSize(14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                         ),
@@ -69,15 +63,15 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: Get.height * Utils.getResponsiveHeight(46),
-                  width: Get.width * Utils.getResponsiveWidth(1),
+                  height: Utils.getResponsiveHeight(46),
+                  width: Utils.getResponsiveWidth(1),
                   color: Theme.of(context).extension<AppColors>()?.cardBg,
                 ),
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Get.width * Utils.getResponsiveWidth(16),
-                      vertical: Get.height * Utils.getResponsiveHeight(12),
+                      horizontal: Utils.getResponsiveWidth(16),
+                      vertical: Utils.getResponsiveHeight(12),
                     ),
                     child: Text(
                       'choose_file_hint'.tr,
@@ -89,7 +83,7 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
                             Theme.of(
                               context,
                             ).extension<AppColors>()?.textPrimaryColor,
-                        fontSize: Get.height * Utils.getResponsiveSize(14),
+                        fontSize: Utils.getResponsiveSize(14),
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w400,
                       ),
@@ -102,14 +96,14 @@ class InputUploadProfilePictureWidget extends StatelessWidget {
           if (updateProfileVM.imagePath.value.isNotEmpty)
             Padding(
               padding: EdgeInsets.only(
-                left: Get.width * Utils.getResponsiveWidth(15),
-                top: Get.height * Utils.getResponsiveHeight(4),
+                left: Utils.getResponsiveWidth(15),
+                top: Utils.getResponsiveHeight(4),
               ),
               child: Text(
                 updateProfileVM.imagePathError.value,
                 style: TextStyle(
                   color: AppColor.redColor,
-                  fontSize: Get.height * Utils.getResponsiveSize(16),
+                  fontSize: Utils.getResponsiveSize(16),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w400,
                 ),

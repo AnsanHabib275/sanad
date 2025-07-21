@@ -47,20 +47,20 @@ class _AgencySignUpFillDetailsScreenState
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Get.width * Utils.getResponsiveWidth(32),
+              horizontal: Utils.getResponsiveWidth(32),
             ),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(60)),
+                  SizedBox(height: Utils.getResponsiveHeight(60)),
                   Image(
-                    height: Get.height * Utils.getResponsiveHeight(27),
-                    width: Get.width * Utils.getResponsiveWidth(77),
+                    height: Utils.getResponsiveHeight(27),
+                    width: Utils.getResponsiveWidth(77),
                     image: AssetImage(ImageAssets.appLogoSmall),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(24)),
+                  SizedBox(height: Utils.getResponsiveHeight(24)),
                   Text(
                     'please_fill_the_required_information'.tr,
                     textAlign: TextAlign.center,
@@ -69,17 +69,17 @@ class _AgencySignUpFillDetailsScreenState
                           Theme.of(
                             context,
                           ).extension<AppColors>()?.textPrimaryColor,
-                      fontSize: Get.height * Utils.getResponsiveSize(20),
+                      fontSize: Utils.getResponsiveSize(20),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(38)),
+                  SizedBox(height: Utils.getResponsiveHeight(38)),
                   Align(
                     alignment: Alignment.center,
                     child: SizedBox(
-                      height: Get.height * Utils.getResponsiveHeight(110),
-                      width: Get.width * Utils.getResponsiveWidth(102),
+                      height: Utils.getResponsiveHeight(110),
+                      width: Utils.getResponsiveWidth(102),
                       child: InkWell(
                         onTap: () {
                           _showImageSourceDialog(context);
@@ -95,30 +95,22 @@ class _AgencySignUpFillDetailsScreenState
                                   _showImageSourceDialog(context);
                                 },
                                 child: SizedBox(
-                                  height:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(95),
-                                  width:
-                                      Get.width * Utils.getResponsiveWidth(95),
+                                  height: Utils.getResponsiveHeight(95),
+                                  width: Utils.getResponsiveWidth(95),
                                   child: Obx(() {
                                     return CircleAvatar(
-                                      radius:
-                                          Get.height *
-                                          Utils.getResponsiveSize(47),
+                                      radius: Utils.getResponsiveSize(47),
                                       child:
                                           signUpVM.filePath.isEmpty
                                               ? Image.asset(
                                                 ImageAssets.imgDummyPicture,
                                                 height:
-                                                    Get.height *
                                                     Utils.getResponsiveHeight(
                                                       95,
                                                     ),
-                                                width:
-                                                    Get.width *
-                                                    Utils.getResponsiveWidth(
-                                                      95,
-                                                    ),
+                                                width: Utils.getResponsiveWidth(
+                                                  95,
+                                                ),
                                                 fit: BoxFit.cover,
                                               )
                                               : ClipOval(
@@ -127,12 +119,10 @@ class _AgencySignUpFillDetailsScreenState
                                                   // signUpVM.imagePath.value,
                                                   fit: BoxFit.cover,
                                                   height:
-                                                      Get.height *
                                                       Utils.getResponsiveHeight(
                                                         95,
                                                       ),
                                                   width:
-                                                      Get.width *
                                                       Utils.getResponsiveWidth(
                                                         95,
                                                       ),
@@ -169,12 +159,10 @@ class _AgencySignUpFillDetailsScreenState
                                                       ImageAssets
                                                           .imgDummyPicture,
                                                       height:
-                                                          Get.height *
                                                           Utils.getResponsiveHeight(
                                                             95,
                                                           ),
                                                       width:
-                                                          Get.width *
                                                           Utils.getResponsiveWidth(
                                                             95,
                                                           ),
@@ -196,24 +184,18 @@ class _AgencySignUpFillDetailsScreenState
                                 decoration: BoxDecoration(
                                   color: AppColor.addPhotoBgColor,
                                   borderRadius: BorderRadius.circular(
-                                    Get.height * Utils.getResponsiveHeight(16),
+                                    Utils.getResponsiveHeight(16),
                                   ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Get.width *
-                                        Utils.getResponsiveWidth(18),
-                                    vertical:
-                                        Get.height *
-                                        Utils.getResponsiveHeight(9),
+                                    horizontal: Utils.getResponsiveWidth(18),
+                                    vertical: Utils.getResponsiveHeight(9),
                                   ),
                                   child: Text(
                                     'add_photo'.tr,
                                     style: TextStyle(
-                                      fontSize:
-                                          Get.height *
-                                          Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(12),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       color: AppColor.blackColor,
@@ -227,7 +209,7 @@ class _AgencySignUpFillDetailsScreenState
                       ),
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
                   Form(
                     key: formKey,
                     child: Column(
@@ -242,18 +224,14 @@ class _AgencySignUpFillDetailsScreenState
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(8),
-                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(8)),
                         InputAgencyNameWidget(),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(16),
-                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(16)),
                         Text(
                           'tagline'.tr,
                           textAlign: TextAlign.left,
@@ -262,18 +240,14 @@ class _AgencySignUpFillDetailsScreenState
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(8),
-                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(8)),
                         InputTaglineWidget(),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(16),
-                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(16)),
                         Text(
                           'email'.tr,
                           textAlign: TextAlign.left,
@@ -282,18 +256,14 @@ class _AgencySignUpFillDetailsScreenState
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(8),
-                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(8)),
                         InputEmailWidget(),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(16),
-                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(16)),
                         Text(
                           'organization_type'.tr,
                           textAlign: TextAlign.left,
@@ -302,18 +272,14 @@ class _AgencySignUpFillDetailsScreenState
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(8),
-                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(8)),
                         InputOrganizationTypeWidget(),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(16),
-                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(16)),
                         Text(
                           'company_size_employees'.tr,
                           textAlign: TextAlign.left,
@@ -322,14 +288,12 @@ class _AgencySignUpFillDetailsScreenState
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Get.height * Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
-                          height: Get.height * Utils.getResponsiveHeight(8),
-                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(8)),
                         Obx(
                           () => Row(
                             children: List.generate(items.length, (index) {
@@ -337,8 +301,7 @@ class _AgencySignUpFillDetailsScreenState
                                   signUpVM.selectedIndex.value == index;
                               return Padding(
                                 padding: EdgeInsets.only(
-                                  right:
-                                      Get.width * Utils.getResponsiveWidth(6),
+                                  right: Utils.getResponsiveWidth(6),
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
@@ -353,25 +316,20 @@ class _AgencySignUpFillDetailsScreenState
                                                   .extension<AppColors>()
                                                   ?.containerBg,
                                       borderRadius: BorderRadius.circular(
-                                        Get.height *
-                                            Utils.getResponsiveHeight(8),
+                                        Utils.getResponsiveHeight(8),
                                       ),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsets.symmetric(
-                                        horizontal:
-                                            Get.width *
-                                            Utils.getResponsiveWidth(12),
-                                        vertical:
-                                            Get.height *
-                                            Utils.getResponsiveHeight(8),
+                                        horizontal: Utils.getResponsiveWidth(
+                                          12,
+                                        ),
+                                        vertical: Utils.getResponsiveHeight(8),
                                       ),
                                       child: Text(
                                         items[index].tr,
                                         style: TextStyle(
-                                          fontSize:
-                                              Get.height *
-                                              Utils.getResponsiveSize(12),
+                                          fontSize: Utils.getResponsiveSize(12),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w500,
                                           color:
@@ -393,9 +351,9 @@ class _AgencySignUpFillDetailsScreenState
                       ],
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(42)),
+                  SizedBox(height: Utils.getResponsiveHeight(42)),
                   ContinueButtonWidget(formKey: formKey),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(100)),
+                  SizedBox(height: Utils.getResponsiveHeight(100)),
                 ],
               ),
             ),

@@ -5,8 +5,8 @@ import 'package:sanad/res/routes/routes_name.dart';
 
 import '../../../../../utils/utils.dart';
 
-class SubmitButtonWidget extends StatelessWidget {
-  const SubmitButtonWidget({
+class ApplyNowButtonWidget extends StatelessWidget {
+  const ApplyNowButtonWidget({
     super.key,
     required this.isPrivate,
     required this.jobName,
@@ -30,7 +30,7 @@ class SubmitButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RoundButton(
-      title: 'submit'.tr,
+      title: 'apply_now'.tr,
       onPress: () {
         Utils.hideKeyboardGlobally();
         Get.toNamed(

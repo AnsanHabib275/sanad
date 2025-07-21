@@ -35,15 +35,15 @@ class SubmitButtonWidget extends StatelessWidget {
           backgroundColor: Theme.of(context).extension<AppColors>()?.cardBg,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              Get.height * Utils.getResponsiveSize(12),
+              Utils.getResponsiveSize(12),
             ),
           ),
           child: SizedBox(
-            width: Get.width * Utils.getResponsiveWidth(400),
+            width: Utils.getResponsiveWidth(400),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: Get.width * Utils.getResponsiveWidth(20),
-                vertical: Get.height * Utils.getResponsiveHeight(20),
+                horizontal: Utils.getResponsiveWidth(20),
+                vertical: Utils.getResponsiveHeight(20),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -51,16 +51,16 @@ class SubmitButtonWidget extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
-                    height: Get.height * Utils.getResponsiveHeight(48),
-                    width: Get.width * Utils.getResponsiveWidth(48),
+                    height: Utils.getResponsiveHeight(48),
+                    width: Utils.getResponsiveWidth(48),
                     ImageAssets.imgSuccessFull,
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(20)),
+                  SizedBox(height: Utils.getResponsiveHeight(20)),
                   Text(
                     'application_sent_successfully'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: Get.height * Utils.getResponsiveSize(18),
+                      fontSize: Utils.getResponsiveSize(18),
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
                       color:
@@ -69,12 +69,12 @@ class SubmitButtonWidget extends StatelessWidget {
                           ).extension<AppColors>()?.textPrimaryColor,
                     ),
                   ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(8)),
+                  SizedBox(height: Utils.getResponsiveHeight(8)),
                    Text(
                       'application_submitted_successfully'.tr,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: Get.height * Utils.getResponsiveSize(14),
+                        fontSize: Utils.getResponsiveSize(14),
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w400,
                         color:
@@ -83,13 +83,13 @@ class SubmitButtonWidget extends StatelessWidget {
                             ).extension<AppColors>()?.textBodyColor,
                       ),
                     ),
-                  SizedBox(height: Get.height * Utils.getResponsiveHeight(32)),
+                  SizedBox(height: Utils.getResponsiveHeight(32)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(child: ApplyAgainButtonWidget()),
-                      SizedBox(width: Get.width * Utils.getResponsiveWidth(12)),
+                      SizedBox(width: Utils.getResponsiveWidth(12)),
                       Expanded(child: BackToJobsButtonWidget()),
                     ],
                   ),

@@ -31,7 +31,7 @@ class InputMobileNumberWidget extends StatelessWidget {
                         : AppColor.redColor,
               ),
               borderRadius: BorderRadius.circular(
-                Get.height * Utils.getResponsiveSize(8),
+                Utils.getResponsiveSize(8),
               ),
             ),
             child: Row(
@@ -50,7 +50,7 @@ class InputMobileNumberWidget extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SizedBox(width: Get.width * Utils.getResponsiveWidth(11)),
+                      SizedBox(width: Utils.getResponsiveWidth(11)),
                       IntrinsicWidth(
                         child: TextFormField(
                           controller: signUpVM.countryCodeController.value,
@@ -83,25 +83,25 @@ class InputMobileNumberWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: Get.width * Utils.getResponsiveWidth(8)),
+                      SizedBox(width: Utils.getResponsiveWidth(8)),
                       Image.asset(
                         IconAssets.icArrowDown,
-                        height: Get.height * Utils.getResponsiveHeight(16),
-                        width: Get.width * Utils.getResponsiveWidth(16),
+                        height: Utils.getResponsiveHeight(16),
+                        width: Utils.getResponsiveWidth(16),
                       ),
-                      SizedBox(width: Get.width * Utils.getResponsiveWidth(7)),
+                      SizedBox(width: Utils.getResponsiveWidth(7)),
                     ],
                   ),
                 ),
                 Container(
-                  height: Get.height * Utils.getResponsiveHeight(50),
-                  width: Get.width * Utils.getResponsiveWidth(1),
+                  height: Utils.getResponsiveHeight(50),
+                  width: Utils.getResponsiveWidth(1),
                   color:
                       Theme.of(
                         context,
                       ).inputDecorationTheme.border?.borderSide.color,
                 ),
-                SizedBox(width: Get.width * Utils.getResponsiveWidth(24)),
+                SizedBox(width: Utils.getResponsiveWidth(24)),
                 Expanded(
                   child: TextFormField(
                     controller: signUpVM.mobileNumberController.value,
@@ -138,8 +138,8 @@ class InputMobileNumberWidget extends StatelessWidget {
           if (signUpVM.phoneError.value.isNotEmpty)
             Padding(
               padding: EdgeInsets.only(
-                left: Get.width * Utils.getResponsiveWidth(15),
-                top: Get.height * Utils.getResponsiveHeight(4),
+                left: Utils.getResponsiveWidth(15),
+                top: Utils.getResponsiveHeight(4),
               ),
               child: Text(
                 signUpVM.phoneError.value,

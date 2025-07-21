@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/assets/image_assets.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/routes/routes_name.dart';
@@ -18,16 +17,16 @@ class AddPaymentMethodButtonWidget extends StatelessWidget {
       },
       child: Container(
         width: double.infinity,
-        height: Get.height * Utils.getResponsiveHeight(44),
+        height: Utils.getResponsiveHeight(44),
         decoration: BoxDecoration(
           color: AppColor.primaryButtonColor,
           borderRadius: BorderRadius.all(
-            Radius.circular(Get.height * Utils.getResponsiveHeight(8)),
+            Radius.circular(Utils.getResponsiveHeight(8)),
           ),
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            vertical: Get.height * Utils.getResponsiveHeight(10),
+            vertical: Utils.getResponsiveHeight(10),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -36,15 +35,15 @@ class AddPaymentMethodButtonWidget extends StatelessWidget {
             children: [
               Image.asset(
                 ImageAssets.imgAddCard,
-                height: Get.height * Utils.getResponsiveHeight(24),
-                width: Get.width * Utils.getResponsiveWidth(24),
+                height: Utils.getResponsiveHeight(24),
+                width: Utils.getResponsiveWidth(24),
                 color: AppColor.whiteColor,
               ),
-              SizedBox(width: Get.width * Utils.getResponsiveWidth(8)),
+              SizedBox(width: Utils.getResponsiveWidth(8)),
               Text(
                 'add_new_payment_method'.tr,
                 style: TextStyle(
-                  fontSize: Get.height * Utils.getResponsiveSize(14),
+                  fontSize: Utils.getResponsiveSize(14),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w600,
                   color: AppColor.primaryButtonTextColor,

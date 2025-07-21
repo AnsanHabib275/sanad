@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:sanad/models/payment/payment_model.dart';
 import 'package:sanad/models/paymentMethod/payment_method_model.dart';
-import 'package:sanad/res/assets/image_assets.dart';
-import 'package:sanad/res/routes/routes_name.dart';
-
-import '../../../../../res/colors/app_color.dart';
 import '../../../../../res/themes/app_themes.dart';
 import '../../../../../utils/utils.dart';
 import '../../../../res/assets/icon_assets.dart';
@@ -28,42 +22,40 @@ class _PaymentMethodCartWidgetState extends State<PaymentMethodCartWidget> {
       color: Theme.of(context).extension<AppColors>()?.cardBg,
       shape: RoundedRectangleBorder(
         side: BorderSide(color: Theme.of(context).dividerColor, width: 1.0),
-        borderRadius: BorderRadius.circular(
-          Get.height * Utils.getResponsiveSize(12),
-        ),
+        borderRadius: BorderRadius.circular(Utils.getResponsiveSize(12)),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          vertical: Get.height * Utils.getResponsiveHeight(16),
-          horizontal: Get.width * Utils.getResponsiveWidth(16),
+          vertical: Utils.getResponsiveHeight(16),
+          horizontal: Utils.getResponsiveWidth(16),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(widget.paymentMethod.image),
-            SizedBox(width: Get.width * Utils.getResponsiveWidth(10)),
+            SizedBox(width: Utils.getResponsiveWidth(10)),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   widget.paymentMethod.name,
                   style: TextStyle(
-                    fontSize: Get.height * Utils.getResponsiveSize(16),
+                    fontSize: Utils.getResponsiveSize(16),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w700,
                     color:
                         Theme.of(context).extension<AppColors>()?.textBodyColor,
                   ),
                 ),
-                SizedBox(height: Get.height * Utils.getResponsiveHeight(2)),
+                SizedBox(height: Utils.getResponsiveHeight(2)),
                 RichText(
                   text: TextSpan(
                     children: [
                       TextSpan(
                         text: 'XXXX XXXX XXXX ',
                         style: TextStyle(
-                          fontSize: Get.height * Utils.getResponsiveSize(12),
+                          fontSize: Utils.getResponsiveSize(12),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                           color:
@@ -75,7 +67,7 @@ class _PaymentMethodCartWidgetState extends State<PaymentMethodCartWidget> {
                       TextSpan(
                         text: widget.paymentMethod.code,
                         style: TextStyle(
-                          fontSize: Get.height * Utils.getResponsiveSize(12),
+                          fontSize: Utils.getResponsiveSize(12),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                           color:
@@ -87,7 +79,7 @@ class _PaymentMethodCartWidgetState extends State<PaymentMethodCartWidget> {
                       TextSpan(
                         text: ' | Expiry ',
                         style: TextStyle(
-                          fontSize: Get.height * Utils.getResponsiveSize(12),
+                          fontSize: Utils.getResponsiveSize(12),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                           color:
@@ -99,7 +91,7 @@ class _PaymentMethodCartWidgetState extends State<PaymentMethodCartWidget> {
                       TextSpan(
                         text: widget.paymentMethod.expiry,
                         style: TextStyle(
-                          fontSize: Get.height * Utils.getResponsiveSize(12),
+                          fontSize: Utils.getResponsiveSize(12),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w500,
                           color:
@@ -120,19 +112,19 @@ class _PaymentMethodCartWidgetState extends State<PaymentMethodCartWidget> {
               },
               child: Image.asset(
                 IconAssets.icEdit,
-                height: Get.height * Utils.getResponsiveHeight(20),
-                width: Get.width * Utils.getResponsiveWidth(20),
+                height: Utils.getResponsiveHeight(20),
+                width: Utils.getResponsiveWidth(20),
               ),
             ),
-            SizedBox(width: Get.width * Utils.getResponsiveWidth(8)),
+            SizedBox(width: Utils.getResponsiveWidth(8)),
             InkWell(
               onTap: () {
                 // Get.toNamed(RoutesName.applyJobScreen);
               },
               child: Image.asset(
                 IconAssets.icDelete,
-                height: Get.height * Utils.getResponsiveHeight(20),
-                width: Get.width * Utils.getResponsiveWidth(20),
+                height: Utils.getResponsiveHeight(20),
+                width: Utils.getResponsiveWidth(20),
               ),
             ),
           ],

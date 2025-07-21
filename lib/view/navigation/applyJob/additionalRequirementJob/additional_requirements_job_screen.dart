@@ -53,8 +53,8 @@ class _AdditionalRequirementsJobScreenState
             leading: IconButton(
               icon: Image.asset(
                 IconAssets.icArrowLeft,
-                height: Get.height * Utils.getResponsiveHeight(24),
-                width: Get.width * Utils.getResponsiveWidth(24),
+                height: Utils.getResponsiveHeight(24),
+                width: Utils.getResponsiveWidth(24),
                 color: Theme.of(context).iconTheme.color,
               ),
               onPressed: () => Get.back(),
@@ -77,22 +77,16 @@ class _AdditionalRequirementsJobScreenState
                     child: SingleChildScrollView(
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Get.width * Utils.getResponsiveWidth(16),
+                          horizontal: Utils.getResponsiveWidth(16),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(16),
-                            ),
+                            SizedBox(height: Utils.getResponsiveHeight(16)),
                             AdditionalRequirementsJobTabBar(),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(16),
-                            ),
+                            SizedBox(height: Utils.getResponsiveHeight(16)),
                             Container(
                               decoration: BoxDecoration(
                                 color:
@@ -100,9 +94,7 @@ class _AdditionalRequirementsJobScreenState
                                       context,
                                     ).extension<AppColors>()?.cardBg,
                                 borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    Get.height * Utils.getResponsiveHeight(8),
-                                  ),
+                                  Radius.circular(Utils.getResponsiveHeight(8)),
                                 ),
                                 border: Border.all(
                                   color: Theme.of(context).dividerColor,
@@ -111,11 +103,8 @@ class _AdditionalRequirementsJobScreenState
                               ),
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
-                                  vertical:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
-                                  horizontal:
-                                      Get.width * Utils.getResponsiveWidth(16),
+                                  vertical: Utils.getResponsiveHeight(16),
+                                  horizontal: Utils.getResponsiveWidth(16),
                                 ),
                                 child: Column(
                                   mainAxisAlignment:
@@ -127,9 +116,9 @@ class _AdditionalRequirementsJobScreenState
                                         Text(
                                           jobName,
                                           style: TextStyle(
-                                            fontSize:
-                                                Get.height *
-                                                Utils.getResponsiveSize(20),
+                                            fontSize: Utils.getResponsiveSize(
+                                              20,
+                                            ),
                                             fontFamily: 'Manrope',
                                             fontWeight: FontWeight.w700,
                                             color:
@@ -139,9 +128,7 @@ class _AdditionalRequirementsJobScreenState
                                           ),
                                         ),
                                         SizedBox(
-                                          width:
-                                              Get.width *
-                                              Utils.getResponsiveWidth(12),
+                                          width: Utils.getResponsiveWidth(12),
                                         ),
                                         Container(
                                           decoration: BoxDecoration(
@@ -151,20 +138,15 @@ class _AdditionalRequirementsJobScreenState
                                                     ?.containerBg,
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(
-                                                Get.height *
-                                                    Utils.getResponsiveHeight(
-                                                      6,
-                                                    ),
+                                                Utils.getResponsiveHeight(6),
                                               ),
                                             ),
                                           ),
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
                                               horizontal:
-                                                  Get.width *
                                                   Utils.getResponsiveWidth(10),
                                               vertical:
-                                                  Get.height *
                                                   Utils.getResponsiveHeight(2),
                                             ),
                                             child: Text(
@@ -173,7 +155,6 @@ class _AdditionalRequirementsJobScreenState
                                                   : 'public_job'.tr,
                                               style: TextStyle(
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(12),
                                                 fontFamily: 'Inter',
                                                 fontWeight: FontWeight.w500,
@@ -188,40 +169,26 @@ class _AdditionalRequirementsJobScreenState
                                         Spacer(),
                                         Image.asset(
                                           IconAssets.icDisable,
-                                          height:
-                                              Get.height *
-                                              Utils.getResponsiveHeight(24),
-                                          width:
-                                              Get.width *
-                                              Utils.getResponsiveWidth(24),
+                                          height: Utils.getResponsiveHeight(24),
+                                          width: Utils.getResponsiveWidth(24),
                                         ),
                                         SizedBox(
-                                          width:
-                                              Get.width *
-                                              Utils.getResponsiveWidth(8),
+                                          width: Utils.getResponsiveWidth(8),
                                         ),
                                         Image.asset(
                                           IconAssets.icBookmark,
-                                          height:
-                                              Get.height *
-                                              Utils.getResponsiveHeight(24),
-                                          width:
-                                              Get.width *
-                                              Utils.getResponsiveWidth(24),
+                                          height: Utils.getResponsiveHeight(24),
+                                          width: Utils.getResponsiveWidth(24),
                                         ),
                                       ],
                                     ),
                                     SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(12),
+                                      height: Utils.getResponsiveHeight(12),
                                     ),
                                     Text(
                                       companyName.toString(),
                                       style: TextStyle(
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(14),
+                                        fontSize: Utils.getResponsiveSize(14),
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
                                         color:
@@ -233,9 +200,7 @@ class _AdditionalRequirementsJobScreenState
                                     Text(
                                       location.toString(),
                                       style: TextStyle(
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(14),
+                                        fontSize: Utils.getResponsiveSize(14),
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
                                         color:
@@ -245,9 +210,7 @@ class _AdditionalRequirementsJobScreenState
                                       ),
                                     ),
                                     SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(24),
+                                      height: Utils.getResponsiveHeight(24),
                                     ),
                                     Row(
                                       children: [
@@ -259,27 +222,21 @@ class _AdditionalRequirementsJobScreenState
                                                     ?.containerBg,
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(
-                                                Get.height *
-                                                    Utils.getResponsiveHeight(
-                                                      6,
-                                                    ),
+                                                Utils.getResponsiveHeight(6),
                                               ),
                                             ),
                                           ),
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
                                               horizontal:
-                                                  Get.width *
                                                   Utils.getResponsiveWidth(10),
                                               vertical:
-                                                  Get.height *
                                                   Utils.getResponsiveHeight(2),
                                             ),
                                             child: Text(
                                               jobType.toString(),
                                               style: TextStyle(
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(12),
                                                 fontFamily: 'Inter',
                                                 fontWeight: FontWeight.w500,
@@ -292,9 +249,7 @@ class _AdditionalRequirementsJobScreenState
                                           ),
                                         ),
                                         SizedBox(
-                                          width:
-                                              Get.width *
-                                              Utils.getResponsiveWidth(8),
+                                          width: Utils.getResponsiveWidth(8),
                                         ),
                                         Container(
                                           decoration: BoxDecoration(
@@ -304,27 +259,21 @@ class _AdditionalRequirementsJobScreenState
                                                     ?.containerBg,
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(
-                                                Get.height *
-                                                    Utils.getResponsiveHeight(
-                                                      6,
-                                                    ),
+                                                Utils.getResponsiveHeight(6),
                                               ),
                                             ),
                                           ),
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
                                               horizontal:
-                                                  Get.width *
                                                   Utils.getResponsiveWidth(10),
                                               vertical:
-                                                  Get.height *
                                                   Utils.getResponsiveHeight(2),
                                             ),
                                             child: Text(
                                               salaryRange.toString(),
                                               style: TextStyle(
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(12),
                                                 fontFamily: 'Inter',
                                                 fontWeight: FontWeight.w500,
@@ -342,10 +291,7 @@ class _AdditionalRequirementsJobScreenState
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(16),
-                            ),
+                            SizedBox(height: Utils.getResponsiveHeight(16)),
                             Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
@@ -354,9 +300,7 @@ class _AdditionalRequirementsJobScreenState
                                       context,
                                     ).extension<AppColors>()?.cardBg,
                                 borderRadius: BorderRadius.all(
-                                  Radius.circular(
-                                    Get.height * Utils.getResponsiveHeight(8),
-                                  ),
+                                  Radius.circular(Utils.getResponsiveHeight(8)),
                                 ),
                                 border: Border.all(
                                   color: Theme.of(context).dividerColor,
@@ -365,11 +309,8 @@ class _AdditionalRequirementsJobScreenState
                               ),
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      Get.width * Utils.getResponsiveWidth(16),
-                                  vertical:
-                                      Get.height *
-                                      Utils.getResponsiveHeight(16),
+                                  horizontal: Utils.getResponsiveWidth(16),
+                                  vertical: Utils.getResponsiveHeight(16),
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -384,24 +325,18 @@ class _AdditionalRequirementsJobScreenState
                                             Theme.of(context)
                                                 .extension<AppColors>()
                                                 ?.textPrimaryColor,
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(14),
+                                        fontSize: Utils.getResponsiveSize(14),
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                     SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(40),
+                                      height: Utils.getResponsiveHeight(40),
                                     ),
                                     Text(
                                       'are_you_open_to_relocating'.tr,
                                       style: TextStyle(
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(14),
+                                        fontSize: Utils.getResponsiveSize(14),
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
                                         color:
@@ -411,9 +346,7 @@ class _AdditionalRequirementsJobScreenState
                                       ),
                                     ),
                                     SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(24),
+                                      height: Utils.getResponsiveHeight(24),
                                     ),
                                     Obx(() {
                                       return GestureDetector(
@@ -431,27 +364,21 @@ class _AdditionalRequirementsJobScreenState
                                                         ?.containerBg,
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(
-                                                Get.height *
-                                                    Utils.getResponsiveHeight(
-                                                      8,
-                                                    ),
+                                                Utils.getResponsiveHeight(8),
                                               ),
                                             ),
                                           ),
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
                                               horizontal:
-                                                  Get.width *
                                                   Utils.getResponsiveWidth(12),
                                               vertical:
-                                                  Get.height *
                                                   Utils.getResponsiveHeight(8),
                                             ),
                                             child: Text(
                                               'open_to_relocating'.tr,
                                               style: TextStyle(
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(12),
                                                 fontFamily: 'Manrope',
                                                 fontWeight: FontWeight.w500,
@@ -473,16 +400,12 @@ class _AdditionalRequirementsJobScreenState
                                       );
                                     }),
                                     SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(56),
+                                      height: Utils.getResponsiveHeight(56),
                                     ),
                                     Text(
                                       'software_programs_do_you_know'.tr,
                                       style: TextStyle(
-                                        fontSize:
-                                            Get.height *
-                                            Utils.getResponsiveSize(14),
+                                        fontSize: Utils.getResponsiveSize(14),
                                         fontFamily: 'Manrope',
                                         fontWeight: FontWeight.w500,
                                         color:
@@ -492,9 +415,7 @@ class _AdditionalRequirementsJobScreenState
                                       ),
                                     ),
                                     SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(24),
+                                      height: Utils.getResponsiveHeight(24),
                                     ),
                                     ConstrainedBox(
                                       constraints: BoxConstraints(
@@ -506,9 +427,9 @@ class _AdditionalRequirementsJobScreenState
                                         itemCount: softwarePrograms.length,
                                         separatorBuilder:
                                             (context, index) => SizedBox(
-                                              height:
-                                                  Get.height *
-                                                  Utils.getResponsiveHeight(12),
+                                              height: Utils.getResponsiveHeight(
+                                                12,
+                                              ),
                                             ),
                                         itemBuilder: (context, index) {
                                           return SoftwareProgramCartWidget(
@@ -519,9 +440,7 @@ class _AdditionalRequirementsJobScreenState
                                       ),
                                     ),
                                     SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(32),
+                                      height: Utils.getResponsiveHeight(32),
                                     ),
                                     Container(
                                       width: double.infinity,
@@ -532,8 +451,7 @@ class _AdditionalRequirementsJobScreenState
                                             ).extension<AppColors>()?.cardBg,
                                         borderRadius: BorderRadius.all(
                                           Radius.circular(
-                                            Get.height *
-                                                Utils.getResponsiveHeight(8),
+                                            Utils.getResponsiveHeight(8),
                                           ),
                                         ),
                                         border: Border.all(
@@ -543,12 +461,12 @@ class _AdditionalRequirementsJobScreenState
                                       ),
                                       child: Padding(
                                         padding: EdgeInsets.symmetric(
-                                          horizontal:
-                                              Get.width *
-                                              Utils.getResponsiveWidth(16),
-                                          vertical:
-                                              Get.height *
-                                              Utils.getResponsiveHeight(16),
+                                          horizontal: Utils.getResponsiveWidth(
+                                            16,
+                                          ),
+                                          vertical: Utils.getResponsiveHeight(
+                                            16,
+                                          ),
                                         ),
                                         child: Column(
                                           mainAxisAlignment:
@@ -558,15 +476,14 @@ class _AdditionalRequirementsJobScreenState
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             SizedBox(
-                                              height:
-                                                  Get.height *
-                                                  Utils.getResponsiveHeight(8),
+                                              height: Utils.getResponsiveHeight(
+                                                8,
+                                              ),
                                             ),
                                             Text(
                                               'how_many_years_of_experience'.tr,
                                               style: TextStyle(
                                                 fontSize:
-                                                    Get.height *
                                                     Utils.getResponsiveSize(14),
                                                 fontFamily: 'Manrope',
                                                 fontWeight: FontWeight.w500,
@@ -577,9 +494,9 @@ class _AdditionalRequirementsJobScreenState
                                               ),
                                             ),
                                             SizedBox(
-                                              height:
-                                                  Get.height *
-                                                  Utils.getResponsiveHeight(20),
+                                              height: Utils.getResponsiveHeight(
+                                                20,
+                                              ),
                                             ),
                                             SizedBox(
                                               height: 36,
@@ -596,19 +513,16 @@ class _AdditionalRequirementsJobScreenState
                                                   ),
                                                   SizedBox(
                                                     width:
-                                                        Get.width *
                                                         Utils.getResponsiveWidth(
                                                           100,
                                                         ),
                                                   ),
                                                   Container(
                                                     width:
-                                                        Get.width *
                                                         Utils.getResponsiveWidth(
                                                           68,
                                                         ),
                                                     height:
-                                                        Get.height *
                                                         Utils.getResponsiveHeight(
                                                           38,
                                                         ),
@@ -622,10 +536,9 @@ class _AdditionalRequirementsJobScreenState
                                                       borderRadius:
                                                           BorderRadius.all(
                                                             Radius.circular(
-                                                              Get.height *
-                                                                  Utils.getResponsiveHeight(
-                                                                    8,
-                                                                  ),
+                                                              Utils.getResponsiveHeight(
+                                                                8,
+                                                              ),
                                                             ),
                                                           ),
                                                       border: Border.all(
@@ -639,12 +552,10 @@ class _AdditionalRequirementsJobScreenState
                                                     child: Padding(
                                                       padding: EdgeInsets.symmetric(
                                                         horizontal:
-                                                            Get.width *
                                                             Utils.getResponsiveWidth(
                                                               16,
                                                             ),
                                                         vertical:
-                                                            Get.height *
                                                             Utils.getResponsiveHeight(
                                                               8,
                                                             ),
@@ -653,7 +564,6 @@ class _AdditionalRequirementsJobScreenState
                                                         'year'.tr,
                                                         style: TextStyle(
                                                           fontSize:
-                                                              Get.height *
                                                               Utils.getResponsiveSize(
                                                                 14,
                                                               ),
@@ -675,9 +585,7 @@ class _AdditionalRequirementsJobScreenState
                                       ),
                                     ),
                                     SizedBox(
-                                      height:
-                                          Get.height *
-                                          Utils.getResponsiveHeight(16),
+                                      height: Utils.getResponsiveHeight(16),
                                     ),
                                     Row(
                                       mainAxisAlignment:
@@ -693,10 +601,7 @@ class _AdditionalRequirementsJobScreenState
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height:
-                                  Get.height * Utils.getResponsiveHeight(20),
-                            ),
+                            SizedBox(height: Utils.getResponsiveHeight(20)),
                           ],
                         ),
                       ),
@@ -714,7 +619,7 @@ class _AdditionalRequirementsJobScreenState
   double _calculateMaxTextWidth(List<String> texts, BuildContext context) {
     double maxWidth = 0;
     final textStyle = TextStyle(
-      fontSize: Get.height * Utils.getResponsiveSize(14),
+      fontSize: Utils.getResponsiveSize(14),
       fontFamily: 'Manrope',
       fontWeight: FontWeight.w400,
     );
@@ -726,8 +631,7 @@ class _AdditionalRequirementsJobScreenState
       )..layout();
 
       final double textWidth =
-          textPainter.width +
-          (Get.width * Utils.getResponsiveWidth(14) * 2); // Add padding
+          textPainter.width + (Utils.getResponsiveWidth(14) * 2); // Add padding
 
       if (textWidth > maxWidth) {
         maxWidth = textWidth;

@@ -24,8 +24,8 @@ class _AboutScreenState extends State<AboutScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Get.height * Utils.getResponsiveHeight(24),
-              width: Get.width * Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(24),
+              width: Utils.getResponsiveWidth(24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -43,8 +43,8 @@ class _AboutScreenState extends State<AboutScreen> {
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Get.width * Utils.getResponsiveWidth(16),
-              vertical: Get.height * Utils.getResponsiveHeight(16),
+              horizontal: Utils.getResponsiveWidth(16),
+              vertical: Utils.getResponsiveHeight(16),
             ),
             child: Text(
               'about_description'.tr,
@@ -55,7 +55,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     ).extension<AppColors>()?.textSecondaryColor,
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w500,
-                fontSize: Get.height * Utils.getResponsiveSize(14),
+                fontSize: Utils.getResponsiveSize(14),
               ),
             ),
           ),

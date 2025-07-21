@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import '../../utils/utils.dart';
 import '../colors/app_color.dart';
 
@@ -33,13 +31,11 @@ class RoundButton extends StatelessWidget {
     return InkWell(
       onTap: onPress,
       child: Container(
-        height: Get.height * Utils.getResponsiveHeight(height),
+        height: Utils.getResponsiveHeight(height),
         width: width,
         decoration: BoxDecoration(
           color: buttonColor,
-          borderRadius: BorderRadius.circular(
-            Get.height * Utils.getResponsiveSize(radius),
-          ),
+          borderRadius: BorderRadius.circular(Utils.getResponsiveSize(radius)),
         ),
         child:
             loading
@@ -51,8 +47,7 @@ class RoundButton extends StatelessWidget {
                       style: TextStyle(
                         fontFamily: 'Manrope',
                         fontWeight: fontWeight,
-                        fontSize:
-                            Get.height * Utils.getResponsiveSize(fontSize),
+                        fontSize: Utils.getResponsiveSize(fontSize),
                         color: textColor,
                       ),
                     ),

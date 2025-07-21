@@ -1,10 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:sanad/res/colors/app_color.dart';
 
-import '../../utils/utils.dart';
-
 class AppThemes {
-  static ThemeData lightTheme(double height) {
+  static ThemeData lightTheme(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    final baseHeight = 932;
+    final baseWidth = 430;
+    double scale = min(width / baseWidth, height / baseHeight);
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
@@ -18,7 +23,7 @@ class AppThemes {
           color: AppColor.textPrimaryColor,
           fontFamily: 'Manrope',
           fontWeight: FontWeight.w600,
-          fontSize: height * Utils.getResponsiveSize(24),
+          fontSize: 24 * scale,
         ),
         iconTheme: IconThemeData(color: AppColor.secondaryIconColor),
       ),
@@ -26,53 +31,43 @@ class AppThemes {
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: TextStyle(
           color: AppColor.textSecondaryColor,
-          fontSize: height * Utils.getResponsiveSize(14),
+          fontSize: 14 * scale,
           fontFamily: 'Manrope',
           fontWeight: FontWeight.w500,
         ),
         errorStyle: TextStyle(
           color: AppColor.redColor,
-          fontSize: height * Utils.getResponsiveSize(14),
+          fontSize: 14 * scale,
           fontFamily: 'Manrope',
           fontWeight: FontWeight.w400,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(height * Utils.getResponsiveSize(8)),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8 * scale)),
           borderSide: BorderSide(
             color: AppColor.borderSecondaryColor,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(height * Utils.getResponsiveSize(8)),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8 * scale)),
           borderSide: BorderSide(
             color: AppColor.borderSecondaryColor,
             width: 1.0,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(height * Utils.getResponsiveSize(8)),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8 * scale)),
           borderSide: BorderSide(
             color: AppColor.borderSecondaryColor,
             width: 1.0,
           ),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(height * Utils.getResponsiveSize(8)),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8 * scale)),
           borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(height * Utils.getResponsiveSize(8)),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8 * scale)),
           borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
         ),
       ),
@@ -132,7 +127,12 @@ class AppThemes {
     );
   }
 
-  static ThemeData darkTheme(double height) {
+  static ThemeData darkTheme(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    final baseHeight = 932;
+    final baseWidth = 430;
+    double scale = min(width / baseWidth, height / baseHeight);
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
@@ -146,7 +146,7 @@ class AppThemes {
           color: AppColor.textPrimaryDarkColor,
           fontFamily: 'Manrope',
           fontWeight: FontWeight.w600,
-          fontSize: height * Utils.getResponsiveSize(24),
+          fontSize: 24 * scale,
         ),
         iconTheme: IconThemeData(color: AppColor.secondaryIconDarkColor),
       ),
@@ -154,53 +154,43 @@ class AppThemes {
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: TextStyle(
           color: AppColor.textSecondaryDarkColor,
-          fontSize: height * Utils.getResponsiveSize(14),
+          fontSize: 14 * scale,
           fontFamily: 'Manrope',
           fontWeight: FontWeight.w500,
         ),
         errorStyle: TextStyle(
           color: AppColor.redColor,
-          fontSize: height * Utils.getResponsiveSize(14),
+          fontSize: 14 * scale,
           fontFamily: 'Manrope',
           fontWeight: FontWeight.w400,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(height * Utils.getResponsiveSize(8)),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8 * scale)),
           borderSide: BorderSide(
             color: AppColor.borderSecondaryDarkColor,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(height * Utils.getResponsiveSize(8)),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8 * scale)),
           borderSide: BorderSide(
             color: AppColor.borderSecondaryDarkColor,
             width: 1.0,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(height * Utils.getResponsiveSize(8)),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8 * scale)),
           borderSide: BorderSide(
             color: AppColor.borderSecondaryDarkColor,
             width: 1.0,
           ),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(height * Utils.getResponsiveSize(8)),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8 * scale)),
           borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(height * Utils.getResponsiveSize(8)),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(8 * scale)),
           borderSide: BorderSide(color: AppColor.redColor, width: 1.0),
         ),
       ),

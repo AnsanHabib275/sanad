@@ -345,6 +345,8 @@ class Languages extends Translations {
       'payment_methods_detail':
           'Any updates made to your payment method information will be applied to your upcoming scheduled payments',
       'save_details': 'Save Details',
+      'file_selected': 'File Selected: ',
+      'file_size': 'File Size: ',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

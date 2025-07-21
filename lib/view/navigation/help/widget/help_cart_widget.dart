@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sanad/models/help/help_model.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 
@@ -20,20 +19,20 @@ class _HelpCartWidgetState extends State<HelpCartWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: Get.height * Utils.getResponsiveHeight(16),
-        left: Get.width * Utils.getResponsiveWidth(16),
-        right: Get.width * Utils.getResponsiveWidth(16),
+        top: Utils.getResponsiveHeight(16),
+        left: Utils.getResponsiveWidth(16),
+        right: Utils.getResponsiveWidth(16),
       ),
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).extension<AppColors>()?.cardBg,
           border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
           borderRadius: BorderRadius.all(
-            Radius.circular(Get.height * Utils.getResponsiveSize(12)),
+            Radius.circular(Utils.getResponsiveSize(12)),
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(Get.height * Utils.getResponsiveHeight(16)),
+          padding: EdgeInsets.all(Utils.getResponsiveHeight(16)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -49,18 +48,16 @@ class _HelpCartWidgetState extends State<HelpCartWidget> {
                         ).extension<AppColors>()?.textPrimaryColor,
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w700,
-                    fontSize: Get.height * Utils.getResponsiveSize(14),
+                    fontSize: Utils.getResponsiveSize(14),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(
-                  left: Get.width * Utils.getResponsiveWidth(20),
-                ),
+                padding: EdgeInsets.only(left: Utils.getResponsiveWidth(20)),
                 child: Image.asset(
                   IconAssets.icHelpArrow,
-                  height: Get.height * Utils.getResponsiveHeight(10),
-                  width: Get.width * Utils.getResponsiveWidth(10),
+                  height: Utils.getResponsiveHeight(10),
+                  width: Utils.getResponsiveWidth(10),
                   color: Theme.of(context).iconTheme.color,
                 ),
               ),
