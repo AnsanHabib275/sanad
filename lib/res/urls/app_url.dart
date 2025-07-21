@@ -22,7 +22,10 @@ class AppUrl {
   static String rateUsUrl = "$baseUrl/api/RateUs/";
   static String transactionsUrl = "$baseUrl/api/Transactions/";
   static String paymentsUrl = "$baseUrl/api/Payments/";
+  static String paymentMethodListUrl = "$baseUrl/api/paymentMethodList/";
+  static String addPaymentMethodUrl = "$baseUrl/api/addPaymentMethod/";
   static String helpUrl = "$baseUrl/api/Help/";
   static String applyJobUrl = "$baseUrl/api/ApplyJob/";
-  static String withdrawFundsVerificationUrl = "$baseUrl/api/WithdrawFundsVerification/";
+  static String withdrawFundsVerificationUrl =
+      "$baseUrl/api/WithdrawFundsVerification/";
 }
