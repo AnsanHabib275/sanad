@@ -9,6 +9,7 @@ import '../../../../res/assets/image_assets.dart';
 import '../../../../res/routes/routes_name.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../viewModels/controller/signup/sign_up_view_model.dart';
+import '../../../res/colors/app_color.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -33,271 +34,282 @@ class _SignUpScreenState extends State<SignUpScreen> {
         },
         child: Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          body: LayoutBuilder(
-            builder: (context, constraints) {
-              return ConstrainedBox(
-                constraints: BoxConstraints(minHeight: constraints.maxHeight),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(32),
+          body: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: Utils.getResponsiveWidth(32),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(height: Utils.getResponsiveHeight(257)),
+                  Image(
+                    height: Utils.getResponsiveHeight(54),
+                    width: Utils.getResponsiveWidth(155),
+                    image: AssetImage(ImageAssets.appLogo),
                   ),
-                  child: Column(
+                  SizedBox(height: Utils.getResponsiveHeight(24)),
+                  Text(
+                    'join_as_an_individual'.tr,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color:
+                          Theme.of(
+                            context,
+                          ).extension<AppColors>()?.textPrimaryColor,
+                      fontSize: Utils.getResponsiveSize(24),
+                      fontFamily: 'Manrope',
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  SizedBox(height: Utils.getResponsiveHeight(32)),
+                  Form(
+                    key: formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'mobile_number'.tr,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
+                            fontSize: Utils.getResponsiveSize(14),
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(8)),
+                        InputMobileNumberWidget(),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  Obx(() {
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Transform.translate(
+                          offset: Offset(-14, -16),
+                          child: Checkbox(
+                            value: signUpVM.isAgree.value,
+                            onChanged: (bool? value) {
+                              signUpVM.isAgree.value = value!;
+                            },
+                            activeColor: AppColor.primaryColor,
+                            // Color when checked
+                            checkColor: AppColor.secondaryIconDarkColor,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                color: AppColor.primaryColor,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                Utils.getResponsiveSize(4),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Transform.translate(
+                          offset: Offset(-16, 0),
+                          child: RichText(
+                            textAlign: TextAlign.start,
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text:
+                                      'by_clicking_agree_join_or_continue_you_agree_to_the_linkedIn'
+                                          .tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(12),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w400,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'user_agreement'.tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(12),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w700,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                  recognizer:
+                                      TapGestureRecognizer()
+                                        ..onTap = () {
+                                          Get.toNamed(
+                                            RoutesName.termsAndConditionsScreen,
+                                          );
+                                        },
+                                ),
+                                TextSpan(
+                                  text: ', ',
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(12),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w400,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'privacy_policy'.tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(12),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w700,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                  recognizer:
+                                      TapGestureRecognizer()
+                                        ..onTap = () {
+                                          Get.toNamed(
+                                            RoutesName.privacyPolicyScreen,
+                                          );
+                                        },
+                                ),
+                                TextSpan(
+                                  text: ', and \n',
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(12),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w400,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'cookie_policy'.tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(12),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w700,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textPrimaryColor,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                  recognizer:
+                                      TapGestureRecognizer()
+                                        ..onTap = () {
+                                          Get.toNamed(
+                                            RoutesName.cookiesPolicyScreen,
+                                          );
+                                        },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  }),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SendCodeButtonWidget(formKey: formKey),
+                  SizedBox(height: Utils.getResponsiveHeight(32)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SizedBox(height: Utils.getResponsiveHeight(300)),
-                              Image(
-                                height: Utils.getResponsiveHeight(54),
-                                width: Utils.getResponsiveWidth(155),
-                                image: AssetImage(ImageAssets.appLogo),
-                              ),
-                              SizedBox(height: Utils.getResponsiveHeight(24)),
-                              Text(
-                                'join_as_an_individual'.tr,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  fontSize: Utils.getResponsiveSize(24),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              SizedBox(height: Utils.getResponsiveHeight(32)),
-                              Form(
-                                key: formKey,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'mobile_number'.tr,
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                        color:
-                                            Theme.of(context)
-                                                .extension<AppColors>()
-                                                ?.textPrimaryColor,
-                                        fontSize: Utils.getResponsiveSize(14),
-                                        fontFamily: 'Manrope',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: Utils.getResponsiveHeight(8),
-                                    ),
-                                    InputMobileNumberWidget(),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(height: Utils.getResponsiveHeight(16)),
-                              SendCodeButtonWidget(formKey: formKey),
-                              SizedBox(height: Utils.getResponsiveHeight(32)),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'already_have_an_account'.tr,
-                                    textScaler: TextScaler.linear(1),
-                                    style: TextStyle(
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: Utils.getResponsiveSize(12),
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textSecondaryColor,
-                                    ),
-                                  ),
-                                  SizedBox(width: Utils.getResponsiveWidth(4)),
-                                  InkWell(
-                                    onTap: () {
-                                      Utils.hideKeyboardGlobally();
-                                      Get.offAllNamed(RoutesName.loginScreen);
-                                    },
-                                    child: Text(
-                                      'sign_in'.tr,
-                                      style: TextStyle(
-                                        fontFamily: 'Manrope',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: Utils.getResponsiveSize(12),
-                                        color:
-                                            Theme.of(context)
-                                                .extension<AppColors>()
-                                                ?.textPrimaryColor,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: Utils.getResponsiveHeight(16)),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'looking_to_create_an_account_for_an_agency'
-                                        .tr,
-                                    textScaler: TextScaler.linear(1),
-                                    style: TextStyle(
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: Utils.getResponsiveSize(12),
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textSecondaryColor,
-                                    ),
-                                  ),
-                                  SizedBox(width: Utils.getResponsiveWidth(4)),
-                                  InkWell(
-                                    onTap: () {
-                                      Utils.hideKeyboardGlobally();
-                                      Get.offAllNamed(
-                                        RoutesName.agencySignUpScreen,
-                                      );
-                                    },
-                                    child: Text(
-                                      'signup_as_agency'.tr,
-                                      style: TextStyle(
-                                        fontFamily: 'Manrope',
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: Utils.getResponsiveSize(12),
-                                        color:
-                                            Theme.of(context)
-                                                .extension<AppColors>()
-                                                ?.textPrimaryColor,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: Utils.getResponsiveHeight(50)),
-                            ],
+                      Text(
+                        'already_have_an_account'.tr,
+                        textScaler: TextScaler.linear(1),
+                        style: TextStyle(
+                          fontFamily: 'Manrope',
+                          fontWeight: FontWeight.w400,
+                          fontSize: Utils.getResponsiveSize(12),
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textSecondaryColor,
+                        ),
+                      ),
+                      SizedBox(width: Utils.getResponsiveWidth(4)),
+                      InkWell(
+                        onTap: () {
+                          Utils.hideKeyboardGlobally();
+                          Get.offAllNamed(RoutesName.loginScreen);
+                        },
+                        child: Text(
+                          'sign_in'.tr,
+                          style: TextStyle(
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Utils.getResponsiveSize(12),
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
                           ),
                         ),
                       ),
-                      SizedBox(height: Utils.getResponsiveHeight(20)),
-                      Align(
-                        alignment: Alignment.center,
-                        child: RichText(
-                          textAlign: TextAlign.center,
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text:
-                                    'by_clicking_agree_join_or_continue_you_agree_to_the_linkedIn'
-                                        .tr,
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w400,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                ),
-                              ),
-                              TextSpan(
-                                text: 'user_agreement'.tr,
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w700,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  decoration: TextDecoration.underline,
-                                ),
-                                recognizer:
-                                    TapGestureRecognizer()
-                                      ..onTap = () {
-                                        Get.toNamed(
-                                          RoutesName.termsAndConditionsScreen,
-                                        );
-                                      },
-                              ),
-                              TextSpan(
-                                text: ', ',
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w400,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                ),
-                              ),
-                              TextSpan(
-                                text: 'privacy_policy'.tr,
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w700,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  decoration: TextDecoration.underline,
-                                ),
-                                recognizer:
-                                    TapGestureRecognizer()
-                                      ..onTap = () {
-                                        Get.toNamed(
-                                          RoutesName.privacyPolicyScreen,
-                                        );
-                                      },
-                              ),
-                              TextSpan(
-                                text: 'and'.tr,
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w400,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                ),
-                              ),
-                              TextSpan(
-                                text: 'cookie_policy'.tr,
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w700,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textPrimaryColor,
-                                  decoration: TextDecoration.underline,
-                                ),
-                                recognizer:
-                                    TapGestureRecognizer()
-                                      ..onTap = () {
-                                        Get.toNamed(
-                                          RoutesName.cookiesPolicyScreen,
-                                        );
-                                      },
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: Utils.getResponsiveHeight(44)),
                     ],
                   ),
-                ),
-              );
-            },
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'looking_to_create_an_account_for_an_agency'.tr,
+                        textScaler: TextScaler.linear(1),
+                        style: TextStyle(
+                          fontFamily: 'Manrope',
+                          fontWeight: FontWeight.w400,
+                          fontSize: Utils.getResponsiveSize(12),
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textSecondaryColor,
+                        ),
+                      ),
+                      SizedBox(width: Utils.getResponsiveWidth(4)),
+                      InkWell(
+                        onTap: () {
+                          Utils.hideKeyboardGlobally();
+                          Get.offAllNamed(RoutesName.agencySignUpScreen);
+                        },
+                        child: Text(
+                          'signup_as_agency'.tr,
+                          style: TextStyle(
+                            fontFamily: 'Manrope',
+                            fontWeight: FontWeight.w500,
+                            fontSize: Utils.getResponsiveSize(12),
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.textPrimaryColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: Utils.getResponsiveHeight(50)),
+                ],
+              ),
+            ),
           ),
         ),
       ),

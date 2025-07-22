@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/view/navigation/viewJobDetail/widget/prefer_job_type_cart_widget.dart';
 import 'package:sanad/view/navigation/viewJobDetail/widget/custom_tab_bar_widget.dart';
 import 'package:sanad/view/navigation/viewJobDetail/widget/job_specifications_cart_widget.dart';
 import 'package:sanad/view/navigation/viewJobDetail/widget/software_program_cart_widget.dart';
@@ -37,7 +38,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
   final experienceRequired = Get.arguments['experienceRequired'] ?? '';
   final candidatesRequired = Get.arguments['candidatesRequired'] ?? '';
   final jobDescription = Get.arguments['jobDescription'] ?? '';
-  final isOpenToRelocating = Get.arguments['isOpenToRelocating'] ?? '';
+  final List<String> preferJobType = Get.arguments['preferJobType'] ?? [];
   final List<String> softwarePrograms = Get.arguments['softwarePrograms'] ?? [];
   final companyName = Get.arguments['companyName'] ?? '';
   final companyWebsite = Get.arguments['companyWebsite'] ?? '';
@@ -48,7 +49,11 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double containerWidth = _calculateMaxTextWidth(
+    final double jobContainerWidth = _calculateMaxTextWidthJob(
+      preferJobType,
+      context,
+    );
+    final double softwareContainerWidth = _calculateMaxTextWidthSoftware(
       softwarePrograms,
       context,
     );
@@ -717,53 +722,86 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                       24,
                                                     ),
                                               ),
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                  color:
-                                                      Theme.of(context)
-                                                          .extension<
-                                                            AppColors
-                                                          >()
-                                                          ?.containerBg,
-                                                  borderRadius: BorderRadius.all(
-                                                    Radius.circular(
-                                                      Utils.getResponsiveHeight(
-                                                        8,
-                                                      ),
-                                                    ),
+                                              Flexible(
+                                                child: ConstrainedBox(
+                                                  constraints: BoxConstraints(
+                                                    maxWidth: jobContainerWidth,
                                                   ),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        Utils.getResponsiveWidth(
-                                                          12,
+                                                  child: ListView.separated(
+                                                    shrinkWrap: true,
+                                                    physics:
+                                                        BouncingScrollPhysics(),
+                                                    itemCount:
+                                                        preferJobType.length,
+                                                    separatorBuilder:
+                                                        (
+                                                          context,
+                                                          index,
+                                                        ) => SizedBox(
+                                                          height:
+                                                              Utils.getResponsiveHeight(
+                                                                12,
+                                                              ),
                                                         ),
-                                                    vertical:
-                                                        Utils.getResponsiveHeight(
-                                                          8,
-                                                        ),
-                                                  ),
-                                                  child: Text(
-                                                    'open_to_relocating'.tr,
-                                                    style: TextStyle(
-                                                      fontSize:
-                                                          Utils.getResponsiveSize(
-                                                            12,
-                                                          ),
-                                                      fontFamily: 'Manrope',
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      color:
-                                                          Theme.of(context)
-                                                              .extension<
-                                                                AppColors
-                                                              >()
-                                                              ?.textPrimaryColor,
-                                                    ),
+                                                    itemBuilder: (
+                                                      context,
+                                                      index,
+                                                    ) {
+                                                      return PreferJobTypeCartWidget(
+                                                        preferJobType:
+                                                            preferJobType[index],
+                                                      );
+                                                    },
                                                   ),
                                                 ),
                                               ),
+                                              // Container(
+                                              //   decoration: BoxDecoration(
+                                              //     color:
+                                              //         Theme.of(context)
+                                              //             .extension<
+                                              //               AppColors
+                                              //             >()
+                                              //             ?.containerBg,
+                                              //     borderRadius: BorderRadius.all(
+                                              //       Radius.circular(
+                                              //         Utils.getResponsiveHeight(
+                                              //           8,
+                                              //         ),
+                                              //       ),
+                                              //     ),
+                                              //   ),
+                                              //   child: Padding(
+                                              //     padding: EdgeInsets.symmetric(
+                                              //       horizontal:
+                                              //           Utils.getResponsiveWidth(
+                                              //             12,
+                                              //           ),
+                                              //       vertical:
+                                              //           Utils.getResponsiveHeight(
+                                              //             8,
+                                              //           ),
+                                              //     ),
+                                              //     child: Text(
+                                              //       'open_to_relocating'.tr,
+                                              //       style: TextStyle(
+                                              //         fontSize:
+                                              //             Utils.getResponsiveSize(
+                                              //               12,
+                                              //             ),
+                                              //         fontFamily: 'Manrope',
+                                              //         fontWeight:
+                                              //             FontWeight.w500,
+                                              //         color:
+                                              //             Theme.of(context)
+                                              //                 .extension<
+                                              //                   AppColors
+                                              //                 >()
+                                              //                 ?.textPrimaryColor,
+                                              //       ),
+                                              //     ),
+                                              //   ),
+                                              // ),
                                             ],
                                           ),
                                         ),
@@ -833,7 +871,8 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                                                 Flexible(
                                                   child: ConstrainedBox(
                                                     constraints: BoxConstraints(
-                                                      maxWidth: containerWidth,
+                                                      maxWidth:
+                                                          softwareContainerWidth,
                                                     ),
                                                     child: ListView.separated(
                                                       shrinkWrap: true,
@@ -994,7 +1033,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                   location: location,
                   jobType: jobType,
                   salaryRange: salaryRange,
-                  isOpenToRelocating: isOpenToRelocating,
+                  preferJobType: preferJobType,
                   softwarePrograms: softwarePrograms,
                 ),
               ),
@@ -1005,7 +1044,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
     );
   }
 
-  double _calculateMaxTextWidth(List<String> texts, BuildContext context) {
+  double _calculateMaxTextWidthJob(List<String> texts, BuildContext context) {
     double maxWidth = 0;
     final textStyle = TextStyle(
       fontSize: Utils.getResponsiveSize(14),
@@ -1020,7 +1059,34 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
       )..layout();
 
       final double textWidth =
-          textPainter.width + (Utils.getResponsiveWidth(14) * 2); // Add padding
+          textPainter.width + (Utils.getResponsiveWidth(14) * 3); // Add padding
+
+      if (textWidth > maxWidth) {
+        maxWidth = textWidth;
+      }
+    }
+    return maxWidth;
+  }
+
+  double _calculateMaxTextWidthSoftware(
+    List<String> texts,
+    BuildContext context,
+  ) {
+    double maxWidth = 0;
+    final textStyle = TextStyle(
+      fontSize: Utils.getResponsiveSize(14),
+      fontFamily: 'Manrope',
+      fontWeight: FontWeight.w400,
+    );
+
+    for (String text in texts) {
+      final TextPainter textPainter = TextPainter(
+        text: TextSpan(text: text, style: textStyle),
+        textDirection: TextDirection.ltr,
+      )..layout();
+
+      final double textWidth =
+          textPainter.width + (Utils.getResponsiveWidth(14) * 3); // Add padding
 
       if (textWidth > maxWidth) {
         maxWidth = textWidth;

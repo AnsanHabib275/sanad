@@ -16,9 +16,12 @@ class ApplyJobViewModel extends GetxController {
   RxBool loading = false.obs;
   RxBool isUploaded = false.obs;
   RxBool isCheckRelocate = false.obs;
-  RxBool isCheckPortfolio = false.obs;
-  RxBool isCheckCertification = false.obs;
+  RxBool isCheckPortfolioYes = false.obs;
+  RxBool isCheckPortfolioNo = false.obs;
+  RxBool isCheckCertificationYes = false.obs;
+  RxBool isCheckCertificationNo = false.obs;
   var selectedPrograms = <String>[].obs;
+  var selectedPreferJobType = <String>[].obs;
   RxString errorMessage = ''.obs;
 
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
@@ -29,11 +32,39 @@ class ApplyJobViewModel extends GetxController {
     selectedTab.value = tabText;
   }
 
+  void toggleSelectionPreferJob(String jobType) {
+    if (selectedPreferJobType.contains(jobType)) {
+      selectedPreferJobType.remove(jobType);
+    } else {
+      selectedPreferJobType.add(jobType);
+    }
+  }
+
   void toggleSelection(String program) {
     if (selectedPrograms.contains(program)) {
       selectedPrograms.remove(program);
     } else {
       selectedPrograms.add(program);
+    }
+  }
+
+  void togglePortfolioSelection(bool isCheckYes) {
+    if (isCheckYes) {
+      isCheckPortfolioYes.value = true;
+      isCheckPortfolioNo.value = false;
+    } else {
+      isCheckPortfolioYes.value = false;
+      isCheckPortfolioNo.value = true;
+    }
+  }
+
+  void toggleCertificationSelection(bool isCheckYes) {
+    if (isCheckYes) {
+      isCheckCertificationYes.value = true;
+      isCheckCertificationNo.value = false;
+    } else {
+      isCheckCertificationYes.value = false;
+      isCheckCertificationNo.value = true;
     }
   }
 

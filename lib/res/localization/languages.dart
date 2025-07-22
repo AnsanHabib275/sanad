@@ -42,9 +42,8 @@ class Languages extends Translations {
           'By clicking Agree & Join or Continue, you agree to the\nLinkedIn ',
       'user_agreement': 'User Agreement',
       'privacy_policy': 'Privacy Policy',
-      'and': ', and , ',
+      'and': ', and \n',
       'cookie_policy': 'Cookie Policy.',
-      'cookie_policy_company': 'Cookie\nPolicy.',
       'agree_and_join': 'Agree & Join',
       'already_have_an_account': 'Already have an account?',
       'looking_to_create_an_account_for_an_agency':
@@ -347,6 +346,10 @@ class Languages extends Translations {
       'save_details': 'Save Details',
       'file_selected': 'File Selected: ',
       'file_size': 'File Size: ',
+      'experience': 'Experience',
+      'does_your_resume_have_a_portfolio': 'Does your resume have a portfolio?',
+      'do_you_have_mentioned_certification':
+          'Do you have mentioned certification?',
     },
     'ur_PK': {'splash_screen': 'سپلیش اسکرین'},
   };

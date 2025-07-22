@@ -4,6 +4,7 @@ import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/themes/app_themes.dart';
 import 'package:sanad/utils/utils.dart';
+import 'package:sanad/view/navigation/viewJob/widget/prefer_job_type_cart_widget.dart';
 import 'package:sanad/view/navigation/viewJob/widget/apply_now_button_widget.dart';
 import 'package:sanad/view/navigation/viewJob/widget/custom_tab_bar_widget.dart';
 import 'package:sanad/view/navigation/viewJob/widget/job_specifications_cart_widget.dart';
@@ -37,7 +38,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
   final experienceRequired = Get.arguments['experienceRequired'] ?? '';
   final candidatesRequired = Get.arguments['candidatesRequired'] ?? '';
   final jobDescription = Get.arguments['jobDescription'] ?? '';
-  final isOpenToRelocating = Get.arguments['isOpenToRelocating'] ?? '';
+  final List<String> preferJobType = Get.arguments['preferJobType'] ?? [];
   final List<String> softwarePrograms = Get.arguments['softwarePrograms'] ?? [];
 
   final companyName = Get.arguments['companyName'] ?? '';
@@ -49,7 +50,11 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double containerWidth = _calculateMaxTextWidth(
+    final double jobContainerWidth = _calculateMaxTextWidthJob(
+      preferJobType,
+      context,
+    );
+    final double softwareContainerWidth = _calculateMaxTextWidthSoftware(
       softwarePrograms,
       context,
     );
@@ -223,7 +228,6 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                       ),
                       child: SizedBox(
                         height: Utils.getResponsiveHeight(22),
-                        // child: Flexible(
                         child: ListView.separated(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
@@ -239,7 +243,6 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                           },
                         ),
                       ),
-                      // ),
                     ),
                     SizedBox(height: Utils.getResponsiveHeight(16)),
                     Divider(
@@ -751,53 +754,118 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                                       24,
                                                     ),
                                               ),
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                  color:
-                                                      Theme.of(context)
-                                                          .extension<
-                                                            AppColors
-                                                          >()
-                                                          ?.containerBg,
-                                                  borderRadius: BorderRadius.all(
-                                                    Radius.circular(
-                                                      Utils.getResponsiveHeight(
-                                                        8,
-                                                      ),
-                                                    ),
-                                                  ),
+                                              ConstrainedBox(
+                                                constraints: BoxConstraints(
+                                                  maxWidth: jobContainerWidth,
                                                 ),
-                                                child: Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                    horizontal:
-                                                        Utils.getResponsiveWidth(
-                                                          12,
-                                                        ),
-                                                    vertical:
-                                                        Utils.getResponsiveHeight(
-                                                          8,
-                                                        ),
-                                                  ),
-                                                  child: Text(
-                                                    'open_to_relocating'.tr,
-                                                    style: TextStyle(
-                                                      fontSize:
-                                                          Utils.getResponsiveSize(
-                                                            12,
-                                                          ),
-                                                      fontFamily: 'Manrope',
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      color:
-                                                          Theme.of(context)
-                                                              .extension<
-                                                                AppColors
-                                                              >()
-                                                              ?.textPrimaryColor,
-                                                    ),
-                                                  ),
+                                                child: ListView.separated(
+                                                  shrinkWrap: true,
+                                                  physics:
+                                                      BouncingScrollPhysics(),
+                                                  itemCount:
+                                                      preferJobType.length,
+                                                  separatorBuilder:
+                                                      (
+                                                        context,
+                                                        index,
+                                                      ) => SizedBox(
+                                                        height:
+                                                            Utils.getResponsiveHeight(
+                                                              12,
+                                                            ),
+                                                      ),
+                                                  itemBuilder: (
+                                                    context,
+                                                    index,
+                                                  ) {
+                                                    return PreferJobTypeCartWidget(
+                                                      preferJobType:
+                                                          preferJobType[index],
+                                                    );
+                                                  },
                                                 ),
                                               ),
+                                              // Flexible(
+                                              //   child: ConstrainedBox(
+                                              //     constraints: BoxConstraints(
+                                              //       maxWidth: jobContainerWidth,
+                                              //     ),
+                                              //     child: ListView.separated(
+                                              //       shrinkWrap: true,
+                                              //       physics:
+                                              //           BouncingScrollPhysics(),
+                                              //       itemCount:
+                                              //           preferJobType.length,
+                                              //       separatorBuilder:
+                                              //           (
+                                              //             context,
+                                              //             index,
+                                              //           ) => SizedBox(
+                                              //             height:
+                                              //                 Utils.getResponsiveHeight(
+                                              //                   12,
+                                              //                 ),
+                                              //           ),
+                                              //       itemBuilder: (
+                                              //         context,
+                                              //         index,
+                                              //       ) {
+                                              //         return PreferJobTypeCartWidget(
+                                              //           preferJobType:
+                                              //               preferJobType[index],
+                                              //         );
+                                              //       },
+                                              //     ),
+                                              //   ),
+                                              // ),
+
+                                              // Container(
+                                              //   decoration: BoxDecoration(
+                                              //     color:
+                                              //         Theme.of(context)
+                                              //             .extension<
+                                              //               AppColors
+                                              //             >()
+                                              //             ?.containerBg,
+                                              //     borderRadius: BorderRadius.all(
+                                              //       Radius.circular(
+                                              //         Utils.getResponsiveHeight(
+                                              //           8,
+                                              //         ),
+                                              //       ),
+                                              //     ),
+                                              //   ),
+                                              //   child: Padding(
+                                              //     padding: EdgeInsets.symmetric(
+                                              //       horizontal:
+                                              //           Utils.getResponsiveWidth(
+                                              //             12,
+                                              //           ),
+                                              //       vertical:
+                                              //           Utils.getResponsiveHeight(
+                                              //             8,
+                                              //           ),
+                                              //     ),
+                                              //     child: Text(
+                                              //       'open_to_relocating'.tr,
+                                              //       style: TextStyle(
+                                              //         fontSize:
+                                              //             Utils.getResponsiveSize(
+                                              //               12,
+                                              //             ),
+                                              //         fontFamily: 'Manrope',
+                                              //         fontWeight:
+                                              //             FontWeight.w500,
+                                              //         color:
+                                              //             Theme.of(context)
+                                              //                 .extension<
+                                              //                   AppColors
+                                              //                 >()
+                                              //                 ?.textPrimaryColor,
+                                              //       ),
+                                              //     ),
+                                              //   ),
+                                              // ),
                                             ],
                                           ),
                                         ),
@@ -864,40 +932,73 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                                         24,
                                                       ),
                                                 ),
-                                                Flexible(
-                                                  child: ConstrainedBox(
-                                                    constraints: BoxConstraints(
-                                                      maxWidth: containerWidth,
-                                                    ),
-                                                    child: ListView.separated(
-                                                      shrinkWrap: true,
-                                                      physics:
-                                                          BouncingScrollPhysics(),
-                                                      itemCount:
-                                                          softwarePrograms
-                                                              .length,
-                                                      separatorBuilder:
-                                                          (
-                                                            context,
-                                                            index,
-                                                          ) => SizedBox(
-                                                            height:
-                                                                Utils.getResponsiveHeight(
-                                                                  12,
-                                                                ),
-                                                          ),
-                                                      itemBuilder: (
-                                                        context,
-                                                        index,
-                                                      ) {
-                                                        return SoftwareProgramCartWidget(
-                                                          softwareProgram:
-                                                              softwarePrograms[index],
-                                                        );
-                                                      },
-                                                    ),
+                                                ConstrainedBox(
+                                                  constraints: BoxConstraints(
+                                                    maxWidth:
+                                                        softwareContainerWidth,
+                                                  ),
+                                                  child: ListView.separated(
+                                                    shrinkWrap: true,
+                                                    physics:
+                                                        BouncingScrollPhysics(),
+                                                    itemCount:
+                                                        softwarePrograms.length,
+                                                    separatorBuilder:
+                                                        (
+                                                          context,
+                                                          index,
+                                                        ) => SizedBox(
+                                                          height:
+                                                              Utils.getResponsiveHeight(
+                                                                12,
+                                                              ),
+                                                        ),
+                                                    itemBuilder: (
+                                                      context,
+                                                      index,
+                                                    ) {
+                                                      return SoftwareProgramCartWidget(
+                                                        softwareProgram:
+                                                            softwarePrograms[index],
+                                                      );
+                                                    },
                                                   ),
                                                 ),
+                                                // Flexible(
+                                                //   child: ConstrainedBox(
+                                                //     constraints: BoxConstraints(
+                                                //       maxWidth:
+                                                //       softwareContainerWidth,
+                                                //     ),
+                                                //     child: ListView.separated(
+                                                //       shrinkWrap: true,
+                                                //       physics:
+                                                //       BouncingScrollPhysics(),
+                                                //       itemCount:
+                                                //       softwarePrograms
+                                                //           .length,
+                                                //       separatorBuilder:
+                                                //           (
+                                                //           context,
+                                                //           index,
+                                                //           ) => SizedBox(
+                                                //         height:
+                                                //         Utils.getResponsiveHeight(
+                                                //           12,
+                                                //         ),
+                                                //       ),
+                                                //       itemBuilder: (
+                                                //           context,
+                                                //           index,
+                                                //           ) {
+                                                //         return SoftwareProgramCartWidget(
+                                                //           softwareProgram:
+                                                //           softwarePrograms[index],
+                                                //         );
+                                                //       },
+                                                //     ),
+                                                //   ),
+                                                // ),
                                               ],
                                             ),
                                           ),
@@ -1028,7 +1129,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                   location: location,
                   jobType: jobType,
                   salaryRange: salaryRange,
-                  isOpenToRelocating: isOpenToRelocating,
+                  preferJobType: preferJobType,
                   softwarePrograms: softwarePrograms,
                 ),
               ),
@@ -1039,7 +1140,7 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
     );
   }
 
-  double _calculateMaxTextWidth(List<String> texts, BuildContext context) {
+  double _calculateMaxTextWidthJob(List<String> texts, BuildContext context) {
     double maxWidth = 0;
     final textStyle = TextStyle(
       fontSize: Utils.getResponsiveSize(14),
@@ -1054,7 +1155,34 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
       )..layout();
 
       final double textWidth =
-          textPainter.width + (Utils.getResponsiveWidth(14) * 2); // Add padding
+          textPainter.width + (Utils.getResponsiveWidth(14) * 3); // Add padding
+
+      if (textWidth > maxWidth) {
+        maxWidth = textWidth;
+      }
+    }
+    return maxWidth;
+  }
+
+  double _calculateMaxTextWidthSoftware(
+    List<String> texts,
+    BuildContext context,
+  ) {
+    double maxWidth = 0;
+    final textStyle = TextStyle(
+      fontSize: Utils.getResponsiveSize(14),
+      fontFamily: 'Manrope',
+      fontWeight: FontWeight.w400,
+    );
+
+    for (String text in texts) {
+      final TextPainter textPainter = TextPainter(
+        text: TextSpan(text: text, style: textStyle),
+        textDirection: TextDirection.ltr,
+      )..layout();
+
+      final double textWidth =
+          textPainter.width + (Utils.getResponsiveWidth(14) * 3); // Add padding
 
       if (textWidth > maxWidth) {
         maxWidth = textWidth;

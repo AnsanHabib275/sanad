@@ -22,7 +22,7 @@ class RegisterFirebaseTokenViewModel extends GetxController {
             errorMessage.value = value['message'];
           } else {
             errorMessage.value = '';
-            Utils.toastMessage('Token Registered Successfully');
+            Utils.snackBar('success'.tr, 'Token Registered Successfully');
           }
         })
         .onError((error, stackTrace) {

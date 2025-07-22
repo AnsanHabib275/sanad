@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
+import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 
 import '../../../../../models/home/jobs_model.dart';
 import '../../../../../res/themes/app_themes.dart';
 import '../../../../../utils/utils.dart';
+import '../../../../viewModels/controller/navigation/home/home_view_model.dart';
 
 class JobsCartWidget extends StatefulWidget {
   final JobsModel jobs;
-
   const JobsCartWidget({super.key, required this.jobs});
 
   @override
@@ -17,6 +18,8 @@ class JobsCartWidget extends StatefulWidget {
 }
 
 class _JobsCartWidgetState extends State<JobsCartWidget> {
+  final jobsVM = Get.put(HomeViewModel());
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -50,7 +53,7 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
               'candidatesRequired': '2',
               'jobDescription':
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-              'isOpenToRelocating': 'false',
+              'preferJobType': ['Open to Relocating', 'Remotely', 'Hybrid'],
               'softwarePrograms': [
                 'Framer',
                 'Figma',
@@ -136,10 +139,21 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                       width: Utils.getResponsiveWidth(24),
                     ),
                     SizedBox(width: Utils.getResponsiveWidth(8)),
-                    Image.asset(
-                      IconAssets.icBookmark,
-                      height: Utils.getResponsiveHeight(24),
-                      width: Utils.getResponsiveWidth(24),
+                    GestureDetector(
+                      onTap: () {
+                        jobsVM.toggleSelection(widget.jobs.jobId.toString());
+                      },
+                      child: Image.asset(
+                        IconAssets.icBookmark,
+                        height: Utils.getResponsiveHeight(24),
+                        width: Utils.getResponsiveWidth(24),
+                        color:
+                            jobsVM.savedJobs.contains(
+                                  widget.jobs.jobId.toString(),
+                                )
+                                ? AppColor.primaryColor
+                                : AppColor.textSecondaryDarkColor,
+                      ),
                     ),
                   ],
                 ),

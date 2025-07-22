@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/view/navigation/applyJob/additionalRequirementJob/widget/back_button_widget.dart';
 import 'package:sanad/view/navigation/applyJob/additionalRequirementJob/widget/input_experience_year_widget.dart';
+import 'package:sanad/view/navigation/applyJob/additionalRequirementJob/widget/prefer_job_type_cart_widget.dart';
 import 'package:sanad/view/navigation/applyJob/additionalRequirementJob/widget/software_program_cart_widget.dart';
 import 'package:sanad/viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
 
@@ -22,7 +23,6 @@ class AdditionalRequirementsJobScreen extends StatefulWidget {
 
 class _AdditionalRequirementsJobScreenState
     extends State<AdditionalRequirementsJobScreen> {
-  // final applyJobVM = Get.put(ApplyJobViewModel());
   final applyJobVM = Get.find<ApplyJobViewModel>();
 
   final isPrivate = Get.arguments['isPrivate'] ?? false;
@@ -31,12 +31,16 @@ class _AdditionalRequirementsJobScreenState
   final location = Get.arguments['location'] ?? '';
   final jobType = Get.arguments['jobType'] ?? '';
   final salaryRange = Get.arguments['salaryRange'] ?? '';
-  final isOpenToRelocating = Get.arguments['isOpenToRelocating'] ?? '';
+  final List<String> preferJobType = Get.arguments['preferJobType'] ?? [];
   final List<String> softwarePrograms = Get.arguments['softwarePrograms'] ?? [];
 
   @override
   Widget build(BuildContext context) {
-    final double containerWidth = _calculateMaxTextWidth(
+    final double jobContainerWidth = _calculateMaxTextWidthJob(
+      preferJobType,
+      context,
+    );
+    final double softwareContainerWidth = _calculateMaxTextWidthSoftware(
       softwarePrograms,
       context,
     );
@@ -348,57 +352,27 @@ class _AdditionalRequirementsJobScreenState
                                     SizedBox(
                                       height: Utils.getResponsiveHeight(24),
                                     ),
-                                    Obx(() {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          applyJobVM.isCheckRelocate.value =
-                                              !applyJobVM.isCheckRelocate.value;
+                                    ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                        maxWidth: jobContainerWidth,
+                                      ),
+                                      child: ListView.separated(
+                                        shrinkWrap: true,
+                                        physics: NeverScrollableScrollPhysics(),
+                                        itemCount: preferJobType.length,
+                                        separatorBuilder:
+                                            (context, index) => SizedBox(
+                                              height: Utils.getResponsiveHeight(
+                                                12,
+                                              ),
+                                            ),
+                                        itemBuilder: (context, index) {
+                                          return PreferJobTypeCartWidget(
+                                            preferJobType: preferJobType[index],
+                                          );
                                         },
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color:
-                                                applyJobVM.isCheckRelocate.value
-                                                    ? AppColor.primaryColor
-                                                    : Theme.of(context)
-                                                        .extension<AppColors>()
-                                                        ?.containerBg,
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(
-                                                Utils.getResponsiveHeight(8),
-                                              ),
-                                            ),
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.symmetric(
-                                              horizontal:
-                                                  Utils.getResponsiveWidth(12),
-                                              vertical:
-                                                  Utils.getResponsiveHeight(8),
-                                            ),
-                                            child: Text(
-                                              'open_to_relocating'.tr,
-                                              style: TextStyle(
-                                                fontSize:
-                                                    Utils.getResponsiveSize(12),
-                                                fontFamily: 'Manrope',
-                                                fontWeight: FontWeight.w500,
-                                                color:
-                                                    applyJobVM
-                                                            .isCheckRelocate
-                                                            .value
-                                                        ? AppColor
-                                                            .primaryButtonTextColor
-                                                        : Theme.of(context)
-                                                            .extension<
-                                                              AppColors
-                                                            >()
-                                                            ?.textPrimaryColor,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    }),
+                                      ),
+                                    ),
                                     SizedBox(
                                       height: Utils.getResponsiveHeight(56),
                                     ),
@@ -419,7 +393,7 @@ class _AdditionalRequirementsJobScreenState
                                     ),
                                     ConstrainedBox(
                                       constraints: BoxConstraints(
-                                        maxWidth: containerWidth,
+                                        maxWidth: softwareContainerWidth,
                                       ),
                                       child: ListView.separated(
                                         shrinkWrap: true,
@@ -442,6 +416,299 @@ class _AdditionalRequirementsJobScreenState
                                     SizedBox(
                                       height: Utils.getResponsiveHeight(32),
                                     ),
+                                    Text(
+                                      'portfolio'.tr,
+                                      style: TextStyle(
+                                        fontSize: Utils.getResponsiveSize(12),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textSecondaryColor,
+                                      ),
+                                    ),
+                                    Text(
+                                      'does_your_resume_have_a_portfolio'.tr,
+                                      style: TextStyle(
+                                        fontSize: Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(16),
+                                    ),
+                                    Obx(() {
+                                      return Transform.translate(
+                                        offset: Offset(-12, -8),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Checkbox(
+                                              value:
+                                                  applyJobVM
+                                                      .isCheckPortfolioNo
+                                                      .value,
+                                              onChanged: (bool? value) {
+                                                applyJobVM
+                                                    .isCheckPortfolioYes
+                                                    .value = false;
+                                                applyJobVM
+                                                    .isCheckPortfolioNo
+                                                    .value = true;
+                                              },
+                                              activeColor:
+                                                  AppColor.primaryColor,
+                                              // Color when checked
+                                              checkColor:
+                                                  AppColor
+                                                      .secondaryIconDarkColor,
+                                              shape: RoundedRectangleBorder(
+                                                side: BorderSide(
+                                                  color: AppColor.primaryColor,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                      Utils.getResponsiveSize(
+                                                        4,
+                                                      ),
+                                                    ),
+                                              ),
+                                            ),
+                                            Transform.translate(
+                                              offset: Offset(-8, 0),
+                                              child: Text(
+                                                'no'.tr,
+                                                style: TextStyle(
+                                                  fontSize:
+                                                      Utils.getResponsiveSize(
+                                                        14,
+                                                      ),
+                                                  fontFamily: 'Manrope',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      Theme.of(context)
+                                                          .extension<
+                                                            AppColors
+                                                          >()
+                                                          ?.textPrimaryColor,
+                                                ),
+                                              ),
+                                            ),
+                                            Checkbox(
+                                              value:
+                                                  applyJobVM
+                                                      .isCheckPortfolioYes
+                                                      .value,
+                                              onChanged: (bool? value) {
+                                                applyJobVM
+                                                    .isCheckPortfolioYes
+                                                    .value = true;
+                                                applyJobVM
+                                                    .isCheckPortfolioNo
+                                                    .value = false;
+                                              },
+                                              activeColor:
+                                                  AppColor.primaryColor,
+                                              // Color when checked
+                                              checkColor:
+                                                  AppColor
+                                                      .secondaryIconDarkColor,
+                                              shape: RoundedRectangleBorder(
+                                                side: BorderSide(
+                                                  color: AppColor.primaryColor,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                      Utils.getResponsiveSize(
+                                                        4,
+                                                      ),
+                                                    ),
+                                              ),
+                                            ),
+                                            Transform.translate(
+                                              offset: Offset(-8, 0),
+                                              child: Text(
+                                                'yes'.tr,
+                                                style: TextStyle(
+                                                  fontSize:
+                                                      Utils.getResponsiveSize(
+                                                        14,
+                                                      ),
+                                                  fontFamily: 'Manrope',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      Theme.of(context)
+                                                          .extension<
+                                                            AppColors
+                                                          >()
+                                                          ?.textPrimaryColor,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    }),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(32),
+                                    ),
+                                    Text(
+                                      'certification'.tr,
+                                      style: TextStyle(
+                                        fontSize: Utils.getResponsiveSize(12),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textSecondaryColor,
+                                      ),
+                                    ),
+                                    Text(
+                                      'do_you_have_mentioned_certification'.tr,
+                                      style: TextStyle(
+                                        fontSize: Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(16),
+                                    ),
+                                    Obx(() {
+                                      return Transform.translate(
+                                        offset: Offset(-12, -8),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Checkbox(
+                                              value:
+                                                  applyJobVM
+                                                      .isCheckCertificationNo
+                                                      .value,
+                                              onChanged: (bool? value) {
+                                                applyJobVM
+                                                    .isCheckCertificationYes
+                                                    .value = false;
+                                                applyJobVM
+                                                    .isCheckCertificationNo
+                                                    .value = true;
+                                              },
+                                              activeColor:
+                                                  AppColor.primaryColor,
+                                              // Color when checked
+                                              checkColor:
+                                                  AppColor
+                                                      .secondaryIconDarkColor,
+                                              shape: RoundedRectangleBorder(
+                                                side: BorderSide(
+                                                  color: AppColor.primaryColor,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                      Utils.getResponsiveSize(
+                                                        4,
+                                                      ),
+                                                    ),
+                                              ),
+                                            ),
+                                            Transform.translate(
+                                              offset: Offset(-8, 0),
+                                              child: Text(
+                                                'no'.tr,
+                                                style: TextStyle(
+                                                  fontSize:
+                                                      Utils.getResponsiveSize(
+                                                        14,
+                                                      ),
+                                                  fontFamily: 'Manrope',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      Theme.of(context)
+                                                          .extension<
+                                                            AppColors
+                                                          >()
+                                                          ?.textPrimaryColor,
+                                                ),
+                                              ),
+                                            ),
+                                            Checkbox(
+                                              value:
+                                                  applyJobVM
+                                                      .isCheckCertificationYes
+                                                      .value,
+                                              onChanged: (bool? value) {
+                                                applyJobVM
+                                                    .isCheckCertificationYes
+                                                    .value = true;
+                                                applyJobVM
+                                                    .isCheckCertificationNo
+                                                    .value = false;
+                                              },
+                                              activeColor:
+                                                  AppColor.primaryColor,
+                                              // Color when checked
+                                              checkColor:
+                                                  AppColor
+                                                      .secondaryIconDarkColor,
+                                              shape: RoundedRectangleBorder(
+                                                side: BorderSide(
+                                                  color: AppColor.primaryColor,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                      Utils.getResponsiveSize(
+                                                        4,
+                                                      ),
+                                                    ),
+                                              ),
+                                            ),
+                                            Transform.translate(
+                                              offset: Offset(-8, 0),
+                                              child: Text(
+                                                'yes'.tr,
+                                                style: TextStyle(
+                                                  fontSize:
+                                                      Utils.getResponsiveSize(
+                                                        14,
+                                                      ),
+                                                  fontFamily: 'Manrope',
+                                                  fontWeight: FontWeight.w500,
+                                                  color:
+                                                      Theme.of(context)
+                                                          .extension<
+                                                            AppColors
+                                                          >()
+                                                          ?.textPrimaryColor,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    }),
                                     Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
@@ -616,7 +883,7 @@ class _AdditionalRequirementsJobScreenState
     );
   }
 
-  double _calculateMaxTextWidth(List<String> texts, BuildContext context) {
+  double _calculateMaxTextWidthJob(List<String> texts, BuildContext context) {
     double maxWidth = 0;
     final textStyle = TextStyle(
       fontSize: Utils.getResponsiveSize(14),
@@ -631,7 +898,34 @@ class _AdditionalRequirementsJobScreenState
       )..layout();
 
       final double textWidth =
-          textPainter.width + (Utils.getResponsiveWidth(14) * 2); // Add padding
+          textPainter.width + (Utils.getResponsiveWidth(14) * 3); // Add padding
+
+      if (textWidth > maxWidth) {
+        maxWidth = textWidth;
+      }
+    }
+    return maxWidth;
+  }
+
+  double _calculateMaxTextWidthSoftware(
+    List<String> texts,
+    BuildContext context,
+  ) {
+    double maxWidth = 0;
+    final textStyle = TextStyle(
+      fontSize: Utils.getResponsiveSize(14),
+      fontFamily: 'Manrope',
+      fontWeight: FontWeight.w400,
+    );
+
+    for (String text in texts) {
+      final TextPainter textPainter = TextPainter(
+        text: TextSpan(text: text, style: textStyle),
+        textDirection: TextDirection.ltr,
+      )..layout();
+
+      final double textWidth =
+          textPainter.width + (Utils.getResponsiveWidth(14) * 3); // Add padding
 
       if (textWidth > maxWidth) {
         maxWidth = textWidth;

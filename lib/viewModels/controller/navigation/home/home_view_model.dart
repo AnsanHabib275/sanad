@@ -14,6 +14,7 @@ class HomeViewModel extends GetxController {
   RxString error = ''.obs;
   RxBool loading = false.obs;
   RxString errorMessage = ''.obs;
+  var savedJobs = <String>[].obs;
 
   final searchController = TextEditingController().obs;
   final searchFocusNode = FocusNode().obs;
@@ -21,6 +22,14 @@ class HomeViewModel extends GetxController {
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
 
   void setError(String value) => error.value = value;
+
+  void toggleSelection(String jobId) {
+    if (savedJobs.contains(jobId)) {
+      savedJobs.remove(jobId);
+    } else {
+      savedJobs.add(jobId);
+    }
+  }
 
   Future<void> jobsListApi() async {
     try {

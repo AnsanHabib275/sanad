@@ -11,12 +11,10 @@ class WithdrawFundsVerificationViewModel extends GetxController {
   final otpThreeController = TextEditingController().obs;
   final otpFourController = TextEditingController().obs;
 
-
   final otpOneFocusNode = FocusNode().obs;
   final otpTwoFocusNode = FocusNode().obs;
   final otpThreeFocusNode = FocusNode().obs;
   final otpFourFocusNode = FocusNode().obs;
-
 
   RxBool loading = false.obs;
   RxBool resendCodeLoading = false.obs;
@@ -47,22 +45,22 @@ class WithdrawFundsVerificationViewModel extends GetxController {
         otpOneController.value.text +
         otpTwoController.value.text +
         otpThreeController.value.text +
-        otpFourController.value.text ;
+        otpFourController.value.text;
     Map data = {'Otp': verificationCode, 'E_id': eId};
     _api
         .withdrawFundsVerificationApi(data)
         .then((value) {
           loading.value = false;
           if (value['IsSuccessfull'] == false) {
-            Utils.toastMessage(value['Message']);
+            Utils.snackBar('error'.tr, value['Message']);
           } else {
-            Utils.toastMessage("OTP VERIFIED SUCCESSFULLY");
+            Utils.snackBar('success'.tr, "OTP VERIFIED SUCCESSFULLY");
           }
         })
         .onError((error, stackTrace) {
           loading.value = false;
           errorMessage.value = error.toString();
-          Utils.toastMessage(error.toString());
+          Utils.snackBar('error'.tr, error.toString());
         });
   }
 
@@ -74,9 +72,9 @@ class WithdrawFundsVerificationViewModel extends GetxController {
         .then((value) {
           resendCodeLoading.value = false;
           if (value['isSuccessfull'] == false) {
-            Utils.toastMessage(value['message']);
+            Utils.snackBar('error'.tr, value['Message']);
           } else {
-            Utils.toastMessage("OTP Sent To Your Email Account");
+            Utils.snackBar('success'.tr, "OTP Sent To Your Email Account");
           }
         })
         .onError((error, stackTrace) {

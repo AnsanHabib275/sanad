@@ -64,7 +64,7 @@ class VerifyEmailViewModel extends GetxController {
           if (value['isSuccessfull'] == false) {
             errorMessage.value = value['message'];
           } else {
-            Utils.toastMessage("USER VERIFIED SUCCESSFULLY");
+            Utils.snackBar('success'.tr, "USER VERIFIED SUCCESSFULLY");
             Get.offAllNamed(RoutesName.loginScreen);
           }
         })
@@ -84,7 +84,7 @@ class VerifyEmailViewModel extends GetxController {
           if (value['isSuccessfull'] == false) {
             errorMessage.value = value['message'];
           } else {
-            Utils.toastMessage("OTP Sent To Your Email Account");
+            Utils.snackBar('success'.tr, "OTP Sent To Your Email Account");
           }
         })
         .onError((error, stackTrace) {

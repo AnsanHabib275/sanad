@@ -21,6 +21,12 @@ class ReviewJobScreen extends StatefulWidget {
 
 class _ReviewJobScreenState extends State<ReviewJobScreen> {
   final applyJobVM = Get.put(ApplyJobViewModel());
+  final isPrivate = Get.arguments['isPrivate'] ?? false;
+  final jobName = Get.arguments['jobName'] ?? '';
+  final companyName = Get.arguments['companyName'] ?? '';
+  final location = Get.arguments['location'] ?? '';
+  final jobType = Get.arguments['jobType'] ?? '';
+  final salaryRange = Get.arguments['salaryRange'] ?? '';
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +71,187 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                 children: [
                   SizedBox(height: Utils.getResponsiveHeight(16)),
                   ReviewJobTabBar(),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(24)),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(Utils.getResponsiveHeight(8)),
+                      ),
+                      border: Border.all(
+                        color: Theme.of(context).dividerColor,
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: Utils.getResponsiveHeight(16),
+                        horizontal: Utils.getResponsiveWidth(16),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                jobName,
+                                style: TextStyle(
+                                  fontSize: Utils.getResponsiveSize(20),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w700,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
+                                ),
+                              ),
+                              SizedBox(width: Utils.getResponsiveWidth(12)),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).extension<AppColors>()?.containerBg,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      Utils.getResponsiveHeight(6),
+                                    ),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: Utils.getResponsiveWidth(10),
+                                    vertical: Utils.getResponsiveHeight(2),
+                                  ),
+                                  child: Text(
+                                    isPrivate
+                                        ? 'private_job'.tr
+                                        : 'public_job'.tr,
+                                    style: TextStyle(
+                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      color:
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Spacer(),
+                              Image.asset(
+                                IconAssets.icDisable,
+                                height: Utils.getResponsiveHeight(24),
+                                width: Utils.getResponsiveWidth(24),
+                              ),
+                              SizedBox(width: Utils.getResponsiveWidth(8)),
+                              Image.asset(
+                                IconAssets.icBookmark,
+                                height: Utils.getResponsiveHeight(24),
+                                width: Utils.getResponsiveWidth(24),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          Text(
+                            companyName.toString(),
+                            style: TextStyle(
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                            ),
+                          ),
+                          Text(
+                            location.toString(),
+                            style: TextStyle(
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
+                          Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).extension<AppColors>()?.containerBg,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      Utils.getResponsiveHeight(6),
+                                    ),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: Utils.getResponsiveWidth(10),
+                                    vertical: Utils.getResponsiveHeight(2),
+                                  ),
+                                  child: Text(
+                                    jobType.toString(),
+                                    style: TextStyle(
+                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      color:
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: Utils.getResponsiveWidth(8)),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).extension<AppColors>()?.containerBg,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(
+                                      Utils.getResponsiveHeight(6),
+                                    ),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: Utils.getResponsiveWidth(10),
+                                    vertical: Utils.getResponsiveHeight(2),
+                                  ),
+                                  child: Text(
+                                    salaryRange.toString(),
+                                    style: TextStyle(
+                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      color:
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: Utils.getResponsiveHeight(24)),
                   Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
@@ -89,11 +275,11 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                           Row(
                             children: [
                               Text(
-                                'additional_requirements'.tr,
+                                'cv'.tr,
                                 style: TextStyle(
                                   fontSize: Utils.getResponsiveSize(14),
                                   fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w700,
                                   color:
                                       Theme.of(context)
                                           .extension<AppColors>()
@@ -190,11 +376,157 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                           Row(
                             children: [
                               Text(
-                                'additional_requirements'.tr,
+                                'are_you_open_to_relocating'.tr,
                                 style: TextStyle(
                                   fontSize: Utils.getResponsiveSize(14),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                ),
+                              ),
+                              Spacer(),
+                              InkWell(
+                                onTap: () {
+                                  Get.toNamed(
+                                    RoutesName.additionalRequirementsJobScreen,
+                                  );
+                                },
+                                child: Text(
+                                  'edit'.tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColor.blueColor,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          Text(
+                            'Open to Relocating',
+                            style: TextStyle(
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(Utils.getResponsiveHeight(12)),
+                      ),
+                      border: Border.all(
+                        color: Theme.of(context).dividerColor,
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: Utils.getResponsiveWidth(16),
+                        vertical: Utils.getResponsiveHeight(16),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'software_programs_do_you_know'.tr,
+                                style: TextStyle(
+                                  fontSize: Utils.getResponsiveSize(14),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                ),
+                              ),
+                              Spacer(),
+                              InkWell(
+                                onTap: () {
+                                  Get.toNamed(
+                                    RoutesName.additionalRequirementsJobScreen,
+                                  );
+                                },
+                                child: Text(
+                                  'edit'.tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColor.blueColor,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          Text(
+                            'Framer, Figma',
+                            style: TextStyle(
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(Utils.getResponsiveHeight(12)),
+                      ),
+                      border: Border.all(
+                        color: Theme.of(context).dividerColor,
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: Utils.getResponsiveWidth(16),
+                        vertical: Utils.getResponsiveHeight(16),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'portfolio'.tr,
+                                style: TextStyle(
+                                  fontSize: Utils.getResponsiveSize(14),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w700,
                                   color:
                                       Theme.of(context)
                                           .extension<AppColors>()
@@ -220,11 +552,11 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(16)),
+                          SizedBox(height: Utils.getResponsiveHeight(12)),
                           Text(
-                            'can_relocate'.tr,
+                            'have_a_portfolio',
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(12),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -233,8 +565,9 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                   ).extension<AppColors>()?.textSecondaryColor,
                             ),
                           ),
+                          SizedBox(height: Utils.getResponsiveHeight(12)),
                           Text(
-                            'can_you_relocate'.tr,
+                            'Yes',
                             style: TextStyle(
                               fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
@@ -244,203 +577,188 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
                             ),
-                          ),
-                          SizedBox(height: Utils.getResponsiveHeight(16)),
-
-                          Obx(() {
-                            return Transform.translate(
-                              offset: Offset(-12, -8),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Checkbox(
-                                    value: applyJobVM.isCheckRelocate.value,
-                                    onChanged: (bool? value) {
-                                      applyJobVM.isCheckRelocate.value = value!;
-                                    },
-                                    activeColor: AppColor.primaryColor,
-                                    // Color when checked
-                                    checkColor: AppColor.secondaryIconDarkColor,
-                                    shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                        color: AppColor.primaryColor,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(
-                                        Utils.getResponsiveSize(4),
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    'yes'.tr,
-                                    style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(14),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w500,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          }),
-                          SizedBox(height: Utils.getResponsiveHeight(32)),
-                          Text(
-                            'portfolio'.tr,
-                            style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(12),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textSecondaryColor,
-                            ),
-                          ),
-                          Text(
-                            'have_a_portfolio'.tr,
-                            style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textPrimaryColor,
-                            ),
-                          ),
-                          SizedBox(height: Utils.getResponsiveHeight(16)),
-
-                          Obx(() {
-                            return Transform.translate(
-                              offset: Offset(-12, -8),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Checkbox(
-                                    value: applyJobVM.isCheckPortfolio.value,
-                                    onChanged: (bool? value) {
-                                      applyJobVM.isCheckPortfolio.value =
-                                          value!;
-                                    },
-                                    activeColor: AppColor.primaryColor,
-                                    // Color when checked
-                                    checkColor: AppColor.secondaryIconDarkColor,
-                                    shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                        color: AppColor.primaryColor,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(
-                                        Utils.getResponsiveSize(4),
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    'yes'.tr,
-                                    style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(14),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w500,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          }),
-                          SizedBox(height: Utils.getResponsiveHeight(32)),
-                          Text(
-                            'certification'.tr,
-                            style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(12),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textSecondaryColor,
-                            ),
-                          ),
-                          Text(
-                            'have_mentioned_certification'.tr,
-                            style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textPrimaryColor,
-                            ),
-                          ),
-                          SizedBox(height: Utils.getResponsiveHeight(16)),
-                          Obx(() {
-                            return Transform.translate(
-                              offset: Offset(-12, -8),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Checkbox(
-                                    value:
-                                        applyJobVM.isCheckCertification.value,
-                                    onChanged: (bool? value) {
-                                      applyJobVM.isCheckCertification.value =
-                                          value!;
-                                    },
-                                    activeColor: AppColor.primaryColor,
-                                    // Color when checked
-                                    checkColor: AppColor.secondaryIconDarkColor,
-                                    shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                        color: AppColor.primaryColor,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(
-                                        Utils.getResponsiveSize(4),
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    'yes'.tr,
-                                    style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(14),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w500,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          }),
-                          SizedBox(height: Utils.getResponsiveHeight(35)),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              BackButtonWidget(),
-                              SubmitButtonWidget(),
-                            ],
                           ),
                         ],
                       ),
                     ),
+                  ),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(Utils.getResponsiveHeight(12)),
+                      ),
+                      border: Border.all(
+                        color: Theme.of(context).dividerColor,
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: Utils.getResponsiveWidth(16),
+                        vertical: Utils.getResponsiveHeight(16),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'certification'.tr,
+                                style: TextStyle(
+                                  fontSize: Utils.getResponsiveSize(14),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w700,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
+                                ),
+                              ),
+                              Spacer(),
+                              InkWell(
+                                onTap: () {
+                                  Get.toNamed(
+                                    RoutesName.additionalRequirementsJobScreen,
+                                  );
+                                },
+                                child: Text(
+                                  'edit'.tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColor.blueColor,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          Text(
+                            'have_mentioned_certification',
+                            style: TextStyle(
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          Text(
+                            'Yes',
+                            style: TextStyle(
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).extension<AppColors>()?.cardBg,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(Utils.getResponsiveHeight(12)),
+                      ),
+                      border: Border.all(
+                        color: Theme.of(context).dividerColor,
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: Utils.getResponsiveWidth(16),
+                        vertical: Utils.getResponsiveHeight(16),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'experience'.tr,
+                                style: TextStyle(
+                                  fontSize: Utils.getResponsiveSize(14),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w700,
+                                  color:
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
+                                ),
+                              ),
+                              Spacer(),
+                              InkWell(
+                                onTap: () {
+                                  Get.toNamed(
+                                    RoutesName.additionalRequirementsJobScreen,
+                                  );
+                                },
+                                child: Text(
+                                  'edit'.tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColor.blueColor,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          Text(
+                            'how_many_years_of_experience',
+                            style: TextStyle(
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          Text(
+                            '5',
+                            style: TextStyle(
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [BackButtonWidget(), SubmitButtonWidget()],
                   ),
                 ],
               ),

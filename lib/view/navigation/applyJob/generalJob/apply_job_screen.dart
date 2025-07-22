@@ -32,7 +32,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
   final location = Get.arguments['location'] ?? '';
   final jobType = Get.arguments['jobType'] ?? '';
   final salaryRange = Get.arguments['salaryRange'] ?? '';
-  final isOpenToRelocating = Get.arguments['isOpenToRelocating'] ?? '';
+  final List<String> preferJobType = Get.arguments['preferJobType'] ?? [];
   final List<String> softwarePrograms = Get.arguments['softwarePrograms'] ?? [];
 
   @override
@@ -705,7 +705,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                                         location: location,
                                         jobType: jobType,
                                         salaryRange: salaryRange,
-                                        isOpenToRelocating: isOpenToRelocating,
+                                        preferJobType: preferJobType,
                                         softwarePrograms: softwarePrograms,
                                       ),
                                     ],

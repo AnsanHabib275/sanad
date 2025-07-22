@@ -7,6 +7,7 @@ import '../../../../../models/myJobs/my_jobs_model.dart';
 import '../../../../../res/colors/app_color.dart';
 import '../../../../../res/themes/app_themes.dart';
 import '../../../../../utils/utils.dart';
+import '../../../../viewModels/controller/navigation/myJobs/my_jobs_view_model.dart';
 
 class MyJobsCartWidget extends StatefulWidget {
   final MyJobsModel myJobs;
@@ -18,6 +19,7 @@ class MyJobsCartWidget extends StatefulWidget {
 }
 
 class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
+  final myJobsVM = Get.put(MyJobsViewModel());
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -47,7 +49,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
               'candidatesRequired': '2',
               'jobDescription':
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-              'isOpenToRelocating': 'false',
+              'preferJobType': ['Open to Relocating', 'Remotely', 'Hybrid'],
               'softwarePrograms': [
                 'Framer',
                 'Figma',
@@ -69,9 +71,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
           color: Theme.of(context).extension<AppColors>()?.cardBg,
           shape: RoundedRectangleBorder(
             side: BorderSide(color: Theme.of(context).dividerColor, width: 1.0),
-            borderRadius: BorderRadius.circular(
-              Utils.getResponsiveSize(8),
-            ),
+            borderRadius: BorderRadius.circular(Utils.getResponsiveSize(8)),
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -104,9 +104,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                               context,
                             ).extension<AppColors>()?.containerBg,
                         borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            Utils.getResponsiveHeight(6),
-                          ),
+                          Radius.circular(Utils.getResponsiveHeight(6)),
                         ),
                       ),
                       child: Padding(
@@ -141,6 +139,10 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                       IconAssets.icBookmark,
                       height: Utils.getResponsiveHeight(24),
                       width: Utils.getResponsiveWidth(24),
+                      color:
+                          myJobsVM.selectedTab.value == 'saved'
+                              ? AppColor.primaryColor
+                              : AppColor.textSecondaryDarkColor,
                     ),
                   ],
                 ),
@@ -179,9 +181,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                               context,
                             ).extension<AppColors>()?.containerBg,
                         borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            Utils.getResponsiveHeight(6),
-                          ),
+                          Radius.circular(Utils.getResponsiveHeight(6)),
                         ),
                       ),
                       child: Padding(
@@ -211,9 +211,7 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                               context,
                             ).extension<AppColors>()?.containerBg,
                         borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            Utils.getResponsiveHeight(6),
-                          ),
+                          Radius.circular(Utils.getResponsiveHeight(6)),
                         ),
                       ),
                       child: Padding(
@@ -247,22 +245,18 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                                 context,
                               ).extension<AppColors>()?.cardSelectedBg,
                           borderRadius: BorderRadius.all(
-                            Radius.circular(
-                              Utils.getResponsiveHeight(6),
-                            ),
+                            Radius.circular(Utils.getResponsiveHeight(6)),
                           ),
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal:
-                                Utils.getResponsiveWidth(12),
+                            horizontal: Utils.getResponsiveWidth(12),
                             vertical: Utils.getResponsiveHeight(2),
                           ),
                           child: Text(
                             widget.myJobs.applied.toString(),
                             style: TextStyle(
-                              fontSize:
-                                  Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w500,
                               color: AppColor.primaryColor,

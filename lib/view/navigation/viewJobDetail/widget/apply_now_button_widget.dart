@@ -14,7 +14,7 @@ class ApplyNowButtonWidget extends StatelessWidget {
     required this.location,
     required this.jobType,
     required this.salaryRange,
-    required this.isOpenToRelocating,
+    required this.preferJobType,
     required this.softwarePrograms,
   });
 
@@ -24,7 +24,7 @@ class ApplyNowButtonWidget extends StatelessWidget {
   final String location;
   final String jobType;
   final String salaryRange;
-  final String isOpenToRelocating;
+  final List<String> preferJobType;
   final List<String> softwarePrograms;
 
   @override
@@ -42,7 +42,7 @@ class ApplyNowButtonWidget extends StatelessWidget {
             'location': location,
             'jobType': jobType,
             'salaryRange': salaryRange,
-            'isOpenToRelocating': isOpenToRelocating,
+            'preferJobType': preferJobType,
             'softwarePrograms': softwarePrograms,
           },
         );

@@ -126,11 +126,11 @@ class UpdateProfileViewModel extends GetxController {
             userVM
                 .saveUser(loginModel)
                 .then((value) {
-                  Utils.toastMessage('Profile Update Successfully');
+                  Utils.snackBar('success'.tr, 'Profile Update Successfully');
                   Get.offAll(() => NavigationScreen(initialIndex: 4));
                 })
                 .onError((error, stackTrace) {
-                  Utils.toastMessage(error.toString());
+                  Utils.snackBar('error'.tr, error.toString());
                 });
           }
         })
@@ -205,7 +205,7 @@ class UpdateProfileViewModel extends GetxController {
         .then((value) {
           loading.value = false;
           if (value['IsSuccessfull'] == false) {
-            Utils.toastMessage(value['message']);
+            Utils.snackBar('error'.tr, value['Message']);
           } else {
             String imageUrl = value['imageURL'];
             imagePath.value = AppUrl.baseUrl + imageUrl;
@@ -216,7 +216,7 @@ class UpdateProfileViewModel extends GetxController {
         })
         .onError((error, stackTrace) {
           loading.value = false;
-          Utils.toastMessage(error.toString());
+          Utils.snackBar('error'.tr, error.toString());
         });
   }
 }

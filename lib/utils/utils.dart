@@ -1,11 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
-import '../res/colors/app_color.dart';
 
 class Utils {
   static double baseHeight = 932;
@@ -20,15 +17,6 @@ class Utils {
   ) {
     current.unfocus();
     FocusScope.of(context).requestFocus(nextFocus);
-  }
-
-  static toastMessage(String message) {
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_LONG,
-      backgroundColor: AppColor.blackColor,
-      gravity: ToastGravity.CENTER,
-    );
   }
 
   static snackBar(String title, String message) {

@@ -118,7 +118,7 @@ class NotificationViewModel extends GetxController {
           loading.value = false;
           if (value['IsSuccessfull'] == false) {
             errorMessage.value = value['message'];
-            Utils.toastMessage(value['message']);
+            Utils.snackBar('error'.tr, value['Message']);
           } else {
             notificationListApi();
           }
@@ -126,7 +126,7 @@ class NotificationViewModel extends GetxController {
         .onError((error, stackTrace) {
           loading.value = false;
           errorMessage.value = error.toString();
-          Utils.toastMessage(error.toString());
+          Utils.snackBar('error'.tr, error.toString());
         });
   }
 

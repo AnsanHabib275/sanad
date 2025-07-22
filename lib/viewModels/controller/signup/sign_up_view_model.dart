@@ -40,6 +40,7 @@ class SignUpViewModel extends GetxController {
   RxBool loading = false.obs;
   RxBool isVisible = true.obs;
   RxBool isEnable = true.obs;
+  RxBool isAgree = false.obs;
   final selectedIndex = (-1).obs;
   RxString imagePath = ''.obs;
   RxString filePath = ''.obs;
@@ -125,7 +126,7 @@ class SignUpViewModel extends GetxController {
             apiErrorMessage.value = value['message'];
           } else {
             apiErrorMessage.value = '';
-            Utils.toastMessage('OTP Sent To Your Email Account');
+            Utils.snackBar('success'.tr, 'OTP Sent To Your Email Account');
             Get.toNamed(
               RoutesName.verifyEmailScreen,
               arguments: {
@@ -155,7 +156,7 @@ class SignUpViewModel extends GetxController {
             apiErrorMessage.value = value['message'];
           } else {
             apiErrorMessage.value = '';
-            Utils.toastMessage("OTP Sent To Your Email Account");
+            Utils.snackBar('success'.tr, "OTP Sent To Your Email Account");
             Get.toNamed(
               RoutesName.otpScreen,
               arguments: {
@@ -238,7 +239,7 @@ class SignUpViewModel extends GetxController {
         .then((value) {
           loading.value = false;
           if (value['IsSuccessfull'] == false) {
-            Utils.toastMessage(value['message']);
+            Utils.snackBar('error'.tr, value['Message']);
           } else {
             String imageUrl = value['imageURL'];
             imagePath.value = AppUrl.baseUrl + imageUrl;
@@ -249,7 +250,7 @@ class SignUpViewModel extends GetxController {
         })
         .onError((error, stackTrace) {
           loading.value = false;
-          Utils.toastMessage(error.toString());
+          Utils.snackBar('error'.tr, error.toString());
         });
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/components/round_button.dart';
-import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/utils/utils.dart';
 
 class SaveDetailsButtonWidget extends StatelessWidget {

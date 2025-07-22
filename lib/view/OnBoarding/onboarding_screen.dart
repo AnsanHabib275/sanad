@@ -9,7 +9,6 @@ import 'package:sanad/utils/utils.dart';
 import 'package:sanad/view/OnBoarding/widget/next_button_widget.dart';
 import 'package:sanad/view/OnBoarding/widget/onboarding_page.dart';
 import 'package:sanad/viewModels/controller/onBoarding/onboarding_view_model.dart';
-import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -21,7 +20,6 @@ class OnBoardingScreen extends StatefulWidget {
 class OnBoardingScreenState extends State<OnBoardingScreen> {
   final PageController _pageController = PageController();
   final onBoardingVM = Get.put(OnBoardingViewModel());
-  final userVM = Get.put(UserPreference());
 
   final List<OnBoardingListModel> tutorialPages = [
     OnBoardingListModel(
@@ -90,9 +88,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                 bottom: 0,
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: Utils.getResponsiveHeight(32),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(32)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -108,8 +104,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                           child: Text(
                             'skip'.tr,
                             style: TextStyle(
-                              fontSize:
-                                  Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w400,
                               color:
@@ -119,9 +114,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: Utils.getResponsiveWidth(16),
-                        ),
+                        SizedBox(width: Utils.getResponsiveWidth(16)),
                       ],
                     ),
                     Expanded(
@@ -148,8 +141,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                           tutorialPages.length,
                           (index) => Container(
                             margin: EdgeInsets.symmetric(
-                              horizontal:
-                                  Utils.getResponsiveWidth(5),
+                              horizontal: Utils.getResponsiveWidth(5),
                             ),
                             width: Utils.getResponsiveWidth(14),
                             height: Utils.getResponsiveHeight(14),
@@ -169,30 +161,23 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                         ),
                       );
                     }),
-                    SizedBox(
-                      height: Utils.getResponsiveHeight(38),
-                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(38)),
                     Obx(() {
                       if (!(onBoardingVM.currentPage.value <
                           tutorialPages.length - 1)) {
-                        return SizedBox(
-                          height: Utils.getResponsiveHeight(110),
-                        );
+                        return SizedBox(height: Utils.getResponsiveHeight(110));
                       }
                       return Column(
                         children: [
                           Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  Utils.getResponsiveWidth(32),
+                              horizontal: Utils.getResponsiveWidth(32),
                             ),
                             child: NextButtonWidget(
                               pageController: _pageController,
                             ),
                           ),
-                          SizedBox(
-                            height: Utils.getResponsiveHeight(70),
-                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(70)),
                         ],
                       );
                     }),
