@@ -3,9 +3,16 @@ import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/themes/app_themes.dart';
 import 'package:sanad/utils/utils.dart';
+import 'package:sanad/view/navigation/addPaymentMethod/widget/input_account_name_widget.dart';
+import 'package:sanad/view/navigation/addPaymentMethod/widget/input_bank_name_widget.dart';
+import 'package:sanad/view/navigation/addPaymentMethod/widget/input_card_holder_name_widget.dart';
+import 'package:sanad/view/navigation/addPaymentMethod/widget/input_credit_card_number_widget.dart';
+import 'package:sanad/view/navigation/addPaymentMethod/widget/input_expiry_date_widget.dart';
+import 'package:sanad/view/navigation/addPaymentMethod/widget/input_iban_widget.dart';
+import 'package:sanad/view/navigation/addPaymentMethod/widget/input_security_code_widget.dart';
 import 'package:sanad/view/navigation/addPaymentMethod/widget/save_details_button_widget.dart';
-import 'package:sanad/view/navigation/viewJob/widget/custom_tab_bar_widget.dart';
-import '../../../../viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
+import 'package:sanad/view/navigation/addPaymentMethod/widget/custom_tab_bar_widget.dart';
+import 'package:sanad/viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 class AddPaymentMethodScreen extends StatefulWidget {
   const AddPaymentMethodScreen({super.key});
@@ -15,7 +22,8 @@ class AddPaymentMethodScreen extends StatefulWidget {
 }
 
 class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
-  final applyJobVM = Get.put(ApplyJobViewModel());
+  final paymentMethodVM = Get.put(PaymentMethodViewModel());
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +62,9 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(height: Utils.getResponsiveHeight(24)),
+                SizedBox(height: Utils.getResponsiveHeight(40)),
                 Text(
-                  'job_details'.tr,
+                  'select_a_payment_method'.tr,
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     color:
@@ -70,40 +78,232 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
                 ),
                 SizedBox(height: Utils.getResponsiveHeight(16)),
                 CustomTabBar(),
-                SizedBox(height: Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(24)),
                 Divider(
                   color: Theme.of(context).dividerColor,
                   height: Utils.getResponsiveHeight(1),
                 ),
                 SizedBox(height: Utils.getResponsiveHeight(16)),
-                SizedBox(
-                  child: Obx(() {
-                    return applyJobVM.selectedTab.value == 'general'
-                        ? Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: Utils.getResponsiveWidth(16),
-                              ),
-                              child: SizedBox(),
-                            ),
-                          ],
-                        )
-                        : Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            SizedBox(height: Utils.getResponsiveHeight(8)),
-                          ],
-                        );
-                  }),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(Utils.getResponsiveHeight(16)),
+                    ),
+                    border: Border.all(
+                      color: Theme.of(context).dividerColor,
+                      width: 1.0,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Utils.getResponsiveWidth(16),
+                      vertical: Utils.getResponsiveHeight(16),
+                    ),
+                    child: Column(
+                      children: [
+                        Form(
+                          key: formKey,
+                          child: Obx(() {
+                            return paymentMethodVM.selectedTab.value ==
+                                    'creditCard'
+                                ? Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      'credit_card_number'.tr,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                        fontSize: Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(8),
+                                    ),
+                                    InputCreditCardNumberWidget(),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(16),
+                                    ),
+                                    Text(
+                                      'card_holder_name'.tr,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                        fontSize: Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(8),
+                                    ),
+                                    InputCardHolderNameWidget(),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(16),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text(
+                                                'expiry_date'.tr,
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                  color:
+                                                      Theme.of(context)
+                                                          .extension<
+                                                            AppColors
+                                                          >()
+                                                          ?.textPrimaryColor,
+                                                  fontSize:
+                                                      Utils.getResponsiveSize(
+                                                        14,
+                                                      ),
+                                                  fontFamily: 'Manrope',
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height:
+                                                    Utils.getResponsiveHeight(
+                                                      8,
+                                                    ),
+                                              ),
+                                              InputExpiryDateWidget(),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: Utils.getResponsiveWidth(16),
+                                        ),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text(
+                                                'security_code'.tr,
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                  color:
+                                                      Theme.of(context)
+                                                          .extension<
+                                                            AppColors
+                                                          >()
+                                                          ?.textPrimaryColor,
+                                                  fontSize:
+                                                      Utils.getResponsiveSize(
+                                                        14,
+                                                      ),
+                                                  fontFamily: 'Manrope',
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height:
+                                                    Utils.getResponsiveHeight(
+                                                      8,
+                                                    ),
+                                              ),
+                                              InputSecurityCodeWidget(),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                                : Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      'bank_name'.tr,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                        fontSize: Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(8),
+                                    ),
+                                    InputBankNameWidget(),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(16),
+                                    ),
+                                    Text(
+                                      'iban'.tr,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                        fontSize: Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(8),
+                                    ),
+                                    InputIBANWidget(),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(16),
+                                    ),
+                                    Text(
+                                      'account_name'.tr,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                        fontSize: Utils.getResponsiveSize(14),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(8),
+                                    ),
+                                    InputAccountNameWidget(),
+                                    SizedBox(
+                                      height: Utils.getResponsiveHeight(16),
+                                    ),
+                                  ],
+                                );
+                          }),
+                        ),
+                        SizedBox(height: Utils.getResponsiveHeight(20)),
+                        SaveDetailsButtonWidget(),
+                      ],
+                    ),
+                  ),
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(16)),
-                SaveDetailsButtonWidget(),
               ],
             ),
           ),

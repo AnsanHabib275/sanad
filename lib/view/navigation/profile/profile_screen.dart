@@ -368,33 +368,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
-                            'phone_number'.tr,
-                            style: TextStyle(
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize: Utils.getResponsiveSize(14),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(height: Utils.getResponsiveHeight(8)),
-                          Text(
-                            '+1(234) 567 8900',
-                            // '${userVM.userCountryCode.value}${userVM.userMobileNumber.value}',
-                            style: TextStyle(
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize: Utils.getResponsiveSize(16),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(height: Utils.getResponsiveHeight(24)),
-                          Text(
                             'email'.tr,
                             style: TextStyle(
                               color:
@@ -422,7 +395,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
-                            'street'.tr,
+                            'organization_type'.tr,
                             style: TextStyle(
                               color:
                                   Theme.of(
@@ -435,7 +408,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
-                            'Jon St Park',
+                            'ABC Type',
+                            // userVM.userEmail.value,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontSize: Utils.getResponsiveSize(16),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
+                          Text(
+                            'company_size_employees'.tr,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
+                          Text(
+                            '2-10',
                             // userVM.userStreet.value,
                             style: TextStyle(
                               color:
@@ -449,7 +449,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
-                            'city_or_state'.tr,
+                            'website'.tr,
                             style: TextStyle(
                               color:
                                   Theme.of(
@@ -462,7 +462,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
-                            'Riyadh',
+                            'www.example.com',
                             // userVM.userCity.value,
                             style: TextStyle(
                               color:
@@ -476,7 +476,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
-                            'postal_code'.tr,
+                            'interested_industry'.tr,
                             style: TextStyle(
                               color:
                                   Theme.of(
@@ -489,8 +489,89 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
-                            '123ABC',
-                            // userVM.userPostalCode.value,
+                            'Marketing',
+                            // userVM.userCity.value,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontSize: Utils.getResponsiveSize(16),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
+                          Text(
+                            'tagline'.tr,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
+                          Text(
+                            'Lorem ipsum dolor sit amet, consectetur',
+                            // userVM.userDescription.value,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontSize: Utils.getResponsiveSize(16),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
+                          Text(
+                            'contact_details'.tr,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontSize: Utils.getResponsiveSize(18),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
+                          Text(
+                            'manage_your_company_contact_details'.tr,
+                            // '${userVM.userCountryCode.value}${userVM.userMobileNumber.value}',
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
+                          Text(
+                            'phone_number'.tr,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
+                          Text(
+                            '+1(234) 567 8900',
+                            // '${userVM.userCountryCode.value}${userVM.userMobileNumber.value}',
                             style: TextStyle(
                               color:
                                   Theme.of(
@@ -530,7 +611,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(24)),
                           Text(
-                            'tagline'.tr,
+                            'city_or_state'.tr,
                             style: TextStyle(
                               color:
                                   Theme.of(
@@ -543,8 +624,62 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(8)),
                           Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident',
-                            // userVM.userDescription.value,
+                            'Riyadh',
+                            // userVM.userCity.value,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontSize: Utils.getResponsiveSize(16),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
+                          Text(
+                            'street'.tr,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
+                          Text(
+                            'Jon St Park',
+                            // userVM.userStreet.value,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontSize: Utils.getResponsiveSize(16),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(24)),
+                          Text(
+                            'postal_code'.tr,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                              fontSize: Utils.getResponsiveSize(14),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: Utils.getResponsiveHeight(8)),
+                          Text(
+                            '123ABC',
+                            // userVM.userPostalCode.value,
                             style: TextStyle(
                               color:
                                   Theme.of(
@@ -559,7 +694,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(120)),
+                  SizedBox(height: Utils.getResponsiveHeight(100)),
                 ],
               ),
             ),

@@ -40,7 +40,8 @@ class InputMessageWidget extends StatelessWidget {
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
         ),
         keyboardType: TextInputType.multiline,
-        minLines: null,
+        textInputAction: TextInputAction.newline,
+        minLines: 3,
         maxLines: null,
       );
     });

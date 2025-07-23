@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
 import '../../../../../res/assets/icon_assets.dart';
 import '../../../../../utils/utils.dart';
+import '../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 
 class InputOrganizationTypeWidget extends StatelessWidget {
   InputOrganizationTypeWidget({super.key});
 
-  final signUpVM = Get.put(SignUpViewModel());
+  final updateProfileVM = Get.put(UpdateProfileViewModel());
   final List<String> organizationType = ['Formal', 'Informal'];
 
   @override
@@ -20,15 +20,15 @@ class InputOrganizationTypeWidget extends StatelessWidget {
           hintText: 'organization_type_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
-              signUpVM.errorMessage.value.isEmpty
+              updateProfileVM.errorMessage.value.isEmpty
                   ? null
-                  : signUpVM.errorMessage.value,
+                  : updateProfileVM.errorMessage.value,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
         ),
         value:
-            signUpVM.organizationTypeController.value.text.isEmpty
+            updateProfileVM.organizationTypeController.value.text.isEmpty
                 ? null
-                : signUpVM.organizationTypeController.value.text,
+                : updateProfileVM.organizationTypeController.value.text,
         items:
             organizationType.map((String organization) {
               return DropdownMenuItem<String>(
@@ -38,8 +38,7 @@ class InputOrganizationTypeWidget extends StatelessWidget {
             }).toList(),
         onChanged: (value) {
           if (value != null) {
-            signUpVM.organizationTypeController.value.text = value;
-            signUpVM.validateForm();
+            updateProfileVM.organizationTypeController.value.text = value;
           }
         },
         icon: Image.asset(

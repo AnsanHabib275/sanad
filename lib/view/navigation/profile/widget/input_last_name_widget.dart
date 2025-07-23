@@ -27,7 +27,7 @@ class InputLastNameWidget extends StatelessWidget {
           Utils.fieldFocusChange(
             context,
             updateProfileVM.lastNameFocusNode.value,
-            updateProfileVM.phoneNumberFocusNode.value,
+            updateProfileVM.emailFocusNode.value,
           );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,

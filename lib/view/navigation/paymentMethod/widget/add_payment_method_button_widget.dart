@@ -13,7 +13,7 @@ class AddPaymentMethodButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(RoutesName.additionalRequirementsJobScreen);
+        Get.toNamed(RoutesName.addPaymentMethodScreen);
       },
       child: Container(
         width: double.infinity,

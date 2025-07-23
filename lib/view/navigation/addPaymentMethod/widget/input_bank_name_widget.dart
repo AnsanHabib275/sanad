@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
+import 'package:sanad/utils/utils.dart';
 
-import '../../../../../res/assets/icon_assets.dart';
-import '../../../../../utils/utils.dart';
+import '../../../../res/assets/icon_assets.dart';
+import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
-class InputOrganizationTypeWidget extends StatelessWidget {
-  InputOrganizationTypeWidget({super.key});
+class InputBankNameWidget extends StatelessWidget {
+  InputBankNameWidget({super.key});
 
-  final signUpVM = Get.put(SignUpViewModel());
-  final List<String> organizationType = ['Formal', 'Informal'];
+  final paymentMethodVM = Get.put(PaymentMethodViewModel());
+  final List<String> bankNameList = [
+    'UBL',
+    'HBL',
+    'ABL',
+    'MCB',
+    'AL Habib',
+    'MEZAN BANK',
+    'STANDARD CHARTED ACCOUNT BANK',
+    'AL FALAH BANK',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +26,20 @@ class InputOrganizationTypeWidget extends StatelessWidget {
       return DropdownButtonFormField<String>(
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hintText: 'organization_type_hint'.tr,
+          hintText: 'bank_name_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
-              signUpVM.errorMessage.value.isEmpty
+              paymentMethodVM.errorMessage.value.isEmpty
                   ? null
-                  : signUpVM.errorMessage.value,
+                  : paymentMethodVM.errorMessage.value,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
         ),
         value:
-            signUpVM.organizationTypeController.value.text.isEmpty
+            paymentMethodVM.bankNameController.value.text.isEmpty
                 ? null
-                : signUpVM.organizationTypeController.value.text,
+                : paymentMethodVM.bankNameController.value.text,
         items:
-            organizationType.map((String organization) {
+            bankNameList.map((String organization) {
               return DropdownMenuItem<String>(
                 value: organization,
                 child: Text(organization),
@@ -38,8 +47,7 @@ class InputOrganizationTypeWidget extends StatelessWidget {
             }).toList(),
         onChanged: (value) {
           if (value != null) {
-            signUpVM.organizationTypeController.value.text = value;
-            signUpVM.validateForm();
+            paymentMethodVM.bankNameController.value.text = value;
           }
         },
         icon: Image.asset(
@@ -48,8 +56,7 @@ class InputOrganizationTypeWidget extends StatelessWidget {
           width: Utils.getResponsiveWidth(18),
           color: Theme.of(context).iconTheme.color,
         ),
-        validator:
-            (value) => value == null ? 'organization_type_error'.tr : null,
+        validator: (value) => value == null ? 'bank_name_error'.tr : null,
       );
     });
   }

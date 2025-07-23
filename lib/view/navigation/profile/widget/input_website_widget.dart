@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanad/utils/utils.dart';
 
 import '../../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 
-class InputEmailWidget extends StatelessWidget {
-  InputEmailWidget({super.key});
+class InputWebsiteWidget extends StatelessWidget {
+  InputWebsiteWidget({super.key});
 
   final updateProfileVM = Get.put(UpdateProfileViewModel());
 
@@ -12,28 +13,31 @@ class InputEmailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: updateProfileVM.emailController.value,
-        focusNode: updateProfileVM.emailFocusNode.value,
+        controller: updateProfileVM.websiteController.value,
+        focusNode: updateProfileVM.websiteFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
-          if (value == null ||
-              value.isEmpty ||
-              !RegExp(
-                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-              ).hasMatch(value)) {
-            return 'email_not_valid'.tr;
+          if (value == null || value.isEmpty) {
+            return 'website_error'.tr;
           }
           return null;
         },
+        onFieldSubmitted: (value) {
+          Utils.fieldFocusChange(
+            context,
+            updateProfileVM.websiteFocusNode.value,
+            updateProfileVM.interestedIndustryFocusNode.value,
+          );
+        },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hint: Text('email_hint'.tr),
+          hint: Text('website_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
-              updateProfileVM.errorMessage.value.isNotEmpty
-                  ? updateProfileVM.errorMessage.value
-                  : null,
+              updateProfileVM.errorMessage.value.isEmpty
+                  ? null
+                  : updateProfileVM.errorMessage.value,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
           border: Theme.of(context).inputDecorationTheme.border,
           enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
@@ -42,7 +46,7 @@ class InputEmailWidget extends StatelessWidget {
           focusedErrorBorder:
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
         ),
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: TextInputType.webSearch,
         textInputAction: TextInputAction.done,
       );
     });

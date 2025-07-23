@@ -14,7 +14,6 @@ class PaymentsViewModel extends GetxController {
   RxString error = ''.obs;
   RxBool loading = false.obs;
   RxString errorMessage = ''.obs;
-
   final searchController = TextEditingController().obs;
   final searchFocusNode = FocusNode().obs;
 

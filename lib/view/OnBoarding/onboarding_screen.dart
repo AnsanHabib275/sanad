@@ -140,8 +140,8 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                         children: List.generate(
                           tutorialPages.length,
                           (index) => Container(
-                            margin: EdgeInsets.symmetric(
-                              horizontal: Utils.getResponsiveWidth(5),
+                            margin: EdgeInsets.only(
+                              right: Utils.getResponsiveWidth(5),
                             ),
                             width: Utils.getResponsiveWidth(14),
                             height: Utils.getResponsiveHeight(14),

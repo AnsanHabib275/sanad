@@ -35,6 +35,10 @@ class PaymentMethodViewModel extends GetxController {
 
   void setError(String value) => error.value = value;
 
+  void setSelectionTab(String tabText) {
+    selectedTab.value = tabText;
+  }
+
   Future<void> paymentMethodListApi() async {
     try {
       loading.value = true;

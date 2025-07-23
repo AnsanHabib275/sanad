@@ -30,13 +30,6 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
         onTap: () {
           Get.toNamed(
             RoutesName.transactionDetailScreen,
-            //   final transactionID = Get.arguments['paymentID'] ?? '';
-            // final transactionTime = Get.arguments['transactionTime'] ?? '';
-            // final name = Get.arguments['name'] ?? '';
-            // final transactionType = Get.arguments['transactionType'] ?? '';
-            // final transactionDate = Get.arguments['transactionDate'] ?? '';
-            // final amount = Get.arguments['amount'] ?? '';
-            // final accountNumber = Get.arguments['accountNumber'] ?? '';
             arguments: {
               'paymentID': widget.transaction.paymentID,
               'transactionTime': widget.transaction.time,

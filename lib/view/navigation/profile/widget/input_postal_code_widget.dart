@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/utils/utils.dart';
 
 import '../../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 
@@ -22,13 +21,6 @@ class InputPostalCodeWidget extends StatelessWidget {
             return 'postal_code_error'.tr;
           }
           return null;
-        },
-        onFieldSubmitted: (value) {
-          Utils.fieldFocusChange(
-            context,
-            updateProfileVM.postalCodeFocusNode.value,
-            updateProfileVM.countryFocusNode.value,
-          );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(

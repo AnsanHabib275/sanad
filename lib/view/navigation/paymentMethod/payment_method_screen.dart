@@ -7,7 +7,6 @@ import 'package:sanad/view/navigation/paymentMethod/widget/payment_method_cart_w
 import '../../../../res/assets/icon_assets.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
-import '../../../../viewModels/controller/navigation/payments/payments_view_model.dart';
 import '../../../models/paymentMethod/payment_method_model.dart';
 
 class PaymentMethodScreen extends StatefulWidget {
@@ -18,7 +17,6 @@ class PaymentMethodScreen extends StatefulWidget {
 }
 
 class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
-  final paymentsVM = Get.put(PaymentsViewModel());
   final List<PaymentMethodModel> paymentMethodItems = [
     PaymentMethodModel(
       '0',

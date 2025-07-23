@@ -65,4 +65,6 @@ class IconAssets {
   static const String icEdit = 'assets/icons/ic_edit.png';
   static const String icDelete = 'assets/icons/ic_delete.png';
   static const String icDarkTheme = 'assets/icons/ic_dark_theme.png';
+  static const String icSwitchThumb = 'assets/icons/ic_switch_thumb.png';
+  static const String icDate = 'assets/icons/ic_calendar.png';
 }

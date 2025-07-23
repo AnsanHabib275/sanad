@@ -330,6 +330,29 @@ class _AccountScreenState extends State<AccountScreen> {
                         minTileHeight: Utils.getResponsiveHeight(48),
                         horizontalTitleGap: Utils.getResponsiveWidth(6),
                         leading: Image.asset(
+                          IconAssets.icCard,
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
+                          color: Theme.of(context).iconTheme.color,
+                        ),
+                        title: Text('payments'.tr),
+                        titleTextStyle: TextStyle(
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textBodyColor,
+                          fontSize: Utils.getResponsiveSize(16),
+                          fontFamily: 'Manrope',
+                          fontWeight: FontWeight.w500,
+                        ),
+                        onTap: () {
+                          Get.toNamed(RoutesName.paymentsScreen);
+                        },
+                      ),
+                      ListTile(
+                        minTileHeight: Utils.getResponsiveHeight(48),
+                        horizontalTitleGap: Utils.getResponsiveWidth(6),
+                        leading: Image.asset(
                           IconAssets.icTransactions,
                           height: Utils.getResponsiveHeight(24),
                           width: Utils.getResponsiveWidth(24),
@@ -347,29 +370,6 @@ class _AccountScreenState extends State<AccountScreen> {
                         ),
                         onTap: () {
                           Get.toNamed(RoutesName.transactionsScreen);
-                        },
-                      ),
-                      ListTile(
-                        minTileHeight: Utils.getResponsiveHeight(48),
-                        horizontalTitleGap: Utils.getResponsiveWidth(6),
-                        leading: Image.asset(
-                          IconAssets.icPayment,
-                          height: Utils.getResponsiveHeight(24),
-                          width: Utils.getResponsiveWidth(24),
-                          color: Theme.of(context).iconTheme.color,
-                        ),
-                        title: Text('payments'.tr),
-                        titleTextStyle: TextStyle(
-                          color:
-                              Theme.of(
-                                context,
-                              ).extension<AppColors>()?.textBodyColor,
-                          fontSize: Utils.getResponsiveSize(16),
-                          fontFamily: 'Manrope',
-                          fontWeight: FontWeight.w500,
-                        ),
-                        onTap: () {
-                          Get.toNamed(RoutesName.paymentsScreen);
                         },
                       ),
                       ListTile(
@@ -524,7 +524,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(120)),
+                SizedBox(height: Utils.getResponsiveHeight(26)),
               ],
             ),
           ),

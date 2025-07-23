@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/view/navigation/applyJob/reviewJob/widget/back_button_widget.dart';
 import 'package:sanad/view/navigation/applyJob/reviewJob/widget/submit_button_widget.dart';
 import 'package:sanad/viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
@@ -289,7 +288,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               Spacer(),
                               InkWell(
                                 onTap: () {
-                                  Get.toNamed(RoutesName.applyJobScreen);
+                                  Get.back();
+                                  Get.back();
                                 },
                                 child: Text(
                                   'edit'.tr,
@@ -375,24 +375,24 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                         children: [
                           Row(
                             children: [
-                              Text(
-                                'are_you_open_to_relocating'.tr,
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textSecondaryColor,
+                              Expanded(
+                                child: Text(
+                                  'are_you_open_to_relocating'.tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textSecondaryColor,
+                                  ),
                                 ),
                               ),
-                              Spacer(),
+                              SizedBox(width: Utils.getResponsiveWidth(16)),
                               InkWell(
                                 onTap: () {
-                                  Get.toNamed(
-                                    RoutesName.additionalRequirementsJobScreen,
-                                  );
+                                  Get.back();
                                 },
                                 child: Text(
                                   'edit'.tr,
@@ -448,24 +448,24 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                         children: [
                           Row(
                             children: [
-                              Text(
-                                'software_programs_do_you_know'.tr,
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(14),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textSecondaryColor,
+                              Expanded(
+                                child: Text(
+                                  'software_programs_do_you_know'.tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textSecondaryColor,
+                                  ),
                                 ),
                               ),
-                              Spacer(),
+                              SizedBox(width: Utils.getResponsiveWidth(16)),
                               InkWell(
                                 onTap: () {
-                                  Get.toNamed(
-                                    RoutesName.additionalRequirementsJobScreen,
-                                  );
+                                  Get.back();
                                 },
                                 child: Text(
                                   'edit'.tr,
@@ -536,9 +536,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               Spacer(),
                               InkWell(
                                 onTap: () {
-                                  Get.toNamed(
-                                    RoutesName.additionalRequirementsJobScreen,
-                                  );
+                                  Get.back();
                                 },
                                 child: Text(
                                   'edit'.tr,
@@ -554,7 +552,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(12)),
                           Text(
-                            'have_a_portfolio',
+                            'have_a_portfolio'.tr,
                             style: TextStyle(
                               fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
@@ -622,9 +620,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               Spacer(),
                               InkWell(
                                 onTap: () {
-                                  Get.toNamed(
-                                    RoutesName.additionalRequirementsJobScreen,
-                                  );
+                                  Get.back();
                                 },
                                 child: Text(
                                   'edit'.tr,
@@ -640,7 +636,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(12)),
                           Text(
-                            'have_mentioned_certification',
+                            'have_mentioned_certification'.tr,
                             style: TextStyle(
                               fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
@@ -708,9 +704,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               Spacer(),
                               InkWell(
                                 onTap: () {
-                                  Get.toNamed(
-                                    RoutesName.additionalRequirementsJobScreen,
-                                  );
+                                  Get.back();
                                 },
                                 child: Text(
                                   'edit'.tr,
@@ -726,7 +720,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                           ),
                           SizedBox(height: Utils.getResponsiveHeight(12)),
                           Text(
-                            'how_many_years_of_experience',
+                            'how_many_years_of_experience'.tr,
                             style: TextStyle(
                               fontSize: Utils.getResponsiveSize(14),
                               fontFamily: 'Manrope',
@@ -760,6 +754,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [BackButtonWidget(), SubmitButtonWidget()],
                   ),
+                  SizedBox(height: Utils.getResponsiveHeight(50)),
                 ],
               ),
             ),

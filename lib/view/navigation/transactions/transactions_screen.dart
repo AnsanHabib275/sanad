@@ -19,12 +19,72 @@ class TransactionsScreen extends StatefulWidget {
 class _TransactionsScreenState extends State<TransactionsScreen> {
   final transactionsVM = Get.put(TransactionsViewModel());
   final List<TransactionsModel> transactionsItems = [
-    TransactionsModel(1, 'P-ID-001', '\$2300', 'Card', '', '', '', '', ''),
-    TransactionsModel(2, 'P-ID-002', '-\$670', 'Wallet', '', '', '', '', ''),
-    TransactionsModel(3, 'P-ID-003', '\$234', 'Wallet', '', '', '', '', ''),
-    TransactionsModel(4, 'P-ID-004', '\$5000', 'Card', '', '', '', '', ''),
-    TransactionsModel(5, 'P-ID-005', '\$2300', 'Wallet', '', '', '', '', ''),
-    TransactionsModel(6, 'P-ID-006', '\$560', 'Card', '', '', '', '', ''),
+    TransactionsModel(
+      1,
+      'P-ID-001',
+      '\$2300',
+      'Card',
+      '02:46 PM',
+      'Emma Caldwell',
+      'Bank Transfer',
+      'Dec 12, 2024',
+      '2567379800',
+    ),
+    TransactionsModel(
+      2,
+      'P-ID-002',
+      '-\$670',
+      'Wallet',
+      '02:46 PM',
+      'Emma Caldwell',
+      'Bank Transfer',
+      'Dec 12, 2024',
+      '2567379800',
+    ),
+    TransactionsModel(
+      3,
+      'P-ID-003',
+      '\$234',
+      'Wallet',
+      '02:46 PM',
+      'Emma Caldwell',
+      'Bank Transfer',
+      'Dec 12, 2024',
+      '2567379800',
+    ),
+    TransactionsModel(
+      4,
+      'P-ID-004',
+      '\$5000',
+      'Card',
+      '02:46 PM',
+      'Emma Caldwell',
+      'Bank Transfer',
+      'Dec 12, 2024',
+      '2567379800',
+    ),
+    TransactionsModel(
+      5,
+      'P-ID-005',
+      '\$2300',
+      'Wallet',
+      '02:46 PM',
+      'Emma Caldwell',
+      'Bank Transfer',
+      'Dec 12, 2024',
+      '2567379800',
+    ),
+    TransactionsModel(
+      6,
+      'P-ID-006',
+      '\$560',
+      'Card',
+      '02:46 PM',
+      'Emma Caldwell',
+      'Bank Transfer',
+      'Dec 12, 2024',
+      '2567379800',
+    ),
   ];
 
   @override
@@ -144,7 +204,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                     vertical: Utils.getResponsiveHeight(16),
                                   ),
                                   child: Text(
-                                    'id'.tr,
+                                    'transaction_id'.tr,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)
@@ -190,7 +250,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                     vertical: Utils.getResponsiveHeight(16),
                                   ),
                                   child: Text(
-                                    'method'.tr,
+                                    'transaction_method'.tr,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)

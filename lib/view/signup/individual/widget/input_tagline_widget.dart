@@ -45,8 +45,10 @@ class InputTaglineWidget extends StatelessWidget {
           focusedErrorBorder:
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
         ),
-        keyboardType: TextInputType.text,
-        textInputAction: TextInputAction.done,
+        keyboardType: TextInputType.multiline,
+        textInputAction: TextInputAction.newline,
+        minLines: 1,
+        maxLines: null,
       );
     });
   }

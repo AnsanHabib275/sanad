@@ -363,12 +363,10 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                                           6,
                                           2.5,
                                         ], // Dash pattern: [dashLength, spaceBetween]
-                                        // radius: Radius.circular(12),
                                       ),
 
                                       child: Container(
                                         width: Utils.getResponsiveWidth(334),
-                                        // height: Utils.getResponsiveHeight(217),
                                         decoration: BoxDecoration(
                                           color:
                                               Theme.of(
@@ -388,11 +386,11 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                                                   padding: EdgeInsets.symmetric(
                                                     vertical:
                                                         Utils.getResponsiveHeight(
-                                                          63,
+                                                          60,
                                                         ),
                                                     horizontal:
                                                         Utils.getResponsiveWidth(
-                                                          63,
+                                                          60,
                                                         ),
                                                   ),
                                                   child: GestureDetector(

@@ -4,6 +4,7 @@ import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/view/cookiesPolicy/cookies_policy_screen.dart';
 import 'package:sanad/view/navigation/about/about_screen.dart';
 import 'package:sanad/view/navigation/account/account_screen.dart';
+import 'package:sanad/view/navigation/addPaymentMethod/add_payment_method_screen.dart';
 import 'package:sanad/view/navigation/analytics/analytics_screen.dart';
 import 'package:sanad/view/navigation/applyJob/additionalRequirementJob/additional_requirements_job_screen.dart';
 import 'package:sanad/view/navigation/applyJob/generalJob/apply_job_screen.dart';
@@ -306,6 +307,13 @@ class AppRoutes {
     GetPage(
       name: RoutesName.paymentMethodScreen,
       page: () => PaymentMethodScreen(),
+      transitionDuration: Duration(milliseconds: 200),
+      transition: Transition.rightToLeft,
+      curve: Curves.easeInOut,
+    ),
+    GetPage(
+      name: RoutesName.addPaymentMethodScreen,
+      page: () => AddPaymentMethodScreen(),
       transitionDuration: Duration(milliseconds: 200),
       transition: Transition.rightToLeft,
       curve: Curves.easeInOut,

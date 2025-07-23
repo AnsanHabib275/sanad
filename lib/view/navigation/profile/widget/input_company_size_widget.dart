@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
 import '../../../../../res/assets/icon_assets.dart';
 import '../../../../../utils/utils.dart';
+import '../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 
-class InputOrganizationTypeWidget extends StatelessWidget {
-  InputOrganizationTypeWidget({super.key});
+class InputCompanySizeWidget extends StatelessWidget {
+  InputCompanySizeWidget({super.key});
 
-  final signUpVM = Get.put(SignUpViewModel());
-  final List<String> organizationType = ['Formal', 'Informal'];
+  final updateProfileVM = Get.put(UpdateProfileViewModel());
+  final List<String> companySize = [
+    'Self-employed, Sole trader',
+    '2-10',
+    '11-50',
+    '51-200',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +22,20 @@ class InputOrganizationTypeWidget extends StatelessWidget {
       return DropdownButtonFormField<String>(
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hintText: 'organization_type_hint'.tr,
+          hintText: 'company_size_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
-              signUpVM.errorMessage.value.isEmpty
+              updateProfileVM.errorMessage.value.isEmpty
                   ? null
-                  : signUpVM.errorMessage.value,
+                  : updateProfileVM.errorMessage.value,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
         ),
         value:
-            signUpVM.organizationTypeController.value.text.isEmpty
+            updateProfileVM.companySizeController.value.text.isEmpty
                 ? null
-                : signUpVM.organizationTypeController.value.text,
+                : updateProfileVM.companySizeController.value.text,
         items:
-            organizationType.map((String organization) {
+            companySize.map((String organization) {
               return DropdownMenuItem<String>(
                 value: organization,
                 child: Text(organization),
@@ -38,8 +43,7 @@ class InputOrganizationTypeWidget extends StatelessWidget {
             }).toList(),
         onChanged: (value) {
           if (value != null) {
-            signUpVM.organizationTypeController.value.text = value;
-            signUpVM.validateForm();
+            updateProfileVM.companySizeController.value.text = value;
           }
         },
         icon: Image.asset(
@@ -48,8 +52,7 @@ class InputOrganizationTypeWidget extends StatelessWidget {
           width: Utils.getResponsiveWidth(18),
           color: Theme.of(context).iconTheme.color,
         ),
-        validator:
-            (value) => value == null ? 'organization_type_error'.tr : null,
+        validator: (value) => value == null ? 'company_size_error'.tr : null,
       );
     });
   }

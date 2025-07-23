@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _navigateAfterDelay() async {
-    await Future.delayed(const Duration(milliseconds: 300));
+    await Future.delayed(const Duration(seconds: 3));
     Get.offAllNamed(RoutesName.onBoardingScreen);
   }
 

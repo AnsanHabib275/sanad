@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/themes/app_themes.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
+
+import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 class CustomTabBar extends StatefulWidget {
   const CustomTabBar({super.key});
@@ -14,7 +15,7 @@ class CustomTabBar extends StatefulWidget {
 
 class _CustomTabBarState extends State<CustomTabBar>
     with SingleTickerProviderStateMixin {
-  final applyJobVM = Get.put(ApplyJobViewModel());
+  final paymentMethodVM = Get.put(PaymentMethodViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -34,20 +35,23 @@ class _CustomTabBarState extends State<CustomTabBar>
       ),
       child: Obx(() {
         return Padding(
-          padding: EdgeInsets.all(Utils.getResponsiveHeight(4)),
+          padding: EdgeInsets.symmetric(
+            horizontal: Utils.getResponsiveWidth(4),
+            vertical: Utils.getResponsiveHeight(4),
+          ),
           child: Row(
             children: [
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    applyJobVM.setSelectionTab('general');
+                    paymentMethodVM.setSelectionTab('creditCard');
                   },
                   child: Container(
                     height: double.infinity,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color:
-                          applyJobVM.selectedTab.value == 'general'
+                          paymentMethodVM.selectedTab.value == 'creditCard'
                               ? Theme.of(
                                 context,
                               ).extension<AppColors>()?.selectedTabsBg
@@ -57,13 +61,13 @@ class _CustomTabBarState extends State<CustomTabBar>
                       ),
                     ),
                     child: Text(
-                      'general'.tr,
+                      'credit_card'.tr,
                       style: TextStyle(
                         fontSize: Utils.getResponsiveSize(14),
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                         color:
-                            applyJobVM.selectedTab.value == 'general'
+                            paymentMethodVM.selectedTab.value == 'creditCard'
                                 ? Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor
@@ -78,14 +82,14 @@ class _CustomTabBarState extends State<CustomTabBar>
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    applyJobVM.setSelectionTab('requirements');
+                    paymentMethodVM.setSelectionTab('bankAccount');
                   },
                   child: Container(
                     height: double.infinity,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color:
-                          applyJobVM.selectedTab.value == 'requirements'
+                          paymentMethodVM.selectedTab.value == 'bankAccount'
                               ? Theme.of(
                                 context,
                               ).extension<AppColors>()?.selectedTabsBg
@@ -95,13 +99,13 @@ class _CustomTabBarState extends State<CustomTabBar>
                       ),
                     ),
                     child: Text(
-                      'requirements'.tr,
+                      'bank_account'.tr,
                       style: TextStyle(
                         fontSize: Utils.getResponsiveSize(14),
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                         color:
-                            applyJobVM.selectedTab.value == 'requirements'
+                            paymentMethodVM.selectedTab.value == 'bankAccount'
                                 ? Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor

@@ -98,7 +98,7 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Image.asset(
                             IconAssets.icPostLogo,

@@ -7,13 +7,38 @@ import 'package:sanad/res/routes/routes_name.dart';
 import '../../../../../../utils/utils.dart';
 
 class NextButtonWidget extends StatelessWidget {
-  const NextButtonWidget({super.key});
+  const NextButtonWidget({
+    super.key,
+    required this.isPrivate,
+    required this.jobName,
+    required this.companyName,
+    required this.location,
+    required this.jobType,
+    required this.salaryRange,
+  });
+
+  final bool isPrivate;
+  final String jobName;
+  final String companyName;
+  final String location;
+  final String jobType;
+  final String salaryRange;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(RoutesName.reviewJobScreen);
+        Get.toNamed(
+          RoutesName.reviewJobScreen,
+          arguments: {
+            'isPrivate': isPrivate,
+            'jobName': jobName,
+            'companyName': companyName,
+            'location': location,
+            'jobType': jobType,
+            'salaryRange': salaryRange,
+          },
+        );
       },
       child: Container(
         width: Utils.getResponsiveWidth(98),

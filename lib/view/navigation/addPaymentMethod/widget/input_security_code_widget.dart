@@ -1,39 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
+import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
-class InputEmailWidget extends StatelessWidget {
-  InputEmailWidget({super.key});
+class InputSecurityCodeWidget extends StatelessWidget {
+  InputSecurityCodeWidget({super.key});
 
-  final updateProfileVM = Get.put(UpdateProfileViewModel());
+  final paymentMethodVM = Get.put(PaymentMethodViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return TextFormField(
-        controller: updateProfileVM.emailController.value,
-        focusNode: updateProfileVM.emailFocusNode.value,
+        controller: paymentMethodVM.securityCodeController.value,
+        focusNode: paymentMethodVM.securityCodeFocusNode.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         validator: (value) {
-          if (value == null ||
-              value.isEmpty ||
-              !RegExp(
-                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-              ).hasMatch(value)) {
-            return 'email_not_valid'.tr;
+          if (value == null || value.isEmpty) {
+            return 'security_code_error'.tr;
           }
           return null;
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,
         decoration: InputDecoration(
-          hint: Text('email_hint'.tr),
+          hint: Text('security_code_hint'.tr),
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
-              updateProfileVM.errorMessage.value.isNotEmpty
-                  ? updateProfileVM.errorMessage.value
-                  : null,
+              paymentMethodVM.errorMessage.value.isEmpty
+                  ? null
+                  : paymentMethodVM.errorMessage.value,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
           border: Theme.of(context).inputDecorationTheme.border,
           enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
@@ -42,7 +38,7 @@ class InputEmailWidget extends StatelessWidget {
           focusedErrorBorder:
               Theme.of(context).inputDecorationTheme.focusedErrorBorder,
         ),
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: TextInputType.number,
         textInputAction: TextInputAction.done,
       );
     });

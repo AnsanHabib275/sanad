@@ -9,6 +9,7 @@ import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 import '../../../models/wallet/wallet_model.dart';
+import '../../../res/assets/image_assets.dart';
 
 class WalletScreen extends StatefulWidget {
   const WalletScreen({super.key});
@@ -23,9 +24,9 @@ class _WalletScreenState extends State<WalletScreen> {
     WalletModel(2, 'P-ID-002', '-\$670', 'Wallet'),
     WalletModel(3, 'P-ID-003', '\$234', 'Wallet'),
     WalletModel(4, 'P-ID-004', '\$5000', 'Card'),
-    // TransactionsModel(5, 'P-ID-005', '\$2300', 'Wallet'),
-    // TransactionsModel(6, 'P-ID-006', '\$560', 'Card'),
   ];
+
+  late bool isEmpty = false;
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
@@ -134,125 +135,141 @@ class _WalletScreenState extends State<WalletScreen> {
               Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      height: Utils.getResponsiveHeight(80),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).extension<AppColors>()?.cardBg,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(Utils.getResponsiveSize(8)),
-                        ),
-                        border: Border.all(
-                          color: Theme.of(context).dividerColor,
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'deposits'.tr,
-                            style: TextStyle(
-                              color: AppColor.primaryButtonColor,
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w700,
-                              fontSize: Utils.getResponsiveSize(14),
-                            ),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isEmpty = true;
+                        });
+                      },
+                      child: Container(
+                        height: Utils.getResponsiveHeight(80),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color:
+                              Theme.of(context).extension<AppColors>()?.cardBg,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(Utils.getResponsiveSize(8)),
                           ),
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: '0',
-                                  style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(18),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w600,
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: 'riyal'.tr,
-                                  style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(18),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w600,
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
-                                  ),
-                                ),
-                              ],
-                            ),
+                          border: Border.all(
+                            color: Theme.of(context).dividerColor,
+                            width: 1.0,
                           ),
-                        ],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'deposits'.tr,
+                              style: TextStyle(
+                                color: AppColor.primaryButtonColor,
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w700,
+                                fontSize: Utils.getResponsiveSize(14),
+                              ),
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: '0',
+                                    style: TextStyle(
+                                      fontSize: Utils.getResponsiveSize(18),
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      color:
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'riyal'.tr,
+                                    style: TextStyle(
+                                      fontSize: Utils.getResponsiveSize(18),
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      color:
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(width: Utils.getResponsiveWidth(14)),
                   Expanded(
-                    child: Container(
-                      height: Utils.getResponsiveHeight(80),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).extension<AppColors>()?.cardBg,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(Utils.getResponsiveSize(8)),
-                        ),
-                        border: Border.all(
-                          color: Theme.of(context).dividerColor,
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'refunds'.tr,
-                            style: TextStyle(
-                              color: AppColor.primaryButtonColor,
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w700,
-                              fontSize: Utils.getResponsiveSize(14),
-                            ),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isEmpty = false;
+                        });
+                      },
+                      child: Container(
+                        height: Utils.getResponsiveHeight(80),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color:
+                              Theme.of(context).extension<AppColors>()?.cardBg,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(Utils.getResponsiveSize(8)),
                           ),
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: '0',
-                                  style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(18),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w600,
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: 'riyal'.tr,
-                                  style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(18),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w600,
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
-                                  ),
-                                ),
-                              ],
-                            ),
+                          border: Border.all(
+                            color: Theme.of(context).dividerColor,
+                            width: 1.0,
                           ),
-                        ],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'refunds'.tr,
+                              style: TextStyle(
+                                color: AppColor.primaryButtonColor,
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w700,
+                                fontSize: Utils.getResponsiveSize(14),
+                              ),
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: '0',
+                                    style: TextStyle(
+                                      fontSize: Utils.getResponsiveSize(18),
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      color:
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'riyal'.tr,
+                                    style: TextStyle(
+                                      fontSize: Utils.getResponsiveSize(18),
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w600,
+                                      color:
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -308,177 +325,195 @@ class _WalletScreenState extends State<WalletScreen> {
                       //     ? Column(
                       //       crossAxisAlignment: CrossAxisAlignment.start,
                       //       children: [
-                      Container(
-                        height: Utils.getResponsiveHeight(50),
-                        width: double.infinity,
-                        color:
-                            Theme.of(
-                              context,
-                            ).extension<AppColors>()?.containerBg,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: Utils.getResponsiveWidth(97),
-                              child: Center(
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: Utils.getResponsiveWidth(5),
-                                    vertical: Utils.getResponsiveHeight(16),
+                      !isEmpty
+                          ? Column(
+                            children: [
+                              Container(
+                                height: Utils.getResponsiveHeight(50),
+                                width: double.infinity,
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).extension<AppColors>()?.containerBg,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      width: Utils.getResponsiveWidth(97),
+                                      child: Center(
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                Utils.getResponsiveWidth(5),
+                                            vertical: Utils.getResponsiveHeight(
+                                              16,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            'transaction_id'.tr,
+                                            style: TextStyle(
+                                              color:
+                                                  Theme.of(context)
+                                                      .extension<AppColors>()
+                                                      ?.textBodyColor,
+                                              fontFamily: 'Manrope',
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: Utils.getResponsiveSize(
+                                                12,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: Utils.getResponsiveWidth(97),
+                                      child: Center(
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                Utils.getResponsiveWidth(5),
+                                            vertical: Utils.getResponsiveHeight(
+                                              16,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            'amount'.tr,
+                                            style: TextStyle(
+                                              color:
+                                                  Theme.of(context)
+                                                      .extension<AppColors>()
+                                                      ?.textBodyColor,
+                                              fontFamily: 'Manrope',
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: Utils.getResponsiveSize(
+                                                12,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: Utils.getResponsiveWidth(127),
+                                      child: Center(
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                Utils.getResponsiveWidth(5),
+                                            vertical: Utils.getResponsiveHeight(
+                                              16,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            'transaction_method'.tr,
+                                            style: TextStyle(
+                                              color:
+                                                  Theme.of(context)
+                                                      .extension<AppColors>()
+                                                      ?.textBodyColor,
+                                              fontFamily: 'Manrope',
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: Utils.getResponsiveSize(
+                                                12,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: Utils.getResponsiveWidth(74),
+                                      child: Center(
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                Utils.getResponsiveWidth(5),
+                                            vertical: Utils.getResponsiveHeight(
+                                              16,
+                                            ),
+                                          ),
+                                          child: Text(
+                                            'action'.tr,
+                                            style: TextStyle(
+                                              color:
+                                                  Theme.of(context)
+                                                      .extension<AppColors>()
+                                                      ?.textBodyColor,
+                                              fontFamily: 'Manrope',
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: Utils.getResponsiveSize(
+                                                12,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              ListView.builder(
+                                shrinkWrap: true,
+                                physics: const AlwaysScrollableScrollPhysics(),
+                                itemCount: walletItems.length,
+                                itemBuilder: (context, index) {
+                                  return WalletCartWidget(
+                                    wallet: walletItems[index],
+                                  );
+                                },
+                              ),
+                            ],
+                          )
+                          : Center(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                vertical: Utils.getResponsiveHeight(150),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    ImageAssets.imgEmptyTransactions,
+                                    height: Utils.getResponsiveHeight(60),
+                                    width: Utils.getResponsiveWidth(47),
                                   ),
-                                  child: Text(
-                                    'payment_id'.tr,
+                                  SizedBox(
+                                    height: Utils.getResponsiveHeight(18),
+                                  ),
+                                  Text(
+                                    'empty_transactions'.tr,
                                     style: TextStyle(
                                       color:
                                           Theme.of(context)
                                               .extension<AppColors>()
                                               ?.textBodyColor,
                                       fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: Utils.getResponsiveSize(14),
                                     ),
                                   ),
-                                ),
+                                ],
                               ),
                             ),
-                            SizedBox(
-                              width: Utils.getResponsiveWidth(97),
-                              child: Center(
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: Utils.getResponsiveWidth(5),
-                                    vertical: Utils.getResponsiveHeight(16),
-                                  ),
-                                  child: Text(
-                                    'amount'.tr,
-                                    style: TextStyle(
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textBodyColor,
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: Utils.getResponsiveSize(12),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: Utils.getResponsiveWidth(127),
-                              child: Center(
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: Utils.getResponsiveWidth(5),
-                                    vertical: Utils.getResponsiveHeight(16),
-                                  ),
-                                  child: Text(
-                                    'payment_method'.tr,
-                                    style: TextStyle(
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textBodyColor,
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: Utils.getResponsiveSize(12),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: Utils.getResponsiveWidth(74),
-                              child: Center(
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: Utils.getResponsiveWidth(5),
-                                    vertical: Utils.getResponsiveHeight(16),
-                                  ),
-                                  child: Text(
-                                    'action'.tr,
-                                    style: TextStyle(
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textBodyColor,
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: Utils.getResponsiveSize(12),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: const AlwaysScrollableScrollPhysics(),
-                          itemCount: walletItems.length,
-                          itemBuilder: (context, index) {
-                            return WalletCartWidget(wallet: walletItems[index]);
-                          },
-                        ),
-                      ),
-
-                      //   ],
-                      // )
-
-                      // ;
-                      //                       }
-                      //                       return
-                      // : Expanded(
-                      //   child: Column(
-                      //     mainAxisAlignment: MainAxisAlignment.center,
-                      //     crossAxisAlignment: CrossAxisAlignment.center,
-                      //     children: [
-                      //       Image.asset(
-                      //         ImageAssets.imgEmptyTransactions,
-                      //         height:
-                      //
-                      //             Utils.getResponsiveHeight(60),
-                      //         width:
-                      //
-                      //             Utils.getResponsiveWidth(47),
-                      //       ),
-                      //       SizedBox(
-                      //         height:
-                      //
-                      //             Utils.getResponsiveHeight(18),
-                      //       ),
-                      //       Text(
-                      //         'empty_transactions'.tr,
-                      //         style: TextStyle(
-                      //           color:
-                      //               Theme.of(context)
-                      //                   .extension<AppColors>()
-                      //                   ?.textBodyColor,
-                      //           fontFamily: 'Manrope',
-                      //           fontWeight: FontWeight.w400,
-                      //           fontSize:
-                      //
-                      //               Utils.getResponsiveSize(14),
-                      //         ),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
+                          ),
                       // ;
                       //                     }),
                     ],
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: Utils.getResponsiveHeight(16),
-                ),
-                child: ViewAllButtonWidget(),
-              ),
+              !isEmpty
+                  ? Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: Utils.getResponsiveHeight(16),
+                    ),
+                    child: ViewAllButtonWidget(),
+                  )
+                  : SizedBox.shrink(),
             ],
           ),
         ),

@@ -27,7 +27,7 @@ class InputStreetWidget extends StatelessWidget {
           Utils.fieldFocusChange(
             context,
             updateProfileVM.streetFocusNode.value,
-            updateProfileVM.cityFocusNode.value,
+            updateProfileVM.postalCodeFocusNode.value,
           );
         },
         style: Theme.of(context).inputDecorationTheme.hintStyle,

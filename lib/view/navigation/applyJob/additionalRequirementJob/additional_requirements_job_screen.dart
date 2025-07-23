@@ -562,7 +562,7 @@ class _AdditionalRequirementsJobScreenState
                                       );
                                     }),
                                     SizedBox(
-                                      height: Utils.getResponsiveHeight(32),
+                                      height: Utils.getResponsiveHeight(16),
                                     ),
                                     Text(
                                       'certification'.tr,
@@ -861,7 +861,14 @@ class _AdditionalRequirementsJobScreenState
                                           CrossAxisAlignment.center,
                                       children: [
                                         BackButtonWidget(),
-                                        NextButtonWidget(),
+                                        NextButtonWidget(
+                                          isPrivate: isPrivate,
+                                          jobName: jobName,
+                                          companyName: companyName,
+                                          location: location,
+                                          jobType: jobType,
+                                          salaryRange: salaryRange,
+                                        ),
                                       ],
                                     ),
                                   ],

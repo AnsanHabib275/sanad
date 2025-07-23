@@ -17,7 +17,7 @@ class UpdateButtonWidget extends StatelessWidget {
       height: 40,
       title: 'update'.tr,
       onPress: () {
-        Get.back();
+        // Get.back();
       },
     );
   }
