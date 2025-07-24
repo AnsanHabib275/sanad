@@ -71,6 +71,7 @@ class AppColor {
   static const Color cvAcceptedCardBgColor = Color(0xFFEBF5FF);
   static const Color cvAcceptedCountBgColor = Color(0xFFE1EFFE);
   static const Color cvAcceptedCountTextColor = Color(0xFF1C64F2);
+  static const Color halfRoundCircleColor = Color(0xFFBDBDBE);
 
   // Dark Theme Colors
   static const Color primaryDarkColor = Color(0xFF101828);
@@ -78,7 +79,7 @@ class AppColor {
   static const Color darkBackground = Color(0xFF0C1320);
   static const Color darkSurface = Color(0xFF101828);
   static const Color darkOnSurface = Colors.white;
-  static const Color secondaryButtonDarkColor = Color(0xFF101828);
+  static const Color secondaryButtonDarkColor = Color(0xFF1D2939);
   static const Color secondaryButtonTextDarkColor = Color(0xFFF9FAFB);
   static const Color textPrimaryDarkColor = Color(0xFFF9FAFB);
   static const Color textSecondaryDarkColor = Color(0xFF98A2B3);
@@ -96,6 +97,7 @@ class AppColor {
   static const Color cardBgDarkColor = Color(0xFF0C1320);
   static const Color cardSelectedBgDarkColor = Color(0xFF00383F);
   static const Color containerBgDarkColor = Color(0xFF1D2939);
+  static const Color halfRoundCircleDarkColor = Color(0xFF1D2939);
   static Color cvSubmittedCardBgDarkColor = Color(
     0xFF047481,
   ).withAlpha((0.3 * 255).toInt());

@@ -109,6 +109,7 @@ class AppThemes {
           cvAcceptedCardBgColor: AppColor.cvAcceptedCardBgColor,
           cvAcceptedCountBgColor: AppColor.cvAcceptedCountBgColor,
           cvAcceptedCountTextColor: AppColor.cvAcceptedCountTextColor,
+          halfRoundCircleColor: AppColor.halfRoundCircleColor,
         ),
       ],
       cardTheme: CardThemeData(
@@ -234,6 +235,7 @@ class AppThemes {
           cvAcceptedCardBgColor: AppColor.cvAcceptedCardBgDarkColor,
           cvAcceptedCountBgColor: AppColor.cvAcceptedCountBgDarkColor,
           cvAcceptedCountTextColor: AppColor.cvAcceptedCountTextDarkColor,
+          halfRoundCircleColor: AppColor.halfRoundCircleDarkColor,
         ),
       ],
       cardTheme: CardThemeData(
@@ -275,6 +277,7 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color cvAcceptedCardBgColor;
   final Color cvAcceptedCountBgColor;
   final Color cvAcceptedCountTextColor;
+  final Color halfRoundCircleColor;
 
   AppColors({
     required this.bg,
@@ -298,6 +301,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.cvAcceptedCardBgColor,
     required this.cvAcceptedCountBgColor,
     required this.cvAcceptedCountTextColor,
+    required this.halfRoundCircleColor,
   });
 
   @override
@@ -323,6 +327,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? cvAcceptedCardBgColor,
     Color? cvAcceptedCountBgColor,
     Color? cvAcceptedCountTextColor,
+    Color? halfRoundCircleColor,
   }) {
     return AppColors(
       bg: bg ?? this.bg,
@@ -352,6 +357,7 @@ class AppColors extends ThemeExtension<AppColors> {
           cvAcceptedCountBgColor ?? this.cvAcceptedCountBgColor,
       cvAcceptedCountTextColor:
           cvAcceptedCountTextColor ?? this.cvAcceptedCountTextColor,
+      halfRoundCircleColor: halfRoundCircleColor ?? this.halfRoundCircleColor,
     );
   }
 
@@ -402,6 +408,8 @@ class AppColors extends ThemeExtension<AppColors> {
             other.cvAcceptedCountTextColor,
             t,
           )!,
+      halfRoundCircleColor:
+          Color.lerp(halfRoundCircleColor, other.halfRoundCircleColor, t)!,
     );
   }
 }

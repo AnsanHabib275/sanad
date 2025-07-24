@@ -25,6 +25,7 @@ class ImageAssets {
   static const String imgRating = 'assets/images/img_rating.png';
   static const String imgRiyalWallet = 'assets/images/img_riyal_wallet.png';
   static const String imgSuccessFull = 'assets/images/img_success_full.png';
+  static const String imgSuccessLarge = 'assets/images/img_success_large.png';
   static const String imgResetDone = 'assets/images/img_reset_done.png';
   static const String imgEmptyTransactions =
       'assets/images/img_empty_transactions.png';
@@ -36,9 +37,12 @@ class ImageAssets {
   static const String imgAddPhoto = 'assets/images/img_add_photo.png';
   static const String imgDummyPicture = 'assets/images/img_dummy_picture.png';
   static const String saudiRiyalSymbol = 'assets/images/saudi_riyal_symbol.png';
-  static const String imgSaudiRiyalSymbol = 'assets/images/img_saudi_riyal_symbol.png';
-  static const String imgWithdrawFundsVerification = 'assets/images/img_withdraw_funds_verification.png';
+  static const String imgSaudiRiyalSymbol =
+      'assets/images/img_saudi_riyal_symbol.png';
+  static const String imgWithdrawFundsVerification =
+      'assets/images/img_withdraw_funds_verification.png';
   static const String imgDottedLine = 'assets/images/img_dotted_line.png';
+  static const String imgHalfRound = 'assets/images/img_half_round.png';
   static const String imgMasterCard = 'assets/images/img_master_card.png';
   static const String imgAddCard = 'assets/images/img_add_card.png';
 }

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
@@ -59,7 +61,7 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                   Image.asset(
                     height: Utils.getResponsiveHeight(92),
                     width: Utils.getResponsiveWidth(92),
-                    ImageAssets.imgSuccessFull,
+                    ImageAssets.imgSuccessLarge,
                   ),
                   SizedBox(height: Utils.getResponsiveHeight(20)),
                   Text(
@@ -101,7 +103,39 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: Utils.getResponsiveHeight(32)),
-                  Image.asset(ImageAssets.imgDottedLine),
+                  Row(
+                    children: [
+                      Image.asset(
+                        ImageAssets.imgHalfRound,
+                        color:
+                            Theme.of(
+                              context,
+                            ).extension<AppColors>()?.halfRoundCircleColor,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Utils.getResponsiveWidth(6),
+                        ),
+                        child: Image.asset(
+                          ImageAssets.imgDottedLine,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.halfRoundCircleColor,
+                        ),
+                      ),
+                      Transform.rotate(
+                        angle: 180 * pi / 180,
+                        child: Image.asset(
+                          ImageAssets.imgHalfRound,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.halfRoundCircleColor,
+                        ),
+                      ),
+                    ],
+                  ),
                   SizedBox(height: Utils.getResponsiveHeight(32)),
                   Text(
                     'withdraw_destination'.tr,

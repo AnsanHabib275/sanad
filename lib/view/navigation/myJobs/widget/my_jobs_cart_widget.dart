@@ -135,15 +135,17 @@ class _MyJobsCartWidgetState extends State<MyJobsCartWidget> {
                       width: Utils.getResponsiveWidth(24),
                     ),
                     SizedBox(width: Utils.getResponsiveWidth(8)),
-                    Image.asset(
-                      IconAssets.icBookmark,
-                      height: Utils.getResponsiveHeight(24),
-                      width: Utils.getResponsiveWidth(24),
-                      color:
-                          myJobsVM.selectedTab.value == 'saved'
-                              ? AppColor.primaryColor
-                              : AppColor.textSecondaryDarkColor,
-                    ),
+                    Obx(() {
+                      return Image.asset(
+                        IconAssets.icBookmark,
+                        height: Utils.getResponsiveHeight(24),
+                        width: Utils.getResponsiveWidth(24),
+                        color:
+                            myJobsVM.selectedTab.value == 'saved'
+                                ? AppColor.primaryColor
+                                : AppColor.textSecondaryDarkColor,
+                      );
+                    }),
                   ],
                 ),
                 SizedBox(height: Utils.getResponsiveHeight(12)),

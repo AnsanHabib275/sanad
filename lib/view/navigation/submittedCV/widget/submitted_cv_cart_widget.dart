@@ -244,7 +244,9 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                     : Container(
                       decoration: BoxDecoration(
                         color:
-                            Theme.of(context).extension<AppColors>()?.buttonBg,
+                            Theme.of(
+                              context,
+                            ).extension<AppColors>()?.containerBg,
                         borderRadius: BorderRadius.all(
                           Radius.circular(Utils.getResponsiveHeight(6)),
                         ),

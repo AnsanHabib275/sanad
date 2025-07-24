@@ -8,7 +8,6 @@ import '../../../res/assets/image_assets.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
@@ -17,15 +16,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _navigateAfterDelay();
-    // Future.delayed(const Duration(seconds: 3), () {
-    //   Get.toNamed(RoutesName.onBoardingScreen);
-    // });
-  }
-
-  Future<void> _navigateAfterDelay() async {
-    await Future.delayed(const Duration(seconds: 3));
-    Get.offAllNamed(RoutesName.onBoardingScreen);
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) {
+        Get.offNamed(RoutesName.onBoardingScreen);
+      }
+    });
   }
 
   @override
@@ -52,34 +47,32 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       child: MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1)),
-        child: PopScope(
-          canPop: false,
-          child: Scaffold(
-            backgroundColor: Theme.of(context).splashColor,
-            body: Stack(
-              children: [
-                Image(
-                  height: Get.height * 1,
-                  width: Get.width * 1,
-                  image: AssetImage(ImageAssets.splashBg),
-                  fit: BoxFit.cover,
+        child: Scaffold(
+          backgroundColor: Theme.of(context).splashColor,
+          body: Stack(
+            children: [
+              Image(
+                height: Get.height * 1,
+                width: Get.width * 1,
+                image: AssetImage(ImageAssets.splashBg),
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                left: Utils.getResponsiveWidth(110),
+                right: Utils.getResponsiveWidth(110),
+                top: Utils.getResponsiveHeight(430),
+                bottom: Utils.getResponsiveHeight(430),
+                child: Image.asset(
+                  ImageAssets.appLogoLarge,
+                  width: Utils.getResponsiveWidth(203),
+                  height: Utils.getResponsiveHeight(70),
                 ),
-                Positioned(
-                  left: Utils.getResponsiveWidth(110),
-                  right: Utils.getResponsiveWidth(110),
-                  top: Utils.getResponsiveHeight(430),
-                  bottom: Utils.getResponsiveHeight(430),
-                  child: Image.asset(
-                    ImageAssets.appLogoLarge,
-                    width: Utils.getResponsiveWidth(203),
-                    height: Utils.getResponsiveHeight(70),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
+    // });
   }
 }

@@ -23,73 +23,77 @@ class InputOTPWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: focusNode, // Listen to focus changes
-        builder: (context, child) {
-      return TextFormField(
-      controller: controller,
-      focusNode: focusNode,
-      onFieldSubmitted: (value) {
-        if (nextFocusNode != null) {
-          Utils.fieldFocusChange(context, focusNode, nextFocusNode!);
-        }
+      animation: focusNode, // Listen to focus changes
+      builder: (context, child) {
+        return TextFormField(
+          controller: controller,
+          focusNode: focusNode,
+          onFieldSubmitted: (value) {
+            if (nextFocusNode != null) {
+              Utils.fieldFocusChange(context, focusNode, nextFocusNode!);
+            }
+          },
+          onChanged: (value) {
+            if (value.length == 1) {
+              if (nextFocusNode != null) {
+                Utils.fieldFocusChange(context, focusNode, nextFocusNode!);
+              }
+              otpVM.checkOtpFilled();
+            }
+          },
+          style: TextStyle(
+            color: Theme.of(context).extension<AppColors>()?.otpText,
+            fontSize: Utils.getResponsiveSize(18),
+            fontFamily: 'Manrope',
+            fontWeight: FontWeight.w600,
+          ),
+          decoration: InputDecoration(
+            filled: false,
+            // fillColor: focusNode.hasFocus ? AppColor.cardSelectedBgColor : Theme.of(context).extension<AppColors>()?.cardBg,
+            counterText: "",
+            contentPadding: EdgeInsets.symmetric(
+              vertical: Utils.getResponsiveHeight(12),
+            ),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(
+                color:
+                    Theme.of(
+                      context,
+                    ).inputDecorationTheme.border!.borderSide.color,
+                width: 0.8,
+              ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(Utils.getResponsiveSize(8)),
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                // color: AppColor.primaryButtonColor,
+                color:
+                    Theme.of(
+                      context,
+                    ).inputDecorationTheme.border!.borderSide.color,
+                width: 0.8,
+              ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(Utils.getResponsiveSize(8)),
+              ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: AppColor.primaryButtonColor,
+                width: 0.8,
+              ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(Utils.getResponsiveSize(8)),
+              ),
+            ),
+          ),
+          textAlign: TextAlign.center,
+          maxLength: 1,
+          keyboardType: TextInputType.number,
+        );
       },
-      onChanged: (value) {
-        if (value.length == 1) {
-          if (nextFocusNode != null) {
-            Utils.fieldFocusChange(context, focusNode, nextFocusNode!);
-          }
-          otpVM.checkOtpFilled();
-        }
-      },
-      style: TextStyle(
-        color: Theme.of(context).extension<AppColors>()?.otpText,
-        fontSize: Utils.getResponsiveSize(18),
-        fontFamily: 'Manrope',
-        fontWeight: FontWeight.w600,
-      ),
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: focusNode.hasFocus ? AppColor.cardSelectedBgColor : Theme.of(context).extension<AppColors>()?.cardBg,
-        counterText: "",
-        contentPadding: EdgeInsets.symmetric(
-          vertical: Utils.getResponsiveHeight(12),
-        ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color:
-                Theme.of(context).inputDecorationTheme.border!.borderSide.color,
-            width: 0.8,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(Utils.getResponsiveSize(8)),
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            // color: AppColor.primaryButtonColor,
-            color:
-            Theme.of(context).inputDecorationTheme.border!.borderSide.color,
-            width: 0.8,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(Utils.getResponsiveSize(8)),
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: AppColor.primaryButtonColor,
-            width: 0.8,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(Utils.getResponsiveSize(8)),
-          ),
-        ),
-      ),
-      textAlign: TextAlign.center,
-      maxLength: 1,
-      keyboardType: TextInputType.number,
-    );
-  }
     );
   }
 }

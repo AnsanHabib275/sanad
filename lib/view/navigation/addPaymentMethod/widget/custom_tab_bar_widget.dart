@@ -68,12 +68,8 @@ class _CustomTabBarState extends State<CustomTabBar>
                         fontWeight: FontWeight.w600,
                         color:
                             paymentMethodVM.selectedTab.value == 'creditCard'
-                                ? Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textPrimaryColor
-                                : Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textBodyColor,
+                                ? AppColor.primaryButtonColor
+                                : AppColor.textSecondaryColor,
                       ),
                     ),
                   ),
@@ -106,12 +102,8 @@ class _CustomTabBarState extends State<CustomTabBar>
                         fontWeight: FontWeight.w600,
                         color:
                             paymentMethodVM.selectedTab.value == 'bankAccount'
-                                ? Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textPrimaryColor
-                                : Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textBodyColor,
+                                ? AppColor.primaryButtonColor
+                                : AppColor.textSecondaryColor,
                       ),
                     ),
                   ),

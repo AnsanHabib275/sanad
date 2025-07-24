@@ -8,14 +8,50 @@ import 'package:sanad/res/themes/app_themes.dart';
 import 'package:sanad/viewModels/services/theme_service.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+    await _initializeCoreServices();
+
+    runApp(const MyApp());
+  } catch (e) {
+    runApp(const ErrorApp());
+  }
+}
+
+Future<void> _initializeCoreServices() async {
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   final themeService = Get.put(ThemeService());
   await themeService.init();
   SystemChrome.setSystemUIOverlayStyle(
     Get.isDarkMode ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
   );
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const MyApp());
+}
+
+class ErrorApp extends StatelessWidget {
+  const ErrorApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('Initialization failed'),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () => runApp(const MyApp()),
+                child: const Text('Retry'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -34,8 +70,6 @@ class MyApp extends StatelessWidget {
       darkTheme: AppThemes.darkTheme(context),
       themeMode: themeService.themeMode,
       initialRoute: RoutesName.splashScreen,
-
-      // initialRoute: RoutesName.navigationScreen,
       getPages: AppRoutes.appRoutes(),
     );
   }

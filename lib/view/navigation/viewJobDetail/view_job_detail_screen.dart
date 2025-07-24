@@ -193,22 +193,26 @@ class _ViewJobDetailScreenState extends State<ViewJobDetailScreen> {
                       ),
                       child: SizedBox(
                         height: Utils.getResponsiveHeight(22),
-                        child: Flexible(
-                          child: ListView.separated(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            physics: AlwaysScrollableScrollPhysics(),
-                            itemCount: jobSpecifications.length,
-                            separatorBuilder:
-                                (context, index) => SizedBox(
-                                  width: Utils.getResponsiveWidth(8),
-                                ),
-                            itemBuilder: (context, index) {
-                              return JobSpecificationsCartWidget(
-                                jobSpecification: jobSpecifications[index],
-                              );
-                            },
-                          ),
+                        child: Column(
+                          children: [
+                            Flexible(
+                              child: ListView.separated(
+                                scrollDirection: Axis.horizontal,
+                                shrinkWrap: true,
+                                physics: AlwaysScrollableScrollPhysics(),
+                                itemCount: jobSpecifications.length,
+                                separatorBuilder:
+                                    (context, index) => SizedBox(
+                                      width: Utils.getResponsiveWidth(8),
+                                    ),
+                                itemBuilder: (context, index) {
+                                  return JobSpecificationsCartWidget(
+                                    jobSpecification: jobSpecifications[index],
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),

@@ -272,6 +272,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'cv'.tr,
@@ -374,6 +375,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Expanded(
                                 child: Text(
@@ -447,6 +449,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Expanded(
                                 child: Text(
@@ -520,6 +523,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'portfolio'.tr,
@@ -604,6 +608,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'certification'.tr,
@@ -688,6 +693,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'experience'.tr,

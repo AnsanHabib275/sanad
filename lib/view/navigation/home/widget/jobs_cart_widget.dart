@@ -139,22 +139,24 @@ class _JobsCartWidgetState extends State<JobsCartWidget> {
                       width: Utils.getResponsiveWidth(24),
                     ),
                     SizedBox(width: Utils.getResponsiveWidth(8)),
-                    GestureDetector(
-                      onTap: () {
-                        jobsVM.toggleSelection(widget.jobs.jobId.toString());
-                      },
-                      child: Image.asset(
-                        IconAssets.icBookmark,
-                        height: Utils.getResponsiveHeight(24),
-                        width: Utils.getResponsiveWidth(24),
-                        color:
-                            jobsVM.savedJobs.contains(
-                                  widget.jobs.jobId.toString(),
-                                )
-                                ? AppColor.primaryColor
-                                : AppColor.textSecondaryDarkColor,
-                      ),
-                    ),
+                    Obx(() {
+                      return GestureDetector(
+                        onTap: () {
+                          jobsVM.toggleSelection(widget.jobs.jobId.toString());
+                        },
+                        child: Image.asset(
+                          IconAssets.icBookmark,
+                          height: Utils.getResponsiveHeight(24),
+                          width: Utils.getResponsiveWidth(24),
+                          color:
+                              jobsVM.savedJobs.contains(
+                                    widget.jobs.jobId.toString(),
+                                  )
+                                  ? AppColor.primaryColor
+                                  : AppColor.textSecondaryDarkColor,
+                        ),
+                      );
+                    }),
                   ],
                 ),
                 SizedBox(height: Utils.getResponsiveHeight(12)),

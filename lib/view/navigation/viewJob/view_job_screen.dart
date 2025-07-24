@@ -1222,7 +1222,6 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                     IconAssets.icPostLogo,
                     height: Utils.getResponsiveHeight(32),
                     width: Utils.getResponsiveWidth(32),
-                    color: AppColor.cvAcceptedCardBgDarkColor,
                   ),
                   SizedBox(width: Utils.getResponsiveWidth(16)),
                   Expanded(

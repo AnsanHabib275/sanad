@@ -18,7 +18,7 @@ class ApplyAgainButtonWidget extends StatelessWidget {
       height: 40,
       title: 'apply_again'.tr,
       onPress: () {
-        Get.offAll(() => NavigationScreen(initialIndex: 0));
+        Get.offAll(() => NavigationScreen(initialIndex: 1));
       },
     );
   }

@@ -242,7 +242,7 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                       color:
                                           Theme.of(
                                             context,
-                                          ).extension<AppColors>()?.buttonBg,
+                                          ).extension<AppColors>()?.containerBg,
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(
                                           Utils.getResponsiveHeight(8),
