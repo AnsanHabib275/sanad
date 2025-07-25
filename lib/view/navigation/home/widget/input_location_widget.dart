@@ -18,18 +18,18 @@ class InputLocationWidget extends StatelessWidget {
       onTap: () {},
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: Utils.getResponsiveWidth(16),
-          vertical: Utils.getResponsiveHeight(8),
+          horizontal: Utils.getResponsiveWidth(context, 16),
+          vertical: Utils.getResponsiveHeight(context, 8),
         ),
         child: Row(
           children: [
             Image.asset(
               IconAssets.icMapPin,
-              height: Utils.getResponsiveHeight(24),
-              width: Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(context, 24),
+              width: Utils.getResponsiveWidth(context, 24),
               color: Theme.of(context).iconTheme.color,
             ),
-            SizedBox(width: Utils.getResponsiveWidth(10)),
+            SizedBox(width: Utils.getResponsiveWidth(context, 10)),
             Text(
               'location'.tr,
               style: TextStyle(
@@ -37,7 +37,7 @@ class InputLocationWidget extends StatelessWidget {
                     Theme.of(
                       context,
                     ).extension<AppColors>()?.textSecondaryColor,
-                fontSize: Utils.getResponsiveSize(14),
+                fontSize: Utils.getResponsiveSize(context, 14),
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w500,
               ),

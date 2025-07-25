@@ -25,8 +25,8 @@ class ThemeToggleWidget extends StatelessWidget {
         child: SwitchListTile(
           secondary: Image.asset(
             IconAssets.icDarkTheme,
-            height: Utils.getResponsiveHeight(24),
-            width: Utils.getResponsiveWidth(24),
+            height: Utils.getResponsiveHeight(context, 24),
+            width: Utils.getResponsiveWidth(context, 24),
             color: Theme.of(context).iconTheme.color,
           ),
           title: Transform.translate(
@@ -35,7 +35,7 @@ class ThemeToggleWidget extends StatelessWidget {
               'dark_theme'.tr,
               style: TextStyle(
                 color: Theme.of(context).extension<AppColors>()?.textBodyColor,
-                fontSize: Utils.getResponsiveSize(16),
+                fontSize: Utils.getResponsiveSize(context, 16),
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w500,
               ),

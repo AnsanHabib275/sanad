@@ -38,8 +38,8 @@ class _OTPScreenState extends State<OTPScreen> {
             leading: IconButton(
               icon: Image.asset(
                 IconAssets.icArrowLeft,
-                height: Utils.getResponsiveHeight(24),
-                width: Utils.getResponsiveWidth(24),
+                height: Utils.getResponsiveHeight(context, 24),
+                width: Utils.getResponsiveWidth(context, 24),
                 color: Theme.of(context).iconTheme.color,
               ),
               onPressed: () => Get.back(),
@@ -61,13 +61,15 @@ class _OTPScreenState extends State<OTPScreen> {
               return SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(32),
+                    horizontal: Utils.getResponsiveWidth(context, 30),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: kToolbarHeight + Utils.getResponsiveHeight(74),
+                        height:
+                            kToolbarHeight +
+                            Utils.getResponsiveHeight(context, 74),
                       ),
                       Text(
                         'enter_your_security_code_we_sent_to'.tr,
@@ -76,7 +78,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textPrimaryColor,
-                          fontSize: Utils.getResponsiveSize(14),
+                          fontSize: Utils.getResponsiveSize(context, 14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
                         ),
@@ -88,12 +90,12 @@ class _OTPScreenState extends State<OTPScreen> {
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textPrimaryColor,
-                          fontSize: Utils.getResponsiveSize(14),
+                          fontSize: Utils.getResponsiveSize(context, 14),
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      SizedBox(height: Utils.getResponsiveHeight(23)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 23)),
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -104,20 +106,20 @@ class _OTPScreenState extends State<OTPScreen> {
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(context, 14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                      SizedBox(height: Utils.getResponsiveHeight(10)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 10)),
                       Obx(() {
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             SizedBox(
-                              width: Utils.getResponsiveWidth(55),
-                              height: Utils.getResponsiveHeight(55),
+                              width: Utils.getResponsiveWidth(context, 55),
+                              height: Utils.getResponsiveHeight(context, 55),
                               child: InputOTPWidget(
                                 controller: otpVM.otpOneController.value,
                                 focusNode: otpVM.otpOneFocusNode.value,
@@ -125,8 +127,8 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: Utils.getResponsiveWidth(55),
-                              height: Utils.getResponsiveHeight(55),
+                              width: Utils.getResponsiveWidth(context, 55),
+                              height: Utils.getResponsiveHeight(context, 55),
                               child: InputOTPWidget(
                                 controller: otpVM.otpTwoController.value,
                                 focusNode: otpVM.otpTwoFocusNode.value,
@@ -134,8 +136,8 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: Utils.getResponsiveWidth(55),
-                              height: Utils.getResponsiveHeight(55),
+                              width: Utils.getResponsiveWidth(context, 55),
+                              height: Utils.getResponsiveHeight(context, 55),
                               child: InputOTPWidget(
                                 controller: otpVM.otpThreeController.value,
                                 focusNode: otpVM.otpThreeFocusNode.value,
@@ -143,8 +145,8 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: Utils.getResponsiveWidth(55),
-                              height: Utils.getResponsiveHeight(55),
+                              width: Utils.getResponsiveWidth(context, 55),
+                              height: Utils.getResponsiveHeight(context, 55),
                               child: InputOTPWidget(
                                 controller: otpVM.otpFourController.value,
                                 focusNode: otpVM.otpFourFocusNode.value,
@@ -152,8 +154,8 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: Utils.getResponsiveWidth(55),
-                              height: Utils.getResponsiveHeight(55),
+                              width: Utils.getResponsiveWidth(context, 55),
+                              height: Utils.getResponsiveHeight(context, 55),
                               child: InputOTPWidget(
                                 controller: otpVM.otpFiveController.value,
                                 focusNode: otpVM.otpFiveFocusNode.value,
@@ -161,8 +163,8 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             SizedBox(
-                              width: Utils.getResponsiveWidth(55),
-                              height: Utils.getResponsiveHeight(55),
+                              width: Utils.getResponsiveWidth(context, 55),
+                              height: Utils.getResponsiveHeight(context, 55),
                               child: InputOTPWidget(
                                 controller: otpVM.otpSixController.value,
                                 focusNode: otpVM.otpSixFocusNode.value,
@@ -171,7 +173,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           ],
                         );
                       }),
-                      SizedBox(height: Utils.getResponsiveHeight(26)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 26)),
                       InkWell(
                         onTap: () {
                           otpVM.resendCodeApi(accountId);
@@ -182,15 +184,15 @@ class _OTPScreenState extends State<OTPScreen> {
                           style: TextStyle(
                             color: AppColor.primaryButtonColor,
                             decoration: TextDecoration.underline,
-                            fontSize: Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(context, 14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
-                      SizedBox(height: Utils.getResponsiveHeight(39)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 39)),
                       NextButtonWidget(formKey: _formKey, from: from),
-                      SizedBox(height: Utils.getResponsiveHeight(20)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 20)),
                     ],
                   ),
                 ),

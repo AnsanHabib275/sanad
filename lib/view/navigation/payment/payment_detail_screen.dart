@@ -4,7 +4,6 @@ import 'package:sanad/res/assets/image_assets.dart';
 import 'package:sanad/view/navigation/payment/widget/view_button_widget.dart';
 
 import '../../../../res/assets/icon_assets.dart';
-import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 
@@ -34,8 +33,8 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Utils.getResponsiveHeight(24),
-              width: Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(context, 24),
+              width: Utils.getResponsiveWidth(context, 24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -52,20 +51,20 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(context, 16),
           ),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: Utils.getResponsiveHeight(16)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(Utils.getResponsiveSize(12)),
+                      Radius.circular(Utils.getResponsiveSize(context, 12)),
                     ),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
@@ -77,10 +76,10 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SizedBox(height: Utils.getResponsiveHeight(16)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Utils.getResponsiveWidth(16),
+                          horizontal: Utils.getResponsiveWidth(context, 16),
                         ),
                         child: Text(
                           'payment_details'.tr,
@@ -90,16 +89,16 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Utils.getResponsiveSize(16),
+                            fontSize: Utils.getResponsiveSize(context, 16),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
-                      SizedBox(height: Utils.getResponsiveHeight(4)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 4)),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Utils.getResponsiveWidth(16),
+                          horizontal: Utils.getResponsiveWidth(context, 16),
                         ),
                         child: Text(
                           'track_your_payment_details_here'.tr,
@@ -109,19 +108,21 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textSecondaryColor,
-                            fontSize: Utils.getResponsiveSize(12),
+                            fontSize: Utils.getResponsiveSize(context, 12),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                      SizedBox(height: Utils.getResponsiveHeight(16)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                       Divider(
                         color: Theme.of(context).dividerColor,
-                        height: Utils.getResponsiveHeight(1),
+                        height: Utils.getResponsiveHeight(context, 1),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(Utils.getResponsiveHeight(16)),
+                        padding: EdgeInsets.all(
+                          Utils.getResponsiveHeight(context, 16),
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,11 +142,17 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        14,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      8,
+                                    ),
                                   ),
                                   Text(
                                     jobTitle,
@@ -156,11 +163,17 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(18),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        18,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(20),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      20,
+                                    ),
                                   ),
                                   Text(
                                     'payment_id'.tr,
@@ -171,11 +184,17 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        14,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      8,
+                                    ),
                                   ),
                                   Text(
                                     paymentID,
@@ -186,11 +205,17 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(18),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        18,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(20),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      20,
+                                    ),
                                   ),
                                   Text(
                                     'payment_amount'.tr,
@@ -201,11 +226,17 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        14,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      8,
+                                    ),
                                   ),
                                   Text(
                                     amount,
@@ -216,11 +247,17 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(18),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        18,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(20),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      20,
+                                    ),
                                   ),
                                   Text(
                                     'invoice'.tr,
@@ -231,11 +268,17 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        14,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      8,
+                                    ),
                                   ),
                                   Container(
                                     decoration: BoxDecoration(
@@ -245,16 +288,20 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                           ).extension<AppColors>()?.containerBg,
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(
-                                          Utils.getResponsiveHeight(8),
+                                          Utils.getResponsiveHeight(context, 8),
                                         ),
                                       ),
                                     ),
                                     child: Padding(
                                       padding: EdgeInsets.symmetric(
                                         horizontal: Utils.getResponsiveWidth(
+                                          context,
                                           12,
                                         ),
-                                        vertical: Utils.getResponsiveHeight(8),
+                                        vertical: Utils.getResponsiveHeight(
+                                          context,
+                                          8,
+                                        ),
                                       ),
                                       child: Row(
                                         mainAxisAlignment:
@@ -266,21 +313,29 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                           Image.asset(
                                             ImageAssets.imgDownload,
                                             height: Utils.getResponsiveHeight(
+                                              context,
                                               18,
                                             ),
-                                            width: Utils.getResponsiveWidth(18),
+                                            width: Utils.getResponsiveWidth(
+                                              context,
+                                              18,
+                                            ),
                                             color:
                                                 Theme.of(
                                                   context,
                                                 ).iconTheme.color,
                                           ),
                                           SizedBox(
-                                            width: Utils.getResponsiveWidth(8),
+                                            width: Utils.getResponsiveWidth(
+                                              context,
+                                              8,
+                                            ),
                                           ),
                                           Text(
                                             'download_invoice'.tr,
                                             style: TextStyle(
                                               fontSize: Utils.getResponsiveSize(
+                                                context,
                                                 12,
                                               ),
                                               fontFamily: 'Manrope',
@@ -298,7 +353,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                 ],
                               ),
                             ),
-                            SizedBox(width: Utils.getResponsiveWidth(16)),
+                            SizedBox(
+                              width: Utils.getResponsiveWidth(context, 16),
+                            ),
                             Expanded(
                               flex: 1,
                               child: Column(
@@ -320,14 +377,20 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                                   ?.textSecondaryColor,
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w500,
-                                          fontSize: Utils.getResponsiveSize(14),
+                                          fontSize: Utils.getResponsiveSize(
+                                            context,
+                                            14,
+                                          ),
                                         ),
                                       ),
                                       ViewButtonWidget(),
                                     ],
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      8,
+                                    ),
                                   ),
                                   Text(
                                     cvName,
@@ -338,11 +401,17 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(18),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        18,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(20),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      20,
+                                    ),
                                   ),
                                   Text(
                                     'payment_date'.tr,
@@ -353,11 +422,17 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               ?.textSecondaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        14,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      8,
+                                    ),
                                   ),
                                   Text(
                                     paymentDate,
@@ -368,61 +443,9 @@ class _PaymentDetailScreenState extends State<PaymentDetailScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(18),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: Utils.getResponsiveHeight(20),
-                                  ),
-                                  Text(
-                                    'status'.tr,
-                                    style: TextStyle(
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textSecondaryColor,
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(14),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: Utils.getResponsiveHeight(8),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color:
-                                          status == 'Expired'
-                                              ? AppColor.errorBgColor
-                                              : status == 'Hired'
-                                              ? AppColor.successBgColor
-                                              : AppColor.runningBgColor,
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(
-                                          Utils.getResponsiveHeight(6),
-                                        ),
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: Utils.getResponsiveWidth(
-                                          10,
-                                        ),
-                                        vertical: Utils.getResponsiveHeight(2),
-                                      ),
-                                      child: Text(
-                                        status,
-                                        style: TextStyle(
-                                          fontSize: Utils.getResponsiveSize(12),
-                                          fontFamily: 'Inter',
-                                          fontWeight: FontWeight.w500,
-                                          color:
-                                              status == 'Expired'
-                                                  ? AppColor.errorTextColor
-                                                  : status == 'Hired'
-                                                  ? AppColor.successTextColor
-                                                  : AppColor.runningTextColor,
-                                        ),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        18,
                                       ),
                                     ),
                                   ),

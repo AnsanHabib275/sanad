@@ -36,13 +36,13 @@ class _PreferJobTypeCartWidgetState extends State<PreferJobTypeCartWidget> {
                     ? AppColor.primaryColor
                     : Theme.of(context).extension<AppColors>()?.containerBg,
             borderRadius: BorderRadius.all(
-              Radius.circular(Utils.getResponsiveHeight(8)),
+              Radius.circular(Utils.getResponsiveHeight(context, 8)),
             ),
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Utils.getResponsiveWidth(12),
-              vertical: Utils.getResponsiveHeight(8),
+              horizontal: Utils.getResponsiveWidth(context, 12),
+              vertical: Utils.getResponsiveHeight(context, 8),
             ),
             child: Text(
               widget.preferJobType,
@@ -50,7 +50,7 @@ class _PreferJobTypeCartWidgetState extends State<PreferJobTypeCartWidget> {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontSize: Utils.getResponsiveSize(14),
+                fontSize: Utils.getResponsiveSize(context, 14),
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w400,
                 color:

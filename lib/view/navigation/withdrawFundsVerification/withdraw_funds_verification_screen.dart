@@ -14,10 +14,12 @@ class WithdrawFundsVerificationScreen extends StatefulWidget {
   const WithdrawFundsVerificationScreen({super.key});
 
   @override
-  State<WithdrawFundsVerificationScreen> createState() => _WithdrawFundsVerificationScreenState();
+  State<WithdrawFundsVerificationScreen> createState() =>
+      _WithdrawFundsVerificationScreenState();
 }
 
-class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificationScreen> {
+class _WithdrawFundsVerificationScreenState
+    extends State<WithdrawFundsVerificationScreen> {
   final wfvVM = Get.put(WithdrawFundsVerificationViewModel());
   final _formKey = GlobalKey<FormState>();
   // final from = Get.arguments['from'] ?? '';
@@ -39,8 +41,8 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
             leading: IconButton(
               icon: Image.asset(
                 IconAssets.icArrowLeft,
-                height: Utils.getResponsiveHeight(24),
-                width: Utils.getResponsiveWidth(24),
+                height: Utils.getResponsiveHeight(context, 24),
+                width: Utils.getResponsiveWidth(context, 24),
                 color: Theme.of(context).iconTheme.color,
               ),
               onPressed: () => Get.back(),
@@ -62,21 +64,19 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
               return SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(16),
+                    horizontal: Utils.getResponsiveWidth(context, 16),
                   ),
                   child: Column(
                     children: [
-                      SizedBox(
-                        height:
-                            Utils.getResponsiveHeight(130),
-                      ),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 130)),
                       Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Theme.of(context).extension<AppColors>()?.cardBg,
+                          color:
+                              Theme.of(context).extension<AppColors>()?.cardBg,
                           borderRadius: BorderRadius.all(
                             Radius.circular(
-                              Utils.getResponsiveHeight(8),
+                              Utils.getResponsiveHeight(context, 8),
                             ),
                           ),
                           border: Border.all(
@@ -86,93 +86,126 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: Utils.getResponsiveWidth(16),
-                            vertical: Utils.getResponsiveHeight(48),
+                            horizontal: Utils.getResponsiveWidth(context, 16),
+                            vertical: Utils.getResponsiveHeight(context, 48),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Image.asset(
                                 ImageAssets.imgWithdrawFundsVerification,
-                                height:
-                                Utils.getResponsiveHeight(92),
-                                width: Utils.getResponsiveWidth(92),
+                                height: Utils.getResponsiveHeight(context, 92),
+                                width: Utils.getResponsiveWidth(context, 92),
                               ),
                               SizedBox(
-                                height:
-                                    Utils.getResponsiveHeight(32),
+                                height: Utils.getResponsiveHeight(context, 32),
                               ),
                               Text(
                                 'verification'.tr,
                                 style: TextStyle(
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).extension<AppColors>()?.textPrimaryColor,
-                                  fontSize: Utils.getResponsiveSize(24),
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    24,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
                               SizedBox(
-                                height:
-                                    Utils.getResponsiveHeight(12),
+                                height: Utils.getResponsiveHeight(context, 12),
                               ),
                               Text(
-                                'enter_the_4_digit_code_to_process_your_withdraw'.tr,
+                                'enter_the_4_digit_code_to_process_your_withdraw'
+                                    .tr,
                                 style: TextStyle(
                                   color:
-                                      Theme.of(
-                                        context,
-                                      ).extension<AppColors>()?.textSecondaryColor,
-                                  fontSize: Utils.getResponsiveSize(14),
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textSecondaryColor,
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    14,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                               SizedBox(
-                                height: Utils.getResponsiveHeight(32),
+                                height: Utils.getResponsiveHeight(context, 32),
                               ),
                               Obx(() {
                                 return Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     SizedBox(
-                                      width: Utils.getResponsiveWidth(56),
-                                      height:
-                                          Utils.getResponsiveHeight(56),
+                                      width: Utils.getResponsiveWidth(
+                                        context,
+                                        56,
+                                      ),
+                                      height: Utils.getResponsiveHeight(
+                                        context,
+                                        56,
+                                      ),
                                       child: InputOTPWidget(
-                                        controller: wfvVM.otpOneController.value,
+                                        controller:
+                                            wfvVM.otpOneController.value,
                                         focusNode: wfvVM.otpOneFocusNode.value,
-                                        nextFocusNode: wfvVM.otpTwoFocusNode.value,
+                                        nextFocusNode:
+                                            wfvVM.otpTwoFocusNode.value,
                                       ),
                                     ),
                                     SizedBox(
-                                      width: Utils.getResponsiveWidth(56),
-                                      height:
-                                          Utils.getResponsiveHeight(56),
+                                      width: Utils.getResponsiveWidth(
+                                        context,
+                                        56,
+                                      ),
+                                      height: Utils.getResponsiveHeight(
+                                        context,
+                                        56,
+                                      ),
                                       child: InputOTPWidget(
-                                        controller: wfvVM.otpTwoController.value,
+                                        controller:
+                                            wfvVM.otpTwoController.value,
                                         focusNode: wfvVM.otpTwoFocusNode.value,
-                                        nextFocusNode: wfvVM.otpThreeFocusNode.value,
+                                        nextFocusNode:
+                                            wfvVM.otpThreeFocusNode.value,
                                       ),
                                     ),
                                     SizedBox(
-                                      width: Utils.getResponsiveWidth(56),
-                                      height:
-                                          Utils.getResponsiveHeight(56),
+                                      width: Utils.getResponsiveWidth(
+                                        context,
+                                        56,
+                                      ),
+                                      height: Utils.getResponsiveHeight(
+                                        context,
+                                        56,
+                                      ),
                                       child: InputOTPWidget(
-                                        controller: wfvVM.otpThreeController.value,
-                                        focusNode: wfvVM.otpThreeFocusNode.value,
-                                        nextFocusNode: wfvVM.otpFourFocusNode.value,
+                                        controller:
+                                            wfvVM.otpThreeController.value,
+                                        focusNode:
+                                            wfvVM.otpThreeFocusNode.value,
+                                        nextFocusNode:
+                                            wfvVM.otpFourFocusNode.value,
                                       ),
                                     ),
                                     SizedBox(
-                                      width: Utils.getResponsiveWidth(56),
-                                      height:
-                                          Utils.getResponsiveHeight(56),
+                                      width: Utils.getResponsiveWidth(
+                                        context,
+                                        56,
+                                      ),
+                                      height: Utils.getResponsiveHeight(
+                                        context,
+                                        56,
+                                      ),
                                       child: InputOTPWidget(
-                                        controller: wfvVM.otpFourController.value,
+                                        controller:
+                                            wfvVM.otpFourController.value,
                                         focusNode: wfvVM.otpFourFocusNode.value,
                                       ),
                                     ),
@@ -180,22 +213,25 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                                 );
                               }),
                               SizedBox(
-                                height: Utils.getResponsiveHeight(32),
+                                height: Utils.getResponsiveHeight(context, 32),
                               ),
                               Text(
                                 'i_didn_t_receive_the_code'.tr,
                                 style: TextStyle(
                                   color:
-                                  Theme.of(
+                                      Theme.of(context)
+                                          .extension<AppColors>()
+                                          ?.textPrimaryColor,
+                                  fontSize: Utils.getResponsiveSize(
                                     context,
-                                  ).extension<AppColors>()?.textPrimaryColor,
-                                  fontSize: Utils.getResponsiveSize(16),
+                                    16,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                               SizedBox(
-                                height: Utils.getResponsiveHeight(12),
+                                height: Utils.getResponsiveHeight(context, 12),
                               ),
                               InkWell(
                                 onTap: () {
@@ -206,7 +242,10 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                                   'resend_code'.tr,
                                   style: TextStyle(
                                     color: AppColor.primaryColor,
-                                    fontSize: Utils.getResponsiveSize(16),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      16,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -216,13 +255,9 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: Utils.getResponsiveHeight(46),
-                      ),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 46)),
                       VerifyWithdrawButtonWidget(formKey: _formKey),
-                      SizedBox(
-                        height: Utils.getResponsiveHeight(20),
-                      ),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 20)),
                     ],
                   ),
                 ),
@@ -234,5 +269,4 @@ class _WithdrawFundsVerificationScreenState extends State<WithdrawFundsVerificat
       ),
     );
   }
-
 }

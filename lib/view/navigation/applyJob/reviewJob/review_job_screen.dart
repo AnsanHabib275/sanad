@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/view/navigation/applyJob/reviewJob/widget/back_button_widget.dart';
@@ -42,8 +44,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
             leading: IconButton(
               icon: Image.asset(
                 IconAssets.icArrowLeft,
-                height: Utils.getResponsiveHeight(24),
-                width: Utils.getResponsiveWidth(24),
+                height: Utils.getResponsiveHeight(context, 24),
+                width: Utils.getResponsiveWidth(context, 24),
                 color: Theme.of(context).iconTheme.color,
               ),
               onPressed: () => Get.back(),
@@ -60,7 +62,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
           ),
           body: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Utils.getResponsiveWidth(16),
+              horizontal: Utils.getResponsiveWidth(context, 16),
             ),
             child: SingleChildScrollView(
               child: Column(
@@ -68,14 +70,14 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   ReviewJobTabBar(),
-                  SizedBox(height: Utils.getResponsiveHeight(24)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 24)),
                   Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(8)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 8)),
                       ),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
@@ -84,8 +86,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        vertical: Utils.getResponsiveHeight(16),
-                        horizontal: Utils.getResponsiveWidth(16),
+                        vertical: Utils.getResponsiveHeight(context, 16),
+                        horizontal: Utils.getResponsiveWidth(context, 16),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,7 +98,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               Text(
                                 jobName,
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(20),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    20,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
@@ -105,7 +110,9 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                           ?.textPrimaryColor,
                                 ),
                               ),
-                              SizedBox(width: Utils.getResponsiveWidth(12)),
+                              SizedBox(
+                                width: Utils.getResponsiveWidth(context, 12),
+                              ),
                               Container(
                                 decoration: BoxDecoration(
                                   color:
@@ -114,21 +121,30 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                       ).extension<AppColors>()?.containerBg,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(
-                                      Utils.getResponsiveHeight(6),
+                                      Utils.getResponsiveHeight(context, 6),
                                     ),
                                   ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: Utils.getResponsiveWidth(10),
-                                    vertical: Utils.getResponsiveHeight(2),
+                                    horizontal: Utils.getResponsiveWidth(
+                                      context,
+                                      10,
+                                    ),
+                                    vertical: Utils.getResponsiveHeight(
+                                      context,
+                                      2,
+                                    ),
                                   ),
                                   child: Text(
                                     isPrivate
                                         ? 'private_job'.tr
                                         : 'public_job'.tr,
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       color:
@@ -142,22 +158,26 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               Spacer(),
                               Image.asset(
                                 IconAssets.icDisable,
-                                height: Utils.getResponsiveHeight(24),
-                                width: Utils.getResponsiveWidth(24),
+                                height: Utils.getResponsiveHeight(context, 24),
+                                width: Utils.getResponsiveWidth(context, 24),
                               ),
-                              SizedBox(width: Utils.getResponsiveWidth(8)),
+                              SizedBox(
+                                width: Utils.getResponsiveWidth(context, 8),
+                              ),
                               Image.asset(
                                 IconAssets.icBookmark,
-                                height: Utils.getResponsiveHeight(24),
-                                width: Utils.getResponsiveWidth(24),
+                                height: Utils.getResponsiveHeight(context, 24),
+                                width: Utils.getResponsiveWidth(context, 24),
                               ),
                             ],
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 12),
+                          ),
                           Text(
                             companyName.toString(),
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -169,7 +189,7 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                           Text(
                             location.toString(),
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -178,7 +198,9 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                   ).extension<AppColors>()?.textSecondaryColor,
                             ),
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(24)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 24),
+                          ),
                           Row(
                             children: [
                               Container(
@@ -189,19 +211,28 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                       ).extension<AppColors>()?.containerBg,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(
-                                      Utils.getResponsiveHeight(6),
+                                      Utils.getResponsiveHeight(context, 6),
                                     ),
                                   ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: Utils.getResponsiveWidth(10),
-                                    vertical: Utils.getResponsiveHeight(2),
+                                    horizontal: Utils.getResponsiveWidth(
+                                      context,
+                                      10,
+                                    ),
+                                    vertical: Utils.getResponsiveHeight(
+                                      context,
+                                      2,
+                                    ),
                                   ),
                                   child: Text(
                                     jobType.toString(),
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       color:
@@ -212,7 +243,9 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: Utils.getResponsiveWidth(8)),
+                              SizedBox(
+                                width: Utils.getResponsiveWidth(context, 8),
+                              ),
                               Container(
                                 decoration: BoxDecoration(
                                   color:
@@ -221,19 +254,28 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                       ).extension<AppColors>()?.containerBg,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(
-                                      Utils.getResponsiveHeight(6),
+                                      Utils.getResponsiveHeight(context, 6),
                                     ),
                                   ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: Utils.getResponsiveWidth(10),
-                                    vertical: Utils.getResponsiveHeight(2),
+                                    horizontal: Utils.getResponsiveWidth(
+                                      context,
+                                      10,
+                                    ),
+                                    vertical: Utils.getResponsiveHeight(
+                                      context,
+                                      2,
+                                    ),
                                   ),
                                   child: Text(
                                     salaryRange.toString(),
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
                                       color:
@@ -250,12 +292,12 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(24)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 24)),
                   Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(12)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 12)),
                       ),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
@@ -264,8 +306,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        vertical: Utils.getResponsiveHeight(16),
-                        horizontal: Utils.getResponsiveWidth(16),
+                        vertical: Utils.getResponsiveHeight(context, 16),
+                        horizontal: Utils.getResponsiveWidth(context, 16),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -277,7 +319,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               Text(
                                 'cv'.tr,
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(14),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    14,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
@@ -295,7 +340,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 child: Text(
                                   'edit'.tr,
                                   style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                     color: AppColor.blueColor,
@@ -304,12 +352,16 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 12),
+                          ),
                           Container(
                             decoration: BoxDecoration(
                               color: Theme.of(context).scaffoldBackgroundColor,
                               borderRadius: BorderRadius.all(
-                                Radius.circular(Utils.getResponsiveHeight(8)),
+                                Radius.circular(
+                                  Utils.getResponsiveHeight(context, 8),
+                                ),
                               ),
                               border: Border.all(
                                 color: Theme.of(context).dividerColor,
@@ -318,8 +370,11 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                horizontal: Utils.getResponsiveWidth(16),
-                                vertical: Utils.getResponsiveHeight(8),
+                                horizontal: Utils.getResponsiveWidth(
+                                  context,
+                                  16,
+                                ),
+                                vertical: Utils.getResponsiveHeight(context, 8),
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -327,14 +382,25 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 children: [
                                   Image.asset(
                                     ImageAssets.imgPdf,
-                                    height: Utils.getResponsiveHeight(32),
-                                    width: Utils.getResponsiveWidth(32),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      32,
+                                    ),
+                                    width: Utils.getResponsiveWidth(
+                                      context,
+                                      32,
+                                    ),
                                   ),
-                                  SizedBox(width: Utils.getResponsiveWidth(7)),
+                                  SizedBox(
+                                    width: Utils.getResponsiveWidth(context, 7),
+                                  ),
                                   Text(
                                     'resume_name'.tr,
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(11),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        11,
+                                      ),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w400,
                                       color:
@@ -351,13 +417,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(12)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 12)),
                       ),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
@@ -366,8 +432,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Utils.getResponsiveWidth(16),
-                        vertical: Utils.getResponsiveHeight(16),
+                        horizontal: Utils.getResponsiveWidth(context, 16),
+                        vertical: Utils.getResponsiveHeight(context, 16),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -381,7 +447,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 child: Text(
                                   'are_you_open_to_relocating'.tr,
                                   style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                     color:
@@ -391,7 +460,9 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: Utils.getResponsiveWidth(16)),
+                              SizedBox(
+                                width: Utils.getResponsiveWidth(context, 16),
+                              ),
                               InkWell(
                                 onTap: () {
                                   Get.back();
@@ -399,7 +470,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 child: Text(
                                   'edit'.tr,
                                   style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                     color: AppColor.blueColor,
@@ -408,11 +482,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 12),
+                          ),
                           Text(
                             'Open to Relocating',
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -425,13 +501,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(12)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 12)),
                       ),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
@@ -440,8 +516,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Utils.getResponsiveWidth(16),
-                        vertical: Utils.getResponsiveHeight(16),
+                        horizontal: Utils.getResponsiveWidth(context, 16),
+                        vertical: Utils.getResponsiveHeight(context, 16),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -455,7 +531,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 child: Text(
                                   'software_programs_do_you_know'.tr,
                                   style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                     color:
@@ -465,7 +544,9 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: Utils.getResponsiveWidth(16)),
+                              SizedBox(
+                                width: Utils.getResponsiveWidth(context, 16),
+                              ),
                               InkWell(
                                 onTap: () {
                                   Get.back();
@@ -473,7 +554,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 child: Text(
                                   'edit'.tr,
                                   style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                     color: AppColor.blueColor,
@@ -482,11 +566,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 12),
+                          ),
                           Text(
                             'Framer, Figma',
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -499,13 +585,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(12)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 12)),
                       ),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
@@ -514,8 +600,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Utils.getResponsiveWidth(16),
-                        vertical: Utils.getResponsiveHeight(16),
+                        horizontal: Utils.getResponsiveWidth(context, 16),
+                        vertical: Utils.getResponsiveHeight(context, 16),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -528,7 +614,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               Text(
                                 'portfolio'.tr,
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(14),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    14,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
@@ -545,7 +634,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 child: Text(
                                   'edit'.tr,
                                   style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                     color: AppColor.blueColor,
@@ -554,11 +646,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 12),
+                          ),
                           Text(
                             'have_a_portfolio'.tr,
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -567,11 +661,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                   ).extension<AppColors>()?.textSecondaryColor,
                             ),
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 12),
+                          ),
                           Text(
                             'Yes',
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -584,13 +680,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(12)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 12)),
                       ),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
@@ -599,8 +695,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Utils.getResponsiveWidth(16),
-                        vertical: Utils.getResponsiveHeight(16),
+                        horizontal: Utils.getResponsiveWidth(context, 16),
+                        vertical: Utils.getResponsiveHeight(context, 16),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -613,7 +709,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               Text(
                                 'certification'.tr,
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(14),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    14,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
@@ -630,7 +729,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 child: Text(
                                   'edit'.tr,
                                   style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                     color: AppColor.blueColor,
@@ -639,11 +741,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 12),
+                          ),
                           Text(
                             'have_mentioned_certification'.tr,
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -652,11 +756,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                   ).extension<AppColors>()?.textSecondaryColor,
                             ),
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 12),
+                          ),
                           Text(
                             'Yes',
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -669,13 +775,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(12)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 12)),
                       ),
                       border: Border.all(
                         color: Theme.of(context).dividerColor,
@@ -684,8 +790,8 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Utils.getResponsiveWidth(16),
-                        vertical: Utils.getResponsiveHeight(16),
+                        horizontal: Utils.getResponsiveWidth(context, 16),
+                        vertical: Utils.getResponsiveHeight(context, 16),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -698,7 +804,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               Text(
                                 'experience'.tr,
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(14),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    14,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
@@ -715,7 +824,10 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                 child: Text(
                                   'edit'.tr,
                                   style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                     color: AppColor.blueColor,
@@ -724,11 +836,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 12),
+                          ),
                           Text(
                             'how_many_years_of_experience'.tr,
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -737,11 +851,13 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                                   ).extension<AppColors>()?.textSecondaryColor,
                             ),
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(12)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 12),
+                          ),
                           Text(
                             '5',
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                               color:
@@ -754,13 +870,18 @@ class _ReviewJobScreenState extends State<ReviewJobScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [BackButtonWidget(), SubmitButtonWidget()],
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(50)),
+                  SizedBox(
+                    height:
+                        Platform.isIOS
+                            ? Utils.getResponsiveHeight(context, 70)
+                            : Utils.getResponsiveHeight(context, 50),
+                  ),
                 ],
               ),
             ),

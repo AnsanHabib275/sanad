@@ -53,8 +53,8 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Utils.getResponsiveHeight(24),
-              width: Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(context, 24),
+              width: Utils.getResponsiveWidth(context, 24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -71,13 +71,13 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(context, 16),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: Utils.getResponsiveHeight(25)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 25)),
               Text(
                 'payment_methods'.tr,
                 textAlign: TextAlign.left,
@@ -86,26 +86,26 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
                       Theme.of(
                         context,
                       ).extension<AppColors>()?.textPrimaryColor,
-                  fontSize: Utils.getResponsiveSize(16),
+                  fontSize: Utils.getResponsiveSize(context, 16),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: Utils.getResponsiveHeight(8)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 8)),
               Text(
                 'payment_methods_detail'.tr,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   color:
                       Theme.of(context).extension<AppColors>()?.textBodyColor,
-                  fontSize: Utils.getResponsiveSize(12),
+                  fontSize: Utils.getResponsiveSize(context, 12),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(height: Utils.getResponsiveHeight(24)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 24)),
               AddPaymentMethodButtonWidget(),
-              SizedBox(height: Utils.getResponsiveHeight(24)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 24)),
               ListView.builder(
                 shrinkWrap: true,
                 physics: const AlwaysScrollableScrollPhysics(),

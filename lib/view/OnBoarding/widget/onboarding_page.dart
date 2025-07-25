@@ -29,17 +29,16 @@ class OnBoardingPage extends StatelessWidget {
               children: [
                 Image.asset(
                   onBoardingList.imagePath,
-                  height: Utils.getResponsiveHeight(350),
-                  width: Utils.getResponsiveWidth(511),
+                  height: Utils.getResponsiveHeight(context, 350),
+                  width: Utils.getResponsiveWidth(context, 511),
                   fit: BoxFit.contain,
-                  // color: Theme.of(context).iconTheme.color,
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(145)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 115)),
                 Text(
                   onBoardingList.title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: Utils.getResponsiveSize(24),
+                    fontSize: Utils.getResponsiveSize(context, 24),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w800,
                     color:
@@ -48,12 +47,12 @@ class OnBoardingPage extends StatelessWidget {
                         ).extension<AppColors>()?.textPrimaryColor,
                   ),
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(12)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 12)),
                 Text(
                   onBoardingList.description,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: Utils.getResponsiveSize(14),
+                    fontSize: Utils.getResponsiveSize(context, 14),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w400,
                     color:
@@ -62,26 +61,24 @@ class OnBoardingPage extends StatelessWidget {
                         ).extension<AppColors>()?.textPrimaryColor,
                   ),
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(86)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 96)),
               ],
             );
           }
 
           return Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Utils.getResponsiveWidth(33),
+              horizontal: Utils.getResponsiveWidth(context, 30),
             ),
             child: Column(
               children: [
-                SizedBox(height: Utils.getResponsiveHeight(145)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 145)),
                 Image.asset(
                   onBoardingList.imagePath,
-                  height: Utils.getResponsiveHeight(54),
-                  width: Utils.getResponsiveWidth(155),
-                  // fit: BoxFit.contain,
-                  // color: Theme.of(context).iconTheme.color,
+                  height: Utils.getResponsiveHeight(context, 54),
+                  width: Utils.getResponsiveWidth(context, 155),
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(269)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 265)),
                 Text(
                   'are_you_client_or_recruiter'.tr,
                   textAlign: TextAlign.center,
@@ -90,12 +87,12 @@ class OnBoardingPage extends StatelessWidget {
                         Theme.of(
                           context,
                         ).extension<AppColors>()?.textPrimaryColor,
-                    fontSize: Utils.getResponsiveSize(24),
+                    fontSize: Utils.getResponsiveSize(context, 24),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(24)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 24)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -107,10 +104,11 @@ class OnBoardingPage extends StatelessWidget {
                           openWebsite("https://sanad-eta.vercel.app");
                         },
                         child: Container(
-                          // height: Utils.getResponsiveHeight(108),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
-                              Radius.circular(Utils.getResponsiveHeight(8)),
+                              Radius.circular(
+                                Utils.getResponsiveHeight(context, 8),
+                              ),
                             ),
                             border: Border.all(
                               color: AppColor.borderSecondaryColor,
@@ -119,8 +117,8 @@ class OnBoardingPage extends StatelessWidget {
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: Utils.getResponsiveWidth(17),
-                              vertical: Utils.getResponsiveHeight(17),
+                              horizontal: Utils.getResponsiveWidth(context, 17),
+                              vertical: Utils.getResponsiveHeight(context, 17),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -128,12 +126,20 @@ class OnBoardingPage extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Image(
-                                  height: Utils.getResponsiveHeight(34),
-                                  width: Utils.getResponsiveWidth(34),
+                                  height: Utils.getResponsiveHeight(
+                                    context,
+                                    34,
+                                  ),
+                                  width: Utils.getResponsiveWidth(context, 34),
                                   image: AssetImage(IconAssets.icCompany),
                                   color: Theme.of(context).iconTheme.color,
                                 ),
-                                SizedBox(height: Utils.getResponsiveHeight(11)),
+                                SizedBox(
+                                  height: Utils.getResponsiveHeight(
+                                    context,
+                                    11,
+                                  ),
+                                ),
                                 Text(
                                   'client'.tr,
                                   textAlign: TextAlign.center,
@@ -142,7 +148,10 @@ class OnBoardingPage extends StatelessWidget {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textSecondaryColor,
-                                    fontSize: Utils.getResponsiveSize(20),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      20,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -153,17 +162,19 @@ class OnBoardingPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: Utils.getResponsiveWidth(16)),
+                    SizedBox(width: Utils.getResponsiveWidth(context, 16)),
                     Expanded(
                       child: InkWell(
                         onTap: () {
                           Get.toNamed(RoutesName.signUpScreen);
                         },
                         child: Container(
-                          // height: Utils.getResponsiveHeight(108),
+                          // height: Utils.getResponsiveHeight(context,108),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
-                              Radius.circular(Utils.getResponsiveHeight(8)),
+                              Radius.circular(
+                                Utils.getResponsiveHeight(context, 8),
+                              ),
                             ),
                             border: Border.all(
                               color: AppColor.borderSecondaryColor,
@@ -172,8 +183,8 @@ class OnBoardingPage extends StatelessWidget {
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: Utils.getResponsiveWidth(17),
-                              vertical: Utils.getResponsiveHeight(17),
+                              horizontal: Utils.getResponsiveWidth(context, 17),
+                              vertical: Utils.getResponsiveHeight(context, 17),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -181,12 +192,20 @@ class OnBoardingPage extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Image(
-                                  height: Utils.getResponsiveHeight(34),
-                                  width: Utils.getResponsiveWidth(34),
+                                  height: Utils.getResponsiveHeight(
+                                    context,
+                                    34,
+                                  ),
+                                  width: Utils.getResponsiveWidth(context, 34),
                                   image: AssetImage(IconAssets.icRecruiter),
                                   color: Theme.of(context).iconTheme.color,
                                 ),
-                                SizedBox(height: Utils.getResponsiveHeight(11)),
+                                SizedBox(
+                                  height: Utils.getResponsiveHeight(
+                                    context,
+                                    11,
+                                  ),
+                                ),
                                 Text(
                                   'recruiter'.tr,
                                   textAlign: TextAlign.center,
@@ -195,7 +214,10 @@ class OnBoardingPage extends StatelessWidget {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textSecondaryColor,
-                                    fontSize: Utils.getResponsiveSize(20),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      20,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -208,7 +230,7 @@ class OnBoardingPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(50)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 40)),
               ],
             ),
           );

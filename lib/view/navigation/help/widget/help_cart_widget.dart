@@ -19,20 +19,20 @@ class _HelpCartWidgetState extends State<HelpCartWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: Utils.getResponsiveHeight(16),
-        left: Utils.getResponsiveWidth(16),
-        right: Utils.getResponsiveWidth(16),
+        top: Utils.getResponsiveHeight(context, 16),
+        left: Utils.getResponsiveWidth(context, 16),
+        right: Utils.getResponsiveWidth(context, 16),
       ),
       child: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).extension<AppColors>()?.cardBg,
           border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
           borderRadius: BorderRadius.all(
-            Radius.circular(Utils.getResponsiveSize(12)),
+            Radius.circular(Utils.getResponsiveSize(context, 12)),
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(Utils.getResponsiveHeight(16)),
+          padding: EdgeInsets.all(Utils.getResponsiveHeight(context, 16)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -48,16 +48,18 @@ class _HelpCartWidgetState extends State<HelpCartWidget> {
                         ).extension<AppColors>()?.textPrimaryColor,
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w700,
-                    fontSize: Utils.getResponsiveSize(14),
+                    fontSize: Utils.getResponsiveSize(context, 14),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: Utils.getResponsiveWidth(20)),
+                padding: EdgeInsets.only(
+                  left: Utils.getResponsiveWidth(context, 20),
+                ),
                 child: Image.asset(
                   IconAssets.icHelpArrow,
-                  height: Utils.getResponsiveHeight(10),
-                  width: Utils.getResponsiveWidth(10),
+                  height: Utils.getResponsiveHeight(context, 10),
+                  width: Utils.getResponsiveWidth(context, 10),
                   color: Theme.of(context).iconTheme.color,
                 ),
               ),

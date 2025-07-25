@@ -71,8 +71,8 @@ class _SubmittedCVScreenState extends State<SubmittedCVScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Utils.getResponsiveHeight(24),
-              width: Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(context, 24),
+              width: Utils.getResponsiveWidth(context, 24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -93,20 +93,20 @@ class _SubmittedCVScreenState extends State<SubmittedCVScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(context, 16),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: Utils.getResponsiveHeight(16)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
               Expanded(
                 child: ListView.separated(
                   physics: AlwaysScrollableScrollPhysics(),
                   itemCount: submittedCvItems.length,
                   separatorBuilder:
                       (context, index) => SizedBox(
-                        height: Utils.getResponsiveHeight(16),
+                        height: Utils.getResponsiveHeight(context, 16),
                       ),
                   itemBuilder: (context, index) {
                     return SubmittedCVCartWidget(

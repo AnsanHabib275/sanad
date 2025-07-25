@@ -23,18 +23,35 @@ class Utils {
     Get.snackbar(title, message);
   }
 
-  static double getResponsiveHeight(double figmaHeight) {
+  // static double getResponsiveHeight(double figmaHeight) {
+  //   double scale = deviceHeight / baseHeight;
+  //   return figmaHeight * scale;
+  // }
+  //
+  // static double getResponsiveWidth(double figmaWidth) {
+  //   double scale = deviceWidth / baseWidth;
+  //   return figmaWidth * scale;
+  // }
+  //
+  // static double getResponsiveSize(double figmaSize) {
+  //   double scale = min(deviceWidth / baseWidth, deviceHeight / baseHeight);
+  //   return figmaSize * scale;
+  // }
+  static double getResponsiveHeight(BuildContext context, double figmaHeight) {
+    final deviceHeight = MediaQuery.of(context).size.height;
     double scale = deviceHeight / baseHeight;
     return figmaHeight * scale;
   }
 
-  static double getResponsiveWidth(double figmaWidth) {
+  static double getResponsiveWidth(BuildContext context, double figmaWidth) {
+    final deviceWidth = MediaQuery.of(context).size.width;
     double scale = deviceWidth / baseWidth;
     return figmaWidth * scale;
   }
 
-  static double getResponsiveSize(double figmaSize) {
-    double scale = min(deviceWidth / baseWidth, deviceHeight / baseHeight);
+  static double getResponsiveSize(BuildContext context, double figmaSize) {
+    final size = MediaQuery.of(context).size;
+    double scale = min(size.width / baseWidth, size.height / baseHeight);
     return figmaSize * scale;
   }
 

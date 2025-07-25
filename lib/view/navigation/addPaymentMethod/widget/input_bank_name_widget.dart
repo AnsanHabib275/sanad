@@ -52,8 +52,8 @@ class InputBankNameWidget extends StatelessWidget {
         },
         icon: Image.asset(
           IconAssets.icArrowDown,
-          height: Utils.getResponsiveHeight(18),
-          width: Utils.getResponsiveWidth(18),
+          height: Utils.getResponsiveHeight(context, 18),
+          width: Utils.getResponsiveWidth(context, 18),
           color: Theme.of(context).iconTheme.color,
         ),
         validator: (value) => value == null ? 'bank_name_error'.tr : null,

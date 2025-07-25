@@ -36,8 +36,8 @@ class _RateUsScreenState extends State<RateUsScreen> {
             leading: IconButton(
               icon: Image.asset(
                 IconAssets.icArrowLeft,
-                height: Utils.getResponsiveHeight(24),
-                width: Utils.getResponsiveWidth(24),
+                height: Utils.getResponsiveHeight(context, 24),
+                width: Utils.getResponsiveWidth(context, 24),
                 color: Theme.of(context).iconTheme.color,
               ),
               onPressed: () => Get.back(),
@@ -54,12 +54,12 @@ class _RateUsScreenState extends State<RateUsScreen> {
           ),
           body: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Utils.getResponsiveWidth(16),
+              horizontal: Utils.getResponsiveWidth(context, 16),
             ),
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
@@ -68,17 +68,19 @@ class _RateUsScreenState extends State<RateUsScreen> {
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(
-                        Utils.getResponsiveSize(12),
+                        Utils.getResponsiveSize(context, 12),
                       ),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: Utils.getResponsiveHeight(16)),
+                        SizedBox(
+                          height: Utils.getResponsiveHeight(context, 16),
+                        ),
                         Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: Utils.getResponsiveWidth(16),
+                            horizontal: Utils.getResponsiveWidth(context, 16),
                           ),
                           child: Text(
                             'rate_us_dot'.tr,
@@ -88,16 +90,16 @@ class _RateUsScreenState extends State<RateUsScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize: Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(context, 16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w700,
                             ),
                           ),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(4)),
+                        SizedBox(height: Utils.getResponsiveHeight(context, 4)),
                         Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: Utils.getResponsiveWidth(16),
+                            horizontal: Utils.getResponsiveWidth(context, 16),
                           ),
                           child: Text(
                             'rate_us_and_write_your_feedback'.tr,
@@ -107,23 +109,27 @@ class _RateUsScreenState extends State<RateUsScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textSecondaryColor,
-                              fontSize: Utils.getResponsiveSize(12),
+                              fontSize: Utils.getResponsiveSize(context, 12),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(16)),
+                        SizedBox(
+                          height: Utils.getResponsiveHeight(context, 16),
+                        ),
                         Divider(
                           color: Theme.of(context).dividerColor,
-                          height: Utils.getResponsiveHeight(1),
+                          height: Utils.getResponsiveHeight(context, 1),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(16)),
+                        SizedBox(
+                          height: Utils.getResponsiveHeight(context, 16),
+                        ),
                         Form(
                           key: formKey,
                           child: Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: Utils.getResponsiveWidth(16),
+                              horizontal: Utils.getResponsiveWidth(context, 16),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -137,14 +143,27 @@ class _RateUsScreenState extends State<RateUsScreen> {
                                         Theme.of(context)
                                             .extension<AppColors>()
                                             ?.textPrimaryColor,
-                                    fontSize: Utils.getResponsiveSize(14),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(height: Utils.getResponsiveHeight(12)),
+                                SizedBox(
+                                  height: Utils.getResponsiveHeight(
+                                    context,
+                                    12,
+                                  ),
+                                ),
                                 InputMessageWidget(),
-                                SizedBox(height: Utils.getResponsiveHeight(12)),
+                                SizedBox(
+                                  height: Utils.getResponsiveHeight(
+                                    context,
+                                    12,
+                                  ),
+                                ),
                                 Text(
                                   'write_your_feedback_and_remarks'.tr,
                                   textAlign: TextAlign.left,
@@ -153,7 +172,10 @@ class _RateUsScreenState extends State<RateUsScreen> {
                                         Theme.of(
                                           context,
                                         ).extension<AppColors>()?.textBodyColor,
-                                    fontSize: Utils.getResponsiveSize(12),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      12,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w400,
                                   ),
@@ -162,12 +184,16 @@ class _RateUsScreenState extends State<RateUsScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(16)),
+                        SizedBox(
+                          height: Utils.getResponsiveHeight(context, 16),
+                        ),
                         Divider(
                           color: Theme.of(context).dividerColor,
-                          height: Utils.getResponsiveHeight(1),
+                          height: Utils.getResponsiveHeight(context, 1),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(16)),
+                        SizedBox(
+                          height: Utils.getResponsiveHeight(context, 16),
+                        ),
                         Align(
                           alignment: Alignment.center,
                           child: RatingBar.builder(
@@ -178,9 +204,9 @@ class _RateUsScreenState extends State<RateUsScreen> {
                             updateOnDrag: true,
                             unratedColor: Theme.of(context).iconTheme.color,
                             itemCount: 5,
-                            itemSize: Utils.getResponsiveSize(24),
+                            itemSize: Utils.getResponsiveSize(context, 24),
                             itemPadding: EdgeInsets.symmetric(
-                              horizontal: Utils.getResponsiveWidth(3),
+                              horizontal: Utils.getResponsiveWidth(context, 3),
                             ),
                             itemBuilder: (context, index) {
                               return Image.asset(
@@ -192,13 +218,15 @@ class _RateUsScreenState extends State<RateUsScreen> {
                                 (rating) => rateUsVM.rating.value = rating,
                           ),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(16)),
+                        SizedBox(
+                          height: Utils.getResponsiveHeight(context, 16),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   SubmitButtonWidget(formKey: formKey),
-                  SizedBox(height: Utils.getResponsiveHeight(20)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 20)),
                 ],
               ),
             ),

@@ -45,12 +45,12 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              width: Utils.getResponsiveWidth(97),
+              width: Utils.getResponsiveWidth(context, 97),
               child: Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(5),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 5),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Text(
                     widget.payment.paymentID,
@@ -62,19 +62,19 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                           ).extension<AppColors>()?.textPrimaryColor,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
-                      fontSize: Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(context, 14),
                     ),
                   ),
                 ),
               ),
             ),
             SizedBox(
-              width: Utils.getResponsiveWidth(97),
+              width: Utils.getResponsiveWidth(context, 97),
               child: Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(5),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 5),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Text(
                     widget.payment.amount,
@@ -86,19 +86,19 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                           ).extension<AppColors>()?.textPrimaryColor,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
-                      fontSize: Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(context, 14),
                     ),
                   ),
                 ),
               ),
             ),
             SizedBox(
-              width: Utils.getResponsiveWidth(127),
+              width: Utils.getResponsiveWidth(context, 127),
               child: Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(5),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 5),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Text(
                     widget.payment.jobTitle,
@@ -110,7 +110,7 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                           ).extension<AppColors>()?.textPrimaryColor,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
-                      fontSize: Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(context, 14),
                     ),
                   ),
                   // child: Container(
@@ -123,19 +123,19 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
                   //             : AppColor.runningBgColor,
                   //     borderRadius: BorderRadius.all(
                   //       Radius.circular(
-                  //         Utils.getResponsiveHeight(6),
+                  //         Utils.getResponsiveHeight(context,6),
                   //       ),
                   //     ),
                   //   ),
                   //   child: Padding(
                   //     padding: EdgeInsets.symmetric(
-                  //       horizontal: Utils.getResponsiveWidth(10),
-                  //       vertical: Utils.getResponsiveHeight(2),
+                  //       horizontal: Utils.getResponsiveWidth(context,10),
+                  //       vertical: Utils.getResponsiveHeight(context,2),
                   //     ),
                   //     child: Text(
                   //       widget.payment.status,
                   //       style: TextStyle(
-                  //         fontSize: Utils.getResponsiveSize(12),
+                  //         fontSize: Utils.getResponsiveSize(context,12),
                   //         fontFamily: 'Inter',
                   //         fontWeight: FontWeight.w500,
                   //         color:
@@ -152,29 +152,29 @@ class _PaymentCartWidgetState extends State<PaymentCartWidget> {
               ),
             ),
             SizedBox(
-              width: Utils.getResponsiveWidth(74),
+              width: Utils.getResponsiveWidth(context, 74),
               child: Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(5),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 5),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Container(
                     decoration: BoxDecoration(
                       color: AppColor.secondaryButtonColor,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(8)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 8)),
                       ),
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Utils.getResponsiveWidth(12),
-                        vertical: Utils.getResponsiveHeight(8),
+                        horizontal: Utils.getResponsiveWidth(context, 12),
+                        vertical: Utils.getResponsiveHeight(context, 8),
                       ),
                       child: Image.asset(
                         ImageAssets.imgDownload,
-                        height: Utils.getResponsiveHeight(18),
-                        width: Utils.getResponsiveWidth(18),
+                        height: Utils.getResponsiveHeight(context, 18),
+                        width: Utils.getResponsiveWidth(context, 18),
                       ),
                     ),
                   ),

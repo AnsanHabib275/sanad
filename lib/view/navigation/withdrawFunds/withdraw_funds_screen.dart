@@ -30,8 +30,8 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Utils.getResponsiveHeight(24),
-              width: Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(context, 24),
+              width: Utils.getResponsiveWidth(context, 24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -48,19 +48,19 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(context, 16),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: Utils.getResponsiveHeight(16)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Theme.of(context).extension<AppColors>()?.cardBg,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(Utils.getResponsiveHeight(8)),
+                    Radius.circular(Utils.getResponsiveHeight(context, 8)),
                   ),
                   border: Border.all(
                     color: Theme.of(context).dividerColor,
@@ -69,8 +69,8 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(16),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 16),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,19 +89,23 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                   ).extension<AppColors>()?.textPrimaryColor,
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w700,
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                             ),
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(8)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 8),
+                          ),
                           Row(
                             children: [
                               Image.asset(
                                 ImageAssets.saudiRiyalSymbol,
-                                height: Utils.getResponsiveHeight(18),
-                                width: Utils.getResponsiveWidth(20),
+                                height: Utils.getResponsiveHeight(context, 18),
+                                width: Utils.getResponsiveWidth(context, 20),
                                 color: Theme.of(context).iconTheme.color,
                               ),
-                              SizedBox(width: Utils.getResponsiveWidth(8)),
+                              SizedBox(
+                                width: Utils.getResponsiveWidth(context, 8),
+                              ),
                               Text(
                                 '100.00',
                                 style: TextStyle(
@@ -111,7 +115,10 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                           ?.textPrimaryColor,
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
-                                  fontSize: Utils.getResponsiveSize(20),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    20,
+                                  ),
                                 ),
                               ),
                             ],
@@ -123,14 +130,14 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: Utils.getResponsiveHeight(16)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
               Container(
-                // height: Utils.getResponsiveHeight(162),
+                // height: Utils.getResponsiveHeight(context,162),
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Theme.of(context).extension<AppColors>()?.cardBg,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(Utils.getResponsiveHeight(8)),
+                    Radius.circular(Utils.getResponsiveHeight(context, 8)),
                   ),
                   border: Border.all(
                     color: Theme.of(context).dividerColor,
@@ -139,8 +146,8 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(16),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 16),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Column(
                     children: [
@@ -155,22 +162,24 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                 ).extension<AppColors>()?.textPrimaryColor,
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w700,
-                            fontSize: Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(context, 14),
                           ),
                         ),
                       ),
-                      SizedBox(height: Utils.getResponsiveHeight(20)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 20)),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Image.asset(
                             ImageAssets.saudiRiyalSymbol,
-                            height: Utils.getResponsiveHeight(24),
-                            width: Utils.getResponsiveWidth(26),
+                            height: Utils.getResponsiveHeight(context, 24),
+                            width: Utils.getResponsiveWidth(context, 26),
                             color: Theme.of(context).iconTheme.color,
                           ),
-                          SizedBox(width: Utils.getResponsiveWidth(12)),
+                          SizedBox(
+                            width: Utils.getResponsiveWidth(context, 12),
+                          ),
                           Text(
                             '20.00',
                             style: TextStyle(
@@ -180,17 +189,17 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                   ).extension<AppColors>()?.textPrimaryColor,
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w700,
-                              fontSize: Utils.getResponsiveSize(30),
+                              fontSize: Utils.getResponsiveSize(context, 30),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: Utils.getResponsiveHeight(10)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 10)),
                       Divider(
-                        height: Utils.getResponsiveHeight(1),
+                        height: Utils.getResponsiveHeight(context, 1),
                         color: Theme.of(context).dividerColor,
                       ),
-                      SizedBox(height: Utils.getResponsiveHeight(20)),
+                      SizedBox(height: Utils.getResponsiveHeight(context, 20)),
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -203,23 +212,36 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                     context,
                                   ).extension<AppColors>()?.containerBg,
                               borderRadius: BorderRadius.all(
-                                Radius.circular(Utils.getResponsiveHeight(6)),
+                                Radius.circular(
+                                  Utils.getResponsiveHeight(context, 6),
+                                ),
                               ),
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                horizontal: Utils.getResponsiveWidth(10),
-                                vertical: Utils.getResponsiveHeight(2),
+                                horizontal: Utils.getResponsiveWidth(
+                                  context,
+                                  10,
+                                ),
+                                vertical: Utils.getResponsiveHeight(context, 2),
                               ),
                               child: Row(
                                 children: [
                                   Image.asset(
                                     ImageAssets.saudiRiyalSymbol,
-                                    height: Utils.getResponsiveHeight(12),
-                                    width: Utils.getResponsiveWidth(11),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      12,
+                                    ),
+                                    width: Utils.getResponsiveWidth(
+                                      context,
+                                      11,
+                                    ),
                                     color: Theme.of(context).iconTheme.color,
                                   ),
-                                  SizedBox(width: Utils.getResponsiveWidth(4)),
+                                  SizedBox(
+                                    width: Utils.getResponsiveWidth(context, 4),
+                                  ),
                                   Text(
                                     '10.00',
                                     style: TextStyle(
@@ -229,14 +251,19 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
                           ),
-                          SizedBox(width: Utils.getResponsiveWidth(14)),
+                          SizedBox(
+                            width: Utils.getResponsiveWidth(context, 14),
+                          ),
                           Container(
                             decoration: BoxDecoration(
                               color:
@@ -244,23 +271,36 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                     context,
                                   ).extension<AppColors>()?.containerBg,
                               borderRadius: BorderRadius.all(
-                                Radius.circular(Utils.getResponsiveHeight(6)),
+                                Radius.circular(
+                                  Utils.getResponsiveHeight(context, 6),
+                                ),
                               ),
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                horizontal: Utils.getResponsiveWidth(10),
-                                vertical: Utils.getResponsiveHeight(2),
+                                horizontal: Utils.getResponsiveWidth(
+                                  context,
+                                  10,
+                                ),
+                                vertical: Utils.getResponsiveHeight(context, 2),
                               ),
                               child: Row(
                                 children: [
                                   Image.asset(
                                     ImageAssets.saudiRiyalSymbol,
-                                    height: Utils.getResponsiveHeight(12),
-                                    width: Utils.getResponsiveWidth(11),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      12,
+                                    ),
+                                    width: Utils.getResponsiveWidth(
+                                      context,
+                                      11,
+                                    ),
                                     color: Theme.of(context).iconTheme.color,
                                   ),
-                                  SizedBox(width: Utils.getResponsiveWidth(4)),
+                                  SizedBox(
+                                    width: Utils.getResponsiveWidth(context, 4),
+                                  ),
                                   Text(
                                     '20.00',
                                     style: TextStyle(
@@ -270,14 +310,19 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
                           ),
-                          SizedBox(width: Utils.getResponsiveWidth(14)),
+                          SizedBox(
+                            width: Utils.getResponsiveWidth(context, 14),
+                          ),
                           Container(
                             decoration: BoxDecoration(
                               color:
@@ -285,23 +330,36 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                     context,
                                   ).extension<AppColors>()?.containerBg,
                               borderRadius: BorderRadius.all(
-                                Radius.circular(Utils.getResponsiveHeight(6)),
+                                Radius.circular(
+                                  Utils.getResponsiveHeight(context, 6),
+                                ),
                               ),
                             ),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                horizontal: Utils.getResponsiveWidth(10),
-                                vertical: Utils.getResponsiveHeight(2),
+                                horizontal: Utils.getResponsiveWidth(
+                                  context,
+                                  10,
+                                ),
+                                vertical: Utils.getResponsiveHeight(context, 2),
                               ),
                               child: Row(
                                 children: [
                                   Image.asset(
                                     ImageAssets.saudiRiyalSymbol,
-                                    height: Utils.getResponsiveHeight(12),
-                                    width: Utils.getResponsiveWidth(11),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      12,
+                                    ),
+                                    width: Utils.getResponsiveWidth(
+                                      context,
+                                      11,
+                                    ),
                                     color: Theme.of(context).iconTheme.color,
                                   ),
-                                  SizedBox(width: Utils.getResponsiveWidth(4)),
+                                  SizedBox(
+                                    width: Utils.getResponsiveWidth(context, 4),
+                                  ),
                                   Text(
                                     '30.00',
                                     style: TextStyle(
@@ -311,7 +369,10 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                               ?.textPrimaryColor,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -324,7 +385,7 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: Utils.getResponsiveHeight(16)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
               Row(
                 children: [
                   Expanded(
@@ -344,7 +405,9 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                     context,
                                   ).extension<AppColors>()?.cardBg,
                           borderRadius: BorderRadius.all(
-                            Radius.circular(Utils.getResponsiveHeight(8)),
+                            Radius.circular(
+                              Utils.getResponsiveHeight(context, 8),
+                            ),
                           ),
                           border: Border.all(
                             color:
@@ -356,8 +419,8 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: Utils.getResponsiveWidth(12),
-                            vertical: Utils.getResponsiveHeight(12),
+                            horizontal: Utils.getResponsiveWidth(context, 12),
+                            vertical: Utils.getResponsiveHeight(context, 12),
                           ),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -375,7 +438,10 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                             : AppColor.textSecondaryColor,
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      8,
+                                    ),
                                   ),
                                   Text(
                                     'card'.tr,
@@ -389,7 +455,10 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                           selectedMethod.isEqual(1)
                                               ? FontWeight.w600
                                               : FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(16),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        16,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -414,7 +483,7 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(width: Utils.getResponsiveWidth(24)),
+                  SizedBox(width: Utils.getResponsiveWidth(context, 24)),
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
@@ -432,7 +501,9 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                     context,
                                   ).extension<AppColors>()?.cardBg,
                           borderRadius: BorderRadius.all(
-                            Radius.circular(Utils.getResponsiveHeight(8)),
+                            Radius.circular(
+                              Utils.getResponsiveHeight(context, 8),
+                            ),
                           ),
                           border: Border.all(
                             color:
@@ -444,8 +515,8 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: Utils.getResponsiveWidth(12),
-                            vertical: Utils.getResponsiveHeight(12),
+                            horizontal: Utils.getResponsiveWidth(context, 12),
+                            vertical: Utils.getResponsiveHeight(context, 12),
                           ),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -463,7 +534,10 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                             : AppColor.textSecondaryColor,
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      8,
+                                    ),
                                   ),
                                   Text(
                                     'wallet'.tr,
@@ -477,7 +551,10 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                           selectedMethod.isEqual(2)
                                               ? FontWeight.w600
                                               : FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(16),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        16,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -502,7 +579,7 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(width: Utils.getResponsiveWidth(24)),
+                  SizedBox(width: Utils.getResponsiveWidth(context, 24)),
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
@@ -520,7 +597,9 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                     context,
                                   ).extension<AppColors>()?.cardBg,
                           borderRadius: BorderRadius.all(
-                            Radius.circular(Utils.getResponsiveHeight(8)),
+                            Radius.circular(
+                              Utils.getResponsiveHeight(context, 8),
+                            ),
                           ),
                           border: Border.all(
                             color:
@@ -532,8 +611,8 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: Utils.getResponsiveWidth(12),
-                            vertical: Utils.getResponsiveHeight(12),
+                            horizontal: Utils.getResponsiveWidth(context, 12),
+                            vertical: Utils.getResponsiveHeight(context, 12),
                           ),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -551,7 +630,10 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                             : AppColor.textSecondaryColor,
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(8),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      8,
+                                    ),
                                   ),
                                   Text(
                                     'mada'.tr,
@@ -565,7 +647,10 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                                           selectedMethod.isEqual(3)
                                               ? FontWeight.w600
                                               : FontWeight.w500,
-                                      fontSize: Utils.getResponsiveSize(16),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        16,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -592,7 +677,7 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: Utils.getResponsiveHeight(46)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 46)),
               WithdrawButtonWidget(),
             ],
           ),

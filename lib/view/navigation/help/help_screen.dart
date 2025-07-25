@@ -48,8 +48,8 @@ class _HelpScreenState extends State<HelpScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Utils.getResponsiveHeight(24),
-              width: Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(context, 24),
+              width: Utils.getResponsiveWidth(context, 24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -69,19 +69,19 @@ class _HelpScreenState extends State<HelpScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(height: Utils.getResponsiveHeight(16)),
+            SizedBox(height: Utils.getResponsiveHeight(context, 16)),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: Utils.getResponsiveWidth(16),
+                horizontal: Utils.getResponsiveWidth(context, 16),
               ),
               child: InputSearchWidget(
                 onSearch: (query) => helpVM.filterHelp(query),
               ),
             ),
-            SizedBox(height: Utils.getResponsiveHeight(32)),
+            SizedBox(height: Utils.getResponsiveHeight(context, 32)),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: Utils.getResponsiveWidth(16),
+                horizontal: Utils.getResponsiveWidth(context, 16),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -93,12 +93,12 @@ class _HelpScreenState extends State<HelpScreen> {
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onSurface,
-                      fontSize: Utils.getResponsiveSize(16),
+                      fontSize: Utils.getResponsiveSize(context, 16),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Text(
                     'help_description'.tr,
                     textAlign: TextAlign.left,
@@ -107,7 +107,7 @@ class _HelpScreenState extends State<HelpScreen> {
                           Theme.of(
                             context,
                           ).extension<AppColors>()?.textSecondaryColor,
-                      fontSize: Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(context, 14),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
                     ),
@@ -115,9 +115,9 @@ class _HelpScreenState extends State<HelpScreen> {
                 ],
               ),
             ),
-            SizedBox(height: Utils.getResponsiveHeight(16)),
+            SizedBox(height: Utils.getResponsiveHeight(context, 16)),
             Divider(
-              height: Utils.getResponsiveHeight(1),
+              height: Utils.getResponsiveHeight(context, 1),
               color: Theme.of(context).dividerColor,
             ),
             Expanded(

@@ -116,7 +116,7 @@ class AppThemes {
         color: ThemeData.light().extension<AppColors>()?.cardBg,
         surfaceTintColor:
             ThemeData.light().extension<AppColors>()?.cardSelectedBg,
-        elevation: 2,
+        elevation: 0,
       ),
       tabBarTheme: TabBarThemeData(
         indicator: BoxDecoration(
@@ -242,7 +242,7 @@ class AppThemes {
         color: ThemeData.dark().extension<AppColors>()?.cardBg,
         surfaceTintColor:
             ThemeData.light().extension<AppColors>()?.cardSelectedBg,
-        elevation: 2,
+        elevation: 0,
       ),
       tabBarTheme: TabBarThemeData(
         indicator: BoxDecoration(

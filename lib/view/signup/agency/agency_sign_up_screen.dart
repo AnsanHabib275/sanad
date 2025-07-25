@@ -36,7 +36,7 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Utils.getResponsiveWidth(25),
+              horizontal: Utils.getResponsiveWidth(context, 20),
             ),
             child: SingleChildScrollView(
               child: Column(
@@ -44,13 +44,13 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(height: Utils.getResponsiveHeight(257)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 257)),
                   Image(
-                    height: Utils.getResponsiveHeight(54),
-                    width: Utils.getResponsiveWidth(155),
+                    height: Utils.getResponsiveHeight(context, 54),
+                    width: Utils.getResponsiveWidth(context, 155),
                     image: AssetImage(ImageAssets.appLogo),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(24)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 24)),
                   Text(
                     'join_as_an_agency'.tr,
                     textAlign: TextAlign.center,
@@ -59,15 +59,15 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                           Theme.of(
                             context,
                           ).extension<AppColors>()?.textPrimaryColor,
-                      fontSize: Utils.getResponsiveSize(24),
+                      fontSize: Utils.getResponsiveSize(context, 24),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(32)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 32)),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Utils.getResponsiveWidth(7),
+                      horizontal: Utils.getResponsiveWidth(context, 10),
                     ),
                     child: Form(
                       key: formKey,
@@ -83,22 +83,24 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.textPrimaryColor,
-                              fontSize: Utils.getResponsiveSize(14),
+                              fontSize: Utils.getResponsiveSize(context, 14),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(8)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 8),
+                          ),
                           InputMobileNumberWidget(),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Obx(() {
                     return Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Utils.getResponsiveWidth(7),
+                        horizontal: Utils.getResponsiveWidth(context, 10),
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,7 +123,7 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(
-                                  Utils.getResponsiveSize(4),
+                                  Utils.getResponsiveSize(context, 4),
                                 ),
                               ),
                             ),
@@ -137,7 +139,10 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                                         'by_clicking_agree_join_or_continue_you_agree_to_the_linkedIn'
                                             .tr,
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w400,
                                       color:
@@ -149,7 +154,10 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                                   TextSpan(
                                     text: 'user_agreement'.tr,
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w700,
                                       color:
@@ -170,7 +178,10 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                                   TextSpan(
                                     text: ', ',
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w400,
                                       color:
@@ -182,7 +193,10 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                                   TextSpan(
                                     text: 'privacy_policy'.tr,
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w700,
                                       color:
@@ -202,7 +216,10 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                                   TextSpan(
                                     text: ', and \n',
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w400,
                                       color:
@@ -214,7 +231,10 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                                   TextSpan(
                                     text: 'cookie_policy'.tr,
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w700,
                                       color:
@@ -239,14 +259,14 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                       ),
                     );
                   }),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Utils.getResponsiveWidth(7),
+                      horizontal: Utils.getResponsiveWidth(context, 10),
                     ),
                     child: SendCodeButtonWidget(formKey: formKey),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(32)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 32)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -256,14 +276,14 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                         style: TextStyle(
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
-                          fontSize: Utils.getResponsiveSize(12),
+                          fontSize: Utils.getResponsiveSize(context, 12),
                           color:
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textSecondaryColor,
                         ),
                       ),
-                      SizedBox(width: Utils.getResponsiveWidth(4)),
+                      SizedBox(width: Utils.getResponsiveWidth(context, 4)),
                       InkWell(
                         onTap: () {
                           Utils.hideKeyboardGlobally();
@@ -274,7 +294,7 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                           style: TextStyle(
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
-                            fontSize: Utils.getResponsiveSize(12),
+                            fontSize: Utils.getResponsiveSize(context, 12),
                             color:
                                 Theme.of(
                                   context,
@@ -284,7 +304,7 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -294,14 +314,14 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                         style: TextStyle(
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w400,
-                          fontSize: Utils.getResponsiveSize(12),
+                          fontSize: Utils.getResponsiveSize(context, 12),
                           color:
                               Theme.of(
                                 context,
                               ).extension<AppColors>()?.textSecondaryColor,
                         ),
                       ),
-                      SizedBox(width: Utils.getResponsiveWidth(4)),
+                      SizedBox(width: Utils.getResponsiveWidth(context, 4)),
                       InkWell(
                         onTap: () {
                           Utils.hideKeyboardGlobally();
@@ -312,7 +332,7 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                           style: TextStyle(
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
-                            fontSize: Utils.getResponsiveSize(12),
+                            fontSize: Utils.getResponsiveSize(context, 12),
                             color:
                                 Theme.of(
                                   context,
@@ -322,7 +342,7 @@ class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(50)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 50)),
                 ],
               ),
             ),

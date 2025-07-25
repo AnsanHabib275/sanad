@@ -21,7 +21,7 @@ class _CustomTabBarState extends State<CustomTabBar>
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: Utils.getResponsiveHeight(44),
+      height: Utils.getResponsiveHeight(context, 44),
       decoration: BoxDecoration(
         color: Theme.of(context).extension<AppColors>()?.tabsBg,
         border: Border.all(
@@ -30,12 +30,12 @@ class _CustomTabBarState extends State<CustomTabBar>
           width: 1.0,
         ),
         borderRadius: BorderRadius.all(
-          Radius.circular(Utils.getResponsiveHeight(10)),
+          Radius.circular(Utils.getResponsiveHeight(context, 10)),
         ),
       ),
       child: Obx(() {
         return Padding(
-          padding: EdgeInsets.all(Utils.getResponsiveHeight(4)),
+          padding: EdgeInsets.all(Utils.getResponsiveHeight(context, 4)),
           child: Row(
             children: [
               Expanded(
@@ -54,13 +54,13 @@ class _CustomTabBarState extends State<CustomTabBar>
                               ).extension<AppColors>()?.selectedTabsBg
                               : AppColor.transparent,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(6)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 6)),
                       ),
                     ),
                     child: Text(
                       'general'.tr,
                       style: TextStyle(
-                        fontSize: Utils.getResponsiveSize(14),
+                        fontSize: Utils.getResponsiveSize(context, 14),
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                         color:
@@ -92,13 +92,13 @@ class _CustomTabBarState extends State<CustomTabBar>
                               ).extension<AppColors>()?.selectedTabsBg
                               : AppColor.transparent,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(6)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 6)),
                       ),
                     ),
                     child: Text(
                       'requirements'.tr,
                       style: TextStyle(
-                        fontSize: Utils.getResponsiveSize(14),
+                        fontSize: Utils.getResponsiveSize(context, 14),
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                         color:

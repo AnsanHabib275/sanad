@@ -34,12 +34,14 @@ class RoundButtonBorder extends StatelessWidget {
     return InkWell(
       onTap: onPress,
       child: Container(
-        height: Utils.getResponsiveHeight(height),
+        height: Utils.getResponsiveHeight(context, height),
         width: width,
         decoration: BoxDecoration(
           color: buttonColor,
           border: Border.all(color: borderColor, width: borderWidth),
-          borderRadius: BorderRadius.circular(Utils.getResponsiveSize(radius)),
+          borderRadius: BorderRadius.circular(
+            Utils.getResponsiveSize(context, radius),
+          ),
         ),
         child:
             loading
@@ -50,7 +52,7 @@ class RoundButtonBorder extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Manrope',
                       fontWeight: fontWeight,
-                      fontSize: Utils.getResponsiveSize(fontSize),
+                      fontSize: Utils.getResponsiveSize(context, fontSize),
                       color: textColor,
                     ),
                   ),

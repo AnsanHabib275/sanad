@@ -6,7 +6,7 @@ import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/otp/otp_view_model.dart';
 
-class InputOTPWidget extends StatefulWidget {
+class InputOTPWidget extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
   final FocusNode? nextFocusNode;
@@ -19,65 +19,20 @@ class InputOTPWidget extends StatefulWidget {
   });
 
   @override
-  State<InputOTPWidget> createState() => _InputOTPWidgetState();
-}
-
-class _InputOTPWidgetState extends State<InputOTPWidget> {
-  final otpVM = Get.put(OTPViewModel());
-  late bool _hasFocus;
-  late bool _hasText;
-
-  @override
-  void initState() {
-    super.initState();
-    _hasFocus = widget.focusNode.hasFocus;
-    _hasText = widget.controller.text.isNotEmpty;
-
-    widget.focusNode.addListener(_onFocusChange);
-    widget.controller.addListener(_onTextChange);
-  }
-
-  void _onFocusChange() {
-    setState(() => _hasFocus = widget.focusNode.hasFocus);
-  }
-
-  void _onTextChange() {
-    setState(() => _hasText = widget.controller.text.isNotEmpty);
-  }
-
-  @override
-  void dispose() {
-    widget.focusNode.removeListener(_onFocusChange);
-    widget.controller.removeListener(_onTextChange);
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final borderColor =
-        _hasFocus
-            ? AppColor.primaryButtonColor
-            : (_hasText
-                ? AppColor.primaryButtonColor
-                : Theme.of(
-                  context,
-                ).inputDecorationTheme.border!.borderSide.color);
+    final otpVM = Get.put(OTPViewModel());
     return TextFormField(
-      controller: widget.controller,
-      focusNode: widget.focusNode,
+      controller: controller,
+      focusNode: focusNode,
       onChanged: (value) {
-        if (value.length == 1 && widget.nextFocusNode != null) {
-          Utils.fieldFocusChange(
-            context,
-            widget.focusNode,
-            widget.nextFocusNode!,
-          );
+        if (value.length == 1 && nextFocusNode != null) {
+          Utils.fieldFocusChange(context, focusNode, nextFocusNode!);
         }
         otpVM.checkOtpFilled();
       },
       style: TextStyle(
         color: Theme.of(context).extension<AppColors>()?.otpText,
-        fontSize: Utils.getResponsiveSize(18),
+        fontSize: Utils.getResponsiveSize(context, 18),
         fontFamily: 'Manrope',
         fontWeight: FontWeight.w600,
       ),
@@ -85,18 +40,26 @@ class _InputOTPWidgetState extends State<InputOTPWidget> {
         filled: false,
         counterText: "",
         contentPadding: EdgeInsets.symmetric(
-          vertical: Utils.getResponsiveHeight(12),
+          vertical: Utils.getResponsiveHeight(context, 12),
         ),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor, width: 0.8),
+          borderSide: BorderSide(
+            color:
+                Theme.of(context).inputDecorationTheme.border!.borderSide.color,
+            width: 0.8,
+          ),
           borderRadius: BorderRadius.all(
-            Radius.circular(Utils.getResponsiveSize(8)),
+            Radius.circular(Utils.getResponsiveSize(context, 8)),
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor, width: 0.8),
+          borderSide: BorderSide(
+            color:
+                Theme.of(context).inputDecorationTheme.border!.borderSide.color,
+            width: 0.8,
+          ),
           borderRadius: BorderRadius.all(
-            Radius.circular(Utils.getResponsiveSize(8)),
+            Radius.circular(Utils.getResponsiveSize(context, 8)),
           ),
         ),
         focusedBorder: OutlineInputBorder(
@@ -105,7 +68,7 @@ class _InputOTPWidgetState extends State<InputOTPWidget> {
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(Utils.getResponsiveSize(8)),
+            Radius.circular(Utils.getResponsiveSize(context, 8)),
           ),
         ),
       ),

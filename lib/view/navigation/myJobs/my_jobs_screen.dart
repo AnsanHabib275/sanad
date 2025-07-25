@@ -78,15 +78,15 @@ class _MyJobsScreenState extends State<MyJobsScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(context, 16),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: Utils.getResponsiveHeight(16)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
               CustomTabBar(),
-              SizedBox(height: Utils.getResponsiveHeight(16)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
               Expanded(
                 child: ListView.builder(
                   itemCount: myJobsItems.length,

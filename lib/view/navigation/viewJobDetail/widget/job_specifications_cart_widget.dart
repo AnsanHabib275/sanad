@@ -24,18 +24,18 @@ class _JobSpecificationsCartWidgetState
       decoration: BoxDecoration(
         color: Theme.of(context).extension<AppColors>()?.containerBg,
         borderRadius: BorderRadius.all(
-          Radius.circular(Utils.getResponsiveHeight(6)),
+          Radius.circular(Utils.getResponsiveHeight(context, 6)),
         ),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: Utils.getResponsiveWidth(10),
-          vertical: Utils.getResponsiveHeight(2),
+          horizontal: Utils.getResponsiveWidth(context, 10),
+          vertical: Utils.getResponsiveHeight(context, 2),
         ),
         child: Text(
           widget.jobSpecification,
           style: TextStyle(
-            fontSize: Utils.getResponsiveSize(12),
+            fontSize: Utils.getResponsiveSize(context, 12),
             fontFamily: 'Inter',
             fontWeight: FontWeight.w500,
             color: Theme.of(context).extension<AppColors>()?.textPrimaryColor,

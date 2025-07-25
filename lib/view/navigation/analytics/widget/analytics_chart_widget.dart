@@ -11,8 +11,10 @@ class AnalyticsChartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Utils.getResponsiveHeight(228),
-      padding: EdgeInsets.symmetric(horizontal: Utils.getResponsiveWidth(16)),
+      height: Utils.getResponsiveHeight(context, 228),
+      padding: EdgeInsets.symmetric(
+        horizontal: Utils.getResponsiveWidth(context, 16),
+      ),
       child: LineChart(
         LineChartData(
           minY: 0,
@@ -43,7 +45,7 @@ class AnalyticsChartWidget extends StatelessWidget {
                           ).extension<AppColors>()?.textBodyColor,
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w400,
-                      fontSize: Utils.getResponsiveSize(12),
+                      fontSize: Utils.getResponsiveSize(context, 12),
                     ),
                   );
                 },

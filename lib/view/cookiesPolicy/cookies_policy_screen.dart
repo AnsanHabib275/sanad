@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/view/cookiesPolicy/widget/accept_button_widget.dart';
@@ -26,8 +28,8 @@ class _CookiesPolicyScreenState extends State<CookiesPolicyScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Utils.getResponsiveHeight(24),
-              width: Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(context, 24),
+              width: Utils.getResponsiveWidth(context, 24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -48,8 +50,8 @@ class _CookiesPolicyScreenState extends State<CookiesPolicyScreen> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(16),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 16),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Text(
                     'cookies_policy_description'.tr,
@@ -60,7 +62,7 @@ class _CookiesPolicyScreenState extends State<CookiesPolicyScreen> {
                           ).extension<AppColors>()?.textSecondaryColor,
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
-                      fontSize: Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(context, 14),
                     ),
                   ),
                 ),
@@ -73,21 +75,26 @@ class _CookiesPolicyScreenState extends State<CookiesPolicyScreen> {
               ),
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: Utils.getResponsiveWidth(16),
-                  vertical: Utils.getResponsiveHeight(12),
+                  horizontal: Utils.getResponsiveWidth(context, 16),
+                  vertical: Utils.getResponsiveHeight(context, 12),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(child: DeclineButtonWidget()),
-                    SizedBox(width: Utils.getResponsiveWidth(12)),
+                    SizedBox(width: Utils.getResponsiveWidth(context, 12)),
                     Expanded(child: AcceptButtonWidget()),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: Utils.getResponsiveHeight(15)),
+            SizedBox(
+              height:
+                  Platform.isIOS
+                      ? Utils.getResponsiveHeight(context, 35)
+                      : Utils.getResponsiveHeight(context, 15),
+            ),
           ],
         ),
       ),

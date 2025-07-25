@@ -46,12 +46,12 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              width: Utils.getResponsiveWidth(97),
+              width: Utils.getResponsiveWidth(context, 97),
               child: Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(5),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 5),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Text(
                     widget.transaction.paymentID,
@@ -63,19 +63,19 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                           ).extension<AppColors>()?.textPrimaryColor,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
-                      fontSize: Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(context, 14),
                     ),
                   ),
                 ),
               ),
             ),
             SizedBox(
-              width: Utils.getResponsiveWidth(97),
+              width: Utils.getResponsiveWidth(context, 97),
               child: Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(5),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 5),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Text(
                     widget.transaction.amount,
@@ -87,19 +87,19 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                           ).extension<AppColors>()?.textPrimaryColor,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
-                      fontSize: Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(context, 14),
                     ),
                   ),
                 ),
               ),
             ),
             SizedBox(
-              width: Utils.getResponsiveWidth(127),
+              width: Utils.getResponsiveWidth(context, 127),
               child: Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(5),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 5),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Container(
                     decoration: BoxDecoration(
@@ -108,18 +108,18 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
                               ? AppColor.successBgColor
                               : AppColor.indigoBgColor,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(6)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 6)),
                       ),
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Utils.getResponsiveWidth(10),
-                        vertical: Utils.getResponsiveHeight(2),
+                        horizontal: Utils.getResponsiveWidth(context, 10),
+                        vertical: Utils.getResponsiveHeight(context, 2),
                       ),
                       child: Text(
                         widget.transaction.paymentMethod,
                         style: TextStyle(
-                          fontSize: Utils.getResponsiveSize(12),
+                          fontSize: Utils.getResponsiveSize(context, 12),
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           color:
@@ -134,29 +134,29 @@ class _TransactionsCartWidgetState extends State<TransactionsCartWidget> {
               ),
             ),
             SizedBox(
-              width: Utils.getResponsiveWidth(74),
+              width: Utils.getResponsiveWidth(context, 74),
               child: Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(5),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 5),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Container(
                     decoration: BoxDecoration(
                       color: AppColor.secondaryButtonColor,
                       borderRadius: BorderRadius.all(
-                        Radius.circular(Utils.getResponsiveHeight(8)),
+                        Radius.circular(Utils.getResponsiveHeight(context, 8)),
                       ),
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Utils.getResponsiveWidth(12),
-                        vertical: Utils.getResponsiveHeight(8),
+                        horizontal: Utils.getResponsiveWidth(context, 12),
+                        vertical: Utils.getResponsiveHeight(context, 8),
                       ),
                       child: Image.asset(
                         IconAssets.icAction,
-                        height: Utils.getResponsiveHeight(20),
-                        width: Utils.getResponsiveWidth(20),
+                        height: Utils.getResponsiveHeight(context, 20),
+                        width: Utils.getResponsiveWidth(context, 20),
                       ),
                     ),
                   ),

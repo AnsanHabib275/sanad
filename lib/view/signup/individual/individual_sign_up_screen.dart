@@ -39,20 +39,20 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: Utils.getResponsiveWidth(32),
+              horizontal: Utils.getResponsiveWidth(context, 30),
             ),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: Utils.getResponsiveHeight(60)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 60)),
                   Image(
-                    height: Utils.getResponsiveHeight(27),
-                    width: Utils.getResponsiveWidth(77),
+                    height: Utils.getResponsiveHeight(context, 27),
+                    width: Utils.getResponsiveWidth(context, 77),
                     image: AssetImage(ImageAssets.appLogoSmall),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(24)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 24)),
                   Text(
                     'please_fill_the_required_information'.tr,
                     textAlign: TextAlign.center,
@@ -61,17 +61,17 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                           Theme.of(
                             context,
                           ).extension<AppColors>()?.textPrimaryColor,
-                      fontSize: Utils.getResponsiveSize(20),
+                      fontSize: Utils.getResponsiveSize(context, 20),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(38)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 38)),
                   Align(
                     alignment: Alignment.center,
                     child: SizedBox(
-                      height: Utils.getResponsiveHeight(110),
-                      width: Utils.getResponsiveWidth(102),
+                      height: Utils.getResponsiveHeight(context, 110),
+                      width: Utils.getResponsiveWidth(context, 102),
                       child: InkWell(
                         onTap: () {
                           _showImageSourceDialog(context);
@@ -87,22 +87,27 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                   _showImageSourceDialog(context);
                                 },
                                 child: SizedBox(
-                                  height: Utils.getResponsiveHeight(95),
-                                  width: Utils.getResponsiveWidth(95),
+                                  height: Utils.getResponsiveHeight(
+                                    context,
+                                    95,
+                                  ),
+                                  width: Utils.getResponsiveWidth(context, 95),
                                   child: Obx(() {
                                     return CircleAvatar(
                                       // radius:
                                       //
-                                      //     Utils.getResponsiveSize(47),
+                                      //     Utils.getResponsiveSize(context,47),
                                       child:
                                           signUpVM.filePath.isEmpty
                                               ? Image.asset(
                                                 ImageAssets.imgDummyPicture,
                                                 height:
                                                     Utils.getResponsiveHeight(
+                                                      context,
                                                       95,
                                                     ),
                                                 width: Utils.getResponsiveWidth(
+                                                  context,
                                                   95,
                                                 ),
                                                 fit: BoxFit.cover,
@@ -114,10 +119,12 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                                   fit: BoxFit.cover,
                                                   height:
                                                       Utils.getResponsiveHeight(
+                                                        context,
                                                         95,
                                                       ),
                                                   width:
                                                       Utils.getResponsiveWidth(
+                                                        context,
                                                         95,
                                                       ),
                                                   // loadingBuilder: (
@@ -154,10 +161,12 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                                           .imgDummyPicture,
                                                       height:
                                                           Utils.getResponsiveHeight(
+                                                            context,
                                                             95,
                                                           ),
                                                       width:
                                                           Utils.getResponsiveWidth(
+                                                            context,
                                                             95,
                                                           ),
                                                       fit: BoxFit.cover,
@@ -178,18 +187,27 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                 decoration: BoxDecoration(
                                   color: AppColor.addPhotoBgColor,
                                   borderRadius: BorderRadius.circular(
-                                    Utils.getResponsiveHeight(16),
+                                    Utils.getResponsiveHeight(context, 16),
                                   ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: Utils.getResponsiveWidth(18),
-                                    vertical: Utils.getResponsiveHeight(9),
+                                    horizontal: Utils.getResponsiveWidth(
+                                      context,
+                                      18,
+                                    ),
+                                    vertical: Utils.getResponsiveHeight(
+                                      context,
+                                      9,
+                                    ),
                                   ),
                                   child: Text(
                                     'add_photo'.tr,
                                     style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(12),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        12,
+                                      ),
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w600,
                                       color: AppColor.blackColor,
@@ -203,7 +221,7 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(16)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Form(
                     key: formKey,
                     child: Column(
@@ -218,14 +236,16 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(context, 14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(8)),
+                        SizedBox(height: Utils.getResponsiveHeight(context, 8)),
                         InputFirstNameWidget(),
-                        SizedBox(height: Utils.getResponsiveHeight(16)),
+                        SizedBox(
+                          height: Utils.getResponsiveHeight(context, 16),
+                        ),
                         Text(
                           'last_name'.tr,
                           textAlign: TextAlign.left,
@@ -234,14 +254,16 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(context, 14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(8)),
+                        SizedBox(height: Utils.getResponsiveHeight(context, 8)),
                         InputLastNameWidget(),
-                        SizedBox(height: Utils.getResponsiveHeight(16)),
+                        SizedBox(
+                          height: Utils.getResponsiveHeight(context, 16),
+                        ),
                         Text(
                           'tagline'.tr,
                           textAlign: TextAlign.left,
@@ -250,14 +272,16 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(context, 14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(8)),
+                        SizedBox(height: Utils.getResponsiveHeight(context, 8)),
                         InputTaglineWidget(),
-                        SizedBox(height: Utils.getResponsiveHeight(16)),
+                        SizedBox(
+                          height: Utils.getResponsiveHeight(context, 16),
+                        ),
                         Text(
                           'email'.tr,
                           textAlign: TextAlign.left,
@@ -266,20 +290,22 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                                 Theme.of(
                                   context,
                                 ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Utils.getResponsiveSize(14),
+                            fontSize: Utils.getResponsiveSize(context, 14),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(8)),
+                        SizedBox(height: Utils.getResponsiveHeight(context, 8)),
                         InputEmailWidget(),
-                        SizedBox(height: Utils.getResponsiveHeight(20)),
+                        SizedBox(
+                          height: Utils.getResponsiveHeight(context, 20),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(121)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 121)),
                   ContinueButtonWidget(formKey: formKey),
-                  SizedBox(height: Utils.getResponsiveHeight(100)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 100)),
                 ],
               ),
             ),

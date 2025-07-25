@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
@@ -48,241 +50,275 @@ class _WalletScreenState extends State<WalletScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(context, 16),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: Utils.getResponsiveHeight(16)),
-              Container(
-                height: Utils.getResponsiveHeight(90),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).extension<AppColors>()?.cardBg,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(Utils.getResponsiveSize(8)),
-                  ),
-                  border: Border.all(
-                    color: Theme.of(context).dividerColor,
-                    width: 1.0,
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(16),
-                    vertical: Utils.getResponsiveHeight(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'total_balance'.tr,
-                            style: TextStyle(
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.textPrimaryColor,
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w700,
-                              fontSize: Utils.getResponsiveSize(14),
-                            ),
-                          ),
-                          SizedBox(height: Utils.getResponsiveHeight(8)),
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: '2,456',
-                                  style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(20),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w700,
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: 'riyal'.tr,
-                                  style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(20),
-                                    fontFamily: 'Manrope',
-                                    fontWeight: FontWeight.w700,
-                                    color:
-                                        Theme.of(context)
-                                            .extension<AppColors>()
-                                            ?.textPrimaryColor,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      DepositNowButtonWidget(),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: Utils.getResponsiveHeight(16)),
-              Row(
-                children: [
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isEmpty = true;
-                        });
-                      },
-                      child: Container(
-                        height: Utils.getResponsiveHeight(80),
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color:
-                              Theme.of(context).extension<AppColors>()?.cardBg,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(Utils.getResponsiveSize(8)),
-                          ),
-                          border: Border.all(
-                            color: Theme.of(context).dividerColor,
-                            width: 1.0,
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'deposits'.tr,
-                              style: TextStyle(
-                                color: AppColor.primaryButtonColor,
-                                fontFamily: 'Manrope',
-                                fontWeight: FontWeight.w700,
-                                fontSize: Utils.getResponsiveSize(14),
-                              ),
-                            ),
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: '0',
-                                    style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(18),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: 'riyal'.tr,
-                                    style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(18),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: Utils.getResponsiveWidth(14)),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isEmpty = false;
-                        });
-                      },
-                      child: Container(
-                        height: Utils.getResponsiveHeight(80),
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color:
-                              Theme.of(context).extension<AppColors>()?.cardBg,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(Utils.getResponsiveSize(8)),
-                          ),
-                          border: Border.all(
-                            color: Theme.of(context).dividerColor,
-                            width: 1.0,
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'refunds'.tr,
-                              style: TextStyle(
-                                color: AppColor.primaryButtonColor,
-                                fontFamily: 'Manrope',
-                                fontWeight: FontWeight.w700,
-                                fontSize: Utils.getResponsiveSize(14),
-                              ),
-                            ),
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: '0',
-                                    style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(18),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: 'riyal'.tr,
-                                    style: TextStyle(
-                                      fontSize: Utils.getResponsiveSize(18),
-                                      fontFamily: 'Manrope',
-                                      fontWeight: FontWeight.w600,
-                                      color:
-                                          Theme.of(context)
-                                              .extension<AppColors>()
-                                              ?.textPrimaryColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: Utils.getResponsiveHeight(16)),
-              Flexible(
-                child: Container(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: Utils.getResponsiveHeight(context, 16)),
+                Container(
+                  height: Utils.getResponsiveHeight(context, 90),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(Utils.getResponsiveHeight(8)),
+                      Radius.circular(Utils.getResponsiveSize(context, 8)),
+                    ),
+                    border: Border.all(
+                      color: Theme.of(context).dividerColor,
+                      width: 1.0,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Utils.getResponsiveWidth(context, 16),
+                      vertical: Utils.getResponsiveHeight(context, 10),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'total_balance'.tr,
+                              style: TextStyle(
+                                color:
+                                    Theme.of(
+                                      context,
+                                    ).extension<AppColors>()?.textPrimaryColor,
+                                fontFamily: 'Manrope',
+                                fontWeight: FontWeight.w700,
+                                fontSize: Utils.getResponsiveSize(context, 14),
+                              ),
+                            ),
+                            SizedBox(
+                              height: Utils.getResponsiveHeight(context, 8),
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: '2,456',
+                                    style: TextStyle(
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        20,
+                                      ),
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w700,
+                                      color:
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'riyal'.tr,
+                                    style: TextStyle(
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        20,
+                                      ),
+                                      fontFamily: 'Manrope',
+                                      fontWeight: FontWeight.w700,
+                                      color:
+                                          Theme.of(context)
+                                              .extension<AppColors>()
+                                              ?.textPrimaryColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        DepositNowButtonWidget(),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: Utils.getResponsiveHeight(context, 16)),
+                Row(
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isEmpty = true;
+                          });
+                        },
+                        child: Container(
+                          height: Utils.getResponsiveHeight(context, 80),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.cardBg,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                Utils.getResponsiveSize(context, 8),
+                              ),
+                            ),
+                            border: Border.all(
+                              color: Theme.of(context).dividerColor,
+                              width: 1.0,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'deposits'.tr,
+                                style: TextStyle(
+                                  color: AppColor.primaryButtonColor,
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    14,
+                                  ),
+                                ),
+                              ),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: '0',
+                                      style: TextStyle(
+                                        fontSize: Utils.getResponsiveSize(
+                                          context,
+                                          18,
+                                        ),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w600,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: 'riyal'.tr,
+                                      style: TextStyle(
+                                        fontSize: Utils.getResponsiveSize(
+                                          context,
+                                          18,
+                                        ),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w600,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: Utils.getResponsiveWidth(context, 14)),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isEmpty = false;
+                          });
+                        },
+                        child: Container(
+                          height: Utils.getResponsiveHeight(context, 80),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.cardBg,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                Utils.getResponsiveSize(context, 8),
+                              ),
+                            ),
+                            border: Border.all(
+                              color: Theme.of(context).dividerColor,
+                              width: 1.0,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'refunds'.tr,
+                                style: TextStyle(
+                                  color: AppColor.primaryButtonColor,
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    14,
+                                  ),
+                                ),
+                              ),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: '0',
+                                      style: TextStyle(
+                                        fontSize: Utils.getResponsiveSize(
+                                          context,
+                                          18,
+                                        ),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w600,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: 'riyal'.tr,
+                                      style: TextStyle(
+                                        fontSize: Utils.getResponsiveSize(
+                                          context,
+                                          18,
+                                        ),
+                                        fontFamily: 'Manrope',
+                                        fontWeight: FontWeight.w600,
+                                        color:
+                                            Theme.of(context)
+                                                .extension<AppColors>()
+                                                ?.textPrimaryColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: Utils.getResponsiveHeight(context, 16)),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(Utils.getResponsiveHeight(context, 8)),
                     ),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
@@ -296,8 +332,8 @@ class _WalletScreenState extends State<WalletScreen> {
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Utils.getResponsiveWidth(16),
-                          vertical: Utils.getResponsiveHeight(16),
+                          horizontal: Utils.getResponsiveWidth(context, 16),
+                          vertical: Utils.getResponsiveHeight(context, 16),
                         ),
                         child: Row(
                           children: [
@@ -310,7 +346,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                     ).extension<AppColors>()?.textPrimaryColor,
                                 fontFamily: 'Manrope',
                                 fontWeight: FontWeight.w700,
-                                fontSize: Utils.getResponsiveSize(16),
+                                fontSize: Utils.getResponsiveSize(context, 16),
                               ),
                             ),
                             Spacer(),
@@ -327,9 +363,12 @@ class _WalletScreenState extends State<WalletScreen> {
                       //       children: [
                       !isEmpty
                           ? Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               Container(
-                                height: Utils.getResponsiveHeight(50),
+                                height: Utils.getResponsiveHeight(context, 50),
                                 width: double.infinity,
                                 color:
                                     Theme.of(
@@ -341,13 +380,20 @@ class _WalletScreenState extends State<WalletScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     SizedBox(
-                                      width: Utils.getResponsiveWidth(97),
+                                      width: Utils.getResponsiveWidth(
+                                        context,
+                                        97,
+                                      ),
                                       child: Center(
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                Utils.getResponsiveWidth(5),
+                                                Utils.getResponsiveWidth(
+                                                  context,
+                                                  5,
+                                                ),
                                             vertical: Utils.getResponsiveHeight(
+                                              context,
                                               16,
                                             ),
                                           ),
@@ -361,6 +407,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                               fontFamily: 'Manrope',
                                               fontWeight: FontWeight.w600,
                                               fontSize: Utils.getResponsiveSize(
+                                                context,
                                                 12,
                                               ),
                                             ),
@@ -369,13 +416,20 @@ class _WalletScreenState extends State<WalletScreen> {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: Utils.getResponsiveWidth(97),
+                                      width: Utils.getResponsiveWidth(
+                                        context,
+                                        97,
+                                      ),
                                       child: Center(
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                Utils.getResponsiveWidth(5),
+                                                Utils.getResponsiveWidth(
+                                                  context,
+                                                  5,
+                                                ),
                                             vertical: Utils.getResponsiveHeight(
+                                              context,
                                               16,
                                             ),
                                           ),
@@ -389,6 +443,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                               fontFamily: 'Manrope',
                                               fontWeight: FontWeight.w600,
                                               fontSize: Utils.getResponsiveSize(
+                                                context,
                                                 12,
                                               ),
                                             ),
@@ -397,13 +452,20 @@ class _WalletScreenState extends State<WalletScreen> {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: Utils.getResponsiveWidth(127),
+                                      width: Utils.getResponsiveWidth(
+                                        context,
+                                        127,
+                                      ),
                                       child: Center(
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                Utils.getResponsiveWidth(5),
+                                                Utils.getResponsiveWidth(
+                                                  context,
+                                                  5,
+                                                ),
                                             vertical: Utils.getResponsiveHeight(
+                                              context,
                                               16,
                                             ),
                                           ),
@@ -417,6 +479,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                               fontFamily: 'Manrope',
                                               fontWeight: FontWeight.w600,
                                               fontSize: Utils.getResponsiveSize(
+                                                context,
                                                 12,
                                               ),
                                             ),
@@ -425,13 +488,20 @@ class _WalletScreenState extends State<WalletScreen> {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: Utils.getResponsiveWidth(74),
+                                      width: Utils.getResponsiveWidth(
+                                        context,
+                                        74,
+                                      ),
                                       child: Center(
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                Utils.getResponsiveWidth(5),
+                                                Utils.getResponsiveWidth(
+                                                  context,
+                                                  5,
+                                                ),
                                             vertical: Utils.getResponsiveHeight(
+                                              context,
                                               16,
                                             ),
                                           ),
@@ -445,6 +515,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                               fontFamily: 'Manrope',
                                               fontWeight: FontWeight.w600,
                                               fontSize: Utils.getResponsiveSize(
+                                                context,
                                                 12,
                                               ),
                                             ),
@@ -457,7 +528,8 @@ class _WalletScreenState extends State<WalletScreen> {
                               ),
                               ListView.builder(
                                 shrinkWrap: true,
-                                physics: const AlwaysScrollableScrollPhysics(),
+                                physics: NeverScrollableScrollPhysics(),
+                                padding: EdgeInsets.zero,
                                 itemCount: walletItems.length,
                                 itemBuilder: (context, index) {
                                   return WalletCartWidget(
@@ -470,7 +542,10 @@ class _WalletScreenState extends State<WalletScreen> {
                           : Center(
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                vertical: Utils.getResponsiveHeight(150),
+                                vertical: Utils.getResponsiveHeight(
+                                  context,
+                                  150,
+                                ),
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -478,11 +553,20 @@ class _WalletScreenState extends State<WalletScreen> {
                                 children: [
                                   Image.asset(
                                     ImageAssets.imgEmptyTransactions,
-                                    height: Utils.getResponsiveHeight(60),
-                                    width: Utils.getResponsiveWidth(47),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      60,
+                                    ),
+                                    width: Utils.getResponsiveWidth(
+                                      context,
+                                      47,
+                                    ),
                                   ),
                                   SizedBox(
-                                    height: Utils.getResponsiveHeight(18),
+                                    height: Utils.getResponsiveHeight(
+                                      context,
+                                      18,
+                                    ),
                                   ),
                                   Text(
                                     'empty_transactions'.tr,
@@ -493,7 +577,10 @@ class _WalletScreenState extends State<WalletScreen> {
                                               ?.textBodyColor,
                                       fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w400,
-                                      fontSize: Utils.getResponsiveSize(14),
+                                      fontSize: Utils.getResponsiveSize(
+                                        context,
+                                        14,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -505,16 +592,22 @@ class _WalletScreenState extends State<WalletScreen> {
                     ],
                   ),
                 ),
-              ),
-              !isEmpty
-                  ? Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: Utils.getResponsiveHeight(16),
-                    ),
-                    child: ViewAllButtonWidget(),
-                  )
-                  : SizedBox.shrink(),
-            ],
+                !isEmpty
+                    ? Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: Utils.getResponsiveHeight(context, 16),
+                      ),
+                      child: ViewAllButtonWidget(),
+                    )
+                    : SizedBox.shrink(),
+                SizedBox(
+                  height:
+                      Platform.isIOS
+                          ? Utils.getResponsiveHeight(context, 35)
+                          : Utils.getResponsiveHeight(context, 15),
+                ),
+              ],
+            ),
           ),
         ),
       ),

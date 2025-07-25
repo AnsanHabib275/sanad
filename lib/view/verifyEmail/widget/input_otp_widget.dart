@@ -6,7 +6,7 @@ import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/verifyEmail/verify_email_view_model.dart';
 
-class InputOTPWidget extends StatefulWidget {
+class InputOTPWidget extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
   final FocusNode? nextFocusNode;
@@ -17,66 +17,22 @@ class InputOTPWidget extends StatefulWidget {
     required this.focusNode,
     this.nextFocusNode,
   });
-  @override
-  State<InputOTPWidget> createState() => _InputOTPWidgetState();
-}
-
-class _InputOTPWidgetState extends State<InputOTPWidget> {
-  final verifyEmailVM = Get.put(VerifyEmailViewModel());
-  late bool hasFocus;
-  late bool hasText;
-
-  @override
-  void initState() {
-    super.initState();
-    hasFocus = widget.focusNode.hasFocus;
-    hasText = widget.controller.text.isNotEmpty;
-
-    widget.focusNode.addListener(onFocusChange);
-    widget.controller.addListener(onTextChange);
-  }
-
-  void onFocusChange() {
-    setState(() => hasFocus = widget.focusNode.hasFocus);
-  }
-
-  void onTextChange() {
-    setState(() => hasText = widget.controller.text.isNotEmpty);
-  }
-
-  @override
-  void dispose() {
-    widget.focusNode.removeListener(onFocusChange);
-    widget.controller.removeListener(onTextChange);
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
-    final borderColor =
-        hasFocus
-            ? AppColor.primaryButtonColor
-            : (hasText
-                ? AppColor.primaryButtonColor
-                : Theme.of(
-                  context,
-                ).inputDecorationTheme.border!.borderSide.color);
+    final verifyEmailVM = Get.put(VerifyEmailViewModel());
     return TextFormField(
-      controller: widget.controller,
-      focusNode: widget.focusNode,
+      controller: controller,
+      focusNode: focusNode,
       onChanged: (value) {
-        if (value.length == 1 && widget.nextFocusNode != null) {
-          Utils.fieldFocusChange(
-            context,
-            widget.focusNode,
-            widget.nextFocusNode!,
-          );
+        if (value.length == 1 && nextFocusNode != null) {
+          Utils.fieldFocusChange(context, focusNode, nextFocusNode!);
         }
         verifyEmailVM.checkOtpFilled();
       },
       style: TextStyle(
         color: Theme.of(context).extension<AppColors>()?.otpText,
-        fontSize: Utils.getResponsiveSize(18),
+        fontSize: Utils.getResponsiveSize(context, 18),
         fontFamily: 'Manrope',
         fontWeight: FontWeight.w600,
       ),
@@ -84,30 +40,35 @@ class _InputOTPWidgetState extends State<InputOTPWidget> {
         filled: false,
         counterText: "",
         contentPadding: EdgeInsets.symmetric(
-          vertical: Utils.getResponsiveHeight(12),
+          vertical: Utils.getResponsiveHeight(context, 12),
         ),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: borderColor, width: 0.8),
+          borderSide: BorderSide(
+            color:
+                Theme.of(context).inputDecorationTheme.border!.borderSide.color,
+            width: 0.8,
+          ),
           borderRadius: BorderRadius.all(
-            Radius.circular(Utils.getResponsiveSize(8)),
+            Radius.circular(Utils.getResponsiveSize(context, 8)),
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: borderColor, // Default border color
+            color:
+                Theme.of(context).inputDecorationTheme.border!.borderSide.color,
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(Utils.getResponsiveSize(8)),
+            Radius.circular(Utils.getResponsiveSize(context, 8)),
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: AppColor.primaryButtonColor, // Default border color
+            color: AppColor.primaryButtonColor,
             width: 0.8,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(Utils.getResponsiveSize(8)),
+            Radius.circular(Utils.getResponsiveSize(context, 8)),
           ),
         ),
       ),

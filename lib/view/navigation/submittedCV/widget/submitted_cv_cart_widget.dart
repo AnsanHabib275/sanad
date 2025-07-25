@@ -28,12 +28,12 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
       decoration: BoxDecoration(
         color: Theme.of(context).extension<AppColors>()?.cardBg,
         borderRadius: BorderRadius.all(
-          Radius.circular(Utils.getResponsiveHeight(12)),
+          Radius.circular(Utils.getResponsiveHeight(context, 12)),
         ),
         border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
       ),
       child: Padding(
-        padding: EdgeInsets.all(Utils.getResponsiveHeight(16)),
+        padding: EdgeInsets.all(Utils.getResponsiveHeight(context, 16)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,7 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                 Text(
                   widget.submittedCVModel.name,
                   style: TextStyle(
-                    fontSize: Utils.getResponsiveSize(16),
+                    fontSize: Utils.getResponsiveSize(context, 16),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w700,
                     color:
@@ -54,11 +54,11 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                         ).extension<AppColors>()?.textPrimaryColor,
                   ),
                 ),
-                SizedBox(width: Utils.getResponsiveWidth(20)),
+                SizedBox(width: Utils.getResponsiveWidth(context, 20)),
                 Text(
                   widget.submittedCVModel.submittedTime,
                   style: TextStyle(
-                    fontSize: Utils.getResponsiveSize(12),
+                    fontSize: Utils.getResponsiveSize(context, 12),
                     fontFamily: 'Manrope',
                     fontWeight: FontWeight.w500,
                     color:
@@ -75,7 +75,7 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                   TextSpan(
                     text: widget.submittedCVModel.email,
                     style: TextStyle(
-                      fontSize: Utils.getResponsiveSize(11),
+                      fontSize: Utils.getResponsiveSize(context, 11),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
                       color:
@@ -87,7 +87,7 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                   TextSpan(
                     text: ' | ',
                     style: TextStyle(
-                      fontSize: Utils.getResponsiveSize(11),
+                      fontSize: Utils.getResponsiveSize(context, 11),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
                       color:
@@ -99,7 +99,7 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                   TextSpan(
                     text: widget.submittedCVModel.designation,
                     style: TextStyle(
-                      fontSize: Utils.getResponsiveSize(11),
+                      fontSize: Utils.getResponsiveSize(context, 11),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
                       color:
@@ -111,7 +111,7 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                 ],
               ),
             ),
-            SizedBox(height: Utils.getResponsiveHeight(12)),
+            SizedBox(height: Utils.getResponsiveHeight(context, 12)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -120,7 +120,7 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                   decoration: BoxDecoration(
                     color: Theme.of(context).scaffoldBackgroundColor,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(Utils.getResponsiveHeight(8)),
+                      Radius.circular(Utils.getResponsiveHeight(context, 8)),
                     ),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
@@ -129,8 +129,8 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                   ),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Utils.getResponsiveWidth(16),
-                      vertical: Utils.getResponsiveHeight(8),
+                      horizontal: Utils.getResponsiveWidth(context, 16),
+                      vertical: Utils.getResponsiveHeight(context, 8),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -138,14 +138,14 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                       children: [
                         Image.asset(
                           ImageAssets.imgPdf,
-                          height: Utils.getResponsiveHeight(32),
-                          width: Utils.getResponsiveWidth(32),
+                          height: Utils.getResponsiveHeight(context, 32),
+                          width: Utils.getResponsiveWidth(context, 32),
                         ),
-                        SizedBox(width: Utils.getResponsiveWidth(7)),
+                        SizedBox(width: Utils.getResponsiveWidth(context, 7)),
                         Text(
                           widget.submittedCVModel.cvName,
                           style: TextStyle(
-                            fontSize: Utils.getResponsiveSize(11),
+                            fontSize: Utils.getResponsiveSize(context, 11),
                             fontFamily: 'Manrope',
                             fontWeight: FontWeight.w400,
                             color:
@@ -170,23 +170,30 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                                   context,
                                 ).extension<AppColors>()?.cardSelectedBg,
                             borderRadius: BorderRadius.all(
-                              Radius.circular(Utils.getResponsiveHeight(6)),
+                              Radius.circular(
+                                Utils.getResponsiveHeight(context, 6),
+                              ),
                             ),
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: Utils.getResponsiveWidth(4),
-                              vertical: Utils.getResponsiveHeight(4),
+                              horizontal: Utils.getResponsiveWidth(context, 4),
+                              vertical: Utils.getResponsiveHeight(context, 4),
                             ),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Image.asset(IconAssets.icCheckbox),
-                                SizedBox(width: Utils.getResponsiveWidth(4)),
+                                SizedBox(
+                                  width: Utils.getResponsiveWidth(context, 4),
+                                ),
                                 Text(
                                   'bought'.tr,
                                   style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(10),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      10,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w500,
                                     color: AppColor.primaryColor,
@@ -196,14 +203,17 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                             ),
                           ),
                         ),
-                        SizedBox(height: Utils.getResponsiveHeight(2)),
+                        SizedBox(height: Utils.getResponsiveHeight(context, 2)),
                         RichText(
                           text: TextSpan(
                             children: [
                               TextSpan(
                                 text: 'you_have_paid'.tr,
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    12,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
                                   color:
@@ -215,7 +225,10 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                               TextSpan(
                                 text: ' - ',
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    12,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
                                   color:
@@ -227,7 +240,10 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                               TextSpan(
                                 text: widget.submittedCVModel.price,
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    12,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:
@@ -248,13 +264,15 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                               context,
                             ).extension<AppColors>()?.containerBg,
                         borderRadius: BorderRadius.all(
-                          Radius.circular(Utils.getResponsiveHeight(6)),
+                          Radius.circular(
+                            Utils.getResponsiveHeight(context, 6),
+                          ),
                         ),
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: Utils.getResponsiveWidth(8),
-                          vertical: Utils.getResponsiveHeight(2),
+                          horizontal: Utils.getResponsiveWidth(context, 8),
+                          vertical: Utils.getResponsiveHeight(context, 2),
                         ),
                         child: RichText(
                           text: TextSpan(
@@ -262,7 +280,10 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                               TextSpan(
                                 text: 'view_cv'.tr,
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    12,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
                                   color:
@@ -274,7 +295,10 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                               TextSpan(
                                 text: ' - ',
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    12,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w500,
                                   color:
@@ -286,7 +310,10 @@ class _SubmittedCVCartWidgetState extends State<SubmittedCVCartWidget> {
                               TextSpan(
                                 text: widget.submittedCVModel.price,
                                 style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(12),
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    12,
+                                  ),
                                   fontFamily: 'Manrope',
                                   fontWeight: FontWeight.w700,
                                   color:

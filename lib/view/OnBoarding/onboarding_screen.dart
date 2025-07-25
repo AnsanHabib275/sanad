@@ -77,8 +77,8 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                 right: 0,
                 child: Image.asset(
                   ImageAssets.onBoardingBg,
-                  height: Utils.getResponsiveHeight(494),
-                  width: Utils.getResponsiveWidth(744),
+                  height: Utils.getResponsiveHeight(context, 494),
+                  width: Utils.getResponsiveWidth(context, 744),
                 ),
               ),
               Positioned(
@@ -88,7 +88,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                 bottom: 0,
                 child: Column(
                   children: [
-                    SizedBox(height: Utils.getResponsiveHeight(32)),
+                    SizedBox(height: Utils.getResponsiveHeight(context, 32)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -104,7 +104,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                           child: Text(
                             'skip'.tr,
                             style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(16),
+                              fontSize: Utils.getResponsiveSize(context, 16),
                               fontFamily: 'Manrope',
                               fontWeight: FontWeight.w400,
                               color:
@@ -114,7 +114,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(width: Utils.getResponsiveWidth(16)),
+                        SizedBox(width: Utils.getResponsiveWidth(context, 16)),
                       ],
                     ),
                     Expanded(
@@ -141,10 +141,10 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                           tutorialPages.length,
                           (index) => Container(
                             margin: EdgeInsets.only(
-                              right: Utils.getResponsiveWidth(5),
+                              right: Utils.getResponsiveWidth(context, 5),
                             ),
-                            width: Utils.getResponsiveWidth(14),
-                            height: Utils.getResponsiveHeight(14),
+                            width: Utils.getResponsiveWidth(context, 14),
+                            height: Utils.getResponsiveHeight(context, 14),
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image:
@@ -161,23 +161,27 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                         ),
                       );
                     }),
-                    SizedBox(height: Utils.getResponsiveHeight(38)),
+                    SizedBox(height: Utils.getResponsiveHeight(context, 40)),
                     Obx(() {
                       if (!(onBoardingVM.currentPage.value <
                           tutorialPages.length - 1)) {
-                        return SizedBox(height: Utils.getResponsiveHeight(110));
+                        return SizedBox(
+                          height: Utils.getResponsiveHeight(context, 110),
+                        );
                       }
                       return Column(
                         children: [
                           Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: Utils.getResponsiveWidth(32),
+                              horizontal: Utils.getResponsiveWidth(context, 30),
                             ),
                             child: NextButtonWidget(
                               pageController: _pageController,
                             ),
                           ),
-                          SizedBox(height: Utils.getResponsiveHeight(70)),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 70),
+                          ),
                         ],
                       );
                     }),

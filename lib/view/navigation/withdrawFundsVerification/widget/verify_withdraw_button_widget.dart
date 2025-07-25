@@ -45,13 +45,15 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
           elevation: 0,
           backgroundColor: Theme.of(context).extension<AppColors>()?.cardBg,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(Utils.getResponsiveSize(12)),
+            borderRadius: BorderRadius.circular(
+              Utils.getResponsiveSize(context, 12),
+            ),
           ),
           child: SizedBox(
-            width: Utils.getResponsiveWidth(400),
+            width: Utils.getResponsiveWidth(context, 400),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                vertical: Utils.getResponsiveHeight(24),
+                vertical: Utils.getResponsiveHeight(context, 24),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -59,27 +61,27 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
-                    height: Utils.getResponsiveHeight(92),
-                    width: Utils.getResponsiveWidth(92),
+                    height: Utils.getResponsiveHeight(context, 92),
+                    width: Utils.getResponsiveWidth(context, 92),
                     ImageAssets.imgSuccessLarge,
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(20)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 20)),
                   Text(
                     'great_with_exclamation'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: Utils.getResponsiveSize(16),
+                      fontSize: Utils.getResponsiveSize(context, 16),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
                       color: AppColor.primaryColor,
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(8)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 8)),
                   Text(
                     'withdraw_success'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: Utils.getResponsiveSize(18),
+                      fontSize: Utils.getResponsiveSize(context, 18),
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
                       color:
@@ -88,12 +90,12 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                           ).extension<AppColors>()?.textPrimaryColor,
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(8)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 8)),
                   Text(
                     'below_is_your_withdraw_summary'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(context, 14),
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
                       color:
@@ -102,32 +104,41 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                           ).extension<AppColors>()?.textBodyColor,
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(32)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 32)),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
                       Image.asset(
                         ImageAssets.imgHalfRound,
+                        height: Utils.getResponsiveHeight(context, 25),
+                        width: Utils.getResponsiveWidth(context, 15),
                         color:
                             Theme.of(
                               context,
                             ).extension<AppColors>()?.halfRoundCircleColor,
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: Utils.getResponsiveWidth(6),
-                        ),
-                        child: Image.asset(
-                          ImageAssets.imgDottedLine,
-                          color:
-                              Theme.of(
-                                context,
-                              ).extension<AppColors>()?.halfRoundCircleColor,
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: Utils.getResponsiveWidth(context, 10),
+                          ),
+                          child: Image.asset(
+                            ImageAssets.imgDottedLine,
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.halfRoundCircleColor,
+                          ),
                         ),
                       ),
                       Transform.rotate(
                         angle: 180 * pi / 180,
                         child: Image.asset(
                           ImageAssets.imgHalfRound,
+                          height: Utils.getResponsiveHeight(context, 25),
+                          width: Utils.getResponsiveWidth(context, 15),
                           color:
                               Theme.of(
                                 context,
@@ -136,12 +147,12 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(32)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 32)),
                   Text(
                     'withdraw_destination'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: Utils.getResponsiveSize(18),
+                      fontSize: Utils.getResponsiveSize(context, 18),
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
                       color:
@@ -150,16 +161,18 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                           ).extension<AppColors>()?.textPrimaryColor,
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(8)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 8)),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: Utils.getResponsiveWidth(24),
+                      horizontal: Utils.getResponsiveWidth(context, 24),
                     ),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Theme.of(context).extension<AppColors>()?.cardBg,
                         borderRadius: BorderRadius.all(
-                          Radius.circular(Utils.getResponsiveHeight(12)),
+                          Radius.circular(
+                            Utils.getResponsiveHeight(context, 12),
+                          ),
                         ),
                         border: Border.all(
                           color: Theme.of(context).dividerColor,
@@ -168,22 +181,27 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          vertical: Utils.getResponsiveHeight(16),
-                          horizontal: Utils.getResponsiveWidth(16),
+                          vertical: Utils.getResponsiveHeight(context, 16),
+                          horizontal: Utils.getResponsiveWidth(context, 16),
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset(ImageAssets.imgMasterCard),
-                            SizedBox(width: Utils.getResponsiveWidth(10)),
+                            SizedBox(
+                              width: Utils.getResponsiveWidth(context, 10),
+                            ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   'Master Card',
                                   style: TextStyle(
-                                    fontSize: Utils.getResponsiveSize(16),
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      16,
+                                    ),
                                     fontFamily: 'Manrope',
                                     fontWeight: FontWeight.w700,
                                     color:
@@ -192,14 +210,19 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                                         ).extension<AppColors>()?.textBodyColor,
                                   ),
                                 ),
-                                SizedBox(height: Utils.getResponsiveHeight(2)),
+                                SizedBox(
+                                  height: Utils.getResponsiveHeight(context, 2),
+                                ),
                                 RichText(
                                   text: TextSpan(
                                     children: [
                                       TextSpan(
                                         text: 'XXXX XXXX XXXX ',
                                         style: TextStyle(
-                                          fontSize: Utils.getResponsiveSize(12),
+                                          fontSize: Utils.getResponsiveSize(
+                                            context,
+                                            12,
+                                          ),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w500,
                                           color:
@@ -211,7 +234,10 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                                       TextSpan(
                                         text: '2107',
                                         style: TextStyle(
-                                          fontSize: Utils.getResponsiveSize(12),
+                                          fontSize: Utils.getResponsiveSize(
+                                            context,
+                                            12,
+                                          ),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w500,
                                           color:
@@ -223,7 +249,10 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                                       TextSpan(
                                         text: ' | Expiry ',
                                         style: TextStyle(
-                                          fontSize: Utils.getResponsiveSize(12),
+                                          fontSize: Utils.getResponsiveSize(
+                                            context,
+                                            12,
+                                          ),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w500,
                                           color:
@@ -235,7 +264,10 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                                       TextSpan(
                                         text: '10/26',
                                         style: TextStyle(
-                                          fontSize: Utils.getResponsiveSize(12),
+                                          fontSize: Utils.getResponsiveSize(
+                                            context,
+                                            12,
+                                          ),
                                           fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w500,
                                           color:
@@ -256,19 +288,21 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                               },
                               child: Image.asset(
                                 IconAssets.icEdit,
-                                height: Utils.getResponsiveHeight(20),
-                                width: Utils.getResponsiveWidth(20),
+                                height: Utils.getResponsiveHeight(context, 20),
+                                width: Utils.getResponsiveWidth(context, 20),
                               ),
                             ),
-                            SizedBox(width: Utils.getResponsiveWidth(8)),
+                            SizedBox(
+                              width: Utils.getResponsiveWidth(context, 8),
+                            ),
                             InkWell(
                               onTap: () {
                                 // Get.toNamed(RoutesName.applyJobScreen);
                               },
                               child: Image.asset(
                                 IconAssets.icDelete,
-                                height: Utils.getResponsiveHeight(20),
-                                width: Utils.getResponsiveWidth(20),
+                                height: Utils.getResponsiveHeight(context, 20),
+                                width: Utils.getResponsiveWidth(context, 20),
                               ),
                             ),
                           ],
@@ -276,12 +310,12 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(32)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 32)),
                   Text(
                     'total_withdraw'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(context, 14),
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w700,
                       color:
@@ -290,18 +324,18 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                           ).extension<AppColors>()?.textPrimaryColor,
                     ),
                   ),
-                  SizedBox(height: Utils.getResponsiveHeight(20)),
+                  SizedBox(height: Utils.getResponsiveHeight(context, 20)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.asset(
                         ImageAssets.saudiRiyalSymbol,
-                        height: Utils.getResponsiveHeight(24),
-                        width: Utils.getResponsiveWidth(26),
+                        height: Utils.getResponsiveHeight(context, 24),
+                        width: Utils.getResponsiveWidth(context, 26),
                         color: Theme.of(context).iconTheme.color,
                       ),
-                      SizedBox(width: Utils.getResponsiveWidth(12)),
+                      SizedBox(width: Utils.getResponsiveWidth(context, 12)),
                       Text(
                         '20.00',
                         style: TextStyle(
@@ -311,7 +345,7 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                               ).extension<AppColors>()?.textPrimaryColor,
                           fontFamily: 'Manrope',
                           fontWeight: FontWeight.w700,
-                          fontSize: Utils.getResponsiveSize(30),
+                          fontSize: Utils.getResponsiveSize(context, 30),
                         ),
                       ),
                     ],

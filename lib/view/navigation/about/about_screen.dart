@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,8 +26,8 @@ class _AboutScreenState extends State<AboutScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Utils.getResponsiveHeight(24),
-              width: Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(context, 24),
+              width: Utils.getResponsiveWidth(context, 24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -42,9 +44,14 @@ class _AboutScreenState extends State<AboutScreen> {
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: Utils.getResponsiveWidth(16),
-              vertical: Utils.getResponsiveHeight(16),
+            padding: EdgeInsets.only(
+              left: Utils.getResponsiveWidth(context, 16),
+              right: Utils.getResponsiveWidth(context, 16),
+              top: Utils.getResponsiveHeight(context, 16),
+              bottom:
+                  Platform.isIOS
+                      ? Utils.getResponsiveHeight(context, 36)
+                      : Utils.getResponsiveHeight(context, 16),
             ),
             child: Text(
               'about_description'.tr,
@@ -55,7 +62,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     ).extension<AppColors>()?.textSecondaryColor,
                 fontFamily: 'Manrope',
                 fontWeight: FontWeight.w500,
-                fontSize: Utils.getResponsiveSize(14),
+                fontSize: Utils.getResponsiveSize(context, 14),
               ),
             ),
           ),

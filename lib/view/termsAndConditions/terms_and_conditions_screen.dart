@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/view/termsAndConditions/widget/accept_button_widget.dart';
@@ -27,8 +29,8 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
           leading: IconButton(
             icon: Image.asset(
               IconAssets.icArrowLeft,
-              height: Utils.getResponsiveHeight(24),
-              width: Utils.getResponsiveWidth(24),
+              height: Utils.getResponsiveHeight(context, 24),
+              width: Utils.getResponsiveWidth(context, 24),
               color: Theme.of(context).iconTheme.color,
             ),
             onPressed: () => Get.back(),
@@ -49,8 +51,8 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: Utils.getResponsiveWidth(16),
-                    vertical: Utils.getResponsiveHeight(16),
+                    horizontal: Utils.getResponsiveWidth(context, 16),
+                    vertical: Utils.getResponsiveHeight(context, 16),
                   ),
                   child: Text(
                     'terms_and_conditions_description'.tr,
@@ -61,7 +63,7 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
                           ).extension<AppColors>()?.textSecondaryColor,
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500,
-                      fontSize: Utils.getResponsiveSize(14),
+                      fontSize: Utils.getResponsiveSize(context, 14),
                     ),
                   ),
                 ),
@@ -74,21 +76,26 @@ class _TermsAndConditionsScreenState extends State<TermsAndConditionsScreen> {
               ),
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: Utils.getResponsiveWidth(16),
-                  vertical: Utils.getResponsiveHeight(12),
+                  horizontal: Utils.getResponsiveWidth(context, 16),
+                  vertical: Utils.getResponsiveHeight(context, 12),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(child: DeclineButtonWidget()),
-                    SizedBox(width: Utils.getResponsiveWidth(12)),
+                    SizedBox(width: Utils.getResponsiveWidth(context, 12)),
                     Expanded(child: AcceptButtonWidget()),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: Utils.getResponsiveHeight(15)),
+            SizedBox(
+              height:
+                  Platform.isIOS
+                      ? Utils.getResponsiveHeight(context, 35)
+                      : Utils.getResponsiveHeight(context, 15),
+            ),
           ],
         ),
       ),

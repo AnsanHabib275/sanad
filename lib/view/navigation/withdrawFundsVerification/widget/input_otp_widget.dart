@@ -23,7 +23,7 @@ class InputOTPWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: focusNode, // Listen to focus changes
+      animation: focusNode,
       builder: (context, child) {
         return TextFormField(
           controller: controller,
@@ -43,16 +43,15 @@ class InputOTPWidget extends StatelessWidget {
           },
           style: TextStyle(
             color: Theme.of(context).extension<AppColors>()?.otpText,
-            fontSize: Utils.getResponsiveSize(18),
+            fontSize: Utils.getResponsiveSize(context, 18),
             fontFamily: 'Manrope',
             fontWeight: FontWeight.w600,
           ),
           decoration: InputDecoration(
             filled: false,
-            // fillColor: focusNode.hasFocus ? AppColor.cardSelectedBgColor : Theme.of(context).extension<AppColors>()?.cardBg,
             counterText: "",
             contentPadding: EdgeInsets.symmetric(
-              vertical: Utils.getResponsiveHeight(12),
+              vertical: Utils.getResponsiveHeight(context, 12),
             ),
             border: OutlineInputBorder(
               borderSide: BorderSide(
@@ -63,7 +62,7 @@ class InputOTPWidget extends StatelessWidget {
                 width: 0.8,
               ),
               borderRadius: BorderRadius.all(
-                Radius.circular(Utils.getResponsiveSize(8)),
+                Radius.circular(Utils.getResponsiveSize(context, 8)),
               ),
             ),
             enabledBorder: OutlineInputBorder(
@@ -76,7 +75,7 @@ class InputOTPWidget extends StatelessWidget {
                 width: 0.8,
               ),
               borderRadius: BorderRadius.all(
-                Radius.circular(Utils.getResponsiveSize(8)),
+                Radius.circular(Utils.getResponsiveSize(context, 8)),
               ),
             ),
             focusedBorder: OutlineInputBorder(
@@ -85,7 +84,7 @@ class InputOTPWidget extends StatelessWidget {
                 width: 0.8,
               ),
               borderRadius: BorderRadius.all(
-                Radius.circular(Utils.getResponsiveSize(8)),
+                Radius.circular(Utils.getResponsiveSize(context, 8)),
               ),
             ),
           ),

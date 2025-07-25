@@ -78,11 +78,11 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: Image.asset(
                 IconAssets.icNotificationsFilled,
-                height: Utils.getResponsiveHeight(24),
-                width: Utils.getResponsiveWidth(24),
+                height: Utils.getResponsiveHeight(context, 24),
+                width: Utils.getResponsiveWidth(context, 24),
               ),
             ),
-            SizedBox(width: Utils.getResponsiveWidth(16)),
+            SizedBox(width: Utils.getResponsiveWidth(context, 16)),
           ],
           shape: Border(
             bottom: BorderSide(
@@ -93,20 +93,20 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: Utils.getResponsiveWidth(16),
+            horizontal: Utils.getResponsiveWidth(context, 16),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: Utils.getResponsiveHeight(16)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
               Container(
-                height: Utils.getResponsiveHeight(40),
+                height: Utils.getResponsiveHeight(context, 40),
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Theme.of(context).extension<AppColors>()?.cardBg,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(Utils.getResponsiveSize(8)),
+                    Radius.circular(Utils.getResponsiveSize(context, 8)),
                   ),
                   border: Border.all(
                     color: Theme.of(context).dividerColor,
@@ -121,14 +121,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     VerticalDivider(
-                      width: Utils.getResponsiveWidth(1),
+                      width: Utils.getResponsiveWidth(context, 1),
                       color: Theme.of(context).dividerColor,
                     ),
                     InputLocationWidget(),
                   ],
                 ),
               ),
-              SizedBox(height: Utils.getResponsiveHeight(21)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 21)),
               Text(
                 'jobs_for_you'.tr,
                 style: TextStyle(
@@ -136,12 +136,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       Theme.of(
                         context,
                       ).extension<AppColors>()?.textPrimaryColor,
-                  fontSize: Utils.getResponsiveSize(18),
+                  fontSize: Utils.getResponsiveSize(context, 18),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(height: Utils.getResponsiveHeight(4)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 4)),
               Text(
                 'jobs_based_on_your_activity'.tr,
                 style: TextStyle(
@@ -149,12 +149,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       Theme.of(
                         context,
                       ).extension<AppColors>()?.textSecondaryColor,
-                  fontSize: Utils.getResponsiveSize(14),
+                  fontSize: Utils.getResponsiveSize(context, 14),
                   fontFamily: 'Manrope',
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(height: Utils.getResponsiveHeight(5)),
+              SizedBox(height: Utils.getResponsiveHeight(context, 5)),
               Expanded(
                 child: ListView.builder(
                   itemCount: jobsItems.length,
