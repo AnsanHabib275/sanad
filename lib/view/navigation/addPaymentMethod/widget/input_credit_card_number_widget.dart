@@ -30,9 +30,14 @@ class InputCreditCardNumberWidget extends StatelessWidget {
             paymentMethodVM.cardHolderNameFocusNode.value,
           );
         },
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
+        style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
-          hint: Text('credit_card_number_hint'.tr),
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: Utils.getResponsiveHeight(context, 8),
+            horizontal: Utils.getResponsiveWidth(context, 16),
+          ),
+          hintText: 'credit_card_number_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               paymentMethodVM.errorMessage.value.isEmpty

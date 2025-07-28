@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
+import '../../../../utils/utils.dart';
 
 class InputPostalCodeWidget extends StatelessWidget {
   InputPostalCodeWidget({super.key});
@@ -22,9 +23,14 @@ class InputPostalCodeWidget extends StatelessWidget {
           }
           return null;
         },
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
+        style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
-          hint: Text('postal_code_hint'.tr),
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: Utils.getResponsiveHeight(context, 8),
+            horizontal: Utils.getResponsiveWidth(context, 16),
+          ),
+          hintText: 'postal_code_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               updateProfileVM.errorMessage.value.isEmpty

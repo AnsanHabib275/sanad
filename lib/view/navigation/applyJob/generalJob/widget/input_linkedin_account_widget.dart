@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../../viewModels/controller/navigation/applyJob/apply_job_view_model.dart';
+import '../../../../../utils/utils.dart';
 
 class InputLinkedInAccountWidget extends StatelessWidget {
   InputLinkedInAccountWidget({super.key});
@@ -15,9 +16,14 @@ class InputLinkedInAccountWidget extends StatelessWidget {
         controller: applyJobVM.linkedinAccountController.value,
         enableSuggestions: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
+        style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
-          hint: Text('linkedin_account_hint'.tr),
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: Utils.getResponsiveHeight(context, 8),
+            horizontal: Utils.getResponsiveWidth(context, 16),
+          ),
+          hintText: 'linkedin_account_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           border: Theme.of(context).inputDecorationTheme.border,
           enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,

@@ -21,7 +21,7 @@ class InputExpiryDateWidget extends StatelessWidget {
       lastDate: DateTime(9999, 12, 31),
     );
     if (pickedDate != null && pickedDate != selectedDate) {
-      final formattedDate = DateFormat('MM-yyyy').format(pickedDate);
+      final formattedDate = DateFormat('MM/yyyy').format(pickedDate);
       paymentMethodVM.expiryDateController.value.text = formattedDate;
     }
   }
@@ -40,9 +40,14 @@ class InputExpiryDateWidget extends StatelessWidget {
             focusNode: paymentMethodVM.expiryDateFocusNode.value,
             readOnly: true,
             autovalidateMode: AutovalidateMode.onUserInteraction,
-            style: Theme.of(context).inputDecorationTheme.hintStyle,
+            style: Theme.of(context).inputDecorationTheme.labelStyle,
             decoration: InputDecoration(
-              hint: Text('expiry_date_hint'.tr),
+              isDense: true,
+              contentPadding: EdgeInsets.symmetric(
+                vertical: Utils.getResponsiveHeight(context, 8),
+                horizontal: Utils.getResponsiveWidth(context, 16),
+              ),
+              hintText: 'expiry_date_hint'.tr,
               hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
               errorText:
                   paymentMethodVM.errorMessage.value.isEmpty
@@ -62,7 +67,12 @@ class InputExpiryDateWidget extends StatelessWidget {
                   Utils.hideKeyboardGlobally();
                   _selectDate(context);
                 },
-                child: Image.asset(IconAssets.icDate),
+                child: Image.asset(
+                  IconAssets.icDate,
+                  height: Utils.getResponsiveHeight(context, 18),
+                  width: Utils.getResponsiveWidth(context, 18),
+                  color: Theme.of(context).iconTheme.color,
+                ),
               ),
             ),
             keyboardType: TextInputType.none,

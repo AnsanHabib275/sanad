@@ -30,9 +30,14 @@ class InputInterestedIndustryWidget extends StatelessWidget {
             updateProfileVM.taglineFocusNode.value,
           );
         },
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
+        style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
-          hint: Text('interested_industry_hint'.tr),
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: Utils.getResponsiveHeight(context, 8),
+            horizontal: Utils.getResponsiveWidth(context, 16),
+          ),
+          hintText: 'interested_industry_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               updateProfileVM.errorMessage.value.isEmpty

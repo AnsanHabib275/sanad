@@ -453,7 +453,6 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                           children: [
                             Expanded(
                               child: Container(
-                                width: double.infinity,
                                 decoration: BoxDecoration(
                                   color:
                                       Theme.of(context)
@@ -469,7 +468,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                                   padding: EdgeInsets.symmetric(
                                     horizontal: Utils.getResponsiveWidth(
                                       context,
-                                      26,
+                                      20,
                                     ),
                                     vertical: Utils.getResponsiveHeight(
                                       context,
@@ -676,80 +675,58 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Row(
                           children: [
-                            CircleAvatar(
-                              radius: Utils.getResponsiveSize(context, 32),
+                            Container(
+                              height: Utils.getResponsiveHeight(context, 64),
+                              width: Utils.getResponsiveWidth(context, 64),
+                              decoration: BoxDecoration(shape: BoxShape.circle),
+                              clipBehavior: Clip.antiAlias,
                               child:
                                   userVM.userImageURL.isEmpty
                                       ? Image.asset(
                                         ImageAssets.imgDummyProfile,
-                                        height: Utils.getResponsiveHeight(
-                                          context,
-                                          64,
-                                        ),
-                                        width: Utils.getResponsiveWidth(
-                                          context,
-                                          64,
-                                        ),
                                         fit: BoxFit.cover,
                                       )
-                                      : ClipOval(
-                                        child: Image.network(
-                                          AppUrl.baseUrl +
-                                              userVM.userImageURL.value,
-                                          height: Utils.getResponsiveHeight(
-                                            context,
-                                            64,
-                                          ),
-                                          width: Utils.getResponsiveWidth(
-                                            context,
-                                            64,
-                                          ),
-                                          fit: BoxFit.cover,
-                                          loadingBuilder: (
-                                            context,
-                                            child,
-                                            loadingProgress,
-                                          ) {
-                                            if (loadingProgress == null) {
-                                              return child;
-                                            }
-                                            return Center(
-                                              child: CircularProgressIndicator(
-                                                value:
-                                                    loadingProgress
-                                                                .expectedTotalBytes !=
-                                                            null
-                                                        ? loadingProgress
-                                                                .cumulativeBytesLoaded /
-                                                            (loadingProgress
-                                                                    .expectedTotalBytes ??
-                                                                1)
-                                                        : null,
-                                              ),
-                                            );
-                                          },
-                                          errorBuilder: (
-                                            context,
-                                            error,
-                                            stackTrace,
-                                          ) {
-                                            return Image.asset(
-                                              ImageAssets.imgDummyProfile,
-                                              height: Utils.getResponsiveHeight(
-                                                context,
-                                                64,
-                                              ),
-                                              width: Utils.getResponsiveWidth(
-                                                context,
-                                                64,
-                                              ),
-                                              fit: BoxFit.cover,
-                                            );
-                                          },
-                                        ),
+                                      : Image.network(
+                                        AppUrl.baseUrl +
+                                            userVM.userImageURL.value,
+                                        fit: BoxFit.cover,
+                                        loadingBuilder: (
+                                          context,
+                                          child,
+                                          loadingProgress,
+                                        ) {
+                                          if (loadingProgress == null) {
+                                            return child;
+                                          }
+                                          return Center(
+                                            child: CircularProgressIndicator(
+                                              value:
+                                                  loadingProgress
+                                                              .expectedTotalBytes !=
+                                                          null
+                                                      ? loadingProgress
+                                                              .cumulativeBytesLoaded /
+                                                          (loadingProgress
+                                                                  .expectedTotalBytes ??
+                                                              1)
+                                                      : null,
+                                            ),
+                                          );
+                                        },
+                                        errorBuilder: (
+                                          context,
+                                          error,
+                                          stackTrace,
+                                        ) {
+                                          return Image.asset(
+                                            ImageAssets.imgDummyProfile,
+                                            fit: BoxFit.cover,
+                                          );
+                                        },
                                       ),
                             ),
                             SizedBox(

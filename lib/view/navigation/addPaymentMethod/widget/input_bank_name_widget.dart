@@ -24,8 +24,13 @@ class InputBankNameWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return DropdownButtonFormField<String>(
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
+        style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: Utils.getResponsiveHeight(context, 8),
+            horizontal: Utils.getResponsiveWidth(context, 16),
+          ),
           hintText: 'bank_name_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:

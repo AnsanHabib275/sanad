@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/viewModels/controller/navigation/rateUs/rate_us_view_model.dart';
 
+import '../../../../utils/utils.dart';
+
 class InputMessageWidget extends StatelessWidget {
   InputMessageWidget({super.key});
 
@@ -21,9 +23,14 @@ class InputMessageWidget extends StatelessWidget {
           }
           return null;
         },
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
+        style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
-          hint: Text('message_hint'.tr),
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: Utils.getResponsiveHeight(context, 8),
+            horizontal: Utils.getResponsiveWidth(context, 16),
+          ),
+          hintText: 'message_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               rateUsVM.apiErrorMessage.value.isNotEmpty

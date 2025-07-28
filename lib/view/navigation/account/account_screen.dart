@@ -57,7 +57,6 @@ class _AccountScreenState extends State<AccountScreen> {
               children: [
                 SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                 Container(
-                  height: Utils.getResponsiveHeight(context, 82),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()?.cardBg,
@@ -71,63 +70,48 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),
                   child: ListTile(
                     horizontalTitleGap: Utils.getResponsiveWidth(context, 16),
-                    leading: CircleAvatar(
-                      radius: Utils.getResponsiveSize(context, 24),
+                    leading: Container(
+                      height: Utils.getResponsiveHeight(context, 48),
+                      width: Utils.getResponsiveWidth(context, 48),
+                      decoration: BoxDecoration(shape: BoxShape.circle),
+                      clipBehavior: Clip.antiAlias,
                       child:
                           userVM.userImageURL.isEmpty
                               ? Image.asset(
                                 ImageAssets.imgDummyProfile,
-                                height: Utils.getResponsiveHeight(context, 48),
-                                width: Utils.getResponsiveWidth(context, 48),
                                 fit: BoxFit.cover,
                               )
-                              : ClipOval(
-                                child: Image.network(
-                                  AppUrl.baseUrl + userVM.userImageURL.value,
-                                  height: Utils.getResponsiveHeight(
-                                    context,
-                                    48,
-                                  ),
-                                  width: Utils.getResponsiveWidth(context, 48),
-                                  fit: BoxFit.cover,
-                                  loadingBuilder: (
-                                    context,
-                                    child,
-                                    loadingProgress,
-                                  ) {
-                                    if (loadingProgress == null) {
-                                      return child;
-                                    }
-                                    return Center(
-                                      child: CircularProgressIndicator(
-                                        value:
-                                            loadingProgress
-                                                        .expectedTotalBytes !=
-                                                    null
-                                                ? loadingProgress
-                                                        .cumulativeBytesLoaded /
-                                                    (loadingProgress
-                                                            .expectedTotalBytes ??
-                                                        1)
-                                                : null,
-                                      ),
-                                    );
-                                  },
-                                  errorBuilder: (context, error, stackTrace) {
-                                    return Image.asset(
-                                      ImageAssets.imgDummyPicture,
-                                      height: Utils.getResponsiveHeight(
-                                        context,
-                                        48,
-                                      ),
-                                      width: Utils.getResponsiveWidth(
-                                        context,
-                                        48,
-                                      ),
-                                      fit: BoxFit.cover,
-                                    );
-                                  },
-                                ),
+                              : Image.network(
+                                AppUrl.baseUrl + userVM.userImageURL.value,
+                                fit: BoxFit.cover,
+                                loadingBuilder: (
+                                  context,
+                                  child,
+                                  loadingProgress,
+                                ) {
+                                  if (loadingProgress == null) {
+                                    return child;
+                                  }
+                                  return Center(
+                                    child: CircularProgressIndicator(
+                                      value:
+                                          loadingProgress.expectedTotalBytes !=
+                                                  null
+                                              ? loadingProgress
+                                                      .cumulativeBytesLoaded /
+                                                  (loadingProgress
+                                                          .expectedTotalBytes ??
+                                                      1)
+                                              : null,
+                                    ),
+                                  );
+                                },
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Image.asset(
+                                    ImageAssets.imgDummyPicture,
+                                    fit: BoxFit.cover,
+                                  );
+                                },
                               ),
                     ),
                     title: Text(

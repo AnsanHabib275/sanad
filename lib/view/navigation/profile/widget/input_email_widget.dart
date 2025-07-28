@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
+import '../../../../utils/utils.dart';
 
 class InputEmailWidget extends StatelessWidget {
   InputEmailWidget({super.key});
@@ -26,9 +27,14 @@ class InputEmailWidget extends StatelessWidget {
           }
           return null;
         },
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
+        style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
-          hint: Text('email_hint'.tr),
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: Utils.getResponsiveHeight(context, 8),
+            horizontal: Utils.getResponsiveWidth(context, 16),
+          ),
+          hintText: 'email_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               updateProfileVM.errorMessage.value.isNotEmpty

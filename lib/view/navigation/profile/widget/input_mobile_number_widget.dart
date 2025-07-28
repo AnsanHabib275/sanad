@@ -34,105 +34,129 @@ class InputMobileNumberWidget extends StatelessWidget {
                 Utils.getResponsiveSize(context, 8),
               ),
             ),
-            child: Row(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Utils.hideKeyboardGlobally();
-                    showCountryPicker(
-                      context: context,
-                      showPhoneCode: true,
-                      onSelect: (Country country) async {
-                        updateProfileVM.handleCountrySelection(country);
-                      },
-                    );
-                  },
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SizedBox(width: Utils.getResponsiveWidth(context, 11)),
-                      IntrinsicWidth(
-                        child: TextFormField(
-                          controller:
-                              updateProfileVM.countryCodeController.value,
-                          focusNode: updateProfileVM.countryCodeFocusNode.value,
-                          readOnly: true,
-                          textAlign: TextAlign.center,
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          keyboardType: TextInputType.none,
-                          onTap: () {
-                            Utils.hideKeyboardGlobally();
-                            showCountryPicker(
-                              context: context,
-                              showPhoneCode: true,
-                              onSelect: (Country country) async {
-                                updateProfileVM.handleCountrySelection(country);
-                              },
-                            );
-                          },
-                          style:
-                              Theme.of(context).inputDecorationTheme.hintStyle,
-                          decoration: InputDecoration(
-                            hintText: 'hint_country_code'.tr,
-                            hintStyle:
+            child: IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Utils.hideKeyboardGlobally();
+                      showCountryPicker(
+                        context: context,
+                        showPhoneCode: true,
+                        onSelect: (Country country) async {
+                          updateProfileVM.handleCountrySelection(country);
+                        },
+                      );
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IntrinsicWidth(
+                          child: TextFormField(
+                            controller:
+                                updateProfileVM.countryCodeController.value,
+                            focusNode:
+                                updateProfileVM.countryCodeFocusNode.value,
+                            readOnly: true,
+                            textAlign: TextAlign.center,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            keyboardType: TextInputType.none,
+                            onTap: () {
+                              Utils.hideKeyboardGlobally();
+                              showCountryPicker(
+                                context: context,
+                                showPhoneCode: true,
+                                onSelect: (Country country) async {
+                                  updateProfileVM.handleCountrySelection(
+                                    country,
+                                  );
+                                },
+                              );
+                            },
+                            style:
                                 Theme.of(
                                   context,
-                                ).inputDecorationTheme.hintStyle,
-                            border: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
+                                ).inputDecorationTheme.labelStyle,
+                            decoration: InputDecoration(
+                              isDense: true,
+                              contentPadding: EdgeInsets.only(
+                                top: Utils.getResponsiveHeight(context, 8),
+                                bottom: Utils.getResponsiveHeight(context, 8),
+                                left: Utils.getResponsiveWidth(context, 12),
+                                right: Utils.getResponsiveWidth(context, 8),
+                              ),
+                              hintText: 'hint_country_code'.tr,
+                              hintStyle:
+                                  Theme.of(
+                                    context,
+                                  ).inputDecorationTheme.hintStyle,
+                              border: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(width: Utils.getResponsiveWidth(context, 8)),
-                      Image.asset(
-                        IconAssets.icArrowDown,
-                        height: Utils.getResponsiveHeight(context, 16),
-                        width: Utils.getResponsiveWidth(context, 16),
-                      ),
-                      SizedBox(width: Utils.getResponsiveWidth(context, 7)),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: Utils.getResponsiveHeight(context, 50),
-                  width: Utils.getResponsiveWidth(context, 1),
-                  color:
-                      Theme.of(
-                        context,
-                      ).inputDecorationTheme.border?.borderSide.color,
-                ),
-                SizedBox(width: Utils.getResponsiveWidth(context, 24)),
-                Expanded(
-                  child: TextFormField(
-                    controller: updateProfileVM.phoneNumberController.value,
-                    focusNode: updateProfileVM.phoneNumberFocusNode.value,
-                    enableSuggestions: true,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    keyboardType: TextInputType.phone,
-                    textInputAction: TextInputAction.done,
-                    style: Theme.of(context).inputDecorationTheme.hintStyle,
-                    decoration: InputDecoration(
-                      hintText: 'hint_mobile_number'.tr,
-                      hintStyle:
-                          Theme.of(context).inputDecorationTheme.hintStyle,
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
+                        Image.asset(
+                          IconAssets.icArrowDown,
+                          height: Utils.getResponsiveHeight(context, 16),
+                          width: Utils.getResponsiveWidth(context, 16),
+                        ),
+                        SizedBox(width: Utils.getResponsiveWidth(context, 8)),
+                      ],
                     ),
-                    onChanged: (value) async {
-                      await updateProfileVM.validatePhoneNumber(value);
-                      updateProfileVM.formatPhoneNumber(value);
-                    },
-                    validator: (value) {
-                      updateProfileVM.validatePhoneNumber(value!);
-                      updateProfileVM.formatPhoneNumber(value);
-                      return null;
-                    },
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   ),
-                ),
-              ],
+                  Container(
+                    width: Utils.getResponsiveWidth(context, 1),
+                    color:
+                        Theme.of(
+                          context,
+                        ).inputDecorationTheme.border?.borderSide.color,
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      controller: updateProfileVM.phoneNumberController.value,
+                      focusNode: updateProfileVM.phoneNumberFocusNode.value,
+                      enableSuggestions: true,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      keyboardType: TextInputType.phone,
+                      textInputAction: TextInputAction.done,
+                      style: Theme.of(context).inputDecorationTheme.labelStyle,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: Utils.getResponsiveHeight(context, 8),
+                          horizontal: Utils.getResponsiveWidth(context, 16),
+                        ),
+                        hintText: 'hint_mobile_number'.tr,
+                        hintStyle:
+                            Theme.of(context).inputDecorationTheme.hintStyle,
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                      ),
+                      onFieldSubmitted: (value) {
+                        Utils.fieldFocusChange(
+                          context,
+                          updateProfileVM.phoneNumberFocusNode.value,
+                          updateProfileVM.countryFocusNode.value,
+                        );
+                      },
+                      onChanged: (value) async {
+                        await updateProfileVM.validatePhoneNumber(value);
+                        updateProfileVM.formatPhoneNumber(value);
+                      },
+                      validator: (value) {
+                        updateProfileVM.validatePhoneNumber(value!);
+                        updateProfileVM.formatPhoneNumber(value);
+                        return null;
+                      },
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           if (updateProfileVM.phoneError.value.isNotEmpty)

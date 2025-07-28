@@ -29,11 +29,11 @@ class OnBoardingPage extends StatelessWidget {
               children: [
                 Image.asset(
                   onBoardingList.imagePath,
-                  height: Utils.getResponsiveHeight(context, 350),
-                  width: Utils.getResponsiveWidth(context, 511),
-                  fit: BoxFit.contain,
+                  height: Utils.getResponsiveHeight(context, 370),
+                  width: Utils.getResponsiveWidth(context, 530),
+                  // fit: BoxFit.contain,
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(context, 115)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 100)),
                 Text(
                   onBoardingList.title,
                   textAlign: TextAlign.center,
@@ -61,7 +61,7 @@ class OnBoardingPage extends StatelessWidget {
                         ).extension<AppColors>()?.textPrimaryColor,
                   ),
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(context, 96)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 90)),
               ],
             );
           }
@@ -72,7 +72,7 @@ class OnBoardingPage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                SizedBox(height: Utils.getResponsiveHeight(context, 145)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 150)),
                 Image.asset(
                   onBoardingList.imagePath,
                   height: Utils.getResponsiveHeight(context, 54),
@@ -230,7 +230,7 @@ class OnBoardingPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(context, 40)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 34)),
               ],
             ),
           );

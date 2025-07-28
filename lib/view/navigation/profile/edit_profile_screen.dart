@@ -100,21 +100,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         child: SizedBox(
                           height: Utils.getResponsiveHeight(context, 112),
                           width: Utils.getResponsiveWidth(context, 102),
-                          child: InkWell(
-                            onTap: () {
-                              _showImageSourceDialog(context);
-                            },
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                  top: 0,
-                                  left: 0,
-                                  right: 0,
-                                  child: InkWell(
-                                    onTap: () {
-                                      _showImageSourceDialog(context);
-                                    },
-                                    child: SizedBox(
+                          child: Obx(() {
+                            final hasLocalImage =
+                                updateProfileVM.filePath.value.isNotEmpty;
+                            final hasNetworkImage =
+                                userVM.userImageURL.value.isNotEmpty;
+
+                            return InkWell(
+                              onTap: () {
+                                _showImageSourceDialog(context);
+                              },
+                              child: Stack(
+                                children: [
+                                  Positioned(
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    child: Container(
                                       height: Utils.getResponsiveHeight(
                                         context,
                                         95,
@@ -123,137 +125,82 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         context,
                                         95,
                                       ),
-                                      child: Obx(() {
-                                        return CircleAvatar(
-                                          child:
-                                              userVM.userImageURL.isNotEmpty
-                                                  ? Image.asset(
-                                                    ImageAssets.imgDummyPicture,
-                                                    height:
-                                                        Utils.getResponsiveHeight(
-                                                          context,
-                                                          95,
-                                                        ),
-                                                    width:
-                                                        Utils.getResponsiveWidth(
-                                                          context,
-                                                          95,
-                                                        ),
-                                                    fit: BoxFit.cover,
-                                                  )
-                                                  : ClipOval(
-                                                    child: Image.file(
-                                                      File(
-                                                        updateProfileVM
-                                                            .filePath
-                                                            .value,
-                                                      ),
-                                                      // userVM
-                                                      //     .userImageURL
-                                                      //     .value,
-                                                      // The selected or updated image path
-                                                      fit: BoxFit.cover,
-                                                      height:
-                                                          Utils.getResponsiveHeight(
-                                                            context,
-                                                            95,
-                                                          ),
-                                                      width:
-                                                          Utils.getResponsiveWidth(
-                                                            context,
-                                                            95,
-                                                          ),
-                                                      // loadingBuilder: (
-                                                      //   context,
-                                                      //   child,
-                                                      //   loadingProgress,
-                                                      // ) {
-                                                      //   if (loadingProgress ==
-                                                      //       null) {
-                                                      //     return child;
-                                                      //   }
-                                                      //   return Center(
-                                                      //     child: CircularProgressIndicator(
-                                                      //       value:
-                                                      //           loadingProgress
-                                                      //                       .expectedTotalBytes !=
-                                                      //                   null
-                                                      //               ? loadingProgress
-                                                      //                       .cumulativeBytesLoaded /
-                                                      //                   (loadingProgress.expectedTotalBytes ??
-                                                      //                       1)
-                                                      //               : null,
-                                                      //     ),
-                                                      //   );
-                                                      // },
-                                                      errorBuilder: (
-                                                        context,
-                                                        error,
-                                                        stackTrace,
-                                                      ) {
-                                                        return Image.asset(
-                                                          ImageAssets
-                                                              .imgDummyPicture,
-                                                          height:
-                                                              Utils.getResponsiveHeight(
-                                                                context,
-                                                                95,
-                                                              ),
-                                                          width:
-                                                              Utils.getResponsiveWidth(
-                                                                context,
-                                                                95,
-                                                              ),
-                                                          fit: BoxFit.cover,
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                        );
-                                      }),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      clipBehavior: Clip.antiAlias,
+                                      child:
+                                          hasLocalImage
+                                              ? Image.file(
+                                                File(
+                                                  updateProfileVM
+                                                      .filePath
+                                                      .value,
+                                                ),
+                                                fit: BoxFit.cover,
+                                              )
+                                              //     : hasNetworkImage
+                                              //     ? CachedNetworkImage(
+                                              //   imageUrl: userVM.userImageURL.value,
+                                              //   fit: BoxFit.cover,
+                                              //   placeholder: (context, url) => Center(
+                                              //     child: CircularProgressIndicator(),
+                                              //   ),
+                                              //   errorWidget: (context, url, error) => Image.asset(
+                                              //     ImageAssets.imgDummyPicture,
+                                              //     fit: BoxFit.cover,
+                                              //   ),
+                                              // )
+                                              : Image.asset(
+                                                ImageAssets.imgDummyPicture,
+                                                fit: BoxFit.cover,
+                                              ),
                                     ),
                                   ),
-                                ),
-                                Positioned(
-                                  bottom: 0,
-                                  left: 0,
-                                  right: 0,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: AppColor.addPhotoBgColor,
-                                      borderRadius: BorderRadius.circular(
-                                        Utils.getResponsiveHeight(context, 16),
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: Utils.getResponsiveWidth(
-                                          context,
-                                          18,
-                                        ),
-                                        vertical: Utils.getResponsiveHeight(
-                                          context,
-                                          9,
-                                        ),
-                                      ),
-                                      child: Text(
-                                        'add_photo'.tr,
-                                        style: TextStyle(
-                                          fontSize: Utils.getResponsiveSize(
+                                  Positioned(
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: AppColor.addPhotoBgColor,
+                                        borderRadius: BorderRadius.circular(
+                                          Utils.getResponsiveHeight(
                                             context,
-                                            12,
+                                            16,
                                           ),
-                                          fontFamily: 'Manrope',
-                                          fontWeight: FontWeight.w600,
-                                          color: AppColor.blackColor,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: Utils.getResponsiveWidth(
+                                            context,
+                                            18,
+                                          ),
+                                          vertical: Utils.getResponsiveHeight(
+                                            context,
+                                            9,
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'add_photo'.tr,
+                                          style: TextStyle(
+                                            fontSize: Utils.getResponsiveSize(
+                                              context,
+                                              12,
+                                            ),
+                                            fontFamily: 'Manrope',
+                                            fontWeight: FontWeight.w600,
+                                            color: AppColor.blackColor,
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
+                                ],
+                              ),
+                            );
+                          }),
                         ),
                       ),
                       SizedBox(height: Utils.getResponsiveHeight(context, 24)),

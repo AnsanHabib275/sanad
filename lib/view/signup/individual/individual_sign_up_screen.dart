@@ -82,102 +82,39 @@ class _IndividualSignUpScreenState extends State<IndividualSignUpScreen> {
                               top: 0,
                               left: 0,
                               right: 0,
-                              child: InkWell(
-                                onTap: () {
-                                  _showImageSourceDialog(context);
-                                },
-                                child: SizedBox(
+                              child: Obx(() {
+                                return Container(
                                   height: Utils.getResponsiveHeight(
                                     context,
                                     95,
                                   ),
                                   width: Utils.getResponsiveWidth(context, 95),
-                                  child: Obx(() {
-                                    return CircleAvatar(
-                                      // radius:
-                                      //
-                                      //     Utils.getResponsiveSize(context,47),
-                                      child:
-                                          signUpVM.filePath.isEmpty
-                                              ? Image.asset(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  clipBehavior: Clip.antiAlias,
+                                  child:
+                                      signUpVM.filePath.isEmpty
+                                          ? Image.asset(
+                                            ImageAssets.imgDummyPicture,
+                                            fit: BoxFit.cover,
+                                          )
+                                          : Image.file(
+                                            File(signUpVM.filePath.value),
+                                            fit: BoxFit.cover,
+                                            errorBuilder: (
+                                              context,
+                                              error,
+                                              stackTrace,
+                                            ) {
+                                              return Image.asset(
                                                 ImageAssets.imgDummyPicture,
-                                                height:
-                                                    Utils.getResponsiveHeight(
-                                                      context,
-                                                      95,
-                                                    ),
-                                                width: Utils.getResponsiveWidth(
-                                                  context,
-                                                  95,
-                                                ),
                                                 fit: BoxFit.cover,
-                                              )
-                                              : ClipOval(
-                                                child: Image.file(
-                                                  File(signUpVM.filePath.value),
-                                                  // signUpVM.imagePath.value,
-                                                  fit: BoxFit.cover,
-                                                  height:
-                                                      Utils.getResponsiveHeight(
-                                                        context,
-                                                        95,
-                                                      ),
-                                                  width:
-                                                      Utils.getResponsiveWidth(
-                                                        context,
-                                                        95,
-                                                      ),
-                                                  // loadingBuilder: (
-                                                  //   context,
-                                                  //   child,
-                                                  //   loadingProgress,
-                                                  // ) {
-                                                  //   if (loadingProgress ==
-                                                  //       null) {
-                                                  //     return child;
-                                                  //   }
-                                                  //   return Center(
-                                                  //     child: CircularProgressIndicator(
-                                                  //       value:
-                                                  //           loadingProgress
-                                                  //                       .expectedTotalBytes !=
-                                                  //                   null
-                                                  //               ? loadingProgress
-                                                  //                       .cumulativeBytesLoaded /
-                                                  //                   (loadingProgress
-                                                  //                           .expectedTotalBytes ??
-                                                  //                       1)
-                                                  //               : null,
-                                                  //     ),
-                                                  //   );
-                                                  // },
-                                                  errorBuilder: (
-                                                    context,
-                                                    error,
-                                                    stackTrace,
-                                                  ) {
-                                                    return Image.asset(
-                                                      ImageAssets
-                                                          .imgDummyPicture,
-                                                      height:
-                                                          Utils.getResponsiveHeight(
-                                                            context,
-                                                            95,
-                                                          ),
-                                                      width:
-                                                          Utils.getResponsiveWidth(
-                                                            context,
-                                                            95,
-                                                          ),
-                                                      fit: BoxFit.cover,
-                                                    );
-                                                  },
-                                                ),
-                                              ),
-                                    );
-                                  }),
-                                ),
-                              ),
+                                              );
+                                            },
+                                          ),
+                                );
+                              }),
                             ),
                             Positioned(
                               bottom: 0,

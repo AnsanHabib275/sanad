@@ -1220,24 +1220,6 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
                                                   ],
                                                 ),
                                               ),
-                                              // Text(
-                                              //   'should_have_an_experience'.tr,
-                                              //   style: TextStyle(
-                                              //     fontSize:
-                                              //         Utils.getResponsiveSize(
-                                              //           context,
-                                              //           12,
-                                              //         ),
-                                              //     fontFamily: 'Manrope',
-                                              //     fontWeight: FontWeight.w400,
-                                              //     color:
-                                              //         Theme.of(context)
-                                              //             .extension<
-                                              //               AppColors
-                                              //             >()
-                                              //             ?.textSecondaryColor,
-                                              //   ),
-                                              // ),
                                             ],
                                           ),
                                         ),

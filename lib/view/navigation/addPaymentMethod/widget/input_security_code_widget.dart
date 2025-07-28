@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 class InputSecurityCodeWidget extends StatelessWidget {
@@ -22,9 +23,14 @@ class InputSecurityCodeWidget extends StatelessWidget {
           }
           return null;
         },
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
+        style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
-          hint: Text('security_code_hint'.tr),
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: Utils.getResponsiveHeight(context, 8),
+            horizontal: Utils.getResponsiveWidth(context, 16),
+          ),
+          hintText: 'security_code_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               paymentMethodVM.errorMessage.value.isEmpty

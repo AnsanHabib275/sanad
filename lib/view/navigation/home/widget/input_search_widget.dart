@@ -26,7 +26,7 @@ class InputSearchWidget extends StatelessWidget {
       keyboardType: TextInputType.text,
       textInputAction: TextInputAction.done,
       textStyle: WidgetStateProperty.all(
-        Theme.of(context).inputDecorationTheme.hintStyle,
+        Theme.of(context).inputDecorationTheme.labelStyle,
       ),
       hintText: 'search_home_hint'.tr,
       hintStyle: WidgetStateProperty.all(

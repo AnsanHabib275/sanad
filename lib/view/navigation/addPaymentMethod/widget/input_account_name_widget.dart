@@ -23,16 +23,14 @@ class InputAccountNameWidget extends StatelessWidget {
           }
           return null;
         },
-        onFieldSubmitted: (value) {
-          Utils.fieldFocusChange(
-            context,
-            paymentMethodVM.accountNameFocusNode.value,
-            paymentMethodVM.ibanFocusNode.value,
-          );
-        },
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
+        style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
-          hint: Text('account_name_hint'.tr),
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: Utils.getResponsiveHeight(context, 8),
+            horizontal: Utils.getResponsiveWidth(context, 16),
+          ),
+          hintText: 'account_name_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               paymentMethodVM.errorMessage.value.isEmpty

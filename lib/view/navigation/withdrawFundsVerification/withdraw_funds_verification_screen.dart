@@ -68,7 +68,11 @@ class _WithdrawFundsVerificationScreenState
                   ),
                   child: Column(
                     children: [
-                      SizedBox(height: Utils.getResponsiveHeight(context, 130)),
+                      SizedBox(
+                        height:
+                            MediaQuery.of(context).padding.top +
+                            Utils.getResponsiveHeight(context, 80),
+                      ),
                       Container(
                         width: double.infinity,
                         decoration: BoxDecoration(

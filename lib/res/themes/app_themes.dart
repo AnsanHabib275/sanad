@@ -29,6 +29,12 @@ class AppThemes {
       ),
       dividerColor: AppColor.borderPrimaryColor,
       inputDecorationTheme: InputDecorationTheme(
+        labelStyle: TextStyle(
+          color: AppColor.textPrimaryColor,
+          fontSize: 16 * scale,
+          fontFamily: 'Manrope',
+          fontWeight: FontWeight.w500,
+        ),
         hintStyle: TextStyle(
           color: AppColor.textSecondaryColor,
           fontSize: 14 * scale,
@@ -153,6 +159,12 @@ class AppThemes {
       ),
       dividerColor: AppColor.borderPrimaryDarkColor,
       inputDecorationTheme: InputDecorationTheme(
+        labelStyle: TextStyle(
+          color: AppColor.textPrimaryDarkColor,
+          fontSize: 16 * scale,
+          fontFamily: 'Manrope',
+          fontWeight: FontWeight.w500,
+        ),
         hintStyle: TextStyle(
           color: AppColor.textSecondaryDarkColor,
           fontSize: 14 * scale,
@@ -207,7 +219,8 @@ class AppThemes {
         ),
       ),
       colorScheme: ColorScheme.dark(
-        primary: AppColor.primaryDarkColor,
+        // primary: AppColor.primaryDarkColor,
+        primary: AppColor.whiteColor,
         secondary: AppColor.secondaryDarkColor,
         surface: AppColor.darkSurface,
         onSurface: AppColor.darkOnSurface,

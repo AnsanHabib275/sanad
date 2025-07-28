@@ -16,9 +16,9 @@ class InputExperienceYearWidget extends StatelessWidget {
         controller: applyJobVM.experienceYearController.value,
         readOnly: true,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        style: Theme.of(context).inputDecorationTheme.hintStyle,
+        style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
-          hint: Text('experience_year_hint'.tr),
+          hintText: 'experience_year_hint'.tr,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           border: UnderlineInputBorder(),
           enabledBorder: UnderlineInputBorder(
