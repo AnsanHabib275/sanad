@@ -1333,337 +1333,355 @@ class _ViewJobScreenState extends State<ViewJobScreen> {
 
   void showPostBottomSheet() {
     Get.bottomSheet(
-      Container(
-        padding: EdgeInsets.only(
-          top: Utils.getResponsiveHeight(context, 24),
-          bottom: Utils.getResponsiveHeight(context, 60),
-        ),
-        decoration: BoxDecoration(
-          color: Theme.of(context).extension<AppColors>()?.cardBg,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(Utils.getResponsiveHeight(context, 30)),
-            topRight: Radius.circular(Utils.getResponsiveHeight(context, 30)),
+      MediaQuery(
+        data: MediaQuery.of(
+          context,
+        ).copyWith(textScaler: TextScaler.linear(1.0)),
+        child: Container(
+          padding: EdgeInsets.only(
+            top: Utils.getResponsiveHeight(context, 24),
+            bottom: Utils.getResponsiveHeight(context, 60),
           ),
-          border: Border.all(color: Theme.of(context).dividerColor, width: 1.0),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: Utils.getResponsiveWidth(context, 16),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    IconAssets.icPostLogo,
-                    height: Utils.getResponsiveHeight(context, 32),
-                    width: Utils.getResponsiveWidth(context, 32),
-                  ),
-                  SizedBox(width: Utils.getResponsiveWidth(context, 16)),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          companyName,
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textPrimaryColor,
-                            fontSize: Utils.getResponsiveSize(context, 20),
-                            fontFamily: 'Manrope',
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(height: Utils.getResponsiveHeight(context, 2)),
-                        Container(
-                          decoration: BoxDecoration(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.cardSelectedBg,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(
-                                Utils.getResponsiveHeight(context, 6),
-                              ),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: Utils.getResponsiveWidth(context, 12),
-                              vertical: Utils.getResponsiveHeight(context, 2),
-                            ),
-                            child: Text(
-                              jobCategory,
-                              style: TextStyle(
-                                fontSize: Utils.getResponsiveSize(context, 11),
-                                fontFamily: 'Manrope',
-                                fontWeight: FontWeight.w500,
-                                color: AppColor.primaryColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: Utils.getResponsiveHeight(context, 8)),
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: agencyName,
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(
-                                    context,
-                                    14,
-                                  ),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textSecondaryColor,
-                                ),
-                              ),
-                              TextSpan(
-                                text: ' | '.tr,
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(
-                                    context,
-                                    14,
-                                  ),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textSecondaryColor,
-                                ),
-                              ),
-                              TextSpan(
-                                text: location,
-                                style: TextStyle(
-                                  fontSize: Utils.getResponsiveSize(
-                                    context,
-                                    14,
-                                  ),
-                                  fontFamily: 'Manrope',
-                                  fontWeight: FontWeight.w500,
-                                  color:
-                                      Theme.of(context)
-                                          .extension<AppColors>()
-                                          ?.textSecondaryColor,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+          decoration: BoxDecoration(
+            color: Theme.of(context).extension<AppColors>()?.cardBg,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(Utils.getResponsiveHeight(context, 30)),
+              topRight: Radius.circular(Utils.getResponsiveHeight(context, 30)),
             ),
-            SizedBox(height: Utils.getResponsiveHeight(context, 16)),
-            Divider(
+            border: Border.all(
               color: Theme.of(context).dividerColor,
-              height: Utils.getResponsiveHeight(context, 1),
+              width: 1.0,
             ),
-            SizedBox(height: Utils.getResponsiveHeight(context, 24)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: Utils.getResponsiveWidth(context, 16),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'website'.tr,
-                          style: TextStyle(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textSecondaryColor,
-                            fontFamily: 'Manrope',
-                            fontWeight: FontWeight.w500,
-                            fontSize: Utils.getResponsiveSize(context, 12),
-                          ),
-                        ),
-                        Text(
-                          companyWebsite,
-                          style: TextStyle(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textPrimaryColor,
-                            fontFamily: 'Manrope',
-                            fontWeight: FontWeight.w500,
-                            fontSize: Utils.getResponsiveSize(context, 14),
-                          ),
-                        ),
-                        SizedBox(
-                          height: Utils.getResponsiveHeight(context, 16),
-                        ),
-                        Text(
-                          'company_type'.tr,
-                          style: TextStyle(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textSecondaryColor,
-                            fontFamily: 'Manrope',
-                            fontWeight: FontWeight.w500,
-                            fontSize: Utils.getResponsiveSize(context, 12),
-                          ),
-                        ),
-                        Text(
-                          companyType,
-                          style: TextStyle(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textPrimaryColor,
-                            fontFamily: 'Manrope',
-                            fontWeight: FontWeight.w500,
-                            fontSize: Utils.getResponsiveSize(context, 14),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: Utils.getResponsiveWidth(context, 16)),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'company_size'.tr,
-                          style: TextStyle(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textSecondaryColor,
-                            fontFamily: 'Manrope',
-                            fontWeight: FontWeight.w500,
-                            fontSize: Utils.getResponsiveSize(context, 12),
-                          ),
-                        ),
-                        Text(
-                          companySize,
-                          style: TextStyle(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textPrimaryColor,
-                            fontFamily: 'Manrope',
-                            fontWeight: FontWeight.w500,
-                            fontSize: Utils.getResponsiveSize(context, 14),
-                          ),
-                        ),
-                        SizedBox(
-                          height: Utils.getResponsiveHeight(context, 16),
-                        ),
-                        Text(
-                          'location'.tr,
-                          style: TextStyle(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textSecondaryColor,
-                            fontFamily: 'Manrope',
-                            fontWeight: FontWeight.w500,
-                            fontSize: Utils.getResponsiveSize(context, 12),
-                          ),
-                        ),
-                        Text(
-                          companyLocation,
-                          style: TextStyle(
-                            color:
-                                Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textPrimaryColor,
-                            fontFamily: 'Manrope',
-                            fontWeight: FontWeight.w500,
-                            fontSize: Utils.getResponsiveSize(context, 14),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: Utils.getResponsiveHeight(context, 24)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: Utils.getResponsiveWidth(context, 16),
-              ),
-              child: RichText(
-                text: TextSpan(
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Utils.getResponsiveWidth(context, 16),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextSpan(
-                      text: 'about'.tr,
-                      style: TextStyle(
-                        fontSize: Utils.getResponsiveSize(context, 18),
-                        fontFamily: 'Manrope',
-                        fontWeight: FontWeight.w600,
-                        color:
-                            Theme.of(
-                              context,
-                            ).extension<AppColors>()?.textPrimaryColor,
-                      ),
+                    Image.asset(
+                      IconAssets.icPostLogo,
+                      height: Utils.getResponsiveHeight(context, 32),
+                      width: Utils.getResponsiveWidth(context, 32),
                     ),
-                    TextSpan(
-                      text: companyName,
-                      style: TextStyle(
-                        fontSize: Utils.getResponsiveSize(context, 18),
-                        fontFamily: 'Manrope',
-                        fontWeight: FontWeight.w600,
-                        color:
-                            Theme.of(
-                              context,
-                            ).extension<AppColors>()?.textPrimaryColor,
+                    SizedBox(width: Utils.getResponsiveWidth(context, 16)),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            companyName,
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontSize: Utils.getResponsiveSize(context, 20),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 2),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.cardSelectedBg,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(
+                                  Utils.getResponsiveHeight(context, 6),
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: Utils.getResponsiveWidth(
+                                  context,
+                                  12,
+                                ),
+                                vertical: Utils.getResponsiveHeight(context, 2),
+                              ),
+                              child: Text(
+                                jobCategory,
+                                style: TextStyle(
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    11,
+                                  ),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColor.primaryColor,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 8),
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: agencyName,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textSecondaryColor,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' | '.tr,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textSecondaryColor,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: location,
+                                  style: TextStyle(
+                                    fontSize: Utils.getResponsiveSize(
+                                      context,
+                                      14,
+                                    ),
+                                    fontFamily: 'Manrope',
+                                    fontWeight: FontWeight.w500,
+                                    color:
+                                        Theme.of(context)
+                                            .extension<AppColors>()
+                                            ?.textSecondaryColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-            SizedBox(height: Utils.getResponsiveHeight(context, 16)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: Utils.getResponsiveWidth(context, 16),
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
+              Divider(
+                color: Theme.of(context).dividerColor,
+                height: Utils.getResponsiveHeight(context, 1),
               ),
-              child: Text(
-                companyDescription,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  color:
-                      Theme.of(
-                        context,
-                      ).extension<AppColors>()?.textSecondaryColor,
-                  fontSize: Utils.getResponsiveSize(context, 14),
-                  fontFamily: 'Manrope',
-                  fontWeight: FontWeight.w500,
+              SizedBox(height: Utils.getResponsiveHeight(context, 24)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Utils.getResponsiveWidth(context, 16),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'website'.tr,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              fontSize: Utils.getResponsiveSize(context, 12),
+                            ),
+                          ),
+                          Text(
+                            companyWebsite,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              fontSize: Utils.getResponsiveSize(context, 14),
+                            ),
+                          ),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 16),
+                          ),
+                          Text(
+                            'company_type'.tr,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              fontSize: Utils.getResponsiveSize(context, 12),
+                            ),
+                          ),
+                          Text(
+                            companyType,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              fontSize: Utils.getResponsiveSize(context, 14),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: Utils.getResponsiveWidth(context, 16)),
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'company_size'.tr,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              fontSize: Utils.getResponsiveSize(context, 12),
+                            ),
+                          ),
+                          Text(
+                            companySize,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              fontSize: Utils.getResponsiveSize(context, 14),
+                            ),
+                          ),
+                          SizedBox(
+                            height: Utils.getResponsiveHeight(context, 16),
+                          ),
+                          Text(
+                            'location'.tr,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textSecondaryColor,
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              fontSize: Utils.getResponsiveSize(context, 12),
+                            ),
+                          ),
+                          Text(
+                            companyLocation,
+                            style: TextStyle(
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.textPrimaryColor,
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w500,
+                              fontSize: Utils.getResponsiveSize(context, 14),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: Utils.getResponsiveHeight(context, 24)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Utils.getResponsiveWidth(context, 16),
+                ),
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'about'.tr,
+                        style: TextStyle(
+                          fontSize: Utils.getResponsiveSize(context, 18),
+                          fontFamily: 'Manrope',
+                          fontWeight: FontWeight.w600,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
+                        ),
+                      ),
+                      TextSpan(
+                        text: companyName,
+                        style: TextStyle(
+                          fontSize: Utils.getResponsiveSize(context, 18),
+                          fontFamily: 'Manrope',
+                          fontWeight: FontWeight.w600,
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.textPrimaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Utils.getResponsiveWidth(context, 16),
+                ),
+                child: Text(
+                  companyDescription,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<AppColors>()?.textSecondaryColor,
+                    fontSize: Utils.getResponsiveSize(context, 14),
+                    fontFamily: 'Manrope',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       isScrollControlled: true,

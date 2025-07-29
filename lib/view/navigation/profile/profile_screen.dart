@@ -60,6 +60,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                   Container(
                     width: double.infinity,
+                    padding: EdgeInsets.zero,
                     decoration: BoxDecoration(
                       color: Theme.of(context).extension<AppColors>()?.cardBg,
                       borderRadius: BorderRadius.all(
@@ -159,8 +160,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(
-                            Utils.getResponsiveHeight(context, 16),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: Utils.getResponsiveHeight(context, 16),
+                            vertical: Utils.getResponsiveHeight(context, 16),
                           ),
                           child: Container(
                             height: Utils.getResponsiveHeight(context, 32),
@@ -170,11 +172,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Theme.of(
                                     context,
                                   ).extension<AppColors>()?.containerBg,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(
-                                  Utils.getResponsiveHeight(context, 9999),
-                                ),
-                              ),
+                              shape: BoxShape.circle,
                             ),
                             child: GestureDetector(
                               onTap: () {

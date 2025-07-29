@@ -97,19 +97,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     children: [
                       Align(
                         alignment: Alignment.center,
-                        child: SizedBox(
-                          height: Utils.getResponsiveHeight(context, 112),
-                          width: Utils.getResponsiveWidth(context, 102),
-                          child: Obx(() {
-                            final hasLocalImage =
-                                updateProfileVM.filePath.value.isNotEmpty;
-                            final hasNetworkImage =
-                                userVM.userImageURL.value.isNotEmpty;
+                        child: Obx(() {
+                          final hasLocalImage =
+                              updateProfileVM.filePath.value.isNotEmpty;
+                          final hasNetworkImage =
+                              userVM.userImageURL.value.isNotEmpty;
 
-                            return InkWell(
-                              onTap: () {
-                                _showImageSourceDialog(context);
-                              },
+                          return InkWell(
+                            onTap: () {
+                              _showImageSourceDialog(context);
+                            },
+                            child: SizedBox(
+                              height: Utils.getResponsiveHeight(context, 112),
+                              width: Utils.getResponsiveWidth(context, 102),
                               child: Stack(
                                 children: [
                                   Positioned(
@@ -162,6 +162,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     left: 0,
                                     right: 0,
                                     child: Container(
+                                      padding: EdgeInsets.zero,
                                       decoration: BoxDecoration(
                                         color: AppColor.addPhotoBgColor,
                                         borderRadius: BorderRadius.circular(
@@ -184,6 +185,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         ),
                                         child: Text(
                                           'add_photo'.tr,
+                                          textAlign: TextAlign.center,
                                           style: TextStyle(
                                             fontSize: Utils.getResponsiveSize(
                                               context,
@@ -199,9 +201,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   ),
                                 ],
                               ),
-                            );
-                          }),
-                        ),
+                            ),
+                          );
+                        }),
                       ),
                       SizedBox(height: Utils.getResponsiveHeight(context, 24)),
                       Form(

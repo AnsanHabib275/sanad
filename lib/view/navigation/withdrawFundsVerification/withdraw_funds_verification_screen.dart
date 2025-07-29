@@ -71,7 +71,7 @@ class _WithdrawFundsVerificationScreenState
                       SizedBox(
                         height:
                             MediaQuery.of(context).padding.top +
-                            Utils.getResponsiveHeight(context, 80),
+                            Utils.getResponsiveHeight(context, 100),
                       ),
                       Container(
                         width: double.infinity,

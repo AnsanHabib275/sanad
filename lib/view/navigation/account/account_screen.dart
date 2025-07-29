@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:sanad/res/assets/icon_assets.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/view/navigation/account/widget/no_button_widget.dart';
-import 'package:sanad/view/navigation/account/widget/theme_toggle_widget.dart';
 import 'package:sanad/view/navigation/account/widget/yes_button_widget.dart';
 import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
 
@@ -14,6 +13,7 @@ import '../../../../res/themes/app_themes.dart';
 import '../../../../res/urls/app_url.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/services/theme_service.dart';
+import '../../../res/colors/app_color.dart';
 import '../navigation_screen.dart';
 
 class AccountScreen extends StatefulWidget {
@@ -58,6 +58,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 SizedBox(height: Utils.getResponsiveHeight(context, 16)),
                 Container(
                   width: double.infinity,
+                  padding: EdgeInsets.zero,
                   decoration: BoxDecoration(
                     color: Theme.of(context).extension<AppColors>()?.cardBg,
                     borderRadius: BorderRadius.all(
@@ -446,7 +447,78 @@ class _AccountScreenState extends State<AccountScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ThemeToggleWidget(),
+                      // ThemeToggleWidget(),
+                      Container(
+                        height: Utils.getResponsiveHeight(context, 48),
+                        width: double.infinity,
+                        padding: EdgeInsets.zero,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: Utils.getResponsiveHeight(context, 16),
+                            vertical: Utils.getResponsiveHeight(context, 8),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Image.asset(
+                                IconAssets.icDarkTheme,
+                                height: Utils.getResponsiveHeight(context, 24),
+                                width: Utils.getResponsiveWidth(context, 24),
+                                color: Theme.of(context).iconTheme.color,
+                              ),
+                              SizedBox(
+                                width: Utils.getResponsiveWidth(context, 6),
+                              ),
+                              Text(
+                                'dark_theme'.tr,
+                                style: TextStyle(
+                                  color:
+                                      Theme.of(
+                                        context,
+                                      ).extension<AppColors>()?.textBodyColor,
+                                  fontSize: Utils.getResponsiveSize(
+                                    context,
+                                    16,
+                                  ),
+                                  fontFamily: 'Manrope',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Spacer(),
+                              Obx(() {
+                                return Transform.scale(
+                                  scale: Utils.getResponsiveSize(context, 0.9),
+                                  child: Switch(
+                                    trackOutlineColor: WidgetStateProperty.all(
+                                      AppColor.transparent,
+                                    ),
+                                    inactiveThumbImage: AssetImage(
+                                      IconAssets.icSwitchThumb,
+                                    ),
+                                    inactiveThumbColor: AppColor.whiteColor,
+                                    thumbColor: WidgetStateProperty.all(
+                                      AppColor.whiteColor,
+                                    ),
+                                    activeTrackColor:
+                                        AppColor.switchButtonActiveBgColor,
+                                    inactiveTrackColor:
+                                        AppColor
+                                            .switchButtonInactiveBgColor16Per,
+                                    value:
+                                        themeService.themeMode ==
+                                        ThemeMode.dark,
+                                    onChanged: (value) {
+                                      themeService.toggleTheme();
+                                    },
+                                  ),
+                                );
+                              }),
+                            ],
+                          ),
+                        ),
+                      ),
                       ListTile(
                         minTileHeight: Utils.getResponsiveHeight(context, 48),
                         horizontalTitleGap: Utils.getResponsiveWidth(

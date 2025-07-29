@@ -41,94 +41,99 @@ class _HelpScreenState extends State<HelpScreen> {
   Widget build(BuildContext context) {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
-      child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-          leading: IconButton(
-            icon: Image.asset(
-              IconAssets.icArrowLeft,
-              height: Utils.getResponsiveHeight(context, 24),
-              width: Utils.getResponsiveWidth(context, 24),
-              color: Theme.of(context).iconTheme.color,
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+            leading: IconButton(
+              icon: Image.asset(
+                IconAssets.icArrowLeft,
+                height: Utils.getResponsiveHeight(context, 24),
+                width: Utils.getResponsiveWidth(context, 24),
+                color: Theme.of(context).iconTheme.color,
+              ),
+              onPressed: () => Get.back(),
             ),
-            onPressed: () => Get.back(),
+            centerTitle: true,
+            title: Text('help'.tr),
+            titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
+            shape: Border(
+              bottom: BorderSide(
+                color: Theme.of(context).dividerColor,
+                width: 1.0,
+              ),
+            ),
           ),
-          centerTitle: true,
-          title: Text('help'.tr),
-          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
-          shape: Border(
-            bottom: BorderSide(
-              color: Theme.of(context).dividerColor,
-              width: 1.0,
-            ),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Utils.getResponsiveWidth(context, 16),
+                ),
+                child: InputSearchWidget(
+                  onSearch: (query) => helpVM.filterHelp(query),
+                ),
+              ),
+              SizedBox(height: Utils.getResponsiveHeight(context, 32)),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Utils.getResponsiveWidth(context, 16),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'help_title'.tr,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurface,
+                        fontSize: Utils.getResponsiveSize(context, 16),
+                        fontFamily: 'Manrope',
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    SizedBox(height: Utils.getResponsiveHeight(context, 16)),
+                    Text(
+                      'help_description'.tr,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color:
+                            Theme.of(
+                              context,
+                            ).extension<AppColors>()?.textSecondaryColor,
+                        fontSize: Utils.getResponsiveSize(context, 14),
+                        fontFamily: 'Manrope',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
+              Divider(
+                height: Utils.getResponsiveHeight(context, 1),
+                color: Theme.of(context).dividerColor,
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: helpItems.length,
+                  itemBuilder: (context, index) {
+                    return HelpCartWidget(help: helpItems[index]);
+                  },
+                ),
+              ),
+            ],
           ),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(height: Utils.getResponsiveHeight(context, 16)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: Utils.getResponsiveWidth(context, 16),
-              ),
-              child: InputSearchWidget(
-                onSearch: (query) => helpVM.filterHelp(query),
-              ),
-            ),
-            SizedBox(height: Utils.getResponsiveHeight(context, 32)),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: Utils.getResponsiveWidth(context, 16),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'help_title'.tr,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSurface,
-                      fontSize: Utils.getResponsiveSize(context, 16),
-                      fontFamily: 'Manrope',
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  SizedBox(height: Utils.getResponsiveHeight(context, 16)),
-                  Text(
-                    'help_description'.tr,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color:
-                          Theme.of(
-                            context,
-                          ).extension<AppColors>()?.textSecondaryColor,
-                      fontSize: Utils.getResponsiveSize(context, 14),
-                      fontFamily: 'Manrope',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: Utils.getResponsiveHeight(context, 16)),
-            Divider(
-              height: Utils.getResponsiveHeight(context, 1),
-              color: Theme.of(context).dividerColor,
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: helpItems.length,
-                itemBuilder: (context, index) {
-                  return HelpCartWidget(help: helpItems[index]);
-                },
-              ),
-            ),
-          ],
         ),
       ),
     );

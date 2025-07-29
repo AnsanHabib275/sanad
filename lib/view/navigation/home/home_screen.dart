@@ -63,146 +63,151 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
-      child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          title: Text('home'.tr),
-          titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
-          actions: [
-            GestureDetector(
-              onTap: () {
-                Get.toNamed(RoutesName.notificationScreen);
-              },
-              child: Image.asset(
-                IconAssets.icNotificationsFilled,
-                height: Utils.getResponsiveHeight(context, 24),
-                width: Utils.getResponsiveWidth(context, 24),
-              ),
-            ),
-            SizedBox(width: Utils.getResponsiveWidth(context, 16)),
-          ],
-          shape: Border(
-            bottom: BorderSide(
-              color: Theme.of(context).dividerColor,
-              width: 1.0,
-            ),
-          ),
-        ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: Utils.getResponsiveWidth(context, 16),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: Utils.getResponsiveHeight(context, 16)),
-              Container(
-                height: Utils.getResponsiveHeight(context, 40),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).extension<AppColors>()?.cardBg,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(Utils.getResponsiveSize(context, 8)),
-                  ),
-                  border: Border.all(
-                    color: Theme.of(context).dividerColor,
-                    width: 1.0,
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: InputSearchWidget(
-                        onSearch: (query) => jobsVM.filterJobs(query),
-                      ),
-                    ),
-                    VerticalDivider(
-                      width: Utils.getResponsiveWidth(context, 1),
-                      color: Theme.of(context).dividerColor,
-                    ),
-                    InputLocationWidget(),
-                  ],
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+            automaticallyImplyLeading: false,
+            centerTitle: true,
+            title: Text('home'.tr),
+            titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
+            actions: [
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(RoutesName.notificationScreen);
+                },
+                child: Image.asset(
+                  IconAssets.icNotificationsFilled,
+                  height: Utils.getResponsiveHeight(context, 24),
+                  width: Utils.getResponsiveWidth(context, 24),
                 ),
               ),
-              SizedBox(height: Utils.getResponsiveHeight(context, 21)),
-              Text(
-                'jobs_for_you'.tr,
-                style: TextStyle(
-                  color:
-                      Theme.of(
-                        context,
-                      ).extension<AppColors>()?.textPrimaryColor,
-                  fontSize: Utils.getResponsiveSize(context, 18),
-                  fontFamily: 'Manrope',
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(height: Utils.getResponsiveHeight(context, 4)),
-              Text(
-                'jobs_based_on_your_activity'.tr,
-                style: TextStyle(
-                  color:
-                      Theme.of(
-                        context,
-                      ).extension<AppColors>()?.textSecondaryColor,
-                  fontSize: Utils.getResponsiveSize(context, 14),
-                  fontFamily: 'Manrope',
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              SizedBox(height: Utils.getResponsiveHeight(context, 5)),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: jobsItems.length,
-                  itemBuilder: (context, index) {
-                    return JobsCartWidget(jobs: jobsItems[index]);
-                  },
-                ),
-              ),
-
-              // Expanded(
-              //   child: Obx(() {
-              //     if (jobsVM.loading.value) {
-              //       return const Center(child: CircularProgressIndicator());
-              //     }
-              //
-              //     if (jobsVM.error.isNotEmpty) {
-              //       return Center(child: Text(jobsVM.error.value));
-              //     }
-              //
-              //     if (jobsVM.filteredJobsDataList.isEmpty) {
-              //       return Center(child: Text('no_jobs'.tr));
-              //     }
-              //     return RefreshIndicator(
-              //       onRefresh: () async {
-              //         Get.find<UserPreference>().userEid.value;
-              //         await jobsVM.jobsListApi();
-              //       },
-              //       child: ListView.separated(
-              //         physics: AlwaysScrollableScrollPhysics(),
-              //         itemCount: jobsVM.filteredJobsDataList.length,
-              //         separatorBuilder:
-              //             (context, index) => SizedBox(height: 16),
-              //         itemBuilder: (context, index) {
-              //           if (index >= jobsVM.filteredJobsDataList.length) {
-              //             return SizedBox.shrink();
-              //           }
-              //
-              //           final job = jobsVM.filteredJobsDataList[index];
-              //           return JobsCartWidget(
-              //             jobs: job,
-              //             key: ValueKey(job.jobId), // Important for state
-              //           );
-              //         },
-              //       ),
-              //     );
-              //   }),
-              // ),
+              SizedBox(width: Utils.getResponsiveWidth(context, 16)),
             ],
+            shape: Border(
+              bottom: BorderSide(
+                color: Theme.of(context).dividerColor,
+                width: 1.0,
+              ),
+            ),
+          ),
+          body: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: Utils.getResponsiveWidth(context, 16),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: Utils.getResponsiveHeight(context, 16)),
+                Container(
+                  height: Utils.getResponsiveHeight(context, 40),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).extension<AppColors>()?.cardBg,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(Utils.getResponsiveSize(context, 8)),
+                    ),
+                    border: Border.all(
+                      color: Theme.of(context).dividerColor,
+                      width: 1.0,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: InputSearchWidget(
+                          onSearch: (query) => jobsVM.filterJobs(query),
+                        ),
+                      ),
+                      VerticalDivider(
+                        width: Utils.getResponsiveWidth(context, 1),
+                        color: Theme.of(context).dividerColor,
+                      ),
+                      InputLocationWidget(),
+                    ],
+                  ),
+                ),
+                SizedBox(height: Utils.getResponsiveHeight(context, 21)),
+                Text(
+                  'jobs_for_you'.tr,
+                  style: TextStyle(
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<AppColors>()?.textPrimaryColor,
+                    fontSize: Utils.getResponsiveSize(context, 18),
+                    fontFamily: 'Manrope',
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(height: Utils.getResponsiveHeight(context, 4)),
+                Text(
+                  'jobs_based_on_your_activity'.tr,
+                  style: TextStyle(
+                    color:
+                        Theme.of(
+                          context,
+                        ).extension<AppColors>()?.textSecondaryColor,
+                    fontSize: Utils.getResponsiveSize(context, 14),
+                    fontFamily: 'Manrope',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                SizedBox(height: Utils.getResponsiveHeight(context, 5)),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: jobsItems.length,
+                    itemBuilder: (context, index) {
+                      return JobsCartWidget(jobs: jobsItems[index]);
+                    },
+                  ),
+                ),
+
+                // Expanded(
+                //   child: Obx(() {
+                //     if (jobsVM.loading.value) {
+                //       return const Center(child: CircularProgressIndicator());
+                //     }
+                //
+                //     if (jobsVM.error.isNotEmpty) {
+                //       return Center(child: Text(jobsVM.error.value));
+                //     }
+                //
+                //     if (jobsVM.filteredJobsDataList.isEmpty) {
+                //       return Center(child: Text('no_jobs'.tr));
+                //     }
+                //     return RefreshIndicator(
+                //       onRefresh: () async {
+                //         Get.find<UserPreference>().userEid.value;
+                //         await jobsVM.jobsListApi();
+                //       },
+                //       child: ListView.separated(
+                //         physics: AlwaysScrollableScrollPhysics(),
+                //         itemCount: jobsVM.filteredJobsDataList.length,
+                //         separatorBuilder:
+                //             (context, index) => SizedBox(height: 16),
+                //         itemBuilder: (context, index) {
+                //           if (index >= jobsVM.filteredJobsDataList.length) {
+                //             return SizedBox.shrink();
+                //           }
+                //
+                //           final job = jobsVM.filteredJobsDataList[index];
+                //           return JobsCartWidget(
+                //             jobs: job,
+                //             key: ValueKey(job.jobId), // Important for state
+                //           );
+                //         },
+                //       ),
+                //     );
+                //   }),
+                // ),
+              ],
+            ),
           ),
         ),
       ),

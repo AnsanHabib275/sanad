@@ -77,9 +77,9 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                 right: 0,
                 child: Image.asset(
                   ImageAssets.onBoardingBg,
-                  // height: Utils.getResponsiveHeight(context, 494),
-                  // width: Utils.getResponsiveWidth(context, 744),
-                  fit: BoxFit.cover, // Ensures full screen fill
+                  height: Utils.getResponsiveHeight(context, 570),
+                  width: Utils.getResponsiveWidth(context, 350),
+                  fit: BoxFit.fitWidth,
                   alignment: Alignment.topCenter,
                 ),
               ),

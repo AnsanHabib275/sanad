@@ -29,6 +29,7 @@ class PaymentMethodViewModel extends GetxController {
   RxString error = ''.obs;
   RxBool loading = false.obs;
   RxString errorMessage = ''.obs;
+  RxString dateError = ''.obs;
   RxString selectedTab = 'creditCard'.obs;
 
   void setRxRequestStatus(Status value) => rxRequestStatus.value = value;
