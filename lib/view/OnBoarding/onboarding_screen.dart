@@ -72,15 +72,17 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
           body: Stack(
             children: [
               Positioned(
-                top: 0,
+                top: Utils.getResponsiveHeight(context, -20),
                 left: 0,
                 right: 0,
-                child: Image.asset(
-                  ImageAssets.onBoardingBg,
-                  height: Utils.getResponsiveHeight(context, 570),
-                  width: Utils.getResponsiveWidth(context, 350),
-                  fit: BoxFit.fitWidth,
-                  alignment: Alignment.topCenter,
+                child: SizedBox(
+                  height: Utils.getResponsiveHeight(context, 744),
+                  width: Get.width * 1,
+                  child: Image.asset(
+                    ImageAssets.onBoardingBg,
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment.topCenter,
+                  ),
                 ),
               ),
               Positioned(
@@ -116,7 +118,6 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(width: Utils.getResponsiveWidth(context, 16)),
                       ],
                     ),
                     Expanded(
@@ -163,12 +164,12 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                         ),
                       );
                     }),
-                    SizedBox(height: Utils.getResponsiveHeight(context, 40)),
+                    SizedBox(height: Utils.getResponsiveHeight(context, 30)),
                     Obx(() {
                       if (!(onBoardingVM.currentPage.value <
                           tutorialPages.length - 1)) {
                         return SizedBox(
-                          height: Utils.getResponsiveHeight(context, 110),
+                          height: Utils.getResponsiveHeight(context, 90),
                         );
                       }
                       return Column(
@@ -182,7 +183,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: Utils.getResponsiveHeight(context, 70),
+                            height: Utils.getResponsiveHeight(context, 50),
                           ),
                         ],
                       );

@@ -25,15 +25,33 @@ class OnBoardingPage extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           if (index != 3) {
+            debugPrint('index : $index');
             return Column(
               children: [
-                Image.asset(
-                  onBoardingList.imagePath,
-                  height: Utils.getResponsiveHeight(context, 370),
-                  width: Utils.getResponsiveWidth(context, 530),
-                  // fit: BoxFit.contain,
-                ),
-                SizedBox(height: Utils.getResponsiveHeight(context, 100)),
+                index == 0
+                    ? SizedBox(
+                      height: Utils.getResponsiveHeight(context, 430),
+                      width: Utils.getResponsiveWidth(context, 430),
+                      child: Image.asset(
+                        onBoardingList.imagePath,
+                        fit: BoxFit.fitWidth,
+                        alignment: Alignment.topCenter,
+                      ),
+                    )
+                    : SizedBox(
+                      height: Utils.getResponsiveHeight(context, 350),
+                      width: Utils.getResponsiveWidth(context, 350),
+                      child: Center(
+                        child: Image.asset(
+                          onBoardingList.imagePath,
+                          alignment: Alignment.topCenter,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                index == 0
+                    ? SizedBox(height: Utils.getResponsiveHeight(context, 75))
+                    : SizedBox(height: Utils.getResponsiveHeight(context, 155)),
                 Text(
                   onBoardingList.title,
                   textAlign: TextAlign.center,
@@ -61,7 +79,7 @@ class OnBoardingPage extends StatelessWidget {
                         ).extension<AppColors>()?.textPrimaryColor,
                   ),
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(context, 90)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 70)),
               ],
             );
           }
@@ -72,13 +90,20 @@ class OnBoardingPage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                SizedBox(height: Utils.getResponsiveHeight(context, 150)),
-                Image.asset(
-                  onBoardingList.imagePath,
-                  height: Utils.getResponsiveHeight(context, 54),
-                  width: Utils.getResponsiveWidth(context, 155),
+                SizedBox(
+                  height: Utils.getResponsiveHeight(context, 350),
+                  width: Utils.getResponsiveWidth(context, 350),
+                  child: Center(
+                    child: Image.asset(
+                      onBoardingList.imagePath,
+                      alignment: Alignment.topCenter,
+                      height: Utils.getResponsiveHeight(context, 54),
+                      width: Utils.getResponsiveWidth(context, 155),
+                    ),
+                  ),
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(context, 265)),
+
+                SizedBox(height: Utils.getResponsiveHeight(context, 155)),
                 Text(
                   'are_you_client_or_recruiter'.tr,
                   textAlign: TextAlign.center,
@@ -99,8 +124,6 @@ class OnBoardingPage extends StatelessWidget {
                     Expanded(
                       child: InkWell(
                         onTap: () {
-                          // move to web
-                          // https://sanad-eta.vercel.app/
                           openWebsite("https://sanad-eta.vercel.app");
                         },
                         child: Container(
@@ -169,7 +192,6 @@ class OnBoardingPage extends StatelessWidget {
                           Get.toNamed(RoutesName.signUpScreen);
                         },
                         child: Container(
-                          // height: Utils.getResponsiveHeight(context,108),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
                               Radius.circular(
@@ -230,7 +252,7 @@ class OnBoardingPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: Utils.getResponsiveHeight(context, 34)),
+                SizedBox(height: Utils.getResponsiveHeight(context, 10)),
               ],
             ),
           );
@@ -241,14 +263,6 @@ class OnBoardingPage extends StatelessWidget {
 
   Future<void> openWebsite(String url) async {
     final Uri uri = Uri.parse(url);
-
-    // if (await canLaunchUrl(uri)) {
-    await launchUrl(
-      uri,
-      mode: LaunchMode.inAppWebView, // opens in browser
-    );
-    // } else {
-    //   throw 'Could not launch $url';
-    // }
+    await launchUrl(uri, mode: LaunchMode.inAppWebView);
   }
 }
