@@ -37,7 +37,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
       'ob_3_title'.tr,
       'ob_3_description'.tr,
     ),
-    OnBoardingListModel(ImageAssets.appLogo, '', ''),
+    OnBoardingListModel(ImageAssets.ob4, 'ob_4_title'.tr, ''),
   ];
 
   @override
@@ -72,54 +72,12 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
           body: Stack(
             children: [
               Positioned(
-                top: Utils.getResponsiveHeight(context, -20),
-                left: 0,
-                right: 0,
-                child: SizedBox(
-                  height: Utils.getResponsiveHeight(context, 744),
-                  width: Get.width * 1,
-                  child: Image.asset(
-                    ImageAssets.onBoardingBg,
-                    fit: BoxFit.fitWidth,
-                    alignment: Alignment.topCenter,
-                  ),
-                ),
-              ),
-              Positioned(
                 top: 0,
                 right: 0,
                 left: 0,
                 bottom: 0,
                 child: Column(
                   children: [
-                    SizedBox(height: Utils.getResponsiveHeight(context, 32)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Spacer(),
-                        TextButton(
-                          onPressed: () {
-                            _pageController.jumpToPage(
-                              tutorialPages.length - 1,
-                            );
-                          },
-                          child: Text(
-                            'skip'.tr,
-                            style: TextStyle(
-                              fontSize: Utils.getResponsiveSize(context, 16),
-                              fontFamily: 'Manrope',
-                              fontWeight: FontWeight.w400,
-                              color:
-                                  Theme.of(
-                                    context,
-                                  ).extension<AppColors>()?.skipText,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
                     Expanded(
                       child: PageView.builder(
                         physics: const ClampingScrollPhysics(),
@@ -169,7 +127,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                       if (!(onBoardingVM.currentPage.value <
                           tutorialPages.length - 1)) {
                         return SizedBox(
-                          height: Utils.getResponsiveHeight(context, 90),
+                          height: Utils.getResponsiveHeight(context, 70),
                         );
                       }
                       return Column(
@@ -183,11 +141,48 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: Utils.getResponsiveHeight(context, 50),
+                            height: Utils.getResponsiveHeight(context, 30),
                           ),
                         ],
                       );
                     }),
+                  ],
+                ),
+              ),
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: Column(
+                  children: [
+                    SizedBox(height: Utils.getResponsiveHeight(context, 32)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Spacer(),
+                        TextButton(
+                          onPressed: () {
+                            _pageController.jumpToPage(
+                              tutorialPages.length - 1,
+                            );
+                          },
+                          child: Text(
+                            'skip'.tr,
+                            style: TextStyle(
+                              fontSize: Utils.getResponsiveSize(context, 16),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w400,
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).extension<AppColors>()?.skipText,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

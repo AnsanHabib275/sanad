@@ -133,6 +133,7 @@ class Languages extends Translations {
       'ob_3_title': 'Easy to Apply',
       'ob_3_description':
           'Lorem ipsum dolor sit amet c,onsectetur\nadipiscing elit, sed do eiusmod tempor\nincididunt ut labore et dolore',
+      'ob_4_title': 'Are you Client or Recruiter? ',
       'skip': 'Skip',
       'message_cannot_be_blank': 'Message cannot be blank',
       'message_hint': 'Write something here',
