@@ -16,7 +16,7 @@ class DismissLargeButtonWidget extends StatelessWidget {
       width: 306,
       title: 'dismiss'.tr,
       onPress: () {
-        // Get.back();
+        Get.back();
       },
     );
   }

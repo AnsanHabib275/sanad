@@ -103,7 +103,7 @@ class _WalletScreenState extends State<WalletScreen> {
                               text: TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: '2,456',
+                                    text: '100',
                                     style: TextStyle(
                                       fontSize: Utils.getResponsiveSize(
                                         context,
@@ -190,7 +190,7 @@ class _WalletScreenState extends State<WalletScreen> {
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
-                                      text: '0',
+                                      text: '50',
                                       style: TextStyle(
                                         fontSize: Utils.getResponsiveSize(
                                           context,

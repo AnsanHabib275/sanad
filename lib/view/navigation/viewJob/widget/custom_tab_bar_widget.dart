@@ -64,12 +64,8 @@ class _CustomTabBarState extends State<CustomTabBar>
                         fontWeight: FontWeight.w600,
                         color:
                             applyJobVM.selectedTab.value == 'general'
-                                ? Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textPrimaryColor
-                                : Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textBodyColor,
+                                ? AppColor.primaryButtonColor
+                                : AppColor.textSecondaryColor,
                       ),
                     ),
                   ),
@@ -102,12 +98,8 @@ class _CustomTabBarState extends State<CustomTabBar>
                         fontWeight: FontWeight.w600,
                         color:
                             applyJobVM.selectedTab.value == 'requirements'
-                                ? Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textPrimaryColor
-                                : Theme.of(
-                                  context,
-                                ).extension<AppColors>()?.textBodyColor,
+                                ? AppColor.primaryButtonColor
+                                : AppColor.textSecondaryColor,
                       ),
                     ),
                   ),

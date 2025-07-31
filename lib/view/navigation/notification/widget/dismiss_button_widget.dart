@@ -19,7 +19,7 @@ class DismissButtonWidget extends StatelessWidget {
       title: 'dismiss'.tr,
       // loading: deleteAccountVM.loading.value,
       onPress: () {
-        // deleteAccountVM.deleteAccountApi();
+        Get.back();
       },
     );
   }

@@ -27,14 +27,16 @@ class InputCompanySizeWidget extends StatelessWidget {
         ),
         dropdownColor: Theme.of(context).extension<AppColors>()?.cardBg,
         style: Theme.of(context).inputDecorationTheme.labelStyle,
+        hint: Text(
+          'company_size_hint'.tr,
+          style: Theme.of(context).inputDecorationTheme.hintStyle,
+        ),
         decoration: InputDecoration(
           isDense: true,
           contentPadding: EdgeInsets.symmetric(
             vertical: Utils.getResponsiveHeight(context, 8),
             horizontal: Utils.getResponsiveWidth(context, 16),
           ),
-          hintText: 'company_size_hint'.tr,
-          hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               updateProfileVM.errorMessage.value.isEmpty
                   ? null

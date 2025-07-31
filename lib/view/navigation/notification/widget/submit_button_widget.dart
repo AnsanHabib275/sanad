@@ -12,7 +12,7 @@ class SubmitButtonWidget extends StatelessWidget {
       width: 147,
       title: 'submit'.tr,
       onPress: () {
-        // Get.back();
+        Get.back();
       },
     );
   }

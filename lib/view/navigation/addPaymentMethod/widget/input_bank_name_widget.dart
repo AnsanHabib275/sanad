@@ -30,14 +30,16 @@ class InputBankNameWidget extends StatelessWidget {
         ),
         dropdownColor: Theme.of(context).extension<AppColors>()?.cardBg,
         style: Theme.of(context).inputDecorationTheme.labelStyle,
+        hint: Text(
+          'bank_name_hint'.tr,
+          style: Theme.of(context).inputDecorationTheme.hintStyle,
+        ),
         decoration: InputDecoration(
           isDense: true,
           contentPadding: EdgeInsets.symmetric(
             vertical: Utils.getResponsiveHeight(context, 8),
             horizontal: Utils.getResponsiveWidth(context, 16),
           ),
-          hintText: 'bank_name_hint'.tr,
-          hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
           errorText:
               paymentMethodVM.errorMessage.value.isEmpty
                   ? null
