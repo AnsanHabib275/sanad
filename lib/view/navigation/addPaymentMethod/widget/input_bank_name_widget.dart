@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
 
 import '../../../../res/assets/icon_assets.dart';
+import '../../../../res/themes/app_themes.dart';
 import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 class InputBankNameWidget extends StatelessWidget {
@@ -24,6 +25,10 @@ class InputBankNameWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return DropdownButtonFormField<String>(
+        borderRadius: BorderRadius.circular(
+          Utils.getResponsiveSize(context, 12),
+        ),
+        dropdownColor: Theme.of(context).extension<AppColors>()?.cardBg,
         style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
           isDense: true,

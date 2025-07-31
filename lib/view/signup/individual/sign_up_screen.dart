@@ -141,7 +141,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: 'user_agreement'.tr,
+                                  text: 'terms_and_conditions'.tr,
                                   style: TextStyle(
                                     fontSize: Utils.getResponsiveSize(
                                       context,

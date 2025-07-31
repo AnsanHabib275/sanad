@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../../res/assets/icon_assets.dart';
 import '../../../../../utils/utils.dart';
+import '../../../../res/themes/app_themes.dart';
 import '../../../../viewModels/controller/navigation/updateProfile/update_profile_view_model.dart';
 
 class InputOrganizationTypeWidget extends StatelessWidget {
@@ -15,6 +16,10 @@ class InputOrganizationTypeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return DropdownButtonFormField<String>(
+        borderRadius: BorderRadius.circular(
+          Utils.getResponsiveSize(context, 12),
+        ),
+        dropdownColor: Theme.of(context).extension<AppColors>()?.cardBg,
         style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(
           isDense: true,

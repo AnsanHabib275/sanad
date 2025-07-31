@@ -7,9 +7,8 @@ class IconAssets {
       'assets/icons/ic_arrow_right_selected.png';
   static const String icArrowRightUnselected =
       'assets/icons/ic_arrow_right_unselected.png';
-  static const String icBnAccount = 'assets/icons/ic_bn_account.png';
-  static const String icBnAccountSelected =
-      'assets/icons/ic_bn_account_selected.png';
+  static const String icBnAccount = 'assets/icons/ic_profile.png';
+  static const String icBnAccountSelected = 'assets/icons/ic_profile.png';
   static const String icBnJob = 'assets/icons/ic_bn_job.png';
   static const String icBnJobSelected = 'assets/icons/ic_bn_job_selected.png';
   static const String icBnSearch = 'assets/icons/ic_bn_search.png';

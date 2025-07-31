@@ -71,7 +71,7 @@ class _NotificationCartWidgetState extends State<NotificationCartWidget> {
                         },
                         errorBuilder: (context, error, stackTrace) {
                           return Image.asset(
-                            ImageAssets.imgDummyPicture,
+                            ImageAssets.imgDummyProfile,
                             fit: BoxFit.cover,
                           );
                         },

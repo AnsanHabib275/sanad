@@ -71,10 +71,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
         child: Scaffold(
           extendBody: true,
           body: Obx(() {
-            // if (userVM.userEid.value.isEmpty) {
-            //   return Center(child: CircularProgressIndicator());
-            // }
-            // return navigationVM.currentScreen.value ?? SizedBox();
             return Padding(
               padding: EdgeInsets.only(
                 bottom:
@@ -87,59 +83,74 @@ class _NavigationScreenState extends State<NavigationScreen> {
           }),
 
           bottomNavigationBar: Obx(() {
-            return BottomNavigationBar(
-              elevation: 3,
-              showUnselectedLabels: true,
-              showSelectedLabels: true,
-              type: BottomNavigationBarType.fixed,
-              items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Image.asset(
-                    IconAssets.icBnSearch,
-                    color: Theme.of(context).iconTheme.color,
+            return Theme(
+              data: Theme.of(context).copyWith(
+                splashColor: AppColor.transparent,
+                highlightColor: AppColor.primaryColor,
+                hoverColor: AppColor.transparent,
+                splashFactory: InkRipple.splashFactory,
+              ),
+              child: BottomNavigationBar(
+                elevation: 3,
+                showUnselectedLabels: true,
+                showSelectedLabels: true,
+                type: BottomNavigationBarType.fixed,
+                items: <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Image.asset(
+                      IconAssets.icBnSearch,
+                      color: Theme.of(context).iconTheme.color,
+                    ),
+                    activeIcon: Image.asset(IconAssets.icBnSearchSelected),
+                    label: 'find_jobs'.tr,
                   ),
-                  activeIcon: Image.asset(IconAssets.icBnSearchSelected),
-                  label: 'find_jobs'.tr,
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(
-                    IconAssets.icBnJob,
-                    color: Theme.of(context).iconTheme.color,
+                  BottomNavigationBarItem(
+                    icon: Image.asset(
+                      IconAssets.icBnJob,
+                      color: Theme.of(context).iconTheme.color,
+                    ),
+                    activeIcon: Image.asset(IconAssets.icBnJobSelected),
+                    label: 'my_jobs'.tr,
                   ),
-                  activeIcon: Image.asset(IconAssets.icBnJobSelected),
-                  label: 'my_jobs'.tr,
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(
-                    IconAssets.icBnWallet,
-                    color: Theme.of(context).iconTheme.color,
+                  BottomNavigationBarItem(
+                    icon: Image.asset(
+                      IconAssets.icBnWallet,
+                      color: Theme.of(context).iconTheme.color,
+                    ),
+                    activeIcon: Image.asset(IconAssets.icBnWalletSelected),
+                    label: 'wallet'.tr,
                   ),
-                  activeIcon: Image.asset(IconAssets.icBnWalletSelected),
-                  label: 'wallet'.tr,
-                ),
-                BottomNavigationBarItem(
-                  icon: Image.asset(
-                    IconAssets.icBnAccount,
-                    color: Theme.of(context).iconTheme.color,
+                  BottomNavigationBarItem(
+                    icon: Image.asset(
+                      IconAssets.icBnAccount,
+                      color: Theme.of(context).iconTheme.color,
+                    ),
+                    activeIcon: Image.asset(
+                      IconAssets.icBnAccountSelected,
+                      color: AppColor.primaryIconColor,
+                    ),
+                    label: 'account'.tr,
                   ),
-                  activeIcon: Image.asset(IconAssets.icBnAccountSelected),
-                  label: 'account'.tr,
-                ),
-              ],
-              currentIndex: navigationVM.currentIndex.value,
-              selectedItemColor:
-                  Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
-              unselectedItemColor:
-                  Theme.of(
-                    context,
-                  ).bottomNavigationBarTheme.unselectedItemColor,
-              selectedIconTheme:
-                  Theme.of(context).bottomNavigationBarTheme.selectedIconTheme,
-              unselectedIconTheme:
-                  Theme.of(
-                    context,
-                  ).bottomNavigationBarTheme.unselectedIconTheme,
-              onTap: _handleNavigationChange,
+                ],
+                currentIndex: navigationVM.currentIndex.value,
+                selectedItemColor:
+                    Theme.of(
+                      context,
+                    ).bottomNavigationBarTheme.selectedItemColor,
+                unselectedItemColor:
+                    Theme.of(
+                      context,
+                    ).bottomNavigationBarTheme.unselectedItemColor,
+                selectedIconTheme:
+                    Theme.of(
+                      context,
+                    ).bottomNavigationBarTheme.selectedIconTheme,
+                unselectedIconTheme:
+                    Theme.of(
+                      context,
+                    ).bottomNavigationBarTheme.unselectedIconTheme,
+                onTap: _handleNavigationChange,
+              ),
             );
           }),
         ),

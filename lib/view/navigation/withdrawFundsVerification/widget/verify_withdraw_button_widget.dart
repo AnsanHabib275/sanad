@@ -110,14 +110,17 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Image.asset(
-                        ImageAssets.imgHalfRound,
-                        height: Utils.getResponsiveHeight(context, 25),
-                        width: Utils.getResponsiveWidth(context, 15),
-                        color:
-                            Theme.of(
-                              context,
-                            ).extension<AppColors>()?.halfRoundCircleColor,
+                      Transform.translate(
+                        offset: Offset(-2.5, 0),
+                        child: Image.asset(
+                          ImageAssets.imgHalfRound,
+                          height: Utils.getResponsiveHeight(context, 25),
+                          width: Utils.getResponsiveWidth(context, 15),
+                          color:
+                              Theme.of(
+                                context,
+                              ).extension<AppColors>()?.halfRoundCircleColor,
+                        ),
                       ),
                       Expanded(
                         child: Padding(
@@ -133,16 +136,19 @@ class VerifyWithdrawButtonWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Transform.rotate(
-                        angle: 180 * pi / 180,
-                        child: Image.asset(
-                          ImageAssets.imgHalfRound,
-                          height: Utils.getResponsiveHeight(context, 25),
-                          width: Utils.getResponsiveWidth(context, 15),
-                          color:
-                              Theme.of(
-                                context,
-                              ).extension<AppColors>()?.halfRoundCircleColor,
+                      Transform.translate(
+                        offset: Offset(2.5, 0),
+                        child: Transform.rotate(
+                          angle: 180 * pi / 180,
+                          child: Image.asset(
+                            ImageAssets.imgHalfRound,
+                            height: Utils.getResponsiveHeight(context, 25),
+                            width: Utils.getResponsiveWidth(context, 15),
+                            color:
+                                Theme.of(
+                                  context,
+                                ).extension<AppColors>()?.halfRoundCircleColor,
+                          ),
                         ),
                       ),
                     ],

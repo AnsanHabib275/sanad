@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/models/notification/notifications_model.dart';
+import 'package:sanad/res/assets/image_assets.dart';
 import 'package:sanad/view/navigation/notification/widget/notification_cart_widget.dart';
 import 'package:sanad/viewModels/controller/navigation/notification/notification_view_model.dart';
 
@@ -31,21 +32,21 @@ class _NotificationScreenState extends State<NotificationScreen> {
     NotificationsModel(
       1,
       'invitation',
-      'https://partnershelpingpeople.com//ProfilePhotos/userimg638741901514451451.png',
+      ImageAssets.imgDummyProfile,
       'Job Invitation',
       'Lorem ipsum dolor sit amet, consectetur adipisci elit ',
     ),
     NotificationsModel(
       2,
       'downloaded',
-      'https://partnershelpingpeople.com//ProfilePhotos/userimg638741901514451451.png',
+      ImageAssets.imgDummyProfile,
       'Cv is downloaded',
       'Lorem ipsum dolor sit amet, consectetur adipisci elit ',
     ),
     NotificationsModel(
       3,
       'closed',
-      'https://partnershelpingpeople.com//ProfilePhotos/userimg638741901514451451.png',
+      ImageAssets.imgDummyProfile,
       'Job is closed',
       'Lorem ipsum dolor sit amet, consectetur adipisci elit ',
     ),

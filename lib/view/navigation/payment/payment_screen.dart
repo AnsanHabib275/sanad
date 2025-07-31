@@ -206,7 +206,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                         ),
                                       ),
                                       child: Text(
-                                        'payment_capital'.tr,
+                                        'payment'.tr,
                                         style: TextStyle(
                                           color:
                                               Theme.of(context)
