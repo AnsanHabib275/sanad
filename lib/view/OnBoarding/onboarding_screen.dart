@@ -122,12 +122,12 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                         ),
                       );
                     }),
-                    SizedBox(height: Utils.getResponsiveHeight(context, 30)),
+                    SizedBox(height: Utils.getResponsiveHeight(context, 38)),
                     Obx(() {
                       if (!(onBoardingVM.currentPage.value <
                           tutorialPages.length - 1)) {
                         return SizedBox(
-                          height: Utils.getResponsiveHeight(context, 70),
+                          height: Utils.getResponsiveHeight(context, 110),
                         );
                       }
                       return Column(
@@ -141,7 +141,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: Utils.getResponsiveHeight(context, 30),
+                            height: Utils.getResponsiveHeight(context, 70),
                           ),
                         ],
                       );
