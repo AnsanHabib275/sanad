@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/res/colors/app_color.dart';
 
 import '../../../../../res/assets/icon_assets.dart';
 import '../../../../../utils/utils.dart';

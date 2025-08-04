@@ -930,7 +930,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
       final fileSizeInMB = fileSizeInBytes / (1024 * 1024);
 
       if (fileSizeInMB > 1) {
-        print('❌ Image size exceeds 1 MB');
+        debugPrint('❌ Image size exceeds 1 MB');
         Get.snackbar('File too large', 'Please select a file under 1 MB');
         return;
       } else {
@@ -940,10 +940,10 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
         applyJobVM.isUploaded.value = true;
       }
 
-      print('✅ Image accepted: ${file.path}');
+      debugPrint('✅ Image accepted: ${file.path}');
       // Proceed to use the image
     } else {
-      print('❌ No file selected');
+      debugPrint('❌ No file selected');
     }
 
     // if (result != null && result.files.single.path != null) {

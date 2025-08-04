@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../res/components/round_button.dart';
 import '../../../../res/routes/routes_name.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/login/login_view_model.dart';
 
 class WithdrawButtonWidget extends StatelessWidget {
-   WithdrawButtonWidget({super.key});
+  WithdrawButtonWidget({super.key});
 
   // final GlobalKey<FormState> formKey;
   final loginVM = Get.put(LoginViewModel());
@@ -24,6 +23,7 @@ class WithdrawButtonWidget extends StatelessWidget {
           //   loginVM.loginApi();
           // }
           Get.toNamed(RoutesName.withdrawFundsVerificationScreen);
+          // Get.toNamed(RoutesName.stripePaymentScreen);
         },
       );
     });

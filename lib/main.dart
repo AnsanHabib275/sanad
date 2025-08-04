@@ -1,7 +1,6 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/localization/languages.dart';
 import 'package:sanad/res/routes/routes.dart';
@@ -27,7 +26,6 @@ void main() async {
 
 Future<void> _initializeCoreServices() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
   final themeService = Get.put(ThemeService());
   await themeService.init();
   SystemChrome.setSystemUIOverlayStyle(
@@ -77,6 +75,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppThemes.darkTheme(context),
       themeMode: themeService.themeMode,
       initialRoute: RoutesName.splashScreen,
+      // initialRoute: RoutesName.navigationScreen,
       getPages: AppRoutes.appRoutes(),
     );
   }
