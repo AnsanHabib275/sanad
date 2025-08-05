@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:sanad/res/localization/languages.dart';
 import 'package:sanad/res/routes/routes.dart';
@@ -13,12 +12,6 @@ void main() async {
     WidgetsFlutterBinding.ensureInitialized();
     await _initializeCoreServices();
     runApp(const MyApp());
-    // runApp(
-    //   DevicePreview(
-    //     enabled: !kReleaseMode,
-    //     builder: (context) => const MyApp(),
-    //   ),
-    // );
   } catch (e) {
     runApp(const ErrorApp());
   }

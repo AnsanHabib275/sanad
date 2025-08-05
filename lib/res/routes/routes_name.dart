@@ -41,5 +41,4 @@ class RoutesName {
       '/withdraw_funds_verification_screen';
   static const String paymentMethodScreen = '/payment_method_screen';
   static const String addPaymentMethodScreen = '/add_payment_method_screen';
-  static const String stripePaymentScreen = '/stripe_payment_screen';
 }
