@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
+import 'package:sanad/viewModels/controller/signup/agency/agency_sign_up_view_model.dart';
 
 class InputEmailWidget extends StatelessWidget {
   InputEmailWidget({super.key});
 
-  final signUpVM = Get.put(SignUpViewModel());
+  final signUpVM = Get.put(AgencySignUpViewModel());
 
   @override
   Widget build(BuildContext context) {

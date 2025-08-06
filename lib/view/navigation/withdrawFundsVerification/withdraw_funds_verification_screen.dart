@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/view/navigation/withdrawFundsVerification/widget/input_otp_widget.dart';
-import 'package:sanad/viewModels/controller/vithdrawFundsVerification/withdraw_funds_verification_view_model.dart';
+import 'package:sanad/viewModels/controller/navigation/withdrawFundsVerification/withdraw_funds_verification_view_model.dart';
 
 import '../../../../res/themes/app_themes.dart';
 import '../../../res/assets/icon_assets.dart';

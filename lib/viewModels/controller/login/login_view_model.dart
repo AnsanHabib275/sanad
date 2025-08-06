@@ -20,7 +20,6 @@ class LoginViewModel extends GetxController {
 
   // NotificationServices notificationServices = NotificationServices();
   RxBool loading = false.obs;
-  RxBool isEnable = true.obs;
   RxString errorMessage = ''.obs;
   RxString apiErrorMessage = ''.obs;
   RxBool isFormValid = false.obs;
@@ -29,7 +28,6 @@ class LoginViewModel extends GetxController {
   final RxString selectedCountryCode = ''.obs;
 
   void handleCountrySelection(Country country) {
-    isEnable.value = true;
     selectedCountryCode.value = country.countryCode;
     countryCodeController.value.text = '+${country.phoneCode}';
   }
@@ -84,7 +82,10 @@ class LoginViewModel extends GetxController {
 
   void loginApi() {
     loading.value = true;
-    Map data = {'MobileNumber': mobileNumberController.value.text};
+    Map data = {
+      'CountryCode': countryCodeController.value.text,
+      'MobileNumber': mobileNumberController.value.text,
+    };
     _api
         .loginApi(data)
         .then((value) {

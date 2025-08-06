@@ -10,36 +10,34 @@ import 'package:image_picker/image_picker.dart';
 // import 'package:mime/mime.dart';
 // import 'package:path/path.dart' as path;
 import 'package:phone_number/phone_number.dart';
-import 'package:sanad/repository/signupRepository/sign_up_repository.dart';
+import 'package:sanad/repository/signupRepository/agency/agency_sign_up_repository.dart';
 import 'package:sanad/res/routes/routes_name.dart';
 import 'package:sanad/res/urls/app_url.dart';
 import 'package:sanad/utils/utils.dart';
 import 'package:sanad/viewModels/controller/userPreference/user_preference_view_model.dart';
 
-class SignUpViewModel extends GetxController {
-  final _api = SignUpRepository();
+class AgencySignUpViewModel extends GetxController {
+  final _api = AgencySignUpRepository();
 
-  final agencyNameController = TextEditingController().obs;
-  final firstNameController = TextEditingController().obs;
-  final lastNameController = TextEditingController().obs;
-  final taglineController = TextEditingController().obs;
   final countryCodeController = TextEditingController().obs;
   final mobileNumberController = TextEditingController().obs;
+
+  final agencyNameController = TextEditingController().obs;
+  final taglineController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final organizationTypeController = TextEditingController().obs;
+  final companySizeController = TextEditingController().obs;
 
-  final agencyNameFocusNode = FocusNode().obs;
-  final firstNameFocusNode = FocusNode().obs;
-  final lastNameFocusNode = FocusNode().obs;
-  final taglineFocusNode = FocusNode().obs;
   final countryCodeFocusNode = FocusNode().obs;
   final mobileNumberFocusNode = FocusNode().obs;
+
+  final agencyNameFocusNode = FocusNode().obs;
+  final taglineFocusNode = FocusNode().obs;
   final emailFocusNode = FocusNode().obs;
   final organizationTypeFocusNode = FocusNode().obs;
+  final companySizeFocusNode = FocusNode().obs;
 
   RxBool loading = false.obs;
-  RxBool isVisible = true.obs;
-  RxBool isEnable = true.obs;
   RxBool isAgree = false.obs;
   final selectedIndex = (-1).obs;
   RxString imagePath = ''.obs;
@@ -53,7 +51,6 @@ class SignUpViewModel extends GetxController {
   final RxString selectedCountryCode = ''.obs;
 
   void handleCountrySelection(Country country) {
-    isEnable.value = true;
     selectedCountryCode.value = country.countryCode;
     countryCodeController.value.text = '+${country.phoneCode}';
   }
@@ -106,20 +103,18 @@ class SignUpViewModel extends GetxController {
         phoneError.value.isEmpty;
   }
 
-  void signUpApi() {
+  void signUpAgencyApi() {
     loading.value = true;
     final Map data = {
-      'FirstName': firstNameController.value.text,
-      'LastName': lastNameController.value.text,
+      'ProfileImage': imagePath.value,
+      'AgencyName': agencyNameController.value.text,
       'Tagline': taglineController.value.text,
-      'CountryCode': countryCodeController.value.text,
-      'MobileNumber': mobileNumberController.value.text,
       'Email': emailController.value.text,
-      // 'Password': passwordController.value.text,
-      // 'Note': noteController.value.text,
+      'OrganizationType': organizationTypeController.value.text,
+      'CompanySize': companySizeController.value.text,
     };
     _api
-        .signUpApi(data)
+        .signUpAgencyApi(data)
         .then((value) {
           loading.value = false;
           if (value['isSuccessfull'] == false) {
@@ -142,25 +137,25 @@ class SignUpViewModel extends GetxController {
         });
   }
 
-  void signUpIndividualApi() {
+  void signUpApi() {
     loading.value = true;
     Map data = {
       'CountryCode': countryCodeController.value.text,
       'MobileNumber': mobileNumberController.value.text,
     };
     _api
-        .signUpIndividualApi(data)
+        .signUpApi(data)
         .then((value) {
           loading.value = false;
           if (value['isSuccessfull'] == false) {
             apiErrorMessage.value = value['message'];
           } else {
             apiErrorMessage.value = '';
-            Utils.snackBar('success'.tr, "OTP Sent To Your Email Account");
+            Utils.snackBar('success'.tr, "OTP Sent To Your Phone Number");
             Get.toNamed(
               RoutesName.otpScreen,
               arguments: {
-                'from': 'individual',
+                'from': 'agency',
                 'Accountid': value['Accountid'],
                 'MobileNumber':
                     '${countryCodeController.value.text}${mobileNumberController.value.text}',

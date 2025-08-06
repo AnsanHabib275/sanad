@@ -9,7 +9,7 @@ import 'package:sanad/view/signup/agency/widget/input_agency_name_widget.dart';
 import 'package:sanad/view/signup/agency/widget/input_email_widget.dart';
 import 'package:sanad/view/signup/agency/widget/input_organization_type_widget.dart';
 import 'package:sanad/view/signup/agency/widget/input_tagline_widget.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
+import 'package:sanad/viewModels/controller/signup/agency/agency_sign_up_view_model.dart';
 
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/themes/app_themes.dart';
@@ -24,7 +24,7 @@ class AgencySignUpFillDetailsScreen extends StatefulWidget {
 
 class _AgencySignUpFillDetailsScreenState
     extends State<AgencySignUpFillDetailsScreen> {
-  final signUpVM = Get.put(SignUpViewModel());
+  final signUpVM = Get.put(AgencySignUpViewModel());
   final formKey = GlobalKey<FormState>();
   final items = [
     'self_employed',

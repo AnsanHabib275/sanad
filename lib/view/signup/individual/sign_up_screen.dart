@@ -8,8 +8,8 @@ import 'package:sanad/view/signup/individual/widget/send_code_button_widget.dart
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/routes/routes_name.dart';
 import '../../../../res/themes/app_themes.dart';
-import '../../../../viewModels/controller/signup/sign_up_view_model.dart';
 import '../../../res/colors/app_color.dart';
+import '../../../viewModels/controller/signup/individual/sign_up_view_model.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

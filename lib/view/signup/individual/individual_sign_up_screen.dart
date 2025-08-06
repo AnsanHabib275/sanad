@@ -8,11 +8,11 @@ import 'package:sanad/view/signup/individual/widget/input_email_widget.dart';
 import 'package:sanad/view/signup/individual/widget/input_first_name_widget.dart';
 import 'package:sanad/view/signup/individual/widget/input_last_name_widget.dart';
 import 'package:sanad/view/signup/individual/widget/input_tagline_widget.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
 
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
+import '../../../viewModels/controller/signup/individual/sign_up_view_model.dart';
 
 class IndividualSignUpScreen extends StatefulWidget {
   const IndividualSignUpScreen({super.key});

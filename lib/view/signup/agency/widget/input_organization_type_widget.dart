@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
+import 'package:sanad/viewModels/controller/signup/agency/agency_sign_up_view_model.dart';
 
 import '../../../../../res/assets/icon_assets.dart';
 import '../../../../../utils/utils.dart';
@@ -9,7 +9,7 @@ import '../../../../res/themes/app_themes.dart';
 class InputOrganizationTypeWidget extends StatelessWidget {
   InputOrganizationTypeWidget({super.key});
 
-  final signUpVM = Get.put(SignUpViewModel());
+  final signUpVM = Get.put(AgencySignUpViewModel());
   final List<String> organizationType = ['Formal', 'Informal'];
 
   @override

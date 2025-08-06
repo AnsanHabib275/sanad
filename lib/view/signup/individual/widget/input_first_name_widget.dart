@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
+
+import '../../../../viewModels/controller/signup/individual/sign_up_view_model.dart';
 
 class InputFirstNameWidget extends StatelessWidget {
   InputFirstNameWidget({super.key});

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
+
+import '../../../../viewModels/controller/signup/individual/sign_up_view_model.dart';
 
 class InputEmailWidget extends StatelessWidget {
   InputEmailWidget({super.key});
@@ -25,13 +26,6 @@ class InputEmailWidget extends StatelessWidget {
             return 'email_not_valid'.tr;
           }
           return null;
-        },
-        onFieldSubmitted: (value) {
-          Utils.fieldFocusChange(
-            context,
-            signUpVM.emailFocusNode.value,
-            signUpVM.organizationTypeFocusNode.value,
-          );
         },
         style: Theme.of(context).inputDecorationTheme.labelStyle,
         decoration: InputDecoration(

@@ -2,7 +2,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
+import 'package:sanad/viewModels/controller/signup/agency/agency_sign_up_view_model.dart';
 
 import '../../../../../res/assets/icon_assets.dart';
 import '../../../../../res/colors/app_color.dart';
@@ -11,7 +11,7 @@ import '../../../../../utils/utils.dart';
 class InputMobileNumberWidget extends StatelessWidget {
   InputMobileNumberWidget({super.key});
 
-  final signUpVM = Get.put(SignUpViewModel());
+  final signUpVM = Get.put(AgencySignUpViewModel());
 
   @override
   Widget build(BuildContext context) {

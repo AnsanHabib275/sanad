@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
-import 'package:sanad/viewModels/controller/signup/sign_up_view_model.dart';
+import 'package:sanad/viewModels/controller/signup/agency/agency_sign_up_view_model.dart';
 
 import '../../../../res/assets/image_assets.dart';
 import '../../../../res/themes/app_themes.dart';
@@ -19,7 +19,7 @@ class AgencySignUpScreen extends StatefulWidget {
 }
 
 class _AgencySignUpScreenState extends State<AgencySignUpScreen> {
-  final signUpVM = Get.put(SignUpViewModel());
+  final signUpVM = Get.put(AgencySignUpViewModel());
   final formKey = GlobalKey<FormState>();
 
   @override

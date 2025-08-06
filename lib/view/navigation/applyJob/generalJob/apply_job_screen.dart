@@ -4,9 +4,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image/image.dart' as img;
 import 'package:path/path.dart' as path;
-import 'package:xml/xml.dart';
 
 import 'package:sanad/res/assets/image_assets.dart';
 import 'package:sanad/view/navigation/applyJob/generalJob/widget/discard_button_widget.dart';
@@ -29,8 +27,6 @@ class ApplyJobScreen extends StatefulWidget {
 }
 
 class _ApplyJobScreenState extends State<ApplyJobScreen> {
-  // final applyJobVM = Get.put(ApplyJobViewModel);
-
   final applyJobVM = Get.put(ApplyJobViewModel());
 
   final isPrivate = Get.arguments['isPrivate'] ?? false;
@@ -42,7 +38,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
   final List<String> preferJobType = Get.arguments['preferJobType'] ?? [];
   final List<String> softwarePrograms = Get.arguments['softwarePrograms'] ?? [];
   late String cvName;
-  late String cvExtention;
+  late String cvExtension;
   late String cvSize;
 
   @override
@@ -435,23 +431,15 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                                       options: RectDottedBorderOptions(
                                         color: Theme.of(context).dividerColor,
                                         strokeWidth: 2,
-                                        dashPattern: [
-                                          6,
-                                          2.5,
-                                        ], // Dash pattern: [dashLength, spaceBetween]
+                                        dashPattern: [6, 2.5],
                                       ),
 
                                       child: Container(
-                                        // width: Utils.getResponsiveWidth(
-                                        //   context,
-                                        //   334,
-                                        // ),
                                         width: double.infinity,
                                         decoration: BoxDecoration(
                                           color:
                                               Theme.of(
                                                 context,
-                                                // ).extension<AppColors>()?.cardBg,
                                               ).colorScheme.surface,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(
@@ -480,11 +468,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                                                   ),
                                                   child: GestureDetector(
                                                     onTap: () {
-                                                      pickAndValidateImage();
-                                                      // pickSingleFile();
-                                                      // applyJobVM
-                                                      //     .isUploaded
-                                                      //     .value = true;
+                                                      pickAndValidateFile();
                                                     },
                                                     child: Column(
                                                       mainAxisAlignment:
@@ -702,7 +686,7 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                                                               ),
                                                             ),
                                                             TextSpan(
-                                                              text: cvExtention,
+                                                              text: cvExtension,
                                                               style: TextStyle(
                                                                 fontSize:
                                                                     Utils.getResponsiveSize(
@@ -893,104 +877,34 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
     );
   }
 
-  // Future<void> pickSingleFile() async {
-  //   FilePickerResult? result = await FilePicker.platform.pickFiles(
-  //     type: FileType.custom,
-  //     allowedExtensions: ['svg', 'png', 'jpg', 'gif'],
-  //   );
-  //
-  //   if (result != null) {
-  //     String filePath = result.files.single.path!;
-  //     print('Picked file: $filePath');
-  //     applyJobVM.isUploaded.value = true;
-  //   } else {
-  //     print('File picking cancelled');
-  //   }
-  // }
-  Future<void> pickAndValidateImage() async {
+  Future<void> pickAndValidateFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
-      allowedExtensions: [
-        'svg',
-        'png',
-        'jpg',
-        'jpeg',
-        'pdf',
-        'doc',
-        'docx',
-        'txt',
-      ],
+      allowedExtensions: ['pdf', 'doc', 'docx', 'txt'],
     );
     if (result != null && result.files.single.path != null) {
       final file = File(result.files.single.path!);
-      final fileName = path.basename(file.path);
+      final fullFileName = path.basename(file.path);
       final extension = path.extension(file.path);
+      final fileName = fullFileName.substring(
+        0,
+        fullFileName.length - extension.length,
+      );
       final fileSizeInBytes = await file.length();
       final fileSizeInKB = fileSizeInBytes / 1024;
       final fileSizeInMB = fileSizeInBytes / (1024 * 1024);
 
       if (fileSizeInMB > 1) {
-        debugPrint('❌ Image size exceeds 1 MB');
-        Get.snackbar('File too large', 'Please select a file under 1 MB');
+        Get.snackbar('error'.tr, 'Please select a file under 1 MB');
         return;
       } else {
         cvName = fileName;
-        cvExtention = extension;
+        cvExtension = extension;
         cvSize = fileSizeInKB.toString();
         applyJobVM.isUploaded.value = true;
       }
-
-      debugPrint('✅ Image accepted: ${file.path}');
-      // Proceed to use the image
     } else {
-      debugPrint('❌ No file selected');
+      debugPrint('No file selected');
     }
-
-    // if (result != null && result.files.single.path != null) {
-    //   final path = result.files.single.path!;
-    //   final ext = path.split('.').last.toLowerCase();
-    //
-    //   bool isValid = false;
-    //
-    //   if (ext == 'svg') {
-    //     isValid = await validateSvgDimensions(path);
-    //   } else {
-    //     isValid = await validateImageDimensions(path);
-    //   }
-    //
-    //   if (isValid) {
-    //     print('✅ File accepted');
-    //     // Proceed with upload or preview
-    //   } else {
-    //     print('❌ Image must be max 800x400 px');
-    //     // Show error to user
-    //   }
-    // }
-  }
-
-  Future<bool> validateSvgDimensions(String path) async {
-    final content = await File(path).readAsString();
-    final document = XmlDocument.parse(content);
-    final svg = document.findElements('svg').first;
-
-    final widthAttr = svg.getAttribute('width') ?? '';
-    final heightAttr = svg.getAttribute('height') ?? '';
-
-    final width =
-        double.tryParse(widthAttr.replaceAll(RegExp(r'[^0-9.]'), '')) ?? 0;
-    final height =
-        double.tryParse(heightAttr.replaceAll(RegExp(r'[^0-9.]'), '')) ?? 0;
-
-    return width <= 800 && height <= 400;
-  }
-
-  Future<bool> validateImageDimensions(String path) async {
-    final file = File(path);
-    final bytes = await file.readAsBytes();
-    final decoded = img.decodeImage(bytes);
-
-    if (decoded == null) return false;
-
-    return decoded.width <= 800 && decoded.height <= 400;
   }
 }

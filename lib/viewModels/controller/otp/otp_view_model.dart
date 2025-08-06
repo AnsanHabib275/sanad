@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanad/utils/utils.dart';
 
 import '../../../../repository/otpRepository/otp_repository.dart';
+import '../../../res/routes/routes_name.dart';
 
 class OTPViewModel extends GetxController {
   final _api = OTPRepository();
@@ -48,7 +49,7 @@ class OTPViewModel extends GetxController {
     isOtpFilled.value = false;
   }
 
-  void otpApi(String eId) {
+  void otpApi(String eId, String from) {
     loading.value = true;
     final verificationCode =
         otpOneController.value.text +
@@ -66,6 +67,9 @@ class OTPViewModel extends GetxController {
             Utils.snackBar('error'.tr, value['Message']);
           } else {
             Utils.snackBar('success'.tr, "OTP VERIFIED SUCCESSFULLY");
+            from == 'individual'
+                ? Get.toNamed(RoutesName.individualSignUpScreen)
+                : Get.toNamed(RoutesName.agencySignUpFillDetailsScreen);
           }
         })
         .onError((error, stackTrace) {

@@ -4,7 +4,7 @@ import 'package:sanad/res/components/round_button.dart';
 import 'package:sanad/utils/utils.dart';
 
 import '../../../../../res/routes/routes_name.dart';
-import '../../../../../viewModels/controller/signup/sign_up_view_model.dart';
+import '../../../../viewModels/controller/signup/individual/sign_up_view_model.dart';
 
 class SendCodeButtonWidget extends StatelessWidget {
   SendCodeButtonWidget({super.key, required this.formKey});
