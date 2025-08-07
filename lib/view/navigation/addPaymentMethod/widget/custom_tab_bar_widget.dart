@@ -4,6 +4,7 @@ import 'package:sanad/res/colors/app_color.dart';
 import 'package:sanad/res/themes/app_themes.dart';
 import 'package:sanad/utils/utils.dart';
 
+import '../../../../viewModels/controller/navigation/addPaymentMethod/add_payment_method_view_model.dart';
 import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 class CustomTabBar extends StatefulWidget {
@@ -15,7 +16,7 @@ class CustomTabBar extends StatefulWidget {
 
 class _CustomTabBarState extends State<CustomTabBar>
     with SingleTickerProviderStateMixin {
-  final paymentMethodVM = Get.put(PaymentMethodViewModel());
+  final addPaymentMethodVM = Get.put(AddPaymentMethodViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +45,14 @@ class _CustomTabBarState extends State<CustomTabBar>
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    paymentMethodVM.setSelectionTab('creditCard');
+                    addPaymentMethodVM.setSelectionTab('creditCard');
                   },
                   child: Container(
                     height: double.infinity,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color:
-                          paymentMethodVM.selectedTab.value == 'creditCard'
+                          addPaymentMethodVM.selectedTab.value == 'creditCard'
                               ? Theme.of(
                                 context,
                               ).extension<AppColors>()?.selectedTabsBg
@@ -67,7 +68,7 @@ class _CustomTabBarState extends State<CustomTabBar>
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                         color:
-                            paymentMethodVM.selectedTab.value == 'creditCard'
+                            addPaymentMethodVM.selectedTab.value == 'creditCard'
                                 ? AppColor.primaryButtonColor
                                 : AppColor.textSecondaryColor,
                       ),
@@ -78,14 +79,14 @@ class _CustomTabBarState extends State<CustomTabBar>
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    paymentMethodVM.setSelectionTab('bankAccount');
+                    addPaymentMethodVM.setSelectionTab('bankAccount');
                   },
                   child: Container(
                     height: double.infinity,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color:
-                          paymentMethodVM.selectedTab.value == 'bankAccount'
+                          addPaymentMethodVM.selectedTab.value == 'bankAccount'
                               ? Theme.of(
                                 context,
                               ).extension<AppColors>()?.selectedTabsBg
@@ -101,7 +102,8 @@ class _CustomTabBarState extends State<CustomTabBar>
                         fontFamily: 'Manrope',
                         fontWeight: FontWeight.w600,
                         color:
-                            paymentMethodVM.selectedTab.value == 'bankAccount'
+                            addPaymentMethodVM.selectedTab.value ==
+                                    'bankAccount'
                                 ? AppColor.primaryButtonColor
                                 : AppColor.textSecondaryColor,
                       ),

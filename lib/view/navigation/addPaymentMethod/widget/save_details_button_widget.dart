@@ -8,7 +8,7 @@ class SaveDetailsButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final resetPasswordVM = Get.put(ResetPasswordViewModel());
+    // final addPaymentMethodVM = Get.put(AddPaymentMethodViewModel());
     // return Obx(() {
     return RoundButton(
       title: 'save_details'.tr,

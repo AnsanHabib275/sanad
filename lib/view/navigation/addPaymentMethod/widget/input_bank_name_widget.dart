@@ -4,12 +4,13 @@ import 'package:sanad/utils/utils.dart';
 
 import '../../../../res/assets/icon_assets.dart';
 import '../../../../res/themes/app_themes.dart';
+import '../../../../viewModels/controller/navigation/addPaymentMethod/add_payment_method_view_model.dart';
 import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 class InputBankNameWidget extends StatelessWidget {
   InputBankNameWidget({super.key});
 
-  final paymentMethodVM = Get.put(PaymentMethodViewModel());
+  final addPaymentMethodVM = Get.put(AddPaymentMethodViewModel());
   final List<String> bankNameList = [
     'UBL',
     'HBL',
@@ -41,15 +42,15 @@ class InputBankNameWidget extends StatelessWidget {
             horizontal: Utils.getResponsiveWidth(context, 16),
           ),
           errorText:
-              paymentMethodVM.errorMessage.value.isEmpty
+              addPaymentMethodVM.errorMessage.value.isEmpty
                   ? null
-                  : paymentMethodVM.errorMessage.value,
+                  : addPaymentMethodVM.errorMessage.value,
           errorStyle: Theme.of(context).inputDecorationTheme.errorStyle,
         ),
         value:
-            paymentMethodVM.bankNameController.value.text.isEmpty
+            addPaymentMethodVM.bankNameController.value.text.isEmpty
                 ? null
-                : paymentMethodVM.bankNameController.value.text,
+                : addPaymentMethodVM.bankNameController.value.text,
         items:
             bankNameList.map((String organization) {
               return DropdownMenuItem<String>(
@@ -59,7 +60,7 @@ class InputBankNameWidget extends StatelessWidget {
             }).toList(),
         onChanged: (value) {
           if (value != null) {
-            paymentMethodVM.bankNameController.value.text = value;
+            addPaymentMethodVM.bankNameController.value.text = value;
           }
         },
         icon: Image.asset(

@@ -14,6 +14,8 @@ import 'package:sanad/view/navigation/addPaymentMethod/widget/save_details_butto
 import 'package:sanad/view/navigation/addPaymentMethod/widget/custom_tab_bar_widget.dart';
 import 'package:sanad/viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
+import '../../../viewModels/controller/navigation/addPaymentMethod/add_payment_method_view_model.dart';
+
 class AddPaymentMethodScreen extends StatefulWidget {
   const AddPaymentMethodScreen({super.key});
 
@@ -22,7 +24,7 @@ class AddPaymentMethodScreen extends StatefulWidget {
 }
 
 class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
-  final paymentMethodVM = Get.put(PaymentMethodViewModel());
+  final addPaymentMethodVM = Get.put(AddPaymentMethodViewModel());
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -109,7 +111,7 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> {
                           Form(
                             key: formKey,
                             child: Obx(() {
-                              return paymentMethodVM.selectedTab.value ==
+                              return addPaymentMethodVM.selectedTab.value ==
                                       'creditCard'
                                   ? Column(
                                     mainAxisAlignment: MainAxisAlignment.start,

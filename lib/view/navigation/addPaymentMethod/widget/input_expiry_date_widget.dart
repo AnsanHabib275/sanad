@@ -5,11 +5,11 @@ import 'package:intl/intl.dart';
 import '../../../../../utils/utils.dart';
 import '../../../../res/assets/icon_assets.dart';
 import '../../../../res/colors/app_color.dart';
+import '../../../../viewModels/controller/navigation/addPaymentMethod/add_payment_method_view_model.dart';
 import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 class InputExpiryDateWidget extends StatelessWidget {
-  final paymentMethodVM = Get.put(PaymentMethodViewModel());
-
+  final addPaymentMethodVM = Get.put(AddPaymentMethodViewModel());
   final DateTime? selectedDate;
 
   InputExpiryDateWidget({super.key, this.selectedDate});
@@ -23,7 +23,7 @@ class InputExpiryDateWidget extends StatelessWidget {
     );
     if (pickedDate != null && pickedDate != selectedDate) {
       final formattedDate = DateFormat('MM/yyyy').format(pickedDate);
-      paymentMethodVM.expiryDateController.value.text = formattedDate;
+      addPaymentMethodVM.expiryDateController.value.text = formattedDate;
     }
   }
 
@@ -41,7 +41,7 @@ class InputExpiryDateWidget extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.all(
                 color:
-                    paymentMethodVM.dateError.value.isEmpty
+                    addPaymentMethodVM.dateError.value.isEmpty
                         ? Theme.of(
                           context,
                         ).inputDecorationTheme.border!.borderSide.color
@@ -57,8 +57,8 @@ class InputExpiryDateWidget extends StatelessWidget {
                 children: [
                   Expanded(
                     child: TextFormField(
-                      controller: paymentMethodVM.expiryDateController.value,
-                      focusNode: paymentMethodVM.expiryDateFocusNode.value,
+                      controller: addPaymentMethodVM.expiryDateController.value,
+                      focusNode: addPaymentMethodVM.expiryDateFocusNode.value,
                       readOnly: true,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       style: Theme.of(context).inputDecorationTheme.labelStyle,
@@ -72,9 +72,9 @@ class InputExpiryDateWidget extends StatelessWidget {
                         hintStyle:
                             Theme.of(context).inputDecorationTheme.hintStyle,
                         errorText:
-                            paymentMethodVM.errorMessage.value.isEmpty
+                            addPaymentMethodVM.errorMessage.value.isEmpty
                                 ? null
-                                : paymentMethodVM.errorMessage.value,
+                                : addPaymentMethodVM.errorMessage.value,
                         errorStyle:
                             Theme.of(context).inputDecorationTheme.errorStyle,
                         border: InputBorder.none,

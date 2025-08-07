@@ -8,12 +8,4 @@ class PaymentMethodRepository {
     dynamic response = await _apiServices.getApi(AppUrl.paymentMethodListUrl);
     return response;
   }
-
-  Future<dynamic> addPaymentMethodApi(var data) async {
-    dynamic response = await _apiServices.postApi(
-      data,
-      AppUrl.addPaymentMethodUrl,
-    );
-    return response;
-  }
 }
