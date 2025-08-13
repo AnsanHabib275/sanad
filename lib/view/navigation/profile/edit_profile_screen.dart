@@ -24,6 +24,7 @@ import '../../../../res/colors/app_color.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/userPreference/user_preference_view_model.dart';
+import '../../../res/urls/app_url.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -139,18 +140,45 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                                 ),
                                                 fit: BoxFit.cover,
                                               )
-                                              //     : hasNetworkImage
-                                              //     ? CachedNetworkImage(
-                                              //   imageUrl: userVM.userImageURL.value,
-                                              //   fit: BoxFit.cover,
-                                              //   placeholder: (context, url) => Center(
-                                              //     child: CircularProgressIndicator(),
-                                              //   ),
-                                              //   errorWidget: (context, url, error) => Image.asset(
-                                              //     ImageAssets.imgDummyPicture,
-                                              //     fit: BoxFit.cover,
-                                              //   ),
-                                              // )
+                                              : hasNetworkImage
+                                              ? Image.network(
+                                                AppUrl.baseUrl +
+                                                    userVM.userImageURL.value,
+                                                fit: BoxFit.cover,
+                                                loadingBuilder: (
+                                                  context,
+                                                  child,
+                                                  loadingProgress,
+                                                ) {
+                                                  if (loadingProgress == null) {
+                                                    return child;
+                                                  }
+                                                  return Center(
+                                                    child: CircularProgressIndicator(
+                                                      value:
+                                                          loadingProgress
+                                                                      .expectedTotalBytes !=
+                                                                  null
+                                                              ? loadingProgress
+                                                                      .cumulativeBytesLoaded /
+                                                                  (loadingProgress
+                                                                          .expectedTotalBytes ??
+                                                                      1)
+                                                              : null,
+                                                    ),
+                                                  );
+                                                },
+                                                errorBuilder: (
+                                                  context,
+                                                  error,
+                                                  stackTrace,
+                                                ) {
+                                                  return Image.asset(
+                                                    ImageAssets.imgDummyPicture,
+                                                    fit: BoxFit.cover,
+                                                  );
+                                                },
+                                              )
                                               : Image.asset(
                                                 ImageAssets.imgDummyPicture,
                                                 fit: BoxFit.cover,
