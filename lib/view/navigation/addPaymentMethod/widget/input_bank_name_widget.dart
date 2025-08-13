@@ -5,7 +5,6 @@ import 'package:sanad/utils/utils.dart';
 import '../../../../res/assets/icon_assets.dart';
 import '../../../../res/themes/app_themes.dart';
 import '../../../../viewModels/controller/navigation/addPaymentMethod/add_payment_method_view_model.dart';
-import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 class InputBankNameWidget extends StatelessWidget {
   InputBankNameWidget({super.key});

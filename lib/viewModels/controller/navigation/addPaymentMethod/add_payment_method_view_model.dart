@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:sanad/models/paymentMethod/payment_method_model.dart';
-
 import '../../../../../data/response/status.dart';
-import '../../../../../models/payment/payment_list_model.dart';
 import '../../../../repository/addPaymentMethodRepository/add_payment_method_repository.dart';
-import '../../../../repository/paymentMethodRepository/payment_method_repository.dart';
 
 class AddPaymentMethodViewModel extends GetxController {
   final _api = AddPaymentMethodRepository();

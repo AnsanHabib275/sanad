@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../../../../utils/utils.dart';
 import '../../../../viewModels/controller/navigation/addPaymentMethod/add_payment_method_view_model.dart';
-import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 class InputSecurityCodeWidget extends StatelessWidget {
   InputSecurityCodeWidget({super.key});

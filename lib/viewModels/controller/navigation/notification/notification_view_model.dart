@@ -1,8 +1,5 @@
 import 'dart:async';
-
 import 'package:get/get.dart';
-import 'package:sanad/utils/utils.dart';
-
 import '../../../../../data/response/status.dart';
 import '../../../../../models/notification/notification_list_model.dart';
 import '../../../../../repository/notificationRepository/notification_repository.dart';

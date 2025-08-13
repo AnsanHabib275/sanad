@@ -12,7 +12,6 @@ import 'package:sanad/view/navigation/addPaymentMethod/widget/input_iban_widget.
 import 'package:sanad/view/navigation/addPaymentMethod/widget/input_security_code_widget.dart';
 import 'package:sanad/view/navigation/addPaymentMethod/widget/save_details_button_widget.dart';
 import 'package:sanad/view/navigation/addPaymentMethod/widget/custom_tab_bar_widget.dart';
-import 'package:sanad/viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 import '../../../viewModels/controller/navigation/addPaymentMethod/add_payment_method_view_model.dart';
 

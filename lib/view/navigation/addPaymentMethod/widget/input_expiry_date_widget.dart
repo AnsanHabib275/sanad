@@ -6,7 +6,6 @@ import '../../../../../utils/utils.dart';
 import '../../../../res/assets/icon_assets.dart';
 import '../../../../res/colors/app_color.dart';
 import '../../../../viewModels/controller/navigation/addPaymentMethod/add_payment_method_view_model.dart';
-import '../../../../viewModels/controller/navigation/paymentMethod/payment_method_view_model.dart';
 
 class InputExpiryDateWidget extends StatelessWidget {
   final addPaymentMethodVM = Get.put(AddPaymentMethodViewModel());
